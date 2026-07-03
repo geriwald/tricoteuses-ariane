@@ -260,12 +260,49 @@ const T0 = 21*3600;         // repli d'affichage si aucun epoch vidéo connu
 /* ---- liens canoniques (mêmes formats que l'ancienne UI B4) ---- */
 const acteurUrl = (pa) => `https://www.assemblee-nationale.fr/dyn/deputes/${pa}`;
 const groupeUrl = (po) => `https://www2.assemblee-nationale.fr/instances/fiche/OMC_${po}`;
+function parseAmendementUid(uid){
+  const m = /L(\d+).*B(?:TC)?(\d+[A-Z]*?)P\d+D\d+N0*(\d+)$/i.exec(uid || "");
+  return m ? {legislature:m[1], texte:m[2].toUpperCase(), numero:m[3]} : null;
+}
 function amdtUrl(uid){
   // AMANR5L17PO838901BTC2915P0D1N001136 → /dyn/17/amendements/2915/AN/1136
-  const m = /L(\d+).*BTC(\d+[A-Z]*).*N0*(\d+)$/.exec(uid || "");
-  return m ? `https://www.assemblee-nationale.fr/dyn/${m[1]}/amendements/${m[2]}/AN/${m[3]}` : null;
+  const p = parseAmendementUid(uid);
+  return p ? `https://www.assemblee-nationale.fr/dyn/${p.legislature}/amendements/${p.texte}/AN/${p.numero}` : null;
 }
-const amdtNum = (uid) => { const m = /N0*(\d+)$/.exec(uid || ""); return m ? m[1] : null; };
+const amdtNum = (uid) => parseAmendementUid(uid)?.numero || null;
+function articleUrl(uid, article){
+  const p = parseAmendementUid(uid);
+  const anchor = String(article || "").trim();
+  if(!p || !/^[A-Za-z0-9_-]+$/.test(anchor)) return null;
+  return `https://www.assemblee-nationale.fr/dyn/${p.legislature}/textes/l${p.legislature}b${p.texte}_texte-adopte-commission#${anchor}`;
+}
+function dossierUrl(uid){
+  const p = parseAmendementUid(uid);
+  if(!p) return null;
+  const q = encodeURIComponent(`texte ${p.texte} legislature ${p.legislature}`);
+  return `https://www.assemblee-nationale.fr/dyn/${p.legislature}/dossiers?search=${q}`;
+}
+function scrutinUrl(scrutin, uid){
+  const p = parseAmendementUid(uid);
+  const raw = String(scrutin || "");
+  const nums = raw.match(/\d+/g);
+  const legislature = p?.legislature || /L(\d+)/i.exec(raw)?.[1];
+  if(!legislature || !nums) return null;
+  return `https://www.assemblee-nationale.fr/dyn/${legislature}/scrutins/${nums[nums.length - 1]}`;
+}
+function canonicalLinks(c){
+  const uid = c?.amendement_uid;
+  return {
+    amendementUrl: amdtUrl(uid),
+    articleUrl: articleUrl(uid, c?.article),
+    dossierUrl: dossierUrl(uid),
+    scrutinUrl: scrutinUrl(c?.scrutin, uid),
+  };
+}
+const bestEventUrl = e => e.url || e.scrutinUrl || e.articleUrl || e.dossierUrl || null;
+const extLink = (url, label) => url
+  ? `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`
+  : "";
 
 const $ = id => document.getElementById(id);
 const video = $("v");
@@ -316,26 +353,34 @@ function onNode(n){
 
   } else if(n.kind === "amendment"){
     const num = amdtNum(c.amendement_uid);
+    const links = canonicalLinks(c);
     pushArticleIfNew(c.article, ts, n.seq, sources, texte);   // en-tête d'article au besoin
     ev = {type:"appel_amendement", nums: num ? [num] : [], uid: c.amendement_uid,
-          url: amdtUrl(c.amendement_uid), author: c.acteur, libelle: n.text, article: c.article,
+          url: links.amendementUrl, author: c.acteur, libelle: n.text, article: c.article,
+          amendementUrl: links.amendementUrl, articleUrl: links.articleUrl,
+          dossierUrl: links.dossierUrl, scrutinUrl: links.scrutinUrl,
           label: `Amendement nᵒ ${num || "?"}`};
 
   } else if(n.kind === "ballot"){
     const num = amdtNum(c.amendement_uid);
+    const links = canonicalLinks(c);
     if(n.text === "Adopté" || n.text === "Rejeté"){
       const adopte = n.text === "Adopté";
       ev = {type:"sort_amendement", nums: num ? [num] : [], sort: adopte ? "adopte" : "rejete",
+            amendementUrl: links.amendementUrl, articleUrl: links.articleUrl,
+            dossierUrl: links.dossierUrl, scrutinUrl: links.scrutinUrl,
             label: `Amendement nᵒ ${num || "?"} : ${adopte ? "adopté" : "rejeté"}`};
     } else {  // « Scrutin ouvert » / « Mise aux voix »
       ev = {type:"mise_aux_voix", nums: num ? [num] : [],
+            amendementUrl: links.amendementUrl, articleUrl: links.articleUrl,
+            dossierUrl: links.dossierUrl, scrutinUrl: links.scrutinUrl,
             label: `${n.text}${num ? ` — nᵒ ${num}` : ""}`};
     }
   }
   if(!ev) return;
 
   ev.ts = ts; ev.seq = n.seq; ev.sources = sources; ev.texte_source = texte;
-  ev.lien = ev.url || null;
+  ev.lien = bestEventUrl(ev);
   EVENTS.push(ev);
   EVENTS.sort((a,b) => a.ts - b.ts || a.seq - b.seq);   // ordre temporel stable
 }
@@ -345,21 +390,22 @@ function onNode(n){
    ===================================================================== */
 function deriveState(events, t){
   const past = [], state = {phase:"—", article:null, orateur:null, amendement:null,
-                            vote:null, sorts:{}, sortis:0};
+                            vote:null, voteEvent:null, sorts:{}, sortis:0};
   for(const e of events){
     if(e.ts > t) break;
     past.push(e);
     switch(e.type){
-      case "article": state.article = e; state.amendement = null; state.vote = null;
+      case "article": state.article = e; state.amendement = null; state.vote = null; state.voteEvent = null;
                       state.phase = "Discussion des articles"; break;
       case "appel_amendement": state.amendement = e; state.vote = null;
+                      state.voteEvent = null;
                       state.phase = "Discussion des articles"; break;
       case "orateur": state.orateur = e; break;
-      case "mise_aux_voix": state.vote = "ouvert"; state.phase = "Vote en cours"; break;
+      case "mise_aux_voix": state.vote = "ouvert"; state.voteEvent = e.scrutinUrl ? e : (state.voteEvent || e); state.phase = "Vote en cours"; break;
       case "sort_amendement":
         e.nums.forEach(num => state.sorts[num] = e.sort);
         state.sortis += e.nums.length;
-        state.vote = e.sort; state.phase = "Discussion des articles"; break;
+        state.vote = e.sort; state.voteEvent = e.scrutinUrl ? e : (state.voteEvent || e); state.phase = "Discussion des articles"; break;
     }
   }
   return {state, past};
@@ -397,7 +443,7 @@ function renderTimeline(past, nextEvt){
     const conf = e.confiance ? ` · ${Math.round(e.confiance*100)} %` : "";
     d.innerHTML = `<div class="t">${fmtClock(e.ts)}</div><div class="lbl">${e.label}</div>
       <div class="src"><span class="conf">${(e.sources||[]).join(" + ")}${conf}</span>
-      ${e.texte_source?`« ${e.texte_source} »`:""}${e.lien?` — <a href="${e.lien}" target="_blank">source</a>`:""}</div>`;
+      ${e.texte_source?`« ${e.texte_source} »`:""}${bestEventUrl(e)?` — ${extLink(bestEventUrl(e), "source")}`:""}</div>`;
     d.title = "Cliquer pour caler la vidéo à cet instant";
     d.onclick = () => seekTo(e.ts);
     list.appendChild(d);
@@ -444,13 +490,17 @@ function renderCtx(state){
       ${state.article?`<h3>${state.article.label}</h3>`:""}
       <div class="amdt-num">Amendement nᵒ ${num || "?"}</div>
       ${a.libelle?`<div class="amdt-lib">${a.libelle}</div>`:""}
-      ${a.author?`<div class="amdt-author">Auteur : <a href="${acteurUrl(a.author)}" target="_blank">fiche →</a></div>`:""}
+      ${a.author?`<div class="amdt-author">Auteur : ${extLink(acteurUrl(a.author), "fiche →")}</div>`:""}
       ${sortHtml}
     </div>`;
-  html += `<div class="card liens-utiles"><h3>Liens</h3>
-    ${a.url?`<a href="${a.url}" target="_blank">Amendement (données ouvertes / dyn)</a>`:""}
-    <a href="#">Article dans le texte de la commission</a>
-    <a href="#">Dossier législatif</a></div>`;
+  const voteEvent = state.voteEvent || {};
+  const liens = [
+    extLink(a.amendementUrl || a.url, "Amendement (données ouvertes / dyn)"),
+    extLink(voteEvent.scrutinUrl || a.scrutinUrl, "Scrutin public"),
+    extLink(a.articleUrl || voteEvent.articleUrl, "Article dans le texte de la commission"),
+    extLink(a.dossierUrl || voteEvent.dossierUrl, "Dossier législatif"),
+  ].filter(Boolean);
+  if(liens.length) html += `<div class="card liens-utiles"><h3>Liens</h3>${liens.join("")}</div>`;
   b.innerHTML = html;
 }
 
