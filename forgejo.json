@@ -1,0 +1,1000 @@
+{
+  "source": "https://git.tricoteuses.fr",
+  "orgs": [
+    {
+      "org": "logiciels",
+      "label": "Outils logiciels du projet",
+      "repos": [
+        {
+          "name": "tricoteuses-api-parlement",
+          "url": "https://git.tricoteuses.fr/logiciels/tricoteuses-api-parlement",
+          "description": "API REST basée sur les données ouvertes du Parlement français (Assemblée & Sénat)"
+        },
+        {
+          "name": "tricoteuses-senat",
+          "url": "https://git.tricoteuses.fr/logiciels/tricoteuses-senat",
+          "description": "Récupération et nettoyage des données publiques (open data) du Sénat"
+        },
+        {
+          "name": "tricoteuses-juridique",
+          "url": "https://git.tricoteuses.fr/logiciels/tricoteuses-juridique",
+          "description": "Monorepo commun à différents projets dépendant à la fois de Tricoteuses' Assemblee, Légifrance & Sénat"
+        },
+        {
+          "name": "tricoteuses-cnen",
+          "url": "https://git.tricoteuses.fr/logiciels/tricoteuses-cnen",
+          "description": null
+        },
+        {
+          "name": "tricoteuses-transcription-videos",
+          "url": "https://git.tricoteuses.fr/logiciels/tricoteuses-transcription-videos",
+          "description": "Permet d'obtenir la transcription des vidéos de l'assemblée/sénat en fournissant un lien vidéo m3u8 en entrée"
+        },
+        {
+          "name": "tricoteuses-api-medias",
+          "url": "https://git.tricoteuses.fr/logiciels/tricoteuses-api-medias",
+          "description": "API Rest de récupération, traitement et diffusion de medias politiques français (press, radios)"
+        },
+        {
+          "name": "tricoteuses-composants-react",
+          "url": "https://git.tricoteuses.fr/logiciels/tricoteuses-composants-react",
+          "description": "Composants React pour afficher les données de l'Assemblée et du Sénat"
+        },
+        {
+          "name": "tricoteuses-legifrance",
+          "url": "https://git.tricoteuses.fr/logiciels/tricoteuses-legifrance",
+          "description": "Récupération, validation, nettoyage et conversion des données publiques (open data) de Légifrance"
+        },
+        {
+          "name": "tricoteuses-droits-et-demarches",
+          "url": "https://git.tricoteuses.fr/logiciels/tricoteuses-droits-et-demarches",
+          "description": "Récupération, nettoyage et interface web de navigation dans les fiches Vos droits et démarches (Service-public.fr / Dila)"
+        },
+        {
+          "name": "tricoteuses-assemblee",
+          "url": "https://git.tricoteuses.fr/logiciels/tricoteuses-assemblee",
+          "description": "Récupération et nettoyage des données publiques (open data) de l'Assemblée nationale"
+        },
+        {
+          "name": "tricoteuses-api-legifrance",
+          "url": "https://git.tricoteuses.fr/logiciels/tricoteuses-api-legifrance",
+          "description": "API REST sur les données ouvertes législatives françaises, centralisant la loi et le Journal Officiel"
+        },
+        {
+          "name": "legi-flat-db",
+          "url": "https://git.tricoteuses.fr/logiciels/legi-flat-db",
+          "description": "Migration de la base tricoteuses legi dans une structure à plat"
+        },
+        {
+          "name": "tricoteuses-annuaire",
+          "url": "https://git.tricoteuses.fr/logiciels/tricoteuses-annuaire",
+          "description": "Récupération et nettoyage des données publiques (open data) de l'Annuaire de l'administration Service-public.fr (Dila)"
+        },
+        {
+          "name": "tricoteuses-hatvp",
+          "url": "https://git.tricoteuses.fr/logiciels/tricoteuses-hatvp",
+          "description": "Récupération et nettoyage des données publiques (open data) de la Haute Autorité pour la Transparence de la Vie Publique (HATVP)"
+        },
+        {
+          "name": "tricoteuses.fr",
+          "url": "https://git.tricoteuses.fr/logiciels/tricoteuses.fr",
+          "description": "Code source du site de présentation du projet Tricoteuses (https://tricoteuses.fr)"
+        }
+      ]
+    },
+    {
+      "org": "codes",
+      "label": "Codes juridiques français",
+      "repos": [
+        {
+          "name": "code_de_la_sante_publique",
+          "url": "https://git.tricoteuses.fr/codes/code_de_la_sante_publique",
+          "description": "Code de la santé publique"
+        },
+        {
+          "name": "code_des_impositions_sur_les_biens_et_services",
+          "url": "https://git.tricoteuses.fr/codes/code_des_impositions_sur_les_biens_et_services",
+          "description": "Code des impositions sur les biens et services"
+        },
+        {
+          "name": "code_des_transports",
+          "url": "https://git.tricoteuses.fr/codes/code_des_transports",
+          "description": "Code des transports"
+        },
+        {
+          "name": "code_de_l_action_sociale_et_des_familles",
+          "url": "https://git.tricoteuses.fr/codes/code_de_l_action_sociale_et_des_familles",
+          "description": "Code de l'action sociale et des familles"
+        },
+        {
+          "name": "code_de_commerce",
+          "url": "https://git.tricoteuses.fr/codes/code_de_commerce",
+          "description": "Code de commerce"
+        },
+        {
+          "name": "code_de_la_securite_interieure",
+          "url": "https://git.tricoteuses.fr/codes/code_de_la_securite_interieure",
+          "description": "Code de la sécurité intérieure"
+        },
+        {
+          "name": "code_general_des_collectivites_territoriales",
+          "url": "https://git.tricoteuses.fr/codes/code_general_des_collectivites_territoriales",
+          "description": "Code général des collectivités territoriales"
+        },
+        {
+          "name": "code_de_l_education",
+          "url": "https://git.tricoteuses.fr/codes/code_de_l_education",
+          "description": "Code de l'éducation"
+        },
+        {
+          "name": "code_des_communes_de_la_nouvelle-caledonie",
+          "url": "https://git.tricoteuses.fr/codes/code_des_communes_de_la_nouvelle-caledonie",
+          "description": "Code des communes de la Nouvelle-Calédonie"
+        },
+        {
+          "name": "code_de_la_mutualite",
+          "url": "https://git.tricoteuses.fr/codes/code_de_la_mutualite",
+          "description": "Code de la mutualité"
+        },
+        {
+          "name": "code_de_l_energie",
+          "url": "https://git.tricoteuses.fr/codes/code_de_l_energie",
+          "description": "Code de l'énergie"
+        },
+        {
+          "name": "code_rural_et_de_la_peche_maritime",
+          "url": "https://git.tricoteuses.fr/codes/code_rural_et_de_la_peche_maritime",
+          "description": "Code rural et de la pêche maritime"
+        },
+        {
+          "name": "code_de_la_securite_sociale",
+          "url": "https://git.tricoteuses.fr/codes/code_de_la_securite_sociale",
+          "description": "Code de la sécurité sociale"
+        },
+        {
+          "name": "code_monetaire_et_financier",
+          "url": "https://git.tricoteuses.fr/codes/code_monetaire_et_financier",
+          "description": "Code monétaire et financier"
+        },
+        {
+          "name": "code_rural_nouveau",
+          "url": "https://git.tricoteuses.fr/codes/code_rural_nouveau",
+          "description": "Code rural (nouveau)"
+        },
+        {
+          "name": "code_de_l_environnement",
+          "url": "https://git.tricoteuses.fr/codes/code_de_l_environnement",
+          "description": "Code de l'environnement"
+        },
+        {
+          "name": "code_des_assurances",
+          "url": "https://git.tricoteuses.fr/codes/code_des_assurances",
+          "description": "Code des assurances"
+        },
+        {
+          "name": "code_du_tourisme",
+          "url": "https://git.tricoteuses.fr/codes/code_du_tourisme",
+          "description": "Code du tourisme"
+        },
+        {
+          "name": "code_de_la_consommation",
+          "url": "https://git.tricoteuses.fr/codes/code_de_la_consommation",
+          "description": "Code de la consommation"
+        },
+        {
+          "name": "code_du_travail",
+          "url": "https://git.tricoteuses.fr/codes/code_du_travail",
+          "description": "Code du travail"
+        },
+        {
+          "name": "code_general_des_impots",
+          "url": "https://git.tricoteuses.fr/codes/code_general_des_impots",
+          "description": "Code général des impôts"
+        },
+        {
+          "name": "code_des_juridictions_financieres",
+          "url": "https://git.tricoteuses.fr/codes/code_des_juridictions_financieres",
+          "description": "Code des juridictions financières"
+        },
+        {
+          "name": "code_de_procedure_penale",
+          "url": "https://git.tricoteuses.fr/codes/code_de_procedure_penale",
+          "description": "Code de procédure pénale"
+        },
+        {
+          "name": "code_du_sport",
+          "url": "https://git.tricoteuses.fr/codes/code_du_sport",
+          "description": "Code du sport"
+        },
+        {
+          "name": "code_de_la_construction_et_de_l_habitation",
+          "url": "https://git.tricoteuses.fr/codes/code_de_la_construction_et_de_l_habitation",
+          "description": "Code de la construction et de l'habitation"
+        },
+        {
+          "name": "code_de_l_urbanisme",
+          "url": "https://git.tricoteuses.fr/codes/code_de_l_urbanisme",
+          "description": "Code de l'urbanisme"
+        },
+        {
+          "name": "code_des_relations_entre_le_public_et_l_administration",
+          "url": "https://git.tricoteuses.fr/codes/code_des_relations_entre_le_public_et_l_administration",
+          "description": "Code des relations entre le public et l'administration"
+        },
+        {
+          "name": "code_de_l_entree_et_du_sejour_des_etrangers_et_du_droit_d_asile",
+          "url": "https://git.tricoteuses.fr/codes/code_de_l_entree_et_du_sejour_des_etrangers_et_du_droit_d_asile",
+          "description": "Code de l'entrée et du séjour des étrangers et du droit d'asile"
+        },
+        {
+          "name": "code_general_de_la_propriete_des_personnes_publiques",
+          "url": "https://git.tricoteuses.fr/codes/code_general_de_la_propriete_des_personnes_publiques",
+          "description": "Code général de la propriété des personnes publiques"
+        },
+        {
+          "name": "code_civil",
+          "url": "https://git.tricoteuses.fr/codes/code_civil",
+          "description": "Code civil"
+        },
+        {
+          "name": "code_de_la_defense",
+          "url": "https://git.tricoteuses.fr/codes/code_de_la_defense",
+          "description": "Code de la défense"
+        },
+        {
+          "name": "code_electoral",
+          "url": "https://git.tricoteuses.fr/codes/code_electoral",
+          "description": "Code électoral"
+        },
+        {
+          "name": "code_des_postes_et_des_communications_electroniques",
+          "url": "https://git.tricoteuses.fr/codes/code_des_postes_et_des_communications_electroniques",
+          "description": "Code des postes et des communications électroniques"
+        },
+        {
+          "name": "code_general_de_la_fonction_publique",
+          "url": "https://git.tricoteuses.fr/codes/code_general_de_la_fonction_publique",
+          "description": "Code général de la fonction publique"
+        },
+        {
+          "name": "code_des_communes",
+          "url": "https://git.tricoteuses.fr/codes/code_des_communes",
+          "description": "Code des communes"
+        },
+        {
+          "name": "code_general_des_impots_annexe_iv",
+          "url": "https://git.tricoteuses.fr/codes/code_general_des_impots_annexe_iv",
+          "description": "Code général des impôts, annexe IV"
+        },
+        {
+          "name": "livre_des_procedures_fiscales",
+          "url": "https://git.tricoteuses.fr/codes/livre_des_procedures_fiscales",
+          "description": "Livre des procédures fiscales"
+        },
+        {
+          "name": "code_penal",
+          "url": "https://git.tricoteuses.fr/codes/code_penal",
+          "description": "Code pénal"
+        },
+        {
+          "name": "code_des_douanes_de_mayotte",
+          "url": "https://git.tricoteuses.fr/codes/code_des_douanes_de_mayotte",
+          "description": "Code des douanes de Mayotte"
+        },
+        {
+          "name": "code_de_la_justice_penale_des_mineurs",
+          "url": "https://git.tricoteuses.fr/codes/code_de_la_justice_penale_des_mineurs",
+          "description": "Code de la justice pénale des mineurs"
+        },
+        {
+          "name": "code_du_patrimoine",
+          "url": "https://git.tricoteuses.fr/codes/code_du_patrimoine",
+          "description": "Code du patrimoine"
+        },
+        {
+          "name": "code_general_des_impots_annexe_iii",
+          "url": "https://git.tricoteuses.fr/codes/code_general_des_impots_annexe_iii",
+          "description": "Code général des impôts, annexe III"
+        },
+        {
+          "name": "code_de_procedure_civile",
+          "url": "https://git.tricoteuses.fr/codes/code_de_procedure_civile",
+          "description": "Code de procédure civile"
+        },
+        {
+          "name": "code_des_pensions_civiles_et_militaires_de_retraite",
+          "url": "https://git.tricoteuses.fr/codes/code_des_pensions_civiles_et_militaires_de_retraite",
+          "description": "Code des pensions civiles et militaires de retraite"
+        },
+        {
+          "name": "code_des_procedures_civiles_d_execution",
+          "url": "https://git.tricoteuses.fr/codes/code_des_procedures_civiles_d_execution",
+          "description": "Code des procédures civiles d'exécution"
+        },
+        {
+          "name": "code_de_justice_administrative",
+          "url": "https://git.tricoteuses.fr/codes/code_de_justice_administrative",
+          "description": "Code de justice administrative"
+        },
+        {
+          "name": "code_general_des_impots_annexe_ii",
+          "url": "https://git.tricoteuses.fr/codes/code_general_des_impots_annexe_ii",
+          "description": "Code général des impôts, annexe II"
+        },
+        {
+          "name": "code_du_domaine_etat_et_collectivites_publiques_applicable_a_collectivite_territoriale_mayotte",
+          "url": "https://git.tricoteuses.fr/codes/code_du_domaine_etat_et_collectivites_publiques_applicable_a_collectivite_territoriale_mayotte",
+          "description": "Code du domaine de l'Etat et des collectivités publiques applicable à la collectivité territoriale de Mayotte"
+        },
+        {
+          "name": "code_penitentiaire",
+          "url": "https://git.tricoteuses.fr/codes/code_penitentiaire",
+          "description": "Code pénitentiaire"
+        },
+        {
+          "name": "code_de_la_route_ancien",
+          "url": "https://git.tricoteuses.fr/codes/code_de_la_route_ancien",
+          "description": "Code de la route (ancien)"
+        },
+        {
+          "name": "code_rural_ancien",
+          "url": "https://git.tricoteuses.fr/codes/code_rural_ancien",
+          "description": "Code rural (ancien)"
+        },
+        {
+          "name": "code_des_instruments_monetaires_et_des_medailles",
+          "url": "https://git.tricoteuses.fr/codes/code_des_instruments_monetaires_et_des_medailles",
+          "description": "Code des instruments monétaires et des médailles"
+        },
+        {
+          "name": "code_des_pensions_de_retraite_des_marins_francais_du_commerce_de_peche_ou_de_plaisance",
+          "url": "https://git.tricoteuses.fr/codes/code_des_pensions_de_retraite_des_marins_francais_du_commerce_de_peche_ou_de_plaisance",
+          "description": "Code des pensions de retraite des marins français du commerce, de pêche ou de plaisance"
+        },
+        {
+          "name": "code_de_l_organisation_judiciaire",
+          "url": "https://git.tricoteuses.fr/codes/code_de_l_organisation_judiciaire",
+          "description": "Code de l'organisation judiciaire"
+        },
+        {
+          "name": "code_de_la_route",
+          "url": "https://git.tricoteuses.fr/codes/code_de_la_route",
+          "description": "Code de la route"
+        },
+        {
+          "name": "code_minier_nouveau",
+          "url": "https://git.tricoteuses.fr/codes/code_minier_nouveau",
+          "description": "Code minier (nouveau)"
+        },
+        {
+          "name": "code_de_la_recherche",
+          "url": "https://git.tricoteuses.fr/codes/code_de_la_recherche",
+          "description": "Code de la recherche"
+        },
+        {
+          "name": "code_de_la_propriete_intellectuelle",
+          "url": "https://git.tricoteuses.fr/codes/code_de_la_propriete_intellectuelle",
+          "description": "Code de la propriété intellectuelle"
+        },
+        {
+          "name": "code_de_la_commande_publique",
+          "url": "https://git.tricoteuses.fr/codes/code_de_la_commande_publique",
+          "description": "Code de la commande publique"
+        },
+        {
+          "name": "code_de_l_expropriation_pour_cause_d_utilite_publique",
+          "url": "https://git.tricoteuses.fr/codes/code_de_l_expropriation_pour_cause_d_utilite_publique",
+          "description": "Code de l'expropriation pour cause d'utilité publique"
+        },
+        {
+          "name": "code_du_service_national",
+          "url": "https://git.tricoteuses.fr/codes/code_du_service_national",
+          "description": "Code du service national"
+        },
+        {
+          "name": "code_de_justice_militaire",
+          "url": "https://git.tricoteuses.fr/codes/code_de_justice_militaire",
+          "description": "Code de justice militaire"
+        },
+        {
+          "name": "code_des_douanes",
+          "url": "https://git.tricoteuses.fr/codes/code_des_douanes",
+          "description": "Code des douanes"
+        },
+        {
+          "name": "code_du_cinema_et_de_l_image_animee",
+          "url": "https://git.tricoteuses.fr/codes/code_du_cinema_et_de_l_image_animee",
+          "description": "Code du cinéma et de l'image animée"
+        },
+        {
+          "name": "code_forestier_nouveau",
+          "url": "https://git.tricoteuses.fr/codes/code_forestier_nouveau",
+          "description": "Code forestier (nouveau)"
+        },
+        {
+          "name": "code_des_marches_publics_edition_2001",
+          "url": "https://git.tricoteuses.fr/codes/code_des_marches_publics_edition_2001",
+          "description": "Code des marchés publics (édition 2001)"
+        },
+        {
+          "name": "code_des_marches_publics_edition_1964",
+          "url": "https://git.tricoteuses.fr/codes/code_des_marches_publics_edition_1964",
+          "description": "Code des marchés publics (édition 1964)"
+        },
+        {
+          "name": "code_consommation_boissons_et_mesures_contre_alcoolisme_applicable_dans_collectivite_territoriale",
+          "url": "https://git.tricoteuses.fr/codes/code_consommation_boissons_et_mesures_contre_alcoolisme_applicable_dans_collectivite_territoriale",
+          "description": "Code de la consommation des boissons et des mesures contre l'alcoolisme applicable dans la collectivité territoriale de Mayotte"
+        },
+        {
+          "name": "code_de_commerce_ancien",
+          "url": "https://git.tricoteuses.fr/codes/code_de_commerce_ancien",
+          "description": "Code de commerce (ancien)"
+        },
+        {
+          "name": "code_des_marches_publics_edition_2006",
+          "url": "https://git.tricoteuses.fr/codes/code_des_marches_publics_edition_2006",
+          "description": "Code des marchés publics (édition 2006)"
+        },
+        {
+          "name": "code_de_l_industrie_cinematographique",
+          "url": "https://git.tricoteuses.fr/codes/code_de_l_industrie_cinematographique",
+          "description": "Code de l'industrie cinématographique"
+        },
+        {
+          "name": "code_de_deontologie_des_agents_de_police_municipale",
+          "url": "https://git.tricoteuses.fr/codes/code_de_deontologie_des_agents_de_police_municipale",
+          "description": "Code de déontologie des agents de police municipale"
+        },
+        {
+          "name": "code_de_deontologie_de_la_police_nationale",
+          "url": "https://git.tricoteuses.fr/codes/code_de_deontologie_de_la_police_nationale",
+          "description": "Code de déontologie de la police nationale"
+        },
+        {
+          "name": "code_penal_ancien",
+          "url": "https://git.tricoteuses.fr/codes/code_penal_ancien",
+          "description": "Code pénal (ancien)"
+        },
+        {
+          "name": "code_de_l_enseignement_technique",
+          "url": "https://git.tricoteuses.fr/codes/code_de_l_enseignement_technique",
+          "description": "Code de l'enseignement technique"
+        },
+        {
+          "name": "code_du_travail_applicable_a_mayotte",
+          "url": "https://git.tricoteuses.fr/codes/code_du_travail_applicable_a_mayotte",
+          "description": "Code du travail applicable à Mayotte"
+        },
+        {
+          "name": "code_forestier",
+          "url": "https://git.tricoteuses.fr/codes/code_forestier",
+          "description": "Code forestier"
+        },
+        {
+          "name": "code_des_debits_de_boissons_et_des_mesures_contre_l_alcoolisme",
+          "url": "https://git.tricoteuses.fr/codes/code_des_debits_de_boissons_et_des_mesures_contre_l_alcoolisme",
+          "description": "Code des débits de boissons et des mesures contre l'alcoolisme"
+        },
+        {
+          "name": "code_des_caisses_d_epargne",
+          "url": "https://git.tricoteuses.fr/codes/code_des_caisses_d_epargne",
+          "description": "Code des caisses d'épargne"
+        },
+        {
+          "name": "code_de_deontologie_des_professionnels_de_l_expertise_comptable",
+          "url": "https://git.tricoteuses.fr/codes/code_de_deontologie_des_professionnels_de_l_expertise_comptable",
+          "description": "Code de déontologie des professionnels de l'expertise comptable"
+        },
+        {
+          "name": "code_des_marches_publics_edition_2004",
+          "url": "https://git.tricoteuses.fr/codes/code_des_marches_publics_edition_2004",
+          "description": "Code des marchés publics (édition 2004)"
+        },
+        {
+          "name": "code_de_deontologie_des_medecins",
+          "url": "https://git.tricoteuses.fr/codes/code_de_deontologie_des_medecins",
+          "description": "Code de déontologie des médecins"
+        },
+        {
+          "name": "code_de_deontologie_des_chirurgiens-dentistes",
+          "url": "https://git.tricoteuses.fr/codes/code_de_deontologie_des_chirurgiens-dentistes",
+          "description": "Code de déontologie des chirurgiens-dentistes"
+        },
+        {
+          "name": "code_de_deontologie_des_sages-femmes",
+          "url": "https://git.tricoteuses.fr/codes/code_de_deontologie_des_sages-femmes",
+          "description": "Code de déontologie des sages-femmes"
+        },
+        {
+          "name": "code_des_pensions_militaires_d_invalidite_et_des_victimes_de_la_guerre",
+          "url": "https://git.tricoteuses.fr/codes/code_des_pensions_militaires_d_invalidite_et_des_victimes_de_la_guerre",
+          "description": "Code des pensions militaires d'invalidité et des victimes de la guerre"
+        },
+        {
+          "name": "code_du_vin",
+          "url": "https://git.tricoteuses.fr/codes/code_du_vin",
+          "description": "Code du vin"
+        },
+        {
+          "name": "code_de_deontologie_veterinaire",
+          "url": "https://git.tricoteuses.fr/codes/code_de_deontologie_veterinaire",
+          "description": "Code de déontologie vétérinaire"
+        },
+        {
+          "name": "code_de_deontologie_medicale",
+          "url": "https://git.tricoteuses.fr/codes/code_de_deontologie_medicale",
+          "description": "Code de déontologie médicale"
+        },
+        {
+          "name": "code_de_l_aviation_civile",
+          "url": "https://git.tricoteuses.fr/codes/code_de_l_aviation_civile",
+          "description": "Code de l'aviation civile"
+        },
+        {
+          "name": "code_de_l_office_national_interprofessionnel_du_ble",
+          "url": "https://git.tricoteuses.fr/codes/code_de_l_office_national_interprofessionnel_du_ble",
+          "description": "Code de l'Office national interprofessionnel du blé"
+        },
+        {
+          "name": "code_forestier_de_mayotte",
+          "url": "https://git.tricoteuses.fr/codes/code_forestier_de_mayotte",
+          "description": "Code forestier de Mayotte"
+        },
+        {
+          "name": "code_des_tribunaux_administratifs_et_des_cours_administratives_d_appel",
+          "url": "https://git.tricoteuses.fr/codes/code_des_tribunaux_administratifs_et_des_cours_administratives_d_appel",
+          "description": "Code des tribunaux administratifs et des cours administratives d'appel"
+        },
+        {
+          "name": "code_du_ble",
+          "url": "https://git.tricoteuses.fr/codes/code_du_ble",
+          "description": "Code du blé"
+        },
+        {
+          "name": "code_de_la_nationalite_francaise",
+          "url": "https://git.tricoteuses.fr/codes/code_de_la_nationalite_francaise",
+          "description": "Code de la nationalité française"
+        },
+        {
+          "name": "code_de_deontologie_de_la_profession_de_commissaire_aux_comptes",
+          "url": "https://git.tricoteuses.fr/codes/code_de_deontologie_de_la_profession_de_commissaire_aux_comptes",
+          "description": "Code de déontologie de la profession de commissaire aux comptes"
+        },
+        {
+          "name": "code_de_l_artisanat",
+          "url": "https://git.tricoteuses.fr/codes/code_de_l_artisanat",
+          "description": "Code de l'artisanat"
+        },
+        {
+          "name": "code_du_domaine_public_fluvial_et_de_la_navigation_interieure",
+          "url": "https://git.tricoteuses.fr/codes/code_du_domaine_public_fluvial_et_de_la_navigation_interieure",
+          "description": "Code du domaine public fluvial et de la navigation intérieure"
+        },
+        {
+          "name": "code_des_pensions_militaires_d_invalidite_et_des_victimes_de_guerre",
+          "url": "https://git.tricoteuses.fr/codes/code_des_pensions_militaires_d_invalidite_et_des_victimes_de_guerre",
+          "description": "Code des pensions militaires d'invalidité et des victimes de guerre"
+        },
+        {
+          "name": "code_des_ports_maritimes",
+          "url": "https://git.tricoteuses.fr/codes/code_des_ports_maritimes",
+          "description": "Code des ports maritimes"
+        },
+        {
+          "name": "code_de_la_famille_et_de_l_aide_sociale",
+          "url": "https://git.tricoteuses.fr/codes/code_de_la_famille_et_de_l_aide_sociale",
+          "description": "Code de la famille et de l'aide sociale"
+        },
+        {
+          "name": "code_du_travail_maritime",
+          "url": "https://git.tricoteuses.fr/codes/code_du_travail_maritime",
+          "description": "Code du travail maritime"
+        },
+        {
+          "name": "code_minier",
+          "url": "https://git.tricoteuses.fr/codes/code_minier",
+          "description": "Code minier"
+        },
+        {
+          "name": "code_de_justice_militaire_nouveau",
+          "url": "https://git.tricoteuses.fr/codes/code_de_justice_militaire_nouveau",
+          "description": "Code de justice militaire (nouveau)"
+        },
+        {
+          "name": "code_du_domaine_de_l_etat",
+          "url": "https://git.tricoteuses.fr/codes/code_du_domaine_de_l_etat",
+          "description": "Code du domaine de l'Etat"
+        },
+        {
+          "name": "code_general_des_impots_annexe_i",
+          "url": "https://git.tricoteuses.fr/codes/code_general_des_impots_annexe_i",
+          "description": "Code général des impôts, annexe I"
+        },
+        {
+          "name": "code_disciplinaire_et_penal_de_la_marine_marchande",
+          "url": "https://git.tricoteuses.fr/codes/code_disciplinaire_et_penal_de_la_marine_marchande",
+          "description": "Code disciplinaire et pénal de la marine marchande"
+        },
+        {
+          "name": "code_de_la_legion_d_honneur_de_la_medaille_militaire_et_de_l_ordre_national_du_merite",
+          "url": "https://git.tricoteuses.fr/codes/code_de_la_legion_d_honneur_de_la_medaille_militaire_et_de_l_ordre_national_du_merite",
+          "description": "Code de la Légion d'honneur, de la Médaille militaire et de l'ordre national du Mérite"
+        },
+        {
+          "name": "code_de_la_legion_d_honneur_et_de_la_medaille_militaire",
+          "url": "https://git.tricoteuses.fr/codes/code_de_la_legion_d_honneur_et_de_la_medaille_militaire",
+          "description": "Code de la légion d'honneur et de la médaille militaire"
+        },
+        {
+          "name": "code_de_la_voirie_routiere",
+          "url": "https://git.tricoteuses.fr/codes/code_de_la_voirie_routiere",
+          "description": "Code de la voirie routière"
+        },
+        {
+          "name": "code_de_deontologie_des_architectes",
+          "url": "https://git.tricoteuses.fr/codes/code_de_deontologie_des_architectes",
+          "description": "Code de déontologie des architectes"
+        },
+        {
+          "name": "code_de_procedure_civile_1807",
+          "url": "https://git.tricoteuses.fr/codes/code_de_procedure_civile_1807",
+          "description": "Code de procédure civile (1807)"
+        },
+        {
+          "name": "codes",
+          "url": "https://git.tricoteuses.fr/codes/codes",
+          "description": "Codes juridiques"
+        }
+      ]
+    },
+    {
+      "org": "dila",
+      "label": "Données Dila / Légifrance",
+      "repos": [
+        {
+          "name": "vos_droits_et_demarches_json",
+          "url": "https://git.tricoteuses.fr/dila/vos_droits_et_demarches_json",
+          "description": "L'ensemble des fiches du guide « Vos droits et démarches » de Service-public.fr converties au format JSON"
+        },
+        {
+          "name": "vos_droits_et_demarches_xml",
+          "url": "https://git.tricoteuses.fr/dila/vos_droits_et_demarches_xml",
+          "description": "L'ensemble des fiches du guide « Vos droits et démarches » de Service-public.fr au format XML original"
+        },
+        {
+          "name": "jade",
+          "url": "https://git.tricoteuses.fr/dila/jade",
+          "description": "Décisions des juridictions administratives (source Dila, format XML)"
+        },
+        {
+          "name": "inca",
+          "url": "https://git.tricoteuses.fr/dila/inca",
+          "description": "Arrêts inédits de la Cour de cassation (source Dila, format XML)"
+        },
+        {
+          "name": "constit",
+          "url": "https://git.tricoteuses.fr/dila/constit",
+          "description": "Décisions du Conseil constitutionnel (source Dila, format XML)"
+        },
+        {
+          "name": "cass",
+          "url": "https://git.tricoteuses.fr/dila/cass",
+          "description": "Arrêts publiés de la Cour de cassation (source Dila, format XML)"
+        },
+        {
+          "name": "acco",
+          "url": "https://git.tricoteuses.fr/dila/acco",
+          "description": "Accords d'entreprise (source Dila, format XML et DOCX)"
+        },
+        {
+          "name": "donnees_juridiques",
+          "url": "https://git.tricoteuses.fr/dila/donnees_juridiques",
+          "description": "Fusion des jeux de données LEGI et JORF de Légifrance, convertis au format JSON"
+        },
+        {
+          "name": "jorf",
+          "url": "https://git.tricoteuses.fr/dila/jorf",
+          "description": "Textes publiés au Journal officiel de la République française (source Dila / Légifrance, format XML)"
+        },
+        {
+          "name": "dole",
+          "url": "https://git.tricoteuses.fr/dila/dole",
+          "description": "Dossiers législatifs de Légifrance (source Dila, format XML)"
+        },
+        {
+          "name": "legi",
+          "url": "https://git.tricoteuses.fr/dila/legi",
+          "description": "Textes judiciaires et règlementaires consolidés de Légifrance (codes, lois, etc.) (source Dila, format XML)"
+        },
+        {
+          "name": "kali",
+          "url": "https://git.tricoteuses.fr/dila/kali",
+          "description": "Conventions collectives nationales (source Dila, format XML)"
+        },
+        {
+          "name": "cnil",
+          "url": "https://git.tricoteuses.fr/dila/cnil",
+          "description": "Délibérations de la CNIL (avis, recommandations, normes simplifiées, autorisations, etc.) (source Dila, format XML)"
+        },
+        {
+          "name": "capp",
+          "url": "https://git.tricoteuses.fr/dila/capp",
+          "description": "Décisions des cours d'appel et des juridictions judiciaires de premier degré (source Dila, format XML)"
+        },
+        {
+          "name": "sarde",
+          "url": "https://git.tricoteuses.fr/dila/sarde",
+          "description": "Données d'indexation sur la majeure partie des textes législatifs et réglementaires de droit national actuellement en vigueur (source Dila, format XML)"
+        },
+        {
+          "name": "textes_juridiques",
+          "url": "https://git.tricoteuses.fr/dila/textes_juridiques",
+          "description": "Ensemble des textes issus des jeux de données LEGI et JORF de Légifrance, y compris leurs sections et articles au format Markdown"
+        },
+        {
+          "name": "references_donnees_juridiques",
+          "url": "https://git.tricoteuses.fr/dila/references_donnees_juridiques",
+          "description": "Fichiers JSON recensant les références inverses entre les données juridiques"
+        },
+        {
+          "name": "table_des_matieres_textes_juridiques",
+          "url": "https://git.tricoteuses.fr/dila/table_des_matieres_textes_juridiques",
+          "description": "Table des matières permettant d'accéder à l'ensemble des textes juridiques de Légifrance au format Markdown"
+        }
+      ]
+    },
+    {
+      "org": "senat",
+      "label": "Données du Sénat",
+      "repos": [
+        {
+          "name": "photos_senateurs",
+          "url": "https://git.tricoteuses.fr/senat/photos_senateurs",
+          "description": "Les photographies des sénateurs"
+        },
+        {
+          "name": "rap",
+          "url": "https://git.tricoteuses.fr/senat/rap",
+          "description": "Les rapports du Sénat"
+        },
+        {
+          "name": "leg",
+          "url": "https://git.tricoteuses.fr/senat/leg",
+          "description": "Les textes législatifs (projets de lois, propositions de lois, etc) du Sénat"
+        },
+        {
+          "name": "leg_enrichi",
+          "url": "https://git.tricoteuses.fr/senat/leg_enrichi",
+          "description": "Les textes législatifs du Sénat convertis en HTML et enrichis de liens"
+        },
+        {
+          "name": "sens",
+          "url": "https://git.tricoteuses.fr/senat/sens",
+          "description": "La base SQL des sénateurs convertie en JSON et mise sous Git"
+        },
+        {
+          "name": "questions",
+          "url": "https://git.tricoteuses.fr/senat/questions",
+          "description": "La base SQL « Questions » du Sénat (questions écrites et orales) convertie en JSON"
+        },
+        {
+          "name": "scrutins",
+          "url": "https://git.tricoteuses.fr/senat/scrutins",
+          "description": "Les scrutins du Sénat"
+        },
+        {
+          "name": "dosleg",
+          "url": "https://git.tricoteuses.fr/senat/dosleg",
+          "description": "La base SQL « Dossiers législatifs » du Sénat convertie en JSON"
+        },
+        {
+          "name": "debats",
+          "url": "https://git.tricoteuses.fr/senat/debats",
+          "description": "La base SQL « Comptes rendus » du Sénat (comptes rendus intégraux de la séance publique) convertie en JSON"
+        },
+        {
+          "name": "ameli",
+          "url": "https://git.tricoteuses.fr/senat/ameli",
+          "description": "La base SQL « Amendements Ameli » du Sénat convertie en JSON"
+        }
+      ]
+    },
+    {
+      "org": "assemblee",
+      "label": "Données de l'Assemblée nationale",
+      "repos": [
+        {
+          "name": "Documents_enrichis",
+          "url": "https://git.tricoteuses.fr/assemblee/Documents_enrichis",
+          "description": "Les documents HTML (avis, études d'impact, propositions de lois, projets de lois, rapports…) de l'Assemblée nationale, enrichis de liens"
+        }
+      ]
+    },
+    {
+      "org": "constitution",
+      "label": "Textes constitutionnels",
+      "repos": [
+        {
+          "name": "constitution_du_4_novembre_1848",
+          "url": "https://git.tricoteuses.fr/constitution/constitution_du_4_novembre_1848",
+          "description": "Constitution du 4 novembre 1848"
+        },
+        {
+          "name": "constitution_du_27_octobre_1946",
+          "url": "https://git.tricoteuses.fr/constitution/constitution_du_27_octobre_1946",
+          "description": "Constitution du 27 octobre 1946"
+        },
+        {
+          "name": "constitution_du_4_octobre_1958",
+          "url": "https://git.tricoteuses.fr/constitution/constitution_du_4_octobre_1958",
+          "description": "Constitution du 4 octobre 1958"
+        }
+      ]
+    },
+    {
+      "org": "declarations",
+      "label": "Déclarations",
+      "repos": [
+        {
+          "name": "declaration_du_26_aout_1789_des_droits_de_l_homme_et_du_citoyen",
+          "url": "https://git.tricoteuses.fr/declarations/declaration_du_26_aout_1789_des_droits_de_l_homme_et_du_citoyen",
+          "description": "Déclaration du 26 août 1789 des droits de l'homme et du citoyen"
+        }
+      ]
+    },
+    {
+      "org": "lois",
+      "label": "Lois individuelles",
+      "repos": [
+        {
+          "name": "loi_78-17_du_6_janvier_1978_relative_a_l_informatique_aux_fichiers_et_aux_libertes",
+          "url": "https://git.tricoteuses.fr/lois/loi_78-17_du_6_janvier_1978_relative_a_l_informatique_aux_fichiers_et_aux_libertes",
+          "description": "Loi n° 78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés"
+        },
+        {
+          "name": "loi_2016-1321_du_7_octobre_2016_pour_une_republique_numerique",
+          "url": "https://git.tricoteuses.fr/lois/loi_2016-1321_du_7_octobre_2016_pour_une_republique_numerique",
+          "description": "LOI n° 2016-1321 du 7 octobre 2016 pour une République numérique"
+        }
+      ]
+    },
+    {
+      "org": "europe",
+      "label": "Données européennes",
+      "repos": [
+        {
+          "name": "actes_juridiques_markdown",
+          "url": "https://git.tricoteuses.fr/europe/actes_juridiques_markdown",
+          "description": "Actes juridiques extraits du site EUR-Lex, transformés en markdown et historicisés avec les différentes versions consolidées"
+        },
+        {
+          "name": "eur-lex",
+          "url": "https://git.tricoteuses.fr/europe/eur-lex",
+          "description": "Données ouvertes extraites du site EUR-Lex"
+        }
+      ]
+    },
+    {
+      "org": "hatvp",
+      "label": "Haute Autorité pour la Transparence de la Vie Publique",
+      "repos": [
+        {
+          "name": "repertoire_representants_interets",
+          "url": "https://git.tricoteuses.fr/hatvp/repertoire_representants_interets",
+          "description": null
+        },
+        {
+          "name": "declarations",
+          "url": "https://git.tricoteuses.fr/hatvp/declarations",
+          "description": null
+        }
+      ]
+    },
+    {
+      "org": "securite_sociale",
+      "label": "Sécurité sociale",
+      "repos": [
+        {
+          "name": "boss",
+          "url": "https://git.tricoteuses.fr/securite_sociale/boss",
+          "description": "Extraits du Bulletin officiel de la Sécurité sociale (https://boss.gouv.fr/)"
+        }
+      ]
+    },
+    {
+      "org": "tricoteuses",
+      "label": "Projet Tricoteuses",
+      "repos": [
+        {
+          "name": "presentations",
+          "url": "https://git.tricoteuses.fr/tricoteuses/presentations",
+          "description": "Présentations des tricoteuses"
+        },
+        {
+          "name": "a_propos",
+          "url": "https://git.tricoteuses.fr/tricoteuses/a_propos",
+          "description": "Présentation du projet Tricoteuses de loi sous git (archivé)"
+        }
+      ]
+    },
+    {
+      "org": "experimental",
+      "label": "Projets expérimentaux",
+      "repos": [
+        {
+          "name": "propositions-recettes-moulineuse",
+          "url": "https://git.tricoteuses.fr/experimental/propositions-recettes-moulineuse",
+          "description": "Projet permettant aux agents IA de proposer de nouvelles recettes au serveur MCP Moulineuse"
+        },
+        {
+          "name": "LegiChat",
+          "url": "https://git.tricoteuses.fr/experimental/LegiChat",
+          "description": "Chatbot légal pour interroger la loi française"
+        },
+        {
+          "name": "tricoteuses-europe",
+          "url": "https://git.tricoteuses.fr/experimental/tricoteuses-europe",
+          "description": "Récupération et nettoyage des données publiques (open data) de l'Europe"
+        },
+        {
+          "name": "tricoteuses-ameli",
+          "url": "https://git.tricoteuses.fr/experimental/tricoteuses-ameli",
+          "description": "Extraction des circulaires de l'Assurance maladie depuis circulaires.ameli.fr"
+        },
+        {
+          "name": "tricoteuses-boss",
+          "url": "https://git.tricoteuses.fr/experimental/tricoteuses-boss",
+          "description": "Extraction des bulletins officiels de la Sécurité sociale du site boss.gouv.fr"
+        },
+        {
+          "name": "tricoteuses-judilibre",
+          "url": "https://git.tricoteuses.fr/experimental/tricoteuses-judilibre",
+          "description": "Récupération, validation, nettoyage et conversion des données publiques Judilbre de la Cour de cassation"
+        }
+      ]
+    },
+    {
+      "org": "parking",
+      "label": "Projets en pause / archivés",
+      "repos": [
+        {
+          "name": "tricoteuses-api-assemblee",
+          "url": "https://git.tricoteuses.fr/parking/tricoteuses-api-assemblee",
+          "description": "API REST de navigation dans les données publiques (open data) de l'Assemblée nationale"
+        },
+        {
+          "name": "tricoteuses-explorer-tools",
+          "url": "https://git.tricoteuses.fr/parking/tricoteuses-explorer-tools",
+          "description": "Bibliothèque d'outils et de composants Svelte utilisés par les divers projets tricoteuses-…-explorer"
+        },
+        {
+          "name": "tricoteuses-senat-explorer",
+          "url": "https://git.tricoteuses.fr/parking/tricoteuses-senat-explorer",
+          "description": "Site web de navigation dans les données publiques (open data) du Sénat"
+        },
+        {
+          "name": "tricoteuses-cellar-explorer",
+          "url": "https://git.tricoteuses.fr/parking/tricoteuses-cellar-explorer",
+          "description": "Site web de navigation dans les données publiques (open data) d'EUR-Lex (législation UE)"
+        },
+        {
+          "name": "tricoteuses-hatvp-explorer",
+          "url": "https://git.tricoteuses.fr/parking/tricoteuses-hatvp-explorer",
+          "description": "Site web de navigation dans les données publiques (open data) de la HATVP"
+        },
+        {
+          "name": "tricoteuses-api-hatvp",
+          "url": "https://git.tricoteuses.fr/parking/tricoteuses-api-hatvp",
+          "description": "API REST de navigation dans les données publiques (open data) de la HATVP"
+        },
+        {
+          "name": "tricoteuses-api-senat",
+          "url": "https://git.tricoteuses.fr/parking/tricoteuses-api-senat",
+          "description": "API REST de navigation dans les données"
+        }
+      ]
+    }
+  ],
+  "total_repos": 182
+}

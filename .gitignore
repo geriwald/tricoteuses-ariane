@@ -1,0 +1,17 @@
+/.vscode
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# Regenerable PDF exports of markdown docs
+/docs/specs/*.pdf
+
+# B1 weaver run artifacts (regenerable output of a run)
+/b1-weaver/thread*.ndjson
+*.log
+
+# B3 capture output (recorded sittings live outside the repo)
+/b3-capture/records/

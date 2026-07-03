@@ -1,0 +1,727 @@
+{
+  "uid": "TR-ANR5L17S2026IDC458774",
+  "seanceRef": "RUANR5L17S2026IDC458774",
+  "metadonnees": {
+    "dateSeance": "20260119140000000",
+    "dateSeanceJour": "Lundi 19 janvier 2026",
+    "numSeanceJour": "",
+    "numSeance": "",
+    "typeAssemblee": "AN",
+    "legislature": "17",
+    "session": "\"2025\"",
+    "nomFichierJo": "",
+    "validite": "",
+    "etat": "",
+    "diffusion": "",
+    "version": "1.0",
+    "environnement": "",
+    "heureGeneration": "2026-06-23T06:50:12.614Z",
+    "sommaire": {
+      "presidentSeance": {
+        "_": ""
+      },
+      "sommaire1": []
+    }
+  },
+  "contenu": {
+    "quantiemes": {
+      "journee": "20260119140000000",
+      "session": ""
+    },
+    "point": [
+      {
+        "code_style": "Titre",
+        "code_grammaire": "SOMMAIRE_VIDEO",
+        "texte": {
+          "_": "Audition de M. Antonio Somaini, professeur de théorie du cinéma, des médias et de la culture visuelle à l’université Sorbonne nouvelle",
+          "stime": "555"
+        },
+        "ordre_absolu_seance": "1"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Roger Chudeau, président",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Bien nous pouvons commencer l'audition bienvenue à monsieur Antonio Someni, qui nous fait l'honneur et le plaisir de nous rejoindre pour cette audition de la mission d'information. Je répète à chaque fois, désolé, à la création, la diffusion et à l'acquisition des connaissances. Comment l'intelligence artificielle transforme notre éducation et notre culture Tel est le thème de notre travail ? qui durera ? à peu près 6 mois. Donc la première phase de nos auditions était consacrée à ce que nous pouvions appeler une introduction à l'intelligence artificielle avec des chercheurs, des experts, des entrepreneurs. Nous avons essayé de saisir en quoi ces technologies au pluriel, puisque on nous a bien expliqué que les intelligences artificielles étaient multiples, représentaient une rupture cognitive, anthropologique. Nous notamons cet après-midi une deuxième phase consacrée aux usages et effets de l'intelligence artificielle sur la création. La troisième et dernière phase qui sera organisée au printemps, ? visera à s'intéresser plus avant aux enjeux éducatifs. Il n'est pas interdit d'en parler aujourd'hui. Ceci étant posé, nous avons le plaisir d'accueillir pour commencer monsieur Antonio Someni qui est professeur de théorie du cinéma, des médias et de la culture visuelle à l'université Sorbonne Nouvelle et membre de l'institut universitaire de France. Ma collègue Céline Calvez et moi-même vous souhaitons monsieur le professeur la bienvenue au sein de cette commission. Il nous a paru important d'associer autant que possible des universitaires à la conduite de notre mission et vous en êtes un éminent représentant. Vos travaux portent notamment sur les liens entre la création et les nouvelles technologies. Vous entendre nous a paru d'autant plus pertinent que vous êtes particulièrement intéressé à l'évolution de notre rapport aux images, notamment mais pas uniquement cinématographique, dont on peut dire sans trop s'avancer qu'il sera profondément affecté par la montée en puissance de l'intelligence artificielle. Vous nous pourrez également nous dire un mot si vous le souhaitez, des conclusions que vous tirez de l'organisation de l'exposition Le Monde selon l'IA, présentée au Jeu de paume l'an dernier, et donc vous avez été l'un des commissaires. Donc sans plus attendre, je vais vous passer la parole pour un propos liminaire de 10 minutes à la suite de quoi madame la rapporteure vous posera les questions qu'elle a préparé à votre attention.<br/>Je vous prie.<br/>Merci beaucoup pour cette introduction, merci de m'avoir invité pour cette audition.",
+          "stime": "558"
+        },
+        "ordre_absolu_seance": "2"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Antonio Somaini, professeur de théorie du cinéma, des médias et de la culture visuelle à l’université Sorbonne nouvelle",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Donc je préparerai un propos d'une dizaine de minutes qui touche déjà certaines des questions qui m'ont été posées avec le questionnaire et après je serai prêt à répondre à vos questions et je vous adresserai ce propos et mes réponses aussi par écrit à la suite de cette audition. Donc je commence avec une présentation, je suis professeur de théorie du cinéma, des médias et de la culture visuelle à l'université Sorbonne Nouvelle Lors des 4 dernières années, j'ai aussi été professeur en DIT dans 2 universités américaines à Yale en 2 mille vingt-deux et à Hartver en 2 mille vingt-quatre et vingt-cinq. Je suis aussi membre senior de l'Institut universitaire de France où je travaille sur un projet de recherche intitulé L'impact de l'IA sur la culture visuelle et les pratiques artistiques contemporaines. En parallèle avec mes activités de recherche et d'enseignement, je suis aussi commissaire d'exposition d'art contemporain, de photographie et de cinéma.<br/>En mille-vingt-cinq, j'ai été en effet commissaire principal de l'exposition Le monde selon lui, aux jeux de pomme, une exposition qui, sous des formes variées, sera présentée cette année dans des importants musées d'art contemporain en Allemagne, à Francfort et au Brésil dans les villes de Campinas et de Sao Paulo.<br/>En ce moment, je travaille aussi un nouveau projet d'exposition toujours sur Ia et art contemporain pour le musée d'art, architecture et technologie de Lisbonne au Portugal. Depuis presque 10 ans, mes activités de recherche concernent l'impact des technologies dites l'intelligence artificielle sur la culture visuelle contemporaine. Ces recherches m'ont permis de constater que l'IA est en train de transformer profondément la nature et le rôle des images au sein de nos cultures et de nos sociétés. Algorithme et modèles d'IA réorganisent actuellement la manière dont les images sont captées, générées, modifiées, diffusées, décrites et vues.<br/>Les caméras de nos smartphones contiennent des modèles d'IA qui interviennent au moment même de la prise de vue et effectuent sans que leurs utilisateurs en soient conscients plusieurs opérations de réglages et d'automisation. Des modèles d'IA génératives commercialisés par des sociétés privées américaines comme OpenAI, Midjourney, Google, XAI ou meta permettent à un vaste public de produire ou modifier des images fixes et mouvements à partir de prompts écrits.<br/>Et cela pourrait faire la diffusion à travers les réseaux sociaux d'une masse d'images générées souvent répétitives et stéréotypées pour lesquelles on utilise désormais le terme anglais de AI slop. Des algorithmes de recommandation régissent la circulation et la réception des images à travers les réseaux sociaux comme TikTok, Instagram, Facebook et X Et finalement, des modèles de vision par ordinateur et de reconnaissance faciale largement largement adopté non seulement par les gens de la tech, mais aussi par les États, analysent sans cesse les images qui circulent sur internet pour en extraire des informations et des données. En général, on peut donc dire que la culture visuelle contemporaine est entièrement innervée par des systèmes d'intelligence artificielle qui transforment notre rapport aux images et notre imaginaire. Parmi les derniers développements dans ce domaine, j'aimerais en souligner 3 en particulier. Premier, le fait que le champ de l'IA générative, quand on parle d'images, mais aussi de textes, est concentré aujourd'hui dans les mains d'une poignée de sociétés privées américaines qui agissent dans un cadre de forte opacité ? sans donner accès aux modèles ni aux datasets d'entraînement. Un cadre très problématique et même dangereux à mon avis compte tenu de la position hégémonique de ces sociétés à travers le monde à l'exception de la Chine qui a son propre écosystème d'IA. Deuxième phénomène, la prolifération d'images des vidéos hautement photoréalistes mais générées par IA.<br/>Une prolifération qui remet radicalement en question la confiance ? déjà fortement affaiblie dans la valeur documentaire des images photographiques et vidéographiques. Une perte de confiance donc envers l'idée que les images puissent être documents, témoignages, preuves. Troisième point, l'utilisation d'images générées par IA souvent sous la forme de mèmes, de mèmes hautement provocatoires et capables de circuler de manière virale comme nouvelle forme de communication politique de la part de gouvernements comme l'administration Trump aux États-Unis, les gouvernements de Milei en Argentine ainsi que des partis comme l'AFD en Allemagne ou la Ligue en Italie et beaucoup d'autres. Pour ce qui concerne les pratiques artistiques dans le champ visuel et audiovisuel, l'impact de l'IA est très différent selon les domaines. On ne peut pas parler de la même manière de l'art contemporain dans les musées et les galeries, des films à gros budgets, du cinéma documentaire ou expérimental, des séries télévisées, de photographies de reportages ou de la photographie publicitaire, de l'illustration, du graphisme. Souvent, je trouve en fait un peu l'erreur de parler de création en général quand en fait ce sont des domaines, des mondes de la création et de l'art très très différenciés. Dans ces différents champs, selon les situations, l'IA joue des rôles différents. D'un côté, elle remplace les techniques des opérations et risque de conduire à la disparition, à disparition de certains métiers et aux capacités professionnelles. De l'autre, elle donne accès à des outils qui permettent à un large public d'avoir accès à la création d'images fixes et en mouvement de son, de musique, de voix synthétiques. D'un côté, comme je l'ai déjà dit, elle attire un vaste public vers un nombre réduit de modèles d'IA générative produits par une poignée de sociétés américaines avec un effet de concentration problématique. De l'autre, quand on fait recours à des modèles d'IA open source en libre accès, elle ouvre la possibilité de concevoir l'IA autrement, comme une forme de création plus ouverte, collective, transparente. L'utilisation des modèles open source permet aussi de réduire de manière très importante le coût énergétique de l'utilisation des modèles. Générer une image avec, donc un modèle privé par exemple, n'a pas du tout le même coût énergétique et le même impact environnemental que générer une image avec le modèle stable diffusion en accès libre, téléchargé sur son propre ordinateur. Face aux tournantes technologiques majeures que nous sommes en train de vivre, l'art contemporain joue à mon avis un rôle particulièrement important. En mille-neuf-cent-soixante-quatre, dans son livre Understanding Media pour comprendre les médias, le théoricien des médias canadiens Marshall McLough en écrivait que face à la transition en cours à l'époque entre ce qu'il appelait l'âge mécanique et l'âge électrique, donc le médium central était pour lui la télévision, les artistes étaient souvent en train de produire des oeuvres qui agissaient comme je le cite, des social navigation charts, des cartes de navigation sociale, capables de proposer au public des coordonnées pour s'orienter dans un contexte entièrement bouleversé par de nouvelles technologies. Aujourd'hui, je crois que nous sommes dans une situation semblable Face aux transformations anthropologiques profondes que nous vivons actuellement, il y a des artistes capables de produire des oeuvres qui nous aident à réfléchir sur ce qui passe.<br/>Que ce soit pour dénoncer les risques posés par le déploiement massif de systèmes de surveillance et de reconnaissance sociale ou pour analyser l'impact environnemental de ces technologies, que ce soit pour redécouvrir ce qui est propre à l'humain face à des systèmes qui imitent l'humain ou pour développer de nouvelles formes d'interaction avec l'IA, un développement notamment des systèmes d'IA ouverts, collectifs, transparents, respectueux des droits d'auteur.<br/>Plusieurs de ces artistes étaient présents dans l'exposition au jeu de paume, Je pense à Kate Crawfer de Vladagneul, Trever Pagan, Hitostijer, mais aussi ici en France où il y une scène très riche d'artistes qui travaillent de manière critique avec l'IA, Grégory Chatonsky, Julien Prévieux, Gonola Wagon, Justine Eymard et d'autres. L'Expo Jeu de Paume était une exposition qui présentait le travail d'artistes français internationaux qui pendant les 10 dernières années ont réfléchi sur ce qui veut dire faire expérience du monde selon ou à travers l'IA.<br/>En d'autres mots, ce que veut dire percevoir, imaginer, penser, se souvenir, écrire, travailler, interagir avec les autres dans un monde où des algorithmes et des modèles d'IA s'infiltrent à travers toutes les strates de nos cultures et de nos sociétés. Le bilan de l'exposition au Jeu de Poumes a été très positif. L'exposition a été visitée par quatre-vingt-dix-mille visiteurs qui deviendront beaucoup plus si on prend en compte son itinérance en Allemagne et au Brésil. Elle a fait l'objet d'une large couverture de presse avec plus de quatre-cents articles, comptes rendus, entretiens à travers journaux, radio, télévision en France et à l'étranger. Le l'équipe du Jeu de Paume m'a dit qu'il s'agit de la plus large couverture de presse dans l'histoire du musée depuis sa transformation il y a 20 ans, un espace d'exposition dédié à l'art contemporain, la photographie et le cinéma.<br/>Il s'agit aussi, je pense, d'un exemple de comment une exposition d'art contemporain peut contribuer au débat public en France et ailleurs sur les enjeux sociétaux de l'IA et c'est ce que j'espère pouvoir faire aussi en Allemagne, au Brésil et au Portugal. Je me permets quand même de proposer ici quelques mesures qu'on pourrait prendre dans le champ de l'art pour faire face à cette situation. Tout d'abord, plusieurs artistes m'ont signalé que leurs demandes de subventions pour la production d'oeuvres impliquant des liens ont été rejetées par le CNC, par d'autres instances, souvent en raison du fait qu'il y avait des liens dedans. Et cela, je trouve, est vraiment problématique. Il faut que les instances qui soutiennent la création artistique puissent avoir des commissions spécifiques pour ça et puissent aussi soutenir cette nouvelle forme de création en tenant compte que la création de Knia n'est pas un bloc uniforme mais qu'il y a plusieurs approches, plusieurs méthodes. Ensuite, il est important aussi de favoriser une réflexion sur ce que veut dire faire de l'art avec l'IA pour développer au niveau français une politique des auteurs avec l'IA, c'est-à-dire des approches à l'IA qui soient en ligne un peu avec l'importance que la France dans le champ du cinéma, de la photographie, de l'art en général a toujours donné au rôle des auteurs. Je termine finalement avec quelques remarques sur mes activités d'enseignement et surtout sur les problèmes que l'IA pose à l'université en tant qu'enseignant chercheur. En France, il me semble, le débat sur l'IA et sur ses enjeux est très riche et varié et cela est vrai aussi pour les universités, pour mon université en particulier, la Sorbonne Nouvelle où nous avons créé un observatoire sur l'IA destiné à devenir dans les années à venir, on espère un forum de discussion très important. Il y a quand même des points que j'aimerais souligner et dont j'ai un peu parlé aussi avec des collègues en vue de cette audition. Plusieurs m'ont souligné le fait que ne pas avoir accès à une IA qui soit souveraine et sûre au niveau européen freine l'adoption d'une stratégie institutionnelle. Les enseignants par exemple de la Sorbonne Nouvelle demandent souvent des abonnements à différentes IA et notre université qui a un accord avec Google, notre système email est géré par Google, leur propose Gemini, l'IA de Google, mais on n'a pas les moyens pour passer à l'échelle.<br/>Il y aussi la question de la sécurité des conversations des données qui circulent dans les échanges avec ce chatbot. Cette situation que nous avons à la Sorbonne Nouvelle est la même dans d'autres universités, dans la plupart des universités orientées AL, art, lettres et langages ou SHS sciences humaines et sociales. Et les investissements au niveau bien sûr national et européen dans une souveraine, il y souveraine sûre pour les institutions de l'État, donc les universités semblent donc être une priorité. Ensuite, les stratégies concernant l'IA et les universités au niveau français devraient impliquer, il nous semble, non seulement les universités orientées vers les sciences dures, mais aussi les universités orientées HAL et SHS qui sont celles qui peuvent donner une grande contribution à la réflexion sur les enjeux cognitifs, politiques et sociétaux de l'Iran.<br/>C'est au sein de ces universités qu'on peut réfléchir sur comment construire des IA responsables ? et adaptés aux valeurs d'inclusivité, de diversité culturelle, d'éco-responsabilité qui sont en ce moment, il faut le dire largement ignorées par les gens de la tech américain. Finalement, notre université en particulier a répondu à l'appel CMA compétences et métiers d'avenir avec un projet qui s'appelle intégrer l'IA dans les et on fait toute une série d'initiatives pour augmenter la connaissance de l'IA au niveau de la licence, du master et bien sûr du doctorat.<br/>Ceci dit, on constate des graves formes de paresse cognitive, une grave perte de maîtrise de l'écriture et des processus d'élaboration d'une pensée critique et originale. Et ceci est en train de se passer partout, non seulement en France, mais je peux vous l'assurer en ayant en étant rentré il y a seulement quelques semaines de la même chose se passe aux États-Unis. Et donc il faut oeuvrer pour sensibiliser les étudiants au biais des IA génératives et aux enjeux cognitifs éthiques juridiques liés à leur utilisation. Et en général au niveau universitaire, il faut renforcer, il nous semble, l'éducation à l'informatique, aux médias numériques et à l'IA, quelle que soit la discipline et les formations. Finalement, plusieurs collègues m'ont souligné aussi le risque de que les institutions, les universités deviennent dépendantes de modèles qui pourraient disparaître ou être désactivés.<br/>Modèles d'IA de sociétés d'IA qui font faillite, modèles d'IA qui sont désactivés parce que obsolés, et caetera, et caetera.<br/>Voilà, je termine avec ces remarques.<br/>Je vous remercie encore beaucoup et je suis là pour répondre à toutes vos questions.",
+          "stime": "704"
+        },
+        "ordre_absolu_seance": "3"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Roger Chudeau, président",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Merci beaucoup monsieur Someini pour ce propos liminaire.<br/>Je vous passe la parole à madame la rapporteure.",
+          "stime": "1539"
+        },
+        "ordre_absolu_seance": "4"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "Mme Céline Calvez, rapporteure",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Merci monsieur le président. Merci monsieur Someni.<br/>Alors vous avez abordé la question de la souveraineté, de la sécurisation des données et puis la question de la fin de de ces modèles.<br/>Moi je voulais les prendre au début.<br/>Le début c'est notamment l'entraînement des modèles et l'entraînement sur des données qui sont parfois des oeuvres et donc issues de la création artistique.<br/>Je voulais avoir votre point de vue sur la question de l'autorisation et de la rémunération des auteurs, artistes ou ayant droit sur l'utilisation de leurs oeuvres pour l'entraînement des des IA. Que pensez-vous des pratiques actuelles et comment éventuellement on pourrait rendre les choses un peu plus juste au niveau du partage de la valeur.",
+          "stime": "1550"
+        },
+        "ordre_absolu_seance": "5"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Antonio Somaini, professeur de théorie du cinéma, des médias et de la culture visuelle à l’université Sorbonne nouvelle",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Oui, je pense que idéalement, il faudrait que les artistes puissent donner l'autorisation, l'utilisation de leurs images couvertes par droits d'auteur l'entraînement de modèles d'IA et qu'ils puissent être rémunérés pour l'utilisation de ces modèles qui ont été entraînés avec leurs oeuvres. Ceci dit, la situation actuelle semble empêcher cette possibilité, mais il y a des projets artistiques de grande échelle que je suis avec beaucoup d'intérêt, notamment un projet qui est mentionné aussi dans les questions qui ont été envoyées, qui s'appelle Public diffusion, développé par 2 artistes basés à Berlin, Holly Hurenon et Matt Dryers. Ce modèle est un modèle en libre accès qui a été entraîné avec 40 millions d'images qui sont soit libres de droit, soit données volontairement par des artistes qui ont décidé de participer à cet entraînement. Et ils ont, ces artistes ont aussi élaboré un cadre juridique qui permettra la rémunération des artistes qui ont participé à ce projet une fois que le modèle sera accessible et commercialisé. Donc il y a des possibilités alternatives, il ne faut pas penser que la situation actuelle est la seule possible et à mon avis ce serait bien qu'au niveau européen pas seulement français on aille dans cette direction.",
+          "stime": "1599"
+        },
+        "ordre_absolu_seance": "6"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "Mme Céline Calvez, rapporteure",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Merci beaucoup.<br/>On a effectivement eu des auditionnés qui nous ont fait part de leurs initiatives. Par exemple, des sénateurs ont déposé une proposition de loi qui, niveau français, inverse le la charge de la preuve et demande aux développeurs de modèles d'IA de prouver qu'ils n'ont pas utilisé des oeuvres.<br/>Qu'en pensez-vous",
+          "stime": "1685"
+        },
+        "ordre_absolu_seance": "7"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Antonio Somaini, professeur de théorie du cinéma, des médias et de la culture visuelle à l’université Sorbonne nouvelle",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Et ça me semble une revendication juste, peut-être très difficile à mettre en place quand il s'agit de modèles entraînés avec souvent des 1 milliard d'images. Et donc je pense que la solution se passe soit par la création vraiment de nouveaux modèles dont voilà des dataseters d'entraînement au début sont conçus de la manière que je viens de décrire, soit peut-être à travers des formes juridiques de rémunération des artistes qui peuvent montrer que leurs oeuvres ont été utilisées. Mais là, on entre dans un cadre juridique que je ne maîtrise pas assez. Mais c'est très compliqué parce que si on pense par exemple au modèle stable diffusion qui est le modèle en accès libre, ? Il a été entraîné en deux-mille-vingt-deux avec 5 milliards d'images de texte connectées. Et d'ailleurs, ce sont les mêmes artistes que j'ai évoqués qui ont créé une plateforme qui s'appelle Heavy Bean Traind.<br/>Est-ce que j'ai été entraîné qui permet à des artistes de savoir si certains de leurs images sont finies dans ce dataset d'entraînement. Mais le problème, c'est que les sociétés privées américaines ne dévoilent pas du tout leur dataset d'entraînement.<br/>Donc comment pouvoir découvrir si des oeuvres ont été intégrées dans cet data set",
+          "stime": "1710"
+        },
+        "ordre_absolu_seance": "8"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "Mme Céline Calvez, rapporteure",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "concentration que vous avez pu vous avez pu mentionner plus haut.<br/>Vous avez dans votre propos introductif, souligné qu'il y avait d'un côté des IA qui remplaçaient aussi bien des techniques qu'aussi des métiers, mais que aussi et peut-être paradoxalement, ça permettait au grand public de devenir créateur. Et donc j'ai envie de vous poser la question, à quel moment on devient créateur et à quel moment les interactions entre nous les humains et ces IA nous permettent de garder ce qui fait l'originalité de la création.",
+          "stime": "1798"
+        },
+        "ordre_absolu_seance": "9"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Antonio Somaini, professeur de théorie du cinéma, des médias et de la culture visuelle à l’université Sorbonne nouvelle",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Alors en effet, encore une fois selon les différents champs du du champ de la création artistique, il y des situations très très différentes.<br/>Dans certains cas en effet, les modèles d'IA générative permettent de bypasser, on pourrait dire, à toute une série d'opérations de métiers et de compétences qui donc risquent de mener à la suppression de certains emplois ou à la réduction de certains emplois, et caetera. En même temps de l'autre côté il y a cet accès, cette possibilité qui s'est déjà manifestée il y a plusieurs années avec l'arrivée de YouTube, la démocratisation ? des caméras numériques ou encore les smartphones et caetera, la possibilité pour un plus grand public d'accéder à des formes de création visuelle et audiovisuelle qui peuvent éventuellement devenir des formes d'art.<br/>Alors la question de quand ? une création visuelle ou audiovisuelle devient de l'art, c'est une question qu'on peut aborder d'un point de vue presque sociologique, je dirais, c'est le moment où cette création est présentée dans un cadre marqué comme artistique, galerie, musée, programmation, filmique, et caetera.<br/>Et donc, il y a eu quelqu'un qu'il a reconnu comme artistique et qui le propose en public dans un cadre artistique. Je trouve difficile de de de d'établir des critères de valeurs abstraites qu'on appliquerait pour savoir si une image est art ou pas.<br/>C'est un peu le le système de l'art fait, voilà, produit ces types de différenciation. Mais c'est vrai qu'aujourd'hui, quelqu'un qui n'a aucune compétence, par exemple, de tournage avec une caméra ou de logiciel de montage, captation de son, etc.<br/>Peut produire des films, peut produire des oeuvres et cela donc ouvre un potentiel élargissement du champ de l'art. Je ne parlerai pas de démocratisation, c'est un terme que j'utilise très peu par rapport à ça parce que la situation que nous avons en ce moment est d'une grande concentration, on pourrait dire presque hégémonique oligarchique de modèles d'IA, mais c'est quand même voilà, c'est l'accès à des moyens de création pour un public qui n'y avait pas accès jusqu'ici, voilà. Et pour ce qui concerne la part humaine dans le processus de création, ce que je peux constater en suivant de près le travail des artistes que j'ai inclus dans l'expo Jeu de paume, c'est que leur choix, leurs idées, leurs envies, étaient toujours très présents même quand ils utilisaient des modèles d'IA. Donc on est loin de l'idée qu'on crée un film ou une oeuvre avec 3 mots et un clic, c'est quelque chose de beaucoup beaucoup plus complexe qui souvent passe par l'enchaînement ? des différents modèles, par tout un travail non IA à travers tout le processus de création, et caetera et caetera.<br/>Donc il faut un peu sortir de cette idée qu'avec l'IA, la création artistique devienne entièrement automatisée parce que ce n'est pas le cas.",
+          "stime": "1837"
+        },
+        "ordre_absolu_seance": "10"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "Mme Céline Calvez, rapporteure",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Merci beaucoup. Vous avez fait part du refus de soutien de subventions par certains organismes pour des oeuvres qui intégraient l'IA. Vous sembliez le le regretter, est-ce que vous pouvez préciser ? quel est le risque ? de ne pas se voir se reconnaître le caractère d'oeuvre pour les artistes même, mais aussi pour l'ensemble de la création universelle. En gros, est-ce qu'on n'est pas en train de passer à côté d'une reconnaissance de ce qu'est l'art et d'être un peu décourageant aussi pour l'utilisation de l'IA dans le cadre de la de la création.",
+          "stime": "2029"
+        },
+        "ordre_absolu_seance": "11"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Antonio Somaini, professeur de théorie du cinéma, des médias et de la culture visuelle à l’université Sorbonne nouvelle",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Oui alors ce dont j'ai parlé est quelque chose que j'ai appris en discutant avec certains des artistes français qui ont participé à l'expo, qui ont demandé des subventions et qui se laissant vu refuser de la part d'instance comme le CNC et d'autres à raison du fait qu'il y avait de l'IA.<br/>Ce sont des demandes qui ont été faites en deux-mille-vingt-quatre. Donc il est possible qu'aujourd'hui la situation soit changée un peu.<br/>En tout cas, ce qui me semble important, c'est que dans les commissions qui évaluent ces propositions, il y des gens qui sont vraiment compétents pour ce qui concerne les relations entre art et art et et qui puissent donc évaluer ces projets et reconnaître ? le statut proprement artistique quand c'est le cas et ne pas les condamner ou les rejeter d'emblée parce qu'on ferait court à de l'IA.<br/>Il est possible que ces réponses négatives aient été une sorte de réflexe dans une situation assez initiale deux-mille-vingt-quatre qu'aujourd'hui les choses se soient développées un peu, mais c'est un vrai problème et je ne pense pas qu'on ait besoin de créer.<br/>Moi, je suis vraiment contre l'idée de créer une sorte de label AI art. Je pense que l'IA, le numérique, va s'infiltrer dans tous les domaines de la création artistique.<br/>Et donc, pense que c'est au CNAP, c'est aux institutions qui soutiennent la photographie, celles qui soutiennent le cinéma, de savoir évaluer ces demandes.<br/>Il ne faut pas créer quelque chose ad hoc pour un secteur artistique qui serait celui de l'art avec IA. À mon avis, il ne faut vraiment pas séparer la création avec IA de l'ensemble de la création artistique.",
+          "stime": "2077"
+        },
+        "ordre_absolu_seance": "12"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "Mme Céline Calvez, rapporteure",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Merci beaucoup surtout que vous avez pu souligner que parfois on utilise l'IA sans le savoir et donc il ne faudrait pas se voir disqualifier parce qu'on a utilisé un outil ou qu'on pensait qu'il était exemple de pourtant on l'a on l'a on l'a utilisé. Vous êtes un spécialiste de la culture visuelle, je voulais savoir devant la prolifération d'images comme vous le disiez qui semble réaliste, qu'est-ce que vous pouvez constater déjà chez le public dans son appréhension des images qui l'entourent, qu'est-ce qui depuis l'arrivée en tout cas la démocratisation de l'i a g fait changer dans notre regard et quels sont les opportunités, mais aussi les dangers que vous voyez dans cette évolution.",
+          "stime": "2178"
+        },
+        "ordre_absolu_seance": "13"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Antonio Somaini, professeur de théorie du cinéma, des médias et de la culture visuelle à l’université Sorbonne nouvelle",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Pour ce qui concerne cette circulation massive d'images photoréaliste, mais générée par ailleurs, je vois surtout des dangers, des dangers de perte de confiance, comme je disais dans la valeur documentaire, dans la valeur de témoignages, de preuves des images, dans des situations politiques très tendues comme celle qui se passe en ce moment aux États-Unis où des centaines de vidéos circulent sur ce qui se passe avec l'immigration, etc.<br/>Je vois dans les réseaux sociaux énormément de vidéos fausses qui peuvent ? avoir des milliers, dizaines, des milliers, centaines de milliers de likes, de retransmis rediffusion, et caetera, caetera.<br/>Et là, c'est un vrai problème.<br/>Il faut absolument développer des outils de détection des images générées. Je sais que certaines certaines sociétés de l'IA vont dans cette direction, par exemple Google l'a fait pour les images générées avec Gemini.<br/>Le problème, c'est que Gemini n'est qu'un des outils possibles.<br/>On peut générer des images avec, GPT, meta grock, et caetera, et caetera.<br/>Donc il faudrait qu'il y ait peut-être une intervention au niveau législatif qui oblige à insérer dans, pas seulement au niveau visuel, mais au niveau de la construction du fichier numérique de ces images, quelque chose qui permet de les détecter comme images générées. Autrement, on risque voilà de de perdre cette confiance déjà quand même très affaiblie dans la valeur de preuve des images photographiques avec voilà peut-être une augmentation ultérieure de ces chambres échos, de ces disons de cette polarisation du panorama politique, de méfiance envers envers ce qu'on voit, ce qu'on écrit, et caetera, et caetera. Après, dans le champ de l'art, beaucoup d'artistes s'emparent de cette ambiguïté et en font quelque chose de très très intéressant d'un point de vue artistique notamment par exemple en produisant des documents qui ont l'air d'être des documents d'archives qui nous font penser l'histoire autrement, qui proposent des histoires alternatives, contre factuelles, et caetera.<br/>Mais ce sont quand même des phénomènes intéressants quand ils sont présentés à l'intérieur dans un espace artistique.<br/>Quand ce sont des quantités énormes d'images photo réalistes qui circulent sur internet, là je vois surtout et des problèmes.",
+          "stime": "2228"
+        },
+        "ordre_absolu_seance": "14"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "Mme Céline Calvez, rapporteure",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Vous parlez d'une incitation à ce qu'on puisse détecter les images qui ont été générées, notamment en mettant dans les fichiers même ou dans les processus même qui ont fait générer des traces de cette intervention. Quel est pour vous le rôle ou le devoir de ce que doit être les ? générateurs, enfin pardon les moteurs d'IA dans dans dans cette détection en fait vous avez parlé de de de Google qu'il a mis en place mais de manière partielle, Est-ce qu'il est de l'intérêt de ces de ces ces pardon de ces IA d'indiquer ce qu'elles permettent de faire.",
+          "stime": "2374"
+        },
+        "ordre_absolu_seance": "15"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Antonio Somaini, professeur de théorie du cinéma, des médias et de la culture visuelle à l’université Sorbonne nouvelle",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "En ce moment, il y des situations très très différentes.<br/>La de Google n'est pas du tout celle de XAI, la société de d'Elon Musk et et d'autres donc, mais peut-être qu'au niveau européen, encore une fois, on pourrait obliger à mettre ces marqueurs dans les images générées.<br/>Après les réseaux sociaux sont des réseaux quand même qui existent au niveau global donc une législation qui s'impose au niveau européen, on ne peut pas l'appliquer ailleurs et caetera.<br/>Mais les réseaux sociaux comme Instagram par exemple, invitent les utilisateurs à signaler s'ils ont fait recours à quelques formes de l'IA, certains le font, mais c'est laissé aux utilisateurs et donc ce n'est pas très, et d'autres grands cas en particulier en ce moment semblent être poussés par une vision qui n'a aucun intérêt à promouvoir le fact checking et le contrôle de la véracité de certaines informations semble aller vraiment dans la direction opposée.",
+          "stime": "2423"
+        },
+        "ordre_absolu_seance": "16"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "Mme Céline Calvez, rapporteure",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "On parle des outils de détection, je pense que vous vous invitez aussi à ce qu'on encourage l'esprit critique tout en conservant la confiance des populations dans la valeur de ce qu'est une image.<br/>Quelle aide d'après vous le rôle des artistes à aiguiser cet esprit critique Est-ce que les artistes qui utilisent l'IA peuvent nous aider à adopter le bon esprit critique ?",
+          "stime": "2489"
+        },
+        "ordre_absolu_seance": "17"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Antonio Somaini, professeur de théorie du cinéma, des médias et de la culture visuelle à l’université Sorbonne nouvelle",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Absolument oui, ce sont exactement le type d'artistes que j'ai choisi pour l'exposition aux jeux de pomme. Des artistes qui abordent, il y un terme critique, par critique je ne pas nécessairement dire un terme négatif, un terme réflexif, un terme qui invite le public à réfléchir sur les enjeux de cette technologie. Donc il y en a qui par exemple ont fait des oeuvres qui soulignent les biais inhérents au système de reconnaissance faciale et des émotions, d'autres qui alertent sur les risques du déploiement massif des systèmes d'adhésion artificielle, d'autres encore qui essayent de donner visibilité à ces 1 million de travailleurs du clic qui travaillent dans le monde, surtout dans le sud global pour contribuer à l'entraînement de ce modèle et d'autres encore qui nous invitent à réfléchir sur les enjeux de l'IA générative.<br/>Donc le rôle de l'art est très très important, mais j'aimerais souligner aussi le rôle de l'université. Il faut que nous puissions former nos étudiants à tous les niveaux.<br/>Là, je parle d'université, mais bien sûr, on pourrait parler de lycée, de collège, et caetera. Mais développer une vraie alphabétisation par rapport à ces technologies, une capacité de savoir comment au moins en termes généraux, comment elles fonctionnent, comment elles sont entraînées, ? connaître les biais, par exemple savoir que au moment actuel, les données d'entraînement proviennent surtout du monde occidental, surtout des pays des États-Unis et des pays européens, qu'il y toute une série de cultures qui sont complètement sous représentées, de langues que l'IA peut parler, mais seulement grâce à des traductions, mais en faisant tout son raisonnement et son entraînement avec des données en anglais, et caetera, et caetera.<br/>Il faut vraiment éduquer les jeunes à connaître ces outils pour que cette paresse cognitive qu'on constate soit au moins mise en question.<br/>Savoir que s'ils délèguent entièrement leurs pensées, leur manière d'écrire à des modèles, ils délèguent à des modèles qui ont vraiment des des des potentiels, mais aussi des limites très très importants.",
+          "stime": "2516"
+        },
+        "ordre_absolu_seance": "18"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "Mme Céline Calvez, rapporteure",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Le fait de de montrer qu'il faut douter de chacune des images que l'on peut voir, Est-ce que ça ne conduirait pas les populations à ne plus vouloir voir d'images De la même façon qu'on a parfois beaucoup d'informations, on peut constater chez certains une fuite en disant de toute façon, il y a trop d'informations, je ne sais pas par où commencer, donc je je le fais.<br/>Est-ce que vous avez déjà perçu une fuite de l'image parce qu'on n'arrivait plus à distinguer ce qui était une véritable image d'une fausse image.",
+          "stime": "2657"
+        },
+        "ordre_absolu_seance": "19"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Antonio Somaini, professeur de théorie du cinéma, des médias et de la culture visuelle à l’université Sorbonne nouvelle",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Mais ça fait longtemps, je dirais presque un siècle qu'on parle de de ce que les Allemands appellent le Builder Flut, le flux d'images qui nous envahit, qui nous aveugle, et caetera.<br/>Et ce flux n'a pas cessé d'augmenter avec l'introduction d'internet, des réseaux sociaux, et caetera.<br/>Et je n'ai pas encore vu de rejet des images en général.<br/>Ce que je vois, c'est malheureusement la tendance un peu à canaliser son attention envers certains champs médiatiques qui peuvent être pour certains TikTok, pour d'autres Instagram, et caetera.<br/>Et des jeunes qui, par exemple, reçoivent leurs sources d'informations, sur des questions politiques, et caetera de ces réseaux sociaux là.<br/>Et donc on, ce n'est pas qu'on rejette les images en général, mais on regarde seulement celles qui arrivent là.<br/>Et si là-dedans il y a toute une masse de de comme on l'appelle, voilà il y une perte d'orientation, une perte de confiance à la capacité des images de documenter, de témoigner. Et ça, c'est un scénario auquel on n'est pas préparé. L'idée qu'il puisse y avoir une telle méfiance envers l'image, le visuel. Pour l'instant, ne constate pas ce rejet, mais c'est un phénomène assez nouveau, donc il faudra voir ce qui se passe dans les mois et années à venir.",
+          "stime": "2692"
+        },
+        "ordre_absolu_seance": "20"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "Mme Céline Calvez, rapporteure",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Merci beaucoup. La France peut s'enorgueillir à l'instar aussi d'autres pays européens, mais d'avoir une véritable place dans le monde pour son cinéma, mais aussi plus largement pour les industries culturelles et créatives. Vous avez une expertise particulière sur le visuel, comment voyez-vous la position de la France sur le cinéma par rapport aux à ce que les autres nations promeuvent en termes de cinéma ou d'audiovisuel en général est-ce que la France tient son rang en embrassant justement ce qui est ce qui peut être aidé par les I a et depuis plusieurs années est-ce qu'on est en train éventuellement de se laisser envahir par d'autres offres parce qu'on n'arriverait pas assez à prendre conscience de ce que l'IA transforme dans notre façon de voir.",
+          "stime": "2775"
+        },
+        "ordre_absolu_seance": "21"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Antonio Somaini, professeur de théorie du cinéma, des médias et de la culture visuelle à l’université Sorbonne nouvelle",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Moi je pense que ce qui a fait historiquement la force de la France dans le champ du cinéma a été notamment ce que j'appelais avant le cinéma d'auteur. Le fait de pouvoir développer et défendre une politique des auteurs.<br/>Et je pense que le moment est venu maintenant de appliquer le même type stratégie et de politique envers la création avec l'IA.<br/>Il faut développer des formes de financement, des espaces de réflexion, d'enseignement, de pédagogie pour développer une politique des auteurs dans le champ de l'art avec l'IA. Et la France, je trouve, pourrait vraiment continuer sa mission et prolonger cette politique qui a eu autant de succès lors du dernier demi-siècle en faisant une politique dans ce sens. J'ai constaté vraiment la richesse dans tous les sens du terme intellectuel, créatif, expressif des artistes qui travaillent avec l'IA en France et je pense qu'on peut être vraiment protagoniste dans ce champ, mais il faut voilà une quelques formes d'accompagnement budgétaire, mais aussi en termes voilà d'espace de réflexion, de de centre d'études. Je sais pas si quelque chose de l'équivalent des grandes écoles de la photographie, du cinéma, en tout cas accompagner une politique des auteurs dans le champ de la création avec l'IA.",
+          "stime": "2829"
+        },
+        "ordre_absolu_seance": "22"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Roger Chudeau, président",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Oui monsieur le professeur à la fin de votre propos liminaire, vous évoquiez la question en tant qu'enseignant chercheur de l'université et vous avez utilisé 2 expressions enfin un petit peu inquiétante, paresse cognitive et puis baisse du la maîtrise de l'écriture.<br/>C'est encore pire si je puis dire, ça va peut-être de pair mais enfin pour la paresse cognitive, bon, a toujours des étudiants plus paresseux que d'autres, d'autres qui bon. Au fond, ça ça ne fera pas beaucoup de différence entre ceux qui savent utiliser l'IA et ceux qui se laissent au fond remplacer par elle.<br/>Mais sur la question de la maîtrise de l'écriture, c'est beaucoup plus préoccupant. Est-ce qu'il existe à votre connaissance des recherches sur ce ce point-là spécifique dans le domaine universitaire Qu'est-ce que l'université entreprend pour se défendre elle-même, si je puis dire, en matière de transmission Est-ce qu'il y a des des équipes qui réfléchissent à cette question-là C'est une question apparemment universelle.<br/>Enfin, en tout cas, je ne sais pas ce qui se passe en Chine, mais en occident manifestement le phénomène vous parliez de Harward est très répandu pas seulement c'est pas franco français alors je voulais savoir s'il existe des pistes pour faire face à ce défi tout de même.",
+          "stime": "2925"
+        },
+        "ordre_absolu_seance": "23"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Antonio Somaini, professeur de théorie du cinéma, des médias et de la culture visuelle à l’université Sorbonne nouvelle",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Certainement, y a des équipes de recherche qui travaillent là-dessus.<br/>Je ne suis pas nécessairement la personne plus indiquée parce que mon domaine est plutôt image, culture visuelle, art visuel, mais je suis sûr que dans les champs des études littéraires, des études linguistiques, on se penche là-dessus. Quand je parlais de paresse cognitive, c'est le fait de s'habituer à une situation où on donne quelques prompts à un modèle d'IA et on lui dit écris-moi un dossier sur ça ou le professeur m'a donné à lire ces 3 textes, écris-moi ? un texte à partir de ces 3 et voilà et on délègue, on délègue, on délègue et ça je le vois partout chez mes enfants aussi malheureusement et et et donc c'est un vrai problème.<br/>Donc la la réponse des universités est très variée, mais pour l'instant à mon avis pas vraiment à la hauteur et ce qui m'a frappé à Harvard était le fait que là-bas la politique semblait être plutôt celle de faire ainsi que tout le monde universitaire de Harvard intègre l'IA dans sa manière de fonctionner plutôt qu'aller chercher les étudiants qui en font l'utilisation.<br/>Il y avait une grande tolérance et plutôt l'encouragement à s'emparer des modèles d'IA qui étaient donnés.<br/>Donc c'était la manière dont Harvard abordait ça.<br/>Chez nous, la Sorbonne Nouvelle, on a donné aux étudiants un guide de lien pour augmenter leurs connaissances et on demande à chaque enseignant de choisir quels usages sont permis et quels sont interdits pour se faire un peu une idée. Mais on n'est pas encore vraiment préparé et c'est un scénario vraiment un peu préoccupant et surtout aussi parce que l'IA remplace aujourd'hui de plus en plus aussi la recherche sur Google. Ça remplace Wikipédia. Personne presque ne va plus regarder les sites internet mentionnés dans une recherche sur Google.<br/>On se contente de la réponse qui a proposé par JMINI ou de la réponse fournie.<br/>Et là, c'est une concentration massive du savoir dans les réponses d'une poignée de 4, 5, 6 sociétés privées américaines. C'est vraiment quelque chose de très très préoccupant.",
+          "stime": "3000"
+        },
+        "ordre_absolu_seance": "24"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "Mme Céline Calvez, rapporteure",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Dans les activités de recherche, si je peux aller voir ce que donnent les réponses d'un moteur de recherche, il m'est plus difficile d'aller voir ce qui va être répondu aux prompts éminemment différents des uns et des autres.<br/>Est-ce que à votre connaissance, les chercheurs ont accès aux résultats des requêtes, des prompts de personnes qui utilisent un un des des agents conversationnels ou est-ce qu'il y a encore une plus grande opacité que ce que l'on peut voir et ça nécessite aussi la combinaison entre le respect des de la vie privée, des données privées, mais aussi l'accès à ce est vraiment disséminé comme connaissances auprès des différentes populations.",
+          "stime": "3128"
+        },
+        "ordre_absolu_seance": "25"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Antonio Somaini, professeur de théorie du cinéma, des médias et de la culture visuelle à l’université Sorbonne nouvelle",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Vous dites si les chercheurs ont accès à des données, par exemple concernant les questions posées à Chat GPT par exemple, à ma connaissance non.<br/>Il y a des questions voilà de de des questions d'opacité des modèles et caetera.<br/>Donc on ne peut pas faire des études de type même sociologique sur quelles sont les questions posées plus en général, et caetera.<br/>On sait qu'il y a ces usages d'ordre émotionnel, affective qui se développe énormément, mais à ma connaissance, ces sociétés ne fournissent pas ces informations. Donc parfois on se base sur les documents que ces sociétés produisent pour raconter un peu ce qui se passe.<br/>En particulier est une société qui adopte une posture un peu plus ouverte, transparente. Mais voilà, ce sont quand même toujours des sources provenant de ces sociétés elles-mêmes.",
+          "stime": "3177"
+        },
+        "ordre_absolu_seance": "26"
+      },
+      {
+        "code_style": "Titre",
+        "code_grammaire": "SOMMAIRE_VIDEO",
+        "texte": {
+          "_": "Audition de M. Raphaël Doan, essayiste, auteur de Si Rome n’avait pas chuté, co écrit avec ChatGPT",
+          "stime": "3404"
+        },
+        "ordre_absolu_seance": "27"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Roger Chudeau, président",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Bien, nous arrivons au terme, monsieur Sommeini, de notre échange.<br/>Nous vous remercions beaucoup pour ce que vous avez apporté à cette audition. Moi, je retiens en particulier le fait que, selon vous, la création artistique reste radicalement humaine et que et que donc, d'une certaine manière, vous vous envisagez même la création d'un dixième art qui serait l'art assisté par l'IA, mais qui aurait ce statut quand même de création artistique.<br/>Et ça, c'est une piste intéressante, je pense, nous tous.<br/>Merci encore d'avoir retour chez vous.<br/>Merci beaucoup. Prenons nos travaux et nous avons le plaisir d'accueillir monsieur Raphaël Dand pour cette mission d'information sur la création, la diffusion, l'acquisition des connaissances et la question de savoir comment l'intelligence artificielle transforme l'éducation et la culture.<br/>Aujourd'hui nous allons parler plus spécialement de la culture. Donc vous avez été haut fonctionnaire, vous exercez aujourd'hui des fonctions au sein du cabinet de conseil éco-racy et c'est en tant qu'essayiste, surtout aujourd'hui entrepreneur et expert dans le domaine des nouvelles technologies et l'IA que vous êtes parmi nous cet après-midi.<br/>Merci encore d'avoir pris votre temps pour nous rejoindre. Ma collègue rapporteur Céline Calvez et moi-même, nous vous remercions donc d'avoir accepté notre invitation. En parallèle de vos responsabilités diverses, vous avez consacré un certain nombre de travaux aux possibilités offertes par les outils d'intelligence artificielle dans la production et la diffusion des savoirs. Vous avez également développé une réflexion prospective sur leur usage qui nous intéressera tout particulièrement. Vous êtes notamment l'auteur de Si Rome n'avait pas chuté, paru en deux-mille-vingt-trois, un récit uchronique coécrit avec l'appui d'outils d'intelligence artificielle. Ce livre a été présenté comme l'un des premiers livres d'histoire écrit et illustré avec ce type de technologie. Et sur mon bureau, je vais commencer à le dire prochainement. Vous avez également cofondé cofondé Vestigia qui permet d'appliquer divers outils d'intelligence artificielle à la recherche historique ainsi rendu accessible au plus grand nombre.<br/>Grâce à vous, il est loisible à tout à chacun d'interroger Napoléon Bonaparte sur n'importe quel sujet. Sur les différentes initiatives et plus particulièrement sur votre vision des effets de l'IA en matière de création et de diffusion et d'acquisition des connaissances, nous serons heureux de vous entendre.<br/>Donc je vous passe la parole pour une un propos liminaire si vous permettez d'à peu près 10 minutes assez resserrées et ensuite madame la rapporteure vous posera les questions qu'elle a préparé pour vous.<br/>Je vous en prie, alors vous appuyez sur le bouton.",
+          "stime": "3236"
+        },
+        "ordre_absolu_seance": "28"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Raphaël Doan, essayiste, auteur de Si Rome n’avait pas chuté, co écrit avec ChatGPT",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Très bien, merci beaucoup monsieur le président, madame la rapporteur pour votre invitation, je suis très honoré de pouvoir parler devant vous aujourd'hui. Je voudrais commencer par une anecdote qui me vient d'un article récent du New York Times qui est paru il y quelques semaines je crois, qui parlait des voitures autonomes.<br/>Un autre sujet mais qui n'est pas sans lien avec nôtre, qui est écrit par un médecin, un neurochirurgien qui analyse les données ? des voitures Waymo que vous connaissez, ces voitures autonomes qui sont largement déployées maintenant sur les routes américaines ? et qui montrent que ces voitures réduisent de quatre-vingt-dix pour 100 les accidents graves qui surviennent à leurs passagers par rapport aux conducteurs humains. Et il dit que dans son expérience de médecin, lorsqu'on fait des essais sur un nouveau médicament et que le médicament s'avère tellement efficace au début de l'expérimentation que cela devient quasiment impensable en fait de ne pas continuer, de ne pas donner tout de suite l'accès à ce médicament au groupe placebo, celui qui n'a pas bénéficié du du médicament, il faut le faire, bien sûr.<br/>Et il dit à la fin de l'article, quand on voit l'efficacité pour réduire les accidents de la route de ces voitures autonomes, en fait, est-ce que nous ne sommes pas tous le groupe placebo à qui on devrait en fait étendre cette expérimentation et la généraliser. Et je me demande depuis si nous ne sommes pas tous le groupe placebo d'autres choses avec l'usage de l'IA dans l'ensemble des domaines de la vie humaine. Puisque dans les voitures autonomes bien sûr on voit évidemment quand il y a un problème, c'est-à-dire quand ? la voiture a un accident, quand il a un crash, quand il y des morts, c'est visible. S'il y a une décision de justice par exemple qui est mal rendue, on voit moins évidemment la nature du problème, on voit moins qu'il existe et peut-être que, alors soit aujourd'hui soit demain, on se rendra compte qu'en fait des systèmes autonomes eux aussi par intelligence artificielle rendent de bien meilleures décisions de justice que celles que rendent les juges humains.<br/>Je vous le dis j'ai été magistrat moi-même pendant pendant plusieurs années et que donc quand il faudrait passer en fait enfin l'éthique devrait imposer de passer de manière très large à des systèmes automatisés de décision pour quelque chose qui nous paraît aujourd'hui assez impensable comme la supériorité de la machine sur l'humain pour rendre une décision de justice.<br/>Mais on pensait aussi assez impensable que les voitures autonomes soient à ce point efficace dès maintenant dans dans la conduite automobile. À partir de là, ma position sur sur le sujet que vous avez soulevé vient d'une sorte de fascination personnelle que j'ai eu en deux-mille-vingt en découvrant le modèle d'OpenAI GPT 3 qui était le troisième modèle bien sûr langage fait par OpenAI mais qui était celui qui était plus facilement accessible au public à l'époque sur le site de OpenAI, c'était avant ChatGPT et ça se présentait encore sous la forme d'un outil de complétion de texte, ce n'était pas vraiment un chatbot, n'était pas un agent de conversation.<br/>On lui donnait le début d'un texte et il finissait le texte. Moi qui avais fait une formation, je ne suis pas ingénieur, je, vous avez compris et je je viens d'une formation littéraire, j'avais fait du latin et du grec pendant mes études, donc peut-être le le la formation la plus opposée à l'intelligence artificielle et au numérique qu'on puisse imaginer. Mais justement je trouvais ça fascinant qu'on en soit arrivé au stade où un ordinateur est capable de créer du texte original cohérent totalement inédit.<br/>Il ne fait, ce n'est pas une base de données, ne recrache pas des morceaux de texte qu'il a déjà vu avant à chaque fois le texte est nouveau. Et je trouve que ça réveille quelque chose d'étonnant, d'imprévisible, c'est que le texte lui-même comme médium, le langage en fait est beaucoup plus puissant qu'on aurait pu l'imaginer encore, car il arrive avec ce médium-là à faire faire à l'ordinateur des choses assez inaccessible auparavant donc traduire très bien du texte ce qui était quelque chose dont mes professeurs me disaient 10 ans auparavant que on n'arriverait jamais bien à faire une traduction correcte d'une langue dans une autre En fait on y arrive absolument parfaitement mais aussi de réaliser toutes les tâches en fait qu'on peut réaliser avec du texte que ce soit réaliser donc des tâches disons intellectuelles mais aussi simplement s'orienter dans le monde et dans les idées ou dans les actions qu'on peut réaliser par le biais de l'écrit. Et de ce point de vue là, je pense qu'on est vraiment en train de vivre une révolution anthropologique, je crois que ça a déjà été dit par certains de vos invités d'ailleurs auparavant que je situerais dans l'histoire longue du rapport à l'écrit.<br/>Je ne suis pas sûr qu'on puisse voir plus de 3 révolutions de notre rapport à l'écrit, évidemment l'invention de l'écriture elle-même bien sûr, qui a permis d'automatiser la mémoire puisque c'était la première fois qu'on avait la technologie pour éviter d'avoir à apprendre par coeur les informations dont on voulait se souvenir. Et cette automatisation de la mémoire a permis la naissance de l'administration, de la littérature, de la comptabilité, bon plein de choses assez assez essentielles. Deuxième révolution, l'invention de l'imprimerie bien sûr, qui elle a permis d'automatiser la communication des idées, la reproduction des idées et donc leur communication et elle a donné naissance à la probablement à la science moderne en permettant d'échanger les idées entre scientifiques beaucoup plus rapidement et de manière plus sûre et aussi je commence à une forme de en tout cas au libéralisme dans sens très large puisque ça permet aussi d'avoir la presse écrite, d'avoir la circulation des idées dans un espace démocratique, et caetera. Et je ne vois pas d'autres révolutions que celles que nous vivons aujourd'hui où nous en sommes non plus donc à l'automatisation de la mémoire ni de la copie des idées mais à la génération du texte et des idées.<br/>C'est la première fois dans l'histoire que nous avons du texte qui n'a pas été écrit par un être humain et ça peut effrayer et je comprends ceux que ça effraie mais moi je trouve ça assez fascinant qu'on soit capable justement de faire ça. Alors à partir de là le risque qui nous paraît, enfin qui me paraît important aujourd'hui, c'est celui d'une sorte de double complaisance. Première complaisance ce serait celle de l'humanité envers elle-même, au sens où nous avons souvent la tentation de nous dire qu'il y a une spécificité humaine irréductible et que les machines ne sauront jamais faire telle ou telle tâche parce que ce sont les machines, que nous nous sommes humains, nous avons, je ne sais pas, une âme, un esprit, des choses qui feraient que par définition la machine serait incapable de les réaliser. Et puis on se dit jusqu'ici aucune machine ne nous a dépassés en tout donc ça n'arrivera jamais. Je pense que c'est, je n'aurais aucune raison de le Exactement, les machines sur place déjà les humains sur beaucoup de tâches si on les prend séparément, y compris des tâches très intellectuelles notamment la plus avancée aujourd'hui c'est probablement la programmation, l'écriture de code ou les modèles actuels, les grands modèles de langage actuels sont vraiment à un niveau très très très expert de production de code et je pense que ce n'est pas déraisonnable de faire la projection que les machines finiront par exceller sur l'ensemble des tâches humaines et que nous sommes en voie d'y parvenir dans un bon c'est difficile de faire une prédiction exacte mais enfin dans un nombre d'années qui ne se calcule plus en siècle et peut-être plus non plus en décennies. Et d'ailleurs c'est ce à quoi travaille les la plupart des chercheurs dans les grands laboratoires américains, c'est ce que croient aussi la plupart des, des jeunes chercheurs français aujourd'hui, ceux qui veulent travailler sur l'intelligence artificielle, mais des gens comme Demi Sassabi chez Deepmind ou Daria Modihi chez Antropic ont vraiment cette idée en tête que non pas si longtemps que ça on arrivera à ces machines avec une intelligence artificielle qu'ils appellent général et c'est pas de la science fiction pour eux et ce sont pas non plus des gens délubables. Là ça c'est la première complaisance donc de de nous-mêmes envers nous-mêmes en quelque sorte. Deuxième Deuxième complaisance qui est plus propre à à l'Europe qui est cette idée que en fait l'Europe n'aurait pas trop à envier les américains sur les progrès de de l'IA ? parce que soit les américains, ce que font les américains ne seraient pas si bien que ça, seraient pas si performants que les modèles ne en fait font beaucoup d'erreurs, ne serviraient à rien, se tromperaient beaucoup, que c'est une bulle financière qui risque d'éclater à tout moment ou que les performances des modèles stagnent et qu'en fait on atteint ce qu'on appelle un mur et que on n'a pas les courbes de croissance que promettent les laboratoires américains. Et de l'autre côté, cette complaisance prend aussi la forme de l'idée que l'Europe pourrait être le continent vertueux et le meilleur exemple que j'ai en date de cette idée-là, de cette complaisance, c'est une étude de l'ADEM qui était publiée au début du mois qui présente l'expansion des centres de données en Europe et les investissements qu'on fait dans les data center comme un risque et qu'il faudrait y proposer des scénarios pour essayer d'endiguer la création de data center en disant que c'est une impasse stratégique dangereuse pour la politique environnementale et donc en fait propose de s'arrêter pas et d'essayer d'avoir une ambition frugale pour l'Europe. La réalité c'est que même si on voulait mettre beaucoup de moyens dans cette dans le rattrapage de des américains, on aurait des difficultés pour la première la première raison étant que les américains investissent dans l'intelligence artificielle parce qu'ils en ont les moyens, ce sont les cash-flows des GAFAM et que nous, nous n'avons en fait pas d'équivalent pour réaliser ce genre d'investissement qui chez eux ne repose en fait pas tant que ça sur de la dette par exemple contrairement à ce qui s'était passé lors de la bulle internet. L'autre point à avoir en tête c'est que même si le gain de productivité n'est pas encore flagrant même si les économistes sont un peu divisés sur la question Philippe Aillon a fait récemment un papier pour dire qu'il y avait quand même on décelait une première trace de gain de productivité due au LLM dans l'économie mais de toute façon c'est normal qu'on ne voit pas encore bien les choses dynamo a mis 30 ans à se refléter dans les chiffres de productivité donc c'est assez normal que les entreprises et le tissu économique ne se mettent pas d'un coup à gagner des dizaines de points de productivité. Alors là où je vois quand même une opportunité malgré donc ce retard que nous avons objectivement, c'est que d'une part c'est une technologie qui son fondement même, dans ses principes n'est pas si compliqué qu'on ne puisse pas l'imiter et la copier. Ce qui manque c'est des moyens mais on a aussi beaucoup de modèles en open source qui sont qui sont diffusés que ce soit par des créateurs français donc administral américains ou chinois. Et donc cela permet et même en s'appuyant sur les ressources américaines de d'essayer d'accélérer sur l'adoption par la société dans son ensemble de ces de ces outils parce que moi je suis absolument persuadé qu'ils représentent effectivement dans les années à venir des gains de productivité très importants et plus largement en fait des gains de créativité.<br/>On y reviendra ensuite je pense. Et le le par un certain paradoxe je pense que même si la recherche s'arrêtait aujourd'hui avec les modèles dont nous disposons aujourd'hui il aurait déjà en fait de quoi quasiment remodeler toute la société, toute la production culturelle, toute l'administration et toutes les entreprises. Donc l'Europe pourrait, je pense et la France en particulier, de viser l'excellence dans l'adoption de l'intelligence artificielle et en matière culturelle puisque c'est l'objet de votre mission, je dirais qu'elle est même plutôt bien placée culturellement précisément parce que la France a toujours été pionnière des révolutions technologiques appliquées à la matière artistique.<br/>Je pense à la photographie bien sûr qui a été inventée en France et non seulement elle a été inventée en France mais les premiers artistes photographes sont aussi français. Il y a de même pour le cinéma avec les frères lumière ou Jean Méliès et aujourd'hui encore du jeu vidéo où la France avec l'industrie de première classe et avec de très grands artistes. Donc finalement les français sont très ouverts et très dynamiques quand il s'agit d'adopter des nouvelles technologies pour en faire des produits culturels et artistiques. Et donc je vois pas de raison de ne pas être non plus parmi les premiers à s'en emparer aujourd'hui en ce qui concerne l'IA générative parce que d'abord elle permet de faire plus avec moins et que souvent ce qui manque en France c'est justement les moyens par rapport aux géants américains ou chinois et je suis absolument certain par exemple que il y a de nombreux réalisateurs potentiels qui n'ayant pas accès à un gros studio ne pouvait jusqu'ici pas faire le film qu'ils avaient en tête mais qui pourront le faire dans pas si longtemps au fur à mesure que les moyens de création vidéo s'améliore. Donc en conclusion et pour ne pas m'étendre trop longuement dans ce propos préliminaire, je pense qu'il faut d'abord reconnaître la révolution anthropologique qui est en cours. Je comprends ceux qui qui ont une sorte de réticence esthétique à à l'idée que les machines prennent de plus en plus de place y compris dans notre vie cognitive et culturelle. Mais comme disait de Gaulle on peut regretter la lampe à huile ou la marine à voile mais on ne devrait pas s'arrêter on ne peut pas arrêter la marge du progrès technique et si on abandonne donc ces 2 complaisances que j'ai évoqué celle qui dénigre la machine au nom de l'humain et celle qui dénigre aussi les avancées du reste du monde on peut agir quand même beaucoup de leviers et je pense que l'angle que vous avez pris de passer par la culture et la création artistique intellectuelle est assez bon puisqu'il permet de renforcer l'influence française sur un domaine où nous sommes particulièrement doués.",
+          "stime": "3523"
+        },
+        "ordre_absolu_seance": "29"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Roger Chudeau, président",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Merci pour ce propos liminaire qui ouvre en effet bien des perspectives et probablement bien des questions.<br/>Madame la rapporteure, je vous en prie.",
+          "stime": "4273"
+        },
+        "ordre_absolu_seance": "30"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "Mme Céline Calvez, rapporteure",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Oui.<br/>Merci monsieur le président. Alors vous nous avez parlé de cette révolution anthropologique et vous avez comparé celle de l'écriture et de l'invention de l'imprimerie, ça permet effectivement de voir les pas vers lesquels on nous emmène sur la génération des idées cette fois-ci. Parfois on a des craintes que l'IA ne soit finalement qu'une seule façon de faire de rendre encore plus paresseux notre cerveau. Mais en quoi l'interaction entre l'humain et l'IA peut au contraire nous permettre d'être dans un partenariat cognitif vertueux et nous permettre justement de développer nos connaissances, nos facultés cognitives.",
+          "stime": "4282"
+        },
+        "ordre_absolu_seance": "31"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Raphaël Doan, essayiste, auteur de Si Rome n’avait pas chuté, co écrit avec ChatGPT",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Il y vraiment 2 manières de s'en servir aujourd'hui aujourd'hui parce que ça se trouve dans 5 ans tout ça sera totalement périmé, parce que la manière de s'en servir aura beaucoup changé. Mais soit on délègue absolument tout, ce qu'on fait déjà à de l'intelligence artificielle, on ne fait plus rien et on ne pense plus rien. Sans et ensuite on passe son temps à regarder Netflix et à rester sur le canapé bon. Soit on délègue beaucoup mais pour faire plus de choses.<br/>Et dans ce cas-là pour apprendre plus de nouveaux domaines, pour explorer plus d'idées pour J'ai l'impression que beaucoup de gens s'en servent quand même dans cette deuxième optique. Je ne connais pas pour l'instant tant de gens que ça qui s'en servent pour ne rien faire et tout déléguer à la machine. Ça peut arriver au travail, donc ça c'est un peu embêtant, c'est le, ce que certains appellent le l'idée que des salariés sans le dire à leurs patrons utilisent ChatGPT et essayent en fait de faire moins de travail à domicile mais sur l'aspect disons cognitif, j'ai l'impression qu'en général les gens sont aussi plus curieux et se se essaient d'explorer plus de de voix.<br/>Moi évidemment c'est plus comme ça que je m'en sers, j'essaie de enfin je fais des choses que je n'aurais clairement jamais faites sans ça.<br/>Les projets dont vous avez parlé de d'utiliser du code et de l'IA pour sur l'histoire c'est quelque chose que je n'aurais pas pu faire sans accès à l'intelligence artificielle.<br/>Aujourd'hui je code beaucoup parce que l'IA me permet. C'est vraiment quelque chose que je n'aurais pas intégré dans ma vie autrement et puis de manière plus générale, l'IA est un tellement bon pédagogue. On peut apprendre des choses de manière si granulaire avec l'accès au grand modèle de langage que j'apprends des choses que je n'aurais pas apprises non plus sur des domaines qui sont très éloignés des miens.<br/>Donc d'avoir accès à ces ce genre d'outils est quand même, je trouve un gain net pour l'individu à la condition bien sûr que la flemme ne ne dépasse pas la curiosité. Alors je ne sais pas ensuite dans quelle mesure l'un va l'emporter sur l'autre à grande échelle quand tout le monde s'en sert tout le temps.<br/>Sachant qu'en plus on est dans un moment où vous savez les capacités qu'on appelle agentique des IA se développent beaucoup et où ça c'est plus rapide parce que ça permet d'éviter l'aller retour permanent de devoir dire à la machine ce qu'elle doit faire mais d'un autre côté on perd un peu aussi la vision de ce qu'elle fait techniquement quand on code par exemple. Donc bon tout cela peut encore évoluer dans les années à venir.",
+          "stime": "4324"
+        },
+        "ordre_absolu_seance": "32"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "Mme Céline Calvez, rapporteure",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Merci beaucoup, vous avez parlé de l'individu et c'était c'était aussi à l'individu de dépasser sa flemme et d'avoir de la curiosité. Avec les IA, on a une grande capacité à produire des contenus personnalisés, alors adaptés aux préférences de chacun, ça peut l'emmener vers ses apprentissages, mais les contenus sont personnalisés. Alors comment on peut avec cette plus grande personnalisation possible, garder une société du commun et comment ce cette génération des idées ne serait pas la génération et bien en fait de frontière entre les individus.",
+          "stime": "4466"
+        },
+        "ordre_absolu_seance": "33"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Raphaël Doan, essayiste, auteur de Si Rome n’avait pas chuté, co écrit avec ChatGPT",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Oui ça c'est un vrai risque mais qui qui me paraît d'ailleurs plutôt poursuivre un risque qui préexistait à l'IA générative que qu'un risque nouveau et inédit.<br/>Le, je me souviens des des chiffres assez frappants sur certaines télévisées américaines ou françaises dans les années 50 qui réunissaient quasiment 2 tiers des foyers quand elle passait et donc tout le monde avait vu les mêmes contenus.<br/>C'est vraiment plus du tout le cas aujourd'hui alors c'est encore moins le cas au moment où Netflix pourra par exemple générer entièrement une série spécifiquement pour vous en sachant ce qui vous plaît et caetera.<br/>Mais c'est déjà en fait peu le cas aujourd'hui parce qu'il y tellement de contenus et les algorithmes de recommandations sont suffisamment bons pour vous orienter en fait dans dans le labyrinthe de tout ce qui existe pour vous proposer quelque chose que votre collègue de bureau n'aura pas vu le lendemain à la machine à café.<br/>Donc finalement cette dispersion du contenu culturel elle est déjà là.<br/>Je ne pas sûr que l'IA générative représentera un saut qualitatif énorme, ça fera, ça va peut-être accentuer un phénomène qui préexistait à l'IA générative, mais je suis d'accord que c'est un vrai problème parce que finalement une grande partie de la civilisation de la la culture en général vient de ses capacités à parler des mêmes choses le le plaisir aussi de voir un film c'est pouvoir parler avec d'autres Donc je pense que c'est d'ailleurs pour cette raison qu'il y aura un moment une sorte de limite à cette ultra personnalisation.<br/>Peut-être qu'on aura 2 vies culturelles séparées en quelque sorte. Une partie qui est consacrée à consommer des contenus qui sont faits expressément pour nous parce qu'on aime telle chose très très précise et que ça nous fait plaisir de la voir et une autre partie où ce qui nous fait plaisir c'est justement de voir quelque chose en commun avec d'autres gens.<br/>C'est possible que les 2 apparaissent à la fin et un peu de la même manière que il fut un temps où je pense à avant l'époque industrielle où un des grands loisirs qu'on avait c'était de d'écouter les histoires que se racontaient les uns et les autres au coin du feu et c'était donc des histoires très personnalisées et en même temps on était on aimait aussi lire des livres qui étaient eux publiés pour l'ensemble de de du lectorat.<br/>Donc peut-être qu'on reviendra, quelque sorte à cette double double vision de la consommation culturelle.",
+          "stime": "4502"
+        },
+        "ordre_absolu_seance": "34"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "Mme Céline Calvez, rapporteure",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Merci beaucoup, vous avez coécrit chez Rome n'avait pas chuté avec ChatGPT, ça pose la question de l'auteur, ChatGPT a été entraîné avec une masse considérable d'écrits qui vous ont précédé. Comment vous appréciez justement le rapport entre les ? oeuvres ont servi à alimenter et à entraîner les IA et puis ce travail d'auteur, de cocréateur et puis au final comment on gère les droits d'auteur d'une oeuvre qui a été générée avec l'IA",
+          "stime": "4623"
+        },
+        "ordre_absolu_seance": "35"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Raphaël Doan, essayiste, auteur de Si Rome n’avait pas chuté, co écrit avec ChatGPT",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Peut-être 2 2 manières de répondre, la première d'abord en tant qu'auteur traditionnel puisque j'avais fait auparavant plusieurs livres que j'avais écrit à la main entièrement et j'en ai fait un autre ensuite que j'ai écrit à la main entièrement à la manière traditionnelle donc et moi-même je sais que ces livres là, les livres précédents que j'avais fait avaient été enfin étaient présents sur les plateformes de piratage et qu'ils ont probablement été téléchargés dans l'ensemble des données qui ont permis d'entraîner les modèles.<br/>En sorte j'ai payé mon mon mon écho en un certain sens et ça ne me pose pas vraiment de problème d'ailleurs à titre en tant qu'auteur. Ensuite le je pense que si au delà des questions de droit parce qu'à la limite tout ça peut encore bouger que ce soit par la jurisprudence ou par le travail législatif En termes moraux ou éthiques, je pense que le problème est surévalué, le problème des droits d'auteur dans l'entraînement des, des IA, pour 2 raisons.<br/>D'abord que chaque auteur est une goutte d'eau, mais vraiment enfin même moins qu'une goutte d'eau dans l'ensemble des données qui sert à entraîner un vrai modèle de langage de sorte que même si on trouvait un système pour essayer de donner une sorte de pourcentage de l'utilisation du modèle à l'auteur il gagnerait quoi peut-être un demi-centime par an enfin je pense que c'est déjà exagéré Donc y quelque chose d'un peu un peu vain d'un point de vue quantitatif. Ensuite parce que ces machines-là ne contiennent pas les les livres en eux-mêmes dans leurs dans leurs paramètres.<br/>C'est le grand modèle de langage, c'est un ensemble de valeurs numériques, les fameux paramètres, les poids et ces paramètres sont ajustés pendant la phase d'entraînement qui se produit sur des livres qui peuvent effectivement être protégés par le droit d'auteur, mais une fois que cet entraînement est fini, ils ne contiennent pas les livres eux-mêmes et ne peuvent pas vous redonner entièrement le livre si vous le leur demandez.<br/>Donc, je trouve que le procédé ressemble beaucoup à un auteur humain qui a lu des livres et qui s'en inspire pour écrire ses propres livres.<br/>Et d'ailleurs, ça a été un argument retenu par un juge américain dans un procès qui a impliqué la société anthropique qui avait téléchargé illégalement beaucoup de livres pour faire ses entraînements et le juge avait distingué ? l'illégalité du téléchargement illégal de des livres et la phase d'entraînement qui elle ne lui paraissait enfin lui paraissait rentrer dans ce que les américains appellent le fair use.<br/>Donc notion que nous n'avons pas en Europe mais mais le raisonnement me paraît tenir en termes éthiques.",
+          "stime": "4661"
+        },
+        "ordre_absolu_seance": "36"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "Mme Céline Calvez, rapporteure",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Alors en termes éthiques et et il se pose quand même la question de la concurrence entre la prolifération d'oeuvres qui vont être faits grâce à l'IA et le travail et la rémunération de ceux qui le font alors en particulier dans le domaine du texte. Comment voyez-vous ? les réponses possibles à ce défi",
+          "stime": "4793"
+        },
+        "ordre_absolu_seance": "37"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Raphaël Doan, essayiste, auteur de Si Rome n’avait pas chuté, co écrit avec ChatGPT",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "C'est difficile à estimer le, ce qui est intéressant d'abord c'est que les, ceux qui ont été les plus durement frappés, qui ont réagi le plus vivement aussi ce sont les illustrateurs plutôt, enfin c'est c'est le monde de l'image qui a réagi d'abord avec les les modèles de diffusion d'image. Je pense qu'ils voyaient qu'une grosse partie de leur gagne-pain pouvait disparaître rapidement. Il y de très grands artistes qui évidemment eux n'ont pas de crainte à avoir mais pour beaucoup de jeunes illustrateurs par exemple qui reposent sur des petits jobs notamment en début de carrière, tous ces petits jobs maintenant je pense ont déjà quasiment tous disparu à cause de l'existence des modèles d'IA générative.<br/>Pour le texte c'est un peu différent parce que finalement il y peu de gens qui dont les revenus principaux reposent sur la génération, enfin la création de textes en tout cas pas dans la le monde de l'édition, c'est il y a peu il y a assez peu d'auteurs qui vivent de leurs livres simplement je crois qu'il y avait une étude américaine qui pour les américains pour les États-Unis montrait qu'il y avait moins de d'auteurs qui vivaient très bien de leurs livres que de milliardaires en proportion du nombre d'écrivains. Donc en fait c'est assez rare finalement d'avoir un vrai revenu tiré d'écriture de livres. Donc ça a été, j'ai vu moins de réactions épidermiques de la part d'auteurs sur le fait qu'il y avait maintenant une sorte de concurrence économique par l'existence de grands modèles de langage. Le, c'est plutôt pour des métiers plus spécialisés comme les traducteurs ou ou ce genre de de métier que là il y a une vraie concurrence mais je pense malheureusement pour eux que il en va de ces métiers-là comme d'autres métiers qui ont disparu auparavant lors de la révolution industrielle et que la même manière que beaucoup de métiers manuels ont été automatisés après l'invention de la machine à vapeur ou l'électricité.<br/>De même là aujourd'hui on a la machine à vapeur du cerveau et ça va avoir les mêmes effets.<br/>Donc clairement il y des métiers qui vont disparaître et je ne suis pas sûr qu'on puisse faire grand chose.<br/>En tout cas je pense même que ce serait plutôt néfaste d'essayer de soutenir artificiellement certains métiers sans laisser faire la destruction créatrice en l'occurrence. Une autre question de savoir si cette destruction sera tout aussi créatrice qu'elle l'a été lors de la première révolution industrielle mais ça c'est une autre grand débat.",
+          "stime": "4817"
+        },
+        "ordre_absolu_seance": "38"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "Mme Céline Calvez, rapporteure",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Vous combinez l'intelligence artificielle avec l'histoire, de quelle manière l'IA peut nous permettre d'approfondir nos connaissances de l'histoire, alors là au niveau presque de la recherche, mais aussi de quelle manière l'IA peut nous permettre de diffuser et de faire aimer davantage l'histoire au plus grand public.",
+          "stime": "4941"
+        },
+        "ordre_absolu_seance": "39"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Raphaël Doan, essayiste, auteur de Si Rome n’avait pas chuté, co écrit avec ChatGPT",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Alors c'est un large sujet. En ce qui concerne la recherche, il y a beaucoup de choses qui sont déjà en cours, à plusieurs niveaux.<br/>La première c'est d'utiliser des modèles d'IA spécialisés, du machine learning plus classique pas forcément des grands modèles de langage pour des tâches qui sont impossibles aux êtres humains.<br/>Le meilleur exemple que j'ai en tête et dont je parle tout le monde c'est le concours qui a été organisé par un milliardaire américain sur des papyrus conservés Herculanum, cette ville voisine de Pompéi où se trouvait une ville romaine qui était ensevelie par l'éruption du Vésuve et dont on a retiré des papyrus, des livres carbonisés et c'est extrêmement difficile de les ouvrir, les déplier et de lire l'encre qui reste dessus pour essayer de retrouver de nouveaux textes antiques dont on sait qu'ils sont là malgré tout.<br/>Et en fait on arrive à le faire avec des scanners 3 d très puissants et des algorithmes d'IA qui arrivent à identifier l'encre et les lettres sur ces scans 3 d, ce qui est vraiment quelque chose d'impossible à faire à l'oeil nu.<br/>Et donc on a déjà récupéré là depuis l'année dernière de nouveaux textes épicuriens qui n'avaient pas été connus, qui n'avaient pas été lus en fait tout simplement depuis 2 mille ans.<br/>Donc c'est assez assez fascinant de se dire que l'IA permet justement d'ailleurs de récupérer de nouveaux textes humains qui avaient disparu et il y a beaucoup de d'initiatives dans ce sens-là.<br/>Je crois qu'il y un projet aussi mené en France pour les archives de Notre-Dame. Pareil, là c'est moins qu'on n'arrive pas à le faire à menu, c'est plus qu'on n'a pas la manoeuvre pour le faire parce que déchiffrer des manuscrits médiévaux, c'est ça demande une expertise très particulière, y peu de gens qui savent le faire, mais de pouvoir le faire donc massivement avec un ordinateur, ça libère beaucoup de de de connaissances en fait qu'on n'aurait pas pris le temps de découvrir autrement. Ensuite il y a aussi le simple fait de pouvoir servir des grands modèles de langage pour accélérer le travail de l'historien, pour l'aider à trouver de nouvelles idées, à critiquer les c n, à avoir cette relation disons de dialogue critique comme s'il avait une sorte de co chercheur avec lui et il y déjà des historiens qui s'en servent beaucoup de cette manière là et ça marche, ça marche très bien. Donc on va voir je pense de plus en plus de perspectives et de de voix s'ouvrir par ce biais là.<br/>D'ailleurs Google et les pas mal de grandes entreprises travaillent enfin font du mécénat en quelque sorte aussi dans la matière il y a un projet de Google intéressant qui s'appelle Aeneas comme est né qui sert à faire de la de la du déchiffrement d'inscription latine et la datation, proposition de datation d'inscription latine, il y plein d'applications possibles dans le domaine. Et je n'ai pas répondu sur votre question sur la vulgarisation Très rapidement, je pense que ça va permettre en fait de faire des produits de vulgarisation que ce soit des films, des séries, des bandes dessinées de ou pourquoi pas du texte de meilleure qualité que ce qu'on voit souvent aujourd'hui. Par exemple beaucoup de séries ou de films ont de très mauvais costumes, de très mauvais accessoires ou ne sont pas tournés au bon endroit.<br/>Des choses qui sont des détails mais je trouve que c'est important pour quand on essaie de donner le sentiment d'une époque passée. En fait le costume ce n'est pas rien, ça compte et ça donne l'esthétique d'une époque et souvent les producteurs n'ont pas soit pas l'envie, soit n'y pensent même pas, soit n'ont pas les moyens aussi de faire faire des costumes adaptés exactement à la période qu'ils font.<br/>Et maintenant c'est quelque chose qui devient vraiment faisable avec des outils d'IA générative pour on a beaucoup critiqué d'ailleurs les erreurs historiques de l'IA en matière d'image par exemple récemment mais on commence à avoir des modèles qui permettent de donner les bonnes références, d'avoir le retour assez exact par rapport à ce qu'on lui donne comme référence.<br/>Donc je pense qu'on va voir se développer de plus en plus ce genre d'outils et moi je me suis passionné pour l'histoire grâce aux bandes dessinées quand j'étais petit et si on peut avoir plus et de meilleure qualité encore de contenu de ce genre, je trouve ça tant mieux.<br/>Dans",
+          "stime": "4963"
+        },
+        "ordre_absolu_seance": "40"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "Mme Céline Calvez, rapporteure",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "quelle mesure vous pensez que les l'IA ? va nous permettre de cultiver la curiosité et l'interdisciplinarité.",
+          "stime": "5186"
+        },
+        "ordre_absolu_seance": "41"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Raphaël Doan, essayiste, auteur de Si Rome n’avait pas chuté, co écrit avec ChatGPT",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Alors l'interdisciplinarité je pense c'est un grand point effectivement puisque ce sont des modèles qui sont experts en beaucoup de choses, c'est-à-dire l'intérêt même des grands modèles de langage c'est d'être des généralistes. Et même si on critique souvent leurs hallucinations, elles sont quand même elles se réduisent de plus en plus et quand on regarde toutes les courbes, c'est le cas d'autant plus quand elles peuvent elles-mêmes de manière aller chercher les informations soit sur internet soit dans une base de données qu'on lui donne. Donc finalement c'est comme avoir accès à un expert de tout et la et ça et je pense que ça ça recèle beaucoup de possibilités. Les chercheurs sont souvent ultra spécialisés aujourd'hui et ne serait-ce que de pouvoir en quelque sorte, enfin avoir l'équivalent de demander à un collègue d'un autre domaine si ça lui évoque quelque chose, si une nouvelle découverte lui évoque quelque chose ou ce qu'il en pense et de voir s'il n'y pas des applications dans ce domaine-là, de manière très rapide, ça ouvre déjà beaucoup de perspectives.<br/>On n'aura pas besoin de solliciter 40 mille collègues qui ont autre chose à faire avant de trouver peut-être un cas d'usage extrêmement pertinent, éventuellement de le creuser avec des collègues humains.<br/>Donc il y a beaucoup connexions qui peuvent se faire, qui ne se font pas aujourd'hui. Peut-être même de manière automatique.<br/>On peut imaginer aussi que toutes les nouvelles recherches soient d'université, soient mises en lien en permanence et qu'il en sorte mises en rapprochement intéressant. Et sur la curiosité, j'imagine que c'est plus un, ça va décupler celle qui existe.<br/>C'est-à-dire qu'on va quelqu'un qui n'a aucune curiosité de façon de ne le devenir plus avec ces outils-là, mais mais si on est un tout petit peu curieux, le fait d'avoir comme ça la capacité de tout expliquer ou de tout investiguer de manière aussi rapide, c'est quand même assez crucial.<br/>On pourrait dire que ça existait déjà depuis Wikipédia et Google, Mais là la grande différence c'est que si on peut l'interroger en langage courant, ce qui permet de poser des questions beaucoup plus sophistiquées que ce qu'on aurait posé à Google ou ce qu'on aurait trouvé sur Wikipédia. Et donc, enfin c'est vraiment sans fin à ce qu'on pourrait en Le ouais le principal risque ce serait que enfin aujourd'hui en tout cas, je trouve c'est justement qu'on passe notre temps à répéter ah c'est c'est ils disent n'importe quoi donc faut pas s'en servir, faut s'en servir parcimonieusement à cause de ça.<br/>C'est même beaucoup moins vrai aujourd'hui qu'il y a 2 ans, alors c'est vrai que les choses vont vite et pour un élève aujourd'hui qui est au collège ou au lycée, je pense qu'il y a quand même très très peu de de risques qu'il tombe sur une vraie mauvaise information pour des sujets de niveau secondaire. Donc moi je conseillerais au contraire de s'en servir beaucoup pour explorer justement des idées des sujets d'intérêt et de ne réprimer cette curiosité-là.",
+          "stime": "5199"
+        },
+        "ordre_absolu_seance": "42"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "Mme Céline Calvez, rapporteure",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Vous avez développé un site qui invite à comparer des oeuvres générées avec l'IA à celles grands maîtres. Est-ce qu'il nous est facile ou de plus en plus difficile de les distinguer et quelle est, quelles sont les conséquences éventuelles sur et on vous demande peut-être de revenir dessus sur le péril de la vraisemblance.",
+          "stime": "5357"
+        },
+        "ordre_absolu_seance": "43"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Raphaël Doan, essayiste, auteur de Si Rome n’avait pas chuté, co écrit avec ChatGPT",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Oui j'avais fait ça parce que je je voyais beaucoup de gens dire que les images générées par hier, alors c'était il y a 2 3 ans en plus ça a été 3 ans maintenant. On voyait tout de suite que c'était l'IA, ce n'était pas du vrai a et caetera.<br/>Donc je trouvais ça quand même amusant d'essayer de tester pour voir si vraiment les gens arrivaient à distinguer. Alors il y il y a quelques contraintes puisque c'est sur ordinateur donc on ne voit pas le tableau enfin par exemple s'il s'agissait de tableau en l'occurrence, on ne voit pas en vrai donc il n'y pas l'aspect matériel mais enfin en montrant des images on aurait pu penser que les gens qui disent que l'IA, que ce que produit l'IA n'a pas d'âme, que ce n'est pas c'est pas de l'art et caetera, trouverait à 100 % celles qui sont les images faites par IA et celles qui ne le sont pas.<br/>Et en fait pas du tout.<br/>C'est vraiment pas le cas du tout. Donc, j'avais fait exprès de trouver des de enfin de comparer des tableaux peu connus de grands maîtres et des et des générations d'images paria qui qui imitaient de pastiches de des mêmes des mêmes peintres.<br/>Et en fait je trouve même que ces pastiches fonctionnent mieux en tant que pastiche que ceux que font aujourd'hui des peintres qui essaient de faire des pastiches.<br/>Je prends un exemple de détail, mais les dans les films historiques, il y souvent des besoins de faire un tableau avec l'acteur ou l'actrice principale par exemple qui est représenté comme si c'était une comtesse du dix-huitième siècle. Et je trouve que dans quasiment tous les films, n'arrivent pas à trouver quelqu'un capable de faire un tableau comme l'aurait fait un peintre du 10 huitième siècle et en fait on arrive vraiment extrêmement bien si on entraîne un modèle d'IA à faire ça en l'entraînant spécifiquement sur ces sur des peintures du 10 huitième.<br/>Donc en un certain sens en fait l'IA est meilleure que nous pour distiller l'esprit artistique d'une époque ou un courant artistique. Ensuite la question c'est plutôt est-ce que nous on a envie de voir des oeuvres qui sont par une machine, enfin qui ne sont pas faites par un auteur ou par un artiste. Mais là c'est plutôt un problème de quasiment psychologique d'une autre part en réalité.<br/>C'est pas tellement, je pense que les images ne sont pas forcément de moins bonne qualité en elle-même.<br/>L'oeuvre n'est pas moins bonne dépend lesquelles mais je pense que certaines images faites par il y qui pourraient très bien en termes de pure qualité objective se trouver dans un musée. Mais peut-être que les humains ne s'intéressent simplement pas à ce qui n'est pas fait par les humains.<br/>C'est possible aussi. Un peu comme si on nous disait que un tableau a été fait de manière totalement aléatoire et il se trouve que par hasard ça tombe sur le quelque chose de plaisant visuellement peut-être qu'on ne serait pas intéressé non plus. Je pense qu'il y les 2.<br/>Je pense qu'il y aura un peu comme la musique, l'enregistrement de la musique, la possibilité d'enregistrer le son a plutôt redonné en quelque sorte une sorte de prestige au live et au concert où on va pourvoir l'artiste lui-même. De la même manière, est possible qu'on ait une partie de la production culturelle où on est tout à fait d'accord avec le fait que ce soit automatisé ou en partie automatisé.<br/>Une autre partie où on est content de voir le peintre qui pensait son aquarelle et son pinceau pour faire le vrai même.<br/>Et peut-être que le plaisir qu'on aura, ce sera de le faire.<br/>Ça c'est quelque chose que la l'avenir anthropologique nous dira je crois.",
+          "stime": "5380"
+        },
+        "ordre_absolu_seance": "44"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "Mme Céline Calvez, rapporteure",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Dans le côté positif de ce que vous dites, c'est-à-dire que cette utilisation et ces proliférations d'usage de l'intelligence artificielle ne nous ferait que plus aimer ce qu'on considère peut-être comme naturel, exceptionnel, votre mention du live c'est un exemple, est-ce que vous en auriez d'autres comme ça sur ce qu'on pourrait valoriser d'autres.",
+          "stime": "5560"
+        },
+        "ordre_absolu_seance": "45"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Raphaël Doan, essayiste, auteur de Si Rome n’avait pas chuté, co écrit avec ChatGPT",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Oui en fait je pense peut-être même que si on prolonge les courbes et les perspectives, les seules occupations qui restent ce sont celles où il y un intérêt intrinsèque à ce que ce soit un humain qu'il fasse. Imaginons, on peut imaginer peut-être il y aura des hôtels disons d'entrée de gamme qui où tout sera autant les motomatisés, il y aura des robots humanoïdes qui vous accueillent, qui font la chambre enfin bref.<br/>Et peut-être que les hôtels haut de gamme ce sera justement ceux avec un excellent service humain parce qu'on sera content d'avoir des gens.<br/>Mais le seul intérêt en quelque sorte ce sera qu'il y a un humain.<br/>L'humain ne fera pas mieux son travail que le robot.<br/>Et peut-être qu'on aura quand même un premium à l'idée que ce soit un humain qu'il fasse. Pour la musique donc je pense c'est pareil Même si on a déjà aujourd'hui des je crois dans le les tops des chansons sur Spotify, voit arriver déjà des chansons qui sont entièrement générées par IA où les gens qui les écoutent ne savent pas forcément que c'est le cas.<br/>Il y une étude qui avait montré que pour des telles choses, c'était pour des poèmes, on montrait aux participants des poèmes écrits par des grands auteurs anglais et des poèmes écrits par il y on ne leur disait pas lesquels étaient lesquels et globalement les participants trouvaient que les poèmes écrits par il y étaient meilleurs jusqu'à ce qu'on leur dise que en fait ils avaient été faits par Donc bon c'est paradoxe et un peu l'hypocrisie finalement qu'on a tous avec ça, on croit tous que c'est et donc voilà peut-être que simplement il y a une partie où on accepte une partie de la collection culturelle, on acceptera de fermer les yeux sur le fait que c'est pas fait par par un humain et l'autre partie où on ne fera que chercher ça. Je pense ce sera pareil pour peut-être la gastronomie.<br/>J'imagine que dans toutes les applications ce sera le cas.<br/>Dans le roman aussi, c'est très probable que l'IA fasse de meilleurs romans dans pas longtemps que même les bonnes productions littéraires, le nouvel obs avait fait un duel entre chat GPT et Hervé Letelier, le prix concours et Hervé Letelier a lui-même reconnu que l'insipide qui avait fait, c'est Claude, c'était un autre modèle.<br/>Claude était vraiment très bon et il disait les écrivains ont intérêt à s'améliorer encore parce qu'il y a de la concurrence.<br/>Bon il le disait d'ailleurs de manière un peu en plaisantant mais c'était vrai mais ça se trouve la plupart des lecteurs veulent lire quelque chose d'Hervé Letelier et ils ne veulent pas lire un roman anonyme entre guillemets. À voir.<br/>Dans les années 60, y avait tout le courant structuraliste de Roland Barthes par exemple qui avait théorisé la mort de l'auteur et qui disait alors il savait pas du tout que ça allait vraiment arriver technologiquement mais il disait bien que pour lui enfin le mouvement de l'histoire c'est en quelque sorte la disparition de la figure auteur c'est qu'on devrait enfin on finirait par ne plus s'intéresser à qui a écrit un texte et que le texte lui-même devrait avoir sa logique interne propre et on ne devrait plus considérer finalement que les mots, la relation entre eux et il avait des textes qui en un certain sens préfiguraient complètement d'un point de vue philosophique ce que c'est que la production de textes paria aujourd'hui.<br/>C'est assez frappant d'ailleurs.",
+          "stime": "5582"
+        },
+        "ordre_absolu_seance": "46"
+      },
+      {
+        "code_grammaire": "PAROLE_GENERIQUE",
+        "orateurs": {
+          "orateur": {
+            "nom": "M. Roger Chudeau, président",
+            "id": "",
+            "qualite": ""
+          }
+        },
+        "texte": {
+          "_": "Monsieur Odevand, merci beaucoup pour cette audition tout à fait passionnante qui ouvre des perspectives un peu vertigineuses d'ailleurs puisque manifestement il y a de la concurrence comme vous dites et ça va très vite. Mais je retiens tout de même, enfin nous retenons tout de même que la France s'est bien placée parce que c'est un sujet évidemment qui nous intéresse en tant que parlementaire dans ce dans ce dans ce mouvement finalement du bouleversement profond de la création par par l'irruption de l'IA, la France est bien placée parce qu'elle a une forme de d'abord d'habitude historique et puis de curiosité intellectuelle et puis d'habilité dans ce domaine.<br/>Vous avez cité la photographie, le cinéma, et caetera et et les films d'animation aussi. Donc et donc là-dessus, c'est c'est c'est quelque chose de qui qui ouvre des perspectives intéressantes pour nous en tant en termes de souveraineté numérique, c'est c'est toujours un sujet qui nous préoccupe beaucoup.<br/>En tout cas merci beaucoup monsieur Dau.<br/>Merci à vous.",
+          "stime": "5750"
+        },
+        "ordre_absolu_seance": "47"
+      }
+    ]
+  }
+}

@@ -1,0 +1,4765 @@
+{
+  "segments": [
+    {
+      "start": 3760,
+      "end": 14720,
+      "text": "Bien nous pouvons commencer l'audition.<br/>Bienvenue à monsieur Antonio Someni qui nous fait l'honneur et le plaisir de nous rejoindre pour cette audition de la mission d'information.",
+      "speaker": "A"
+    },
+    {
+      "start": 15325,
+      "end": 16845,
+      "text": "Je répète à chaque fois, désolé,",
+      "speaker": "A"
+    },
+    {
+      "start": 18445,
+      "end": 22365,
+      "text": "à la création, la diffusion et à l'acquisition des connaissances.",
+      "speaker": "A"
+    },
+    {
+      "start": 22765,
+      "end": 27645,
+      "text": "Comment l'intelligence artificielle transforme notre éducation et notre culture Tel est le thème de notre travail ?",
+      "speaker": "A"
+    },
+    {
+      "start": 28045,
+      "end": 30365,
+      "text": "qui durera à peu près 6 mois.",
+      "speaker": "A"
+    },
+    {
+      "start": 31100,
+      "end": 34220,
+      "text": "Donc la 1re phase de nos auditions était consacrée",
+      "speaker": "A"
+    },
+    {
+      "start": 34860,
+      "end": 52255,
+      "text": "à ce que nous pouvions appeler une introduction à l'intelligence artificielle avec des chercheurs, des experts, des entrepreneurs.<br/>Nous avons essayé de saisir en quoi ces technologies au pluriel, puisqu'on avez bien expliqué que les intelligences artificielles étaient multiples, représentaient une rupture cognitive, anthropologique.",
+      "speaker": "A"
+    },
+    {
+      "start": 54015,
+      "end": 56575,
+      "text": "Nous notamons cet après-midi une 2e phase",
+      "speaker": "A"
+    },
+    {
+      "start": 57295,
+      "end": 62210,
+      "text": "consacrée aux usages et effets de l'intelligence artificielle sur la création.",
+      "speaker": "A"
+    },
+    {
+      "start": 62770,
+      "end": 64450,
+      "text": "La 3e et dernière phase",
+      "speaker": "A"
+    },
+    {
+      "start": 64930,
+      "end": 66850,
+      "text": "qui sera organisée au printemps, ?",
+      "speaker": "A"
+    },
+    {
+      "start": 67330,
+      "end": 73170,
+      "text": "visera à s'intéresser plus avant aux enjeux éducatifs.<br/>Il n'est pas interdit d'en parler aujourd'hui.",
+      "speaker": "A"
+    },
+    {
+      "start": 73650,
+      "end": 85565,
+      "text": "Ceci étant posé, nous avons le plaisir d'accueillir pour commencer monsieur Antonio Someni qui est professeur de théorie du cinéma, des médias et de la culture visuelle à l'université Sorbonne Nouvelle et membre de l'institut universitaire de France.",
+      "speaker": "A"
+    },
+    {
+      "start": 86270,
+      "end": 92270,
+      "text": "Ma collègue Céline Calvez et moi-même vous souhaitons, Monsieur le professeur, la bienvenue au sein de cette commission.",
+      "speaker": "A"
+    },
+    {
+      "start": 92670,
+      "end": 100990,
+      "text": "Il nous a paru important d'associer autant que possible les universitaires à la conduite de notre mission et vous en êtes un éminent représentant.<br/>Vos travaux portent notamment",
+      "speaker": "A"
+    },
+    {
+      "start": 101555,
+      "end": 110675,
+      "text": "sur les liens entre la création et les nouvelles technologies.<br/>Vous entendre nous a paru d'autant plus pertinent que vous êtes particulièrement intéressé à l'évolution de notre rapport aux images,",
+      "speaker": "A"
+    },
+    {
+      "start": 111075,
+      "end": 113715,
+      "text": "notamment mais pas uniquement cinématographique",
+      "speaker": "A"
+    },
+    {
+      "start": 114355,
+      "end": 121020,
+      "text": "dont on peut dire sans trop s'avancer qu'il sera profondément affecté par la montée en puissance de l'intelligence artificielle.",
+      "speaker": "A"
+    },
+    {
+      "start": 121660,
+      "end": 133595,
+      "text": "Vous nous pourrez également nous dire un mot si vous le souhaitez des conclusions que vous tirez de l'organisation de l'exposition Le Monde selon l'IA présentée au Jeu de paume l'an dernier et dont vous avez été l'un des commissaires.",
+      "speaker": "A"
+    },
+    {
+      "start": 134235,
+      "end": 142795,
+      "text": "Donc sans plus attendre, je vais vous passer la parole pour un propos liminaire de 10 minutes à la suite de quoi madame la rapporteure vous posera des questions qu'elle a préparé à votre attention.",
+      "speaker": "A"
+    },
+    {
+      "start": 144210,
+      "end": 162095,
+      "text": "Merci beaucoup pour cette introduction, merci de m'avoir invité pour cette audition.<br/>Donc je préparerai un propos d'une dizaine de minutes qui touche déjà à certains des questions qui m'ont été posées avec le questionnaire et après je serai prêt à répondre à vos questions et je vous adresserai ce propos et mes réponses aussi par écrit à la suite",
+      "speaker": "B"
+    },
+    {
+      "start": 162095,
+      "end": 179835,
+      "text": "de cette audition.<br/>Donc je commence avec une présentation, je suis professeur de théorie du cinéma, des médias et de la culture visuelle à l'université Sorbonne Nouvelle.<br/>Lors des 4 dernières années, j'ai aussi été professeur en DUT dans 2 universités américaines à Yale en 2022 et à Harbard en 2024 et 25.<br/>Je",
+      "speaker": "B"
+    },
+    {
+      "start": 179835,
+      "end": 180475,
+      "text": "suis",
+      "speaker": "A"
+    }
+  ],
+  "speakers": [
+    {
+      "id": "0",
+      "letter": "A"
+    },
+    {
+      "id": "1",
+      "letter": "B"
+    }
+  ],
+  "metadata": {
+    "provider": "deepgram",
+    "language": "fr",
+    "diarization": true,
+    "durationSec": 180,
+    "raw": {
+      "metadata": {
+        "transaction_key": "deprecated",
+        "request_id": "019ef2f0-9049-78d2-8e34-4c65e7451adb",
+        "sha256": "5bcb42460fb7ac29108311cd9e9ed942ca89e496de7a0b3737eb863c36cba34d",
+        "created": "2026-06-23T05:25:13.585Z",
+        "duration": 180,
+        "channels": 1,
+        "models": [
+          "f351c28f-fd3d-474a-b68b-39605a874fb7"
+        ],
+        "model_info": {
+          "f351c28f-fd3d-474a-b68b-39605a874fb7": {
+            "name": "general-nova-3",
+            "version": "2025-08-15.11823",
+            "arch": "nova-3"
+          }
+        }
+      },
+      "results": {
+        "channels": [
+          {
+            "alternatives": [
+              {
+                "transcript": "Bien nous pouvons commencer l'audition. Bienvenue à monsieur Antonio Someni qui nous fait l'honneur et le plaisir de nous rejoindre pour cette audition de la mission d'information. Je répète à chaque fois, désolé, à la création, la diffusion et à l'acquisition des connaissances. Comment l'intelligence artificielle transforme notre éducation et notre culture Tel est le thème de notre travail qui durera à peu près 6 mois. Donc la 1re phase de nos auditions était consacrée à ce que nous pouvions appeler une introduction à l'intelligence artificielle avec des chercheurs, des experts, des entrepreneurs. Nous avons essayé de saisir en quoi ces technologies au pluriel, puisqu'on avez bien expliqué que les intelligences artificielles étaient multiples, représentaient une rupture cognitive, anthropologique. Nous notamons cet après-midi une 2e phase consacrée aux usages et effets de l'intelligence artificielle sur la création. La 3e et dernière phase qui sera organisée au printemps, visera à s'intéresser plus avant aux enjeux éducatifs. Il n'est pas interdit d'en parler aujourd'hui. Ceci étant posé, nous avons le plaisir d'accueillir pour commencer monsieur Antonio Someni qui est professeur de théorie du cinéma, des médias et de la culture visuelle à l'université Sorbonne Nouvelle et membre de l'institut universitaire de France. Ma collègue Céline Calvez et moi-même vous souhaitons, Monsieur le professeur, la bienvenue au sein de cette commission. Il nous a paru important d'associer autant que possible les universitaires à la conduite de notre mission et vous en êtes un éminent représentant. Vos travaux portent notamment sur les liens entre la création et les nouvelles technologies. Vous entendre nous a paru d'autant plus pertinent que vous êtes particulièrement intéressé à l'évolution de notre rapport aux images, notamment mais pas uniquement cinématographique dont on peut dire sans trop s'avancer qu'il sera profondément affecté par la montée en puissance de l'intelligence artificielle. Vous nous pourrez également nous dire un mot si vous le souhaitez des conclusions que vous tirez de l'organisation de l'exposition Le Monde selon l'IA présentée au Jeu de paume l'an dernier et dont vous avez été l'un des commissaires. Donc sans plus attendre, je vais vous passer la parole pour un propos liminaire de 10 minutes à la suite de quoi madame la rapporteure vous posera des questions qu'elle a préparé à votre attention. Merci beaucoup pour cette introduction, merci de m'avoir invité pour cette audition. Donc je préparerai un propos d'une dizaine de minutes qui touche déjà à certains des questions qui m'ont été posées avec le questionnaire et après je serai prêt à répondre à vos questions et je vous adresserai ce propos et mes réponses aussi par écrit à la suite de cette audition. Donc je commence avec une présentation, je suis professeur de théorie du cinéma, des médias et de la culture visuelle à l'université Sorbonne Nouvelle. Lors des 4 dernières années, j'ai aussi été professeur en DUT dans 2 universités américaines à Yale en 2022 et à Harbard en 2024 et 25. Je suis",
+                "confidence": 0.99397784,
+                "words": [
+                  {
+                    "word": "bien",
+                    "start": 3.76,
+                    "end": 4.08,
+                    "confidence": 0.8286133,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72856545,
+                    "punctuated_word": "Bien"
+                  },
+                  {
+                    "word": "nous",
+                    "start": 4.08,
+                    "end": 4.4,
+                    "confidence": 0.4946289,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72856545,
+                    "punctuated_word": "nous"
+                  },
+                  {
+                    "word": "pouvons",
+                    "start": 4.4,
+                    "end": 5.04,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72856545,
+                    "punctuated_word": "pouvons"
+                  },
+                  {
+                    "word": "commencer",
+                    "start": 5.04,
+                    "end": 5.52,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72856545,
+                    "punctuated_word": "commencer"
+                  },
+                  {
+                    "word": "l'audition",
+                    "start": 5.52,
+                    "end": 6.2400002,
+                    "confidence": 0.8873291,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72856545,
+                    "punctuated_word": "l'audition."
+                  },
+                  {
+                    "word": "bienvenue",
+                    "start": 6.3199997,
+                    "end": 6.96,
+                    "confidence": 0.9770508,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72856545,
+                    "punctuated_word": "Bienvenue"
+                  },
+                  {
+                    "word": "à",
+                    "start": 7.3599997,
+                    "end": 7.6,
+                    "confidence": 0.91748047,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72856545,
+                    "punctuated_word": "à"
+                  },
+                  {
+                    "word": "monsieur",
+                    "start": 7.6,
+                    "end": 7.8399997,
+                    "confidence": 0.8222656,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72856545,
+                    "punctuated_word": "monsieur"
+                  },
+                  {
+                    "word": "antonio",
+                    "start": 7.8399997,
+                    "end": 8.48,
+                    "confidence": 0.9543457,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72856545,
+                    "punctuated_word": "Antonio"
+                  },
+                  {
+                    "word": "someni",
+                    "start": 8.48,
+                    "end": 9.44,
+                    "confidence": 0.5102539,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72856545,
+                    "punctuated_word": "Someni"
+                  },
+                  {
+                    "word": "qui",
+                    "start": 9.599999,
+                    "end": 9.84,
+                    "confidence": 0.6665039,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72856545,
+                    "punctuated_word": "qui"
+                  },
+                  {
+                    "word": "nous",
+                    "start": 9.84,
+                    "end": 10,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72856545,
+                    "punctuated_word": "nous"
+                  },
+                  {
+                    "word": "fait",
+                    "start": 10,
+                    "end": 10.24,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72856545,
+                    "punctuated_word": "fait"
+                  },
+                  {
+                    "word": "l'honneur",
+                    "start": 10.24,
+                    "end": 10.639999,
+                    "confidence": 0.9977214,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72856545,
+                    "punctuated_word": "l'honneur"
+                  },
+                  {
+                    "word": "et",
+                    "start": 10.639999,
+                    "end": 10.88,
+                    "confidence": 0.9790039,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72856545,
+                    "punctuated_word": "et"
+                  },
+                  {
+                    "word": "le",
+                    "start": 10.88,
+                    "end": 11.04,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72856545,
+                    "punctuated_word": "le"
+                  },
+                  {
+                    "word": "plaisir",
+                    "start": 11.04,
+                    "end": 11.36,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72856545,
+                    "punctuated_word": "plaisir"
+                  },
+                  {
+                    "word": "de",
+                    "start": 11.36,
+                    "end": 11.5199995,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72856545,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "nous",
+                    "start": 11.5199995,
+                    "end": 11.679999,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72856545,
+                    "punctuated_word": "nous"
+                  },
+                  {
+                    "word": "rejoindre",
+                    "start": 11.679999,
+                    "end": 12.08,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72856545,
+                    "punctuated_word": "rejoindre"
+                  },
+                  {
+                    "word": "pour",
+                    "start": 12.08,
+                    "end": 12.4,
+                    "confidence": 0.9790039,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72856545,
+                    "punctuated_word": "pour"
+                  },
+                  {
+                    "word": "cette",
+                    "start": 12.4,
+                    "end": 12.639999,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "cette"
+                  },
+                  {
+                    "word": "audition",
+                    "start": 12.639999,
+                    "end": 13.12,
+                    "confidence": 0.99609375,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "audition"
+                  },
+                  {
+                    "word": "de",
+                    "start": 13.12,
+                    "end": 13.44,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "la",
+                    "start": 13.44,
+                    "end": 13.599999,
+                    "confidence": 0.8574219,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "la"
+                  },
+                  {
+                    "word": "mission",
+                    "start": 13.599999,
+                    "end": 14.08,
+                    "confidence": 0.95703125,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "mission"
+                  },
+                  {
+                    "word": "d'information",
+                    "start": 14.08,
+                    "end": 14.719999,
+                    "confidence": 0.86309814,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "d'information."
+                  },
+                  {
+                    "word": "je",
+                    "start": 15.325,
+                    "end": 15.565,
+                    "confidence": 0.9921875,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "Je"
+                  },
+                  {
+                    "word": "répète",
+                    "start": 15.565,
+                    "end": 15.885,
+                    "confidence": 0.78515625,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "répète"
+                  },
+                  {
+                    "word": "à",
+                    "start": 15.885,
+                    "end": 16.045,
+                    "confidence": 0.9716797,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "à"
+                  },
+                  {
+                    "word": "chaque",
+                    "start": 16.045,
+                    "end": 16.205,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "chaque"
+                  },
+                  {
+                    "word": "fois",
+                    "start": 16.205,
+                    "end": 16.445,
+                    "confidence": 0.7384033,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "fois,"
+                  },
+                  {
+                    "word": "désolé",
+                    "start": 16.445,
+                    "end": 16.845,
+                    "confidence": 0.8701172,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "désolé,"
+                  },
+                  {
+                    "word": "à",
+                    "start": 18.445,
+                    "end": 18.685,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "à"
+                  },
+                  {
+                    "word": "la",
+                    "start": 18.685,
+                    "end": 18.845,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "la"
+                  },
+                  {
+                    "word": "création",
+                    "start": 18.845,
+                    "end": 19.325,
+                    "confidence": 0.93603516,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "création,"
+                  },
+                  {
+                    "word": "la",
+                    "start": 19.325,
+                    "end": 19.485,
+                    "confidence": 0.87158203,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "la"
+                  },
+                  {
+                    "word": "diffusion",
+                    "start": 19.485,
+                    "end": 20.285,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "diffusion"
+                  },
+                  {
+                    "word": "et",
+                    "start": 20.445,
+                    "end": 20.685,
+                    "confidence": 0.97802734,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "et"
+                  },
+                  {
+                    "word": "à",
+                    "start": 20.685,
+                    "end": 20.845,
+                    "confidence": 0.93359375,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "à"
+                  },
+                  {
+                    "word": "l'acquisition",
+                    "start": 20.845,
+                    "end": 21.404999,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "l'acquisition"
+                  },
+                  {
+                    "word": "des",
+                    "start": 21.404999,
+                    "end": 21.564999,
+                    "confidence": 0.9902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "des"
+                  },
+                  {
+                    "word": "connaissances",
+                    "start": 21.564999,
+                    "end": 22.365,
+                    "confidence": 0.87719727,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "connaissances."
+                  },
+                  {
+                    "word": "comment",
+                    "start": 22.765,
+                    "end": 23.085,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "Comment"
+                  },
+                  {
+                    "word": "l'intelligence",
+                    "start": 23.085,
+                    "end": 23.645,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "l'intelligence"
+                  },
+                  {
+                    "word": "artificielle",
+                    "start": 23.645,
+                    "end": 24.125,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "artificielle"
+                  },
+                  {
+                    "word": "transforme",
+                    "start": 24.125,
+                    "end": 24.685,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "transforme"
+                  },
+                  {
+                    "word": "notre",
+                    "start": 24.685,
+                    "end": 24.925,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "notre"
+                  },
+                  {
+                    "word": "éducation",
+                    "start": 24.925,
+                    "end": 25.244999,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "éducation"
+                  },
+                  {
+                    "word": "et",
+                    "start": 25.244999,
+                    "end": 25.485,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "et"
+                  },
+                  {
+                    "word": "notre",
+                    "start": 25.485,
+                    "end": 25.645,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "notre"
+                  },
+                  {
+                    "word": "culture",
+                    "start": 25.645,
+                    "end": 25.965,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.81768155,
+                    "punctuated_word": "culture"
+                  },
+                  {
+                    "word": "tel",
+                    "start": 26.045,
+                    "end": 26.205,
+                    "confidence": 0.97998047,
+                    "speaker": 0,
+                    "speaker_confidence": 0.59754616,
+                    "punctuated_word": "Tel"
+                  },
+                  {
+                    "word": "est",
+                    "start": 26.205,
+                    "end": 26.365,
+                    "confidence": 0.9140625,
+                    "speaker": 0,
+                    "speaker_confidence": 0.59754616,
+                    "punctuated_word": "est"
+                  },
+                  {
+                    "word": "le",
+                    "start": 26.365,
+                    "end": 26.445,
+                    "confidence": 0.98291016,
+                    "speaker": 0,
+                    "speaker_confidence": 0.59754616,
+                    "punctuated_word": "le"
+                  },
+                  {
+                    "word": "thème",
+                    "start": 26.445,
+                    "end": 26.605,
+                    "confidence": 0.9951172,
+                    "speaker": 0,
+                    "speaker_confidence": 0.59754616,
+                    "punctuated_word": "thème"
+                  },
+                  {
+                    "word": "de",
+                    "start": 26.605,
+                    "end": 26.765,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.59754616,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "notre",
+                    "start": 26.765,
+                    "end": 26.925,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.59754616,
+                    "punctuated_word": "notre"
+                  },
+                  {
+                    "word": "travail",
+                    "start": 26.925,
+                    "end": 27.645,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.59754616,
+                    "punctuated_word": "travail"
+                  },
+                  {
+                    "word": "qui",
+                    "start": 28.045,
+                    "end": 28.365,
+                    "confidence": 0.83203125,
+                    "speaker": 0,
+                    "speaker_confidence": 0.59754616,
+                    "punctuated_word": "qui"
+                  },
+                  {
+                    "word": "durera",
+                    "start": 28.365,
+                    "end": 29.085,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.59754616,
+                    "punctuated_word": "durera"
+                  },
+                  {
+                    "word": "à",
+                    "start": 29.404999,
+                    "end": 29.645,
+                    "confidence": 0.9873047,
+                    "speaker": 0,
+                    "speaker_confidence": 0.59754616,
+                    "punctuated_word": "à"
+                  },
+                  {
+                    "word": "peu",
+                    "start": 29.645,
+                    "end": 29.805,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.59754616,
+                    "punctuated_word": "peu"
+                  },
+                  {
+                    "word": "près",
+                    "start": 29.805,
+                    "end": 29.884998,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.59754616,
+                    "punctuated_word": "près"
+                  },
+                  {
+                    "word": "6",
+                    "start": 29.884998,
+                    "end": 30.125,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.59754616,
+                    "punctuated_word": "6"
+                  },
+                  {
+                    "word": "mois",
+                    "start": 30.125,
+                    "end": 30.365,
+                    "confidence": 0.99853516,
+                    "speaker": 0,
+                    "speaker_confidence": 0.59754616,
+                    "punctuated_word": "mois."
+                  },
+                  {
+                    "word": "donc",
+                    "start": 31.1,
+                    "end": 31.34,
+                    "confidence": 0.88134766,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "Donc"
+                  },
+                  {
+                    "word": "la",
+                    "start": 31.34,
+                    "end": 31.58,
+                    "confidence": 0.6713867,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "la"
+                  },
+                  {
+                    "word": "1re",
+                    "start": 31.58,
+                    "end": 31.9,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "1re"
+                  },
+                  {
+                    "word": "phase",
+                    "start": 31.9,
+                    "end": 32.14,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "phase"
+                  },
+                  {
+                    "word": "de",
+                    "start": 32.14,
+                    "end": 32.46,
+                    "confidence": 0.99609375,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "nos",
+                    "start": 32.46,
+                    "end": 32.62,
+                    "confidence": 0.85498047,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "nos"
+                  },
+                  {
+                    "word": "auditions",
+                    "start": 32.62,
+                    "end": 32.94,
+                    "confidence": 0.9926758,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "auditions"
+                  },
+                  {
+                    "word": "était",
+                    "start": 32.94,
+                    "end": 33.34,
+                    "confidence": 0.74560547,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "était"
+                  },
+                  {
+                    "word": "consacrée",
+                    "start": 33.34,
+                    "end": 34.22,
+                    "confidence": 0.9921875,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "consacrée"
+                  },
+                  {
+                    "word": "à",
+                    "start": 34.86,
+                    "end": 35.1,
+                    "confidence": 0.99609375,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "à"
+                  },
+                  {
+                    "word": "ce",
+                    "start": 35.1,
+                    "end": 35.260002,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "ce"
+                  },
+                  {
+                    "word": "que",
+                    "start": 35.260002,
+                    "end": 35.420002,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "que"
+                  },
+                  {
+                    "word": "nous",
+                    "start": 35.420002,
+                    "end": 35.58,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "nous"
+                  },
+                  {
+                    "word": "pouvions",
+                    "start": 35.58,
+                    "end": 35.9,
+                    "confidence": 0.703125,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "pouvions"
+                  },
+                  {
+                    "word": "appeler",
+                    "start": 35.9,
+                    "end": 36.22,
+                    "confidence": 0.9838867,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "appeler"
+                  },
+                  {
+                    "word": "une",
+                    "start": 36.22,
+                    "end": 36.46,
+                    "confidence": 0.99121094,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "une"
+                  },
+                  {
+                    "word": "introduction",
+                    "start": 36.46,
+                    "end": 37.02,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "introduction"
+                  },
+                  {
+                    "word": "à",
+                    "start": 37.02,
+                    "end": 37.18,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "à"
+                  },
+                  {
+                    "word": "l'intelligence",
+                    "start": 37.18,
+                    "end": 37.74,
+                    "confidence": 0.9996745,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "l'intelligence"
+                  },
+                  {
+                    "word": "artificielle",
+                    "start": 37.74,
+                    "end": 38.3,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "artificielle"
+                  },
+                  {
+                    "word": "avec",
+                    "start": 38.3,
+                    "end": 38.54,
+                    "confidence": 0.92089844,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "avec"
+                  },
+                  {
+                    "word": "des",
+                    "start": 38.54,
+                    "end": 38.7,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "des"
+                  },
+                  {
+                    "word": "chercheurs",
+                    "start": 38.7,
+                    "end": 39.18,
+                    "confidence": 0.98339844,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "chercheurs,"
+                  },
+                  {
+                    "word": "des",
+                    "start": 39.18,
+                    "end": 39.34,
+                    "confidence": 0.9941406,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "des"
+                  },
+                  {
+                    "word": "experts",
+                    "start": 39.34,
+                    "end": 39.66,
+                    "confidence": 0.88012695,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "experts,"
+                  },
+                  {
+                    "word": "des",
+                    "start": 39.66,
+                    "end": 39.82,
+                    "confidence": 0.9472656,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "des"
+                  },
+                  {
+                    "word": "entrepreneurs",
+                    "start": 39.82,
+                    "end": 40.62,
+                    "confidence": 0.9645996,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85202396,
+                    "punctuated_word": "entrepreneurs."
+                  },
+                  {
+                    "word": "nous",
+                    "start": 40.940002,
+                    "end": 41.18,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "Nous"
+                  },
+                  {
+                    "word": "avons",
+                    "start": 41.18,
+                    "end": 41.42,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "avons"
+                  },
+                  {
+                    "word": "essayé",
+                    "start": 41.42,
+                    "end": 41.739998,
+                    "confidence": 0.99316406,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "essayé"
+                  },
+                  {
+                    "word": "de",
+                    "start": 41.739998,
+                    "end": 41.9,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "saisir",
+                    "start": 41.9,
+                    "end": 42.3,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "saisir"
+                  },
+                  {
+                    "word": "en",
+                    "start": 42.3,
+                    "end": 42.54,
+                    "confidence": 0.98828125,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "en"
+                  },
+                  {
+                    "word": "quoi",
+                    "start": 42.54,
+                    "end": 42.7,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "quoi"
+                  },
+                  {
+                    "word": "ces",
+                    "start": 42.7,
+                    "end": 42.86,
+                    "confidence": 0.5522461,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "ces"
+                  },
+                  {
+                    "word": "technologies",
+                    "start": 42.86,
+                    "end": 43.42,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "technologies"
+                  },
+                  {
+                    "word": "au",
+                    "start": 43.42,
+                    "end": 43.739998,
+                    "confidence": 0.7988281,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "au"
+                  },
+                  {
+                    "word": "pluriel",
+                    "start": 43.739998,
+                    "end": 44.22,
+                    "confidence": 0.72802734,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "pluriel,"
+                  },
+                  {
+                    "word": "puisqu'on",
+                    "start": 44.22,
+                    "end": 45.42,
+                    "confidence": 0.8852539,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "puisqu'on"
+                  },
+                  {
+                    "word": "avez",
+                    "start": 44.975002,
+                    "end": 45.295002,
+                    "confidence": 0.9658203,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "avez"
+                  },
+                  {
+                    "word": "bien",
+                    "start": 45.295002,
+                    "end": 45.455,
+                    "confidence": 0.9741211,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "bien"
+                  },
+                  {
+                    "word": "expliqué",
+                    "start": 45.455,
+                    "end": 45.775,
+                    "confidence": 0.99609375,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "expliqué"
+                  },
+                  {
+                    "word": "que",
+                    "start": 45.775,
+                    "end": 46.015,
+                    "confidence": 0.9770508,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "que"
+                  },
+                  {
+                    "word": "les",
+                    "start": 46.015,
+                    "end": 46.415,
+                    "confidence": 0.5722656,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "les"
+                  },
+                  {
+                    "word": "intelligences",
+                    "start": 46.415,
+                    "end": 46.975,
+                    "confidence": 0.9951172,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "intelligences"
+                  },
+                  {
+                    "word": "artificielles",
+                    "start": 46.975,
+                    "end": 47.455,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "artificielles"
+                  },
+                  {
+                    "word": "étaient",
+                    "start": 47.455,
+                    "end": 47.775,
+                    "confidence": 0.98291016,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "étaient"
+                  },
+                  {
+                    "word": "multiples",
+                    "start": 47.775,
+                    "end": 48.415,
+                    "confidence": 0.9147949,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "multiples,"
+                  },
+                  {
+                    "word": "représentaient",
+                    "start": 48.415,
+                    "end": 49.055,
+                    "confidence": 0.8581543,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "représentaient"
+                  },
+                  {
+                    "word": "une",
+                    "start": 49.055,
+                    "end": 49.295002,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "une"
+                  },
+                  {
+                    "word": "rupture",
+                    "start": 49.295002,
+                    "end": 50.015,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "rupture"
+                  },
+                  {
+                    "word": "cognitive",
+                    "start": 50.255,
+                    "end": 51.215,
+                    "confidence": 0.9645996,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "cognitive,"
+                  },
+                  {
+                    "word": "anthropologique",
+                    "start": 51.215,
+                    "end": 52.255,
+                    "confidence": 0.9506836,
+                    "speaker": 0,
+                    "speaker_confidence": 0.87284756,
+                    "punctuated_word": "anthropologique."
+                  },
+                  {
+                    "word": "nous",
+                    "start": 54.015,
+                    "end": 54.255,
+                    "confidence": 0.98291016,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5113053,
+                    "punctuated_word": "Nous"
+                  },
+                  {
+                    "word": "notamons",
+                    "start": 54.255,
+                    "end": 54.575,
+                    "confidence": 0.7430013,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5113053,
+                    "punctuated_word": "notamons"
+                  },
+                  {
+                    "word": "cet",
+                    "start": 54.575,
+                    "end": 54.815002,
+                    "confidence": 0.93359375,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5113053,
+                    "punctuated_word": "cet"
+                  },
+                  {
+                    "word": "après-midi",
+                    "start": 54.815002,
+                    "end": 55.215,
+                    "confidence": 0.9305013,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5113053,
+                    "punctuated_word": "après-midi"
+                  },
+                  {
+                    "word": "une",
+                    "start": 55.215,
+                    "end": 55.535,
+                    "confidence": 0.8540039,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5113053,
+                    "punctuated_word": "une"
+                  },
+                  {
+                    "word": "2e",
+                    "start": 55.535,
+                    "end": 55.935,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5113053,
+                    "punctuated_word": "2e"
+                  },
+                  {
+                    "word": "phase",
+                    "start": 55.935,
+                    "end": 56.575,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.6577179,
+                    "punctuated_word": "phase"
+                  },
+                  {
+                    "word": "consacrée",
+                    "start": 57.295,
+                    "end": 58.095,
+                    "confidence": 0.8701172,
+                    "speaker": 0,
+                    "speaker_confidence": 0.6577179,
+                    "punctuated_word": "consacrée"
+                  },
+                  {
+                    "word": "aux",
+                    "start": 58.095,
+                    "end": 58.335,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.6577179,
+                    "punctuated_word": "aux"
+                  },
+                  {
+                    "word": "usages",
+                    "start": 58.335,
+                    "end": 58.815002,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.6577179,
+                    "punctuated_word": "usages"
+                  },
+                  {
+                    "word": "et",
+                    "start": 58.815002,
+                    "end": 59.055,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.6577179,
+                    "punctuated_word": "et"
+                  },
+                  {
+                    "word": "effets",
+                    "start": 59.055,
+                    "end": 59.535,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.6577179,
+                    "punctuated_word": "effets"
+                  },
+                  {
+                    "word": "de",
+                    "start": 59.81,
+                    "end": 60.05,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.6577179,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "l'intelligence",
+                    "start": 60.05,
+                    "end": 60.69,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.6577179,
+                    "punctuated_word": "l'intelligence"
+                  },
+                  {
+                    "word": "artificielle",
+                    "start": 60.69,
+                    "end": 61.17,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.6577179,
+                    "punctuated_word": "artificielle"
+                  },
+                  {
+                    "word": "sur",
+                    "start": 61.17,
+                    "end": 61.41,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.6577179,
+                    "punctuated_word": "sur"
+                  },
+                  {
+                    "word": "la",
+                    "start": 61.41,
+                    "end": 61.57,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.6577179,
+                    "punctuated_word": "la"
+                  },
+                  {
+                    "word": "création",
+                    "start": 61.57,
+                    "end": 62.21,
+                    "confidence": 0.9785156,
+                    "speaker": 0,
+                    "speaker_confidence": 0.6577179,
+                    "punctuated_word": "création."
+                  },
+                  {
+                    "word": "la",
+                    "start": 62.77,
+                    "end": 63.01,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.44058108,
+                    "punctuated_word": "La"
+                  },
+                  {
+                    "word": "3e",
+                    "start": 63.01,
+                    "end": 63.41,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.44058108,
+                    "punctuated_word": "3e"
+                  },
+                  {
+                    "word": "et",
+                    "start": 63.41,
+                    "end": 63.57,
+                    "confidence": 0.99316406,
+                    "speaker": 0,
+                    "speaker_confidence": 0.44058108,
+                    "punctuated_word": "et"
+                  },
+                  {
+                    "word": "dernière",
+                    "start": 63.57,
+                    "end": 63.89,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.44058108,
+                    "punctuated_word": "dernière"
+                  },
+                  {
+                    "word": "phase",
+                    "start": 63.89,
+                    "end": 64.45,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.44058108,
+                    "punctuated_word": "phase"
+                  },
+                  {
+                    "word": "qui",
+                    "start": 64.93,
+                    "end": 65.17,
+                    "confidence": 0.75634766,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72254336,
+                    "punctuated_word": "qui"
+                  },
+                  {
+                    "word": "sera",
+                    "start": 65.17,
+                    "end": 65.409996,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72254336,
+                    "punctuated_word": "sera"
+                  },
+                  {
+                    "word": "organisée",
+                    "start": 65.409996,
+                    "end": 65.97,
+                    "confidence": 0.97509766,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72254336,
+                    "punctuated_word": "organisée"
+                  },
+                  {
+                    "word": "au",
+                    "start": 65.97,
+                    "end": 66.21,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72254336,
+                    "punctuated_word": "au"
+                  },
+                  {
+                    "word": "printemps",
+                    "start": 66.21,
+                    "end": 66.85,
+                    "confidence": 0.7890625,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72254336,
+                    "punctuated_word": "printemps,"
+                  },
+                  {
+                    "word": "visera",
+                    "start": 67.33,
+                    "end": 67.97,
+                    "confidence": 0.5788574,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72254336,
+                    "punctuated_word": "visera"
+                  },
+                  {
+                    "word": "à",
+                    "start": 68.05,
+                    "end": 68.21,
+                    "confidence": 0.97802734,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72254336,
+                    "punctuated_word": "à"
+                  },
+                  {
+                    "word": "s'intéresser",
+                    "start": 68.21,
+                    "end": 68.61,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72254336,
+                    "punctuated_word": "s'intéresser"
+                  },
+                  {
+                    "word": "plus",
+                    "start": 68.61,
+                    "end": 68.93,
+                    "confidence": 0.99609375,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72254336,
+                    "punctuated_word": "plus"
+                  },
+                  {
+                    "word": "avant",
+                    "start": 68.93,
+                    "end": 69.25,
+                    "confidence": 0.9902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72254336,
+                    "punctuated_word": "avant"
+                  },
+                  {
+                    "word": "aux",
+                    "start": 69.25,
+                    "end": 69.49,
+                    "confidence": 0.9941406,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72254336,
+                    "punctuated_word": "aux"
+                  },
+                  {
+                    "word": "enjeux",
+                    "start": 69.49,
+                    "end": 69.89,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72254336,
+                    "punctuated_word": "enjeux"
+                  },
+                  {
+                    "word": "éducatifs",
+                    "start": 69.89,
+                    "end": 70.85,
+                    "confidence": 0.98828125,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72254336,
+                    "punctuated_word": "éducatifs."
+                  },
+                  {
+                    "word": "il",
+                    "start": 70.85,
+                    "end": 71.09,
+                    "confidence": 0.95703125,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72254336,
+                    "punctuated_word": "Il"
+                  },
+                  {
+                    "word": "n'est",
+                    "start": 71.09,
+                    "end": 71.17,
+                    "confidence": 0.98535156,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72254336,
+                    "punctuated_word": "n'est"
+                  },
+                  {
+                    "word": "pas",
+                    "start": 71.17,
+                    "end": 71.33,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72254336,
+                    "punctuated_word": "pas"
+                  },
+                  {
+                    "word": "interdit",
+                    "start": 71.33,
+                    "end": 71.65,
+                    "confidence": 0.97998047,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72254336,
+                    "punctuated_word": "interdit"
+                  },
+                  {
+                    "word": "d'en",
+                    "start": 71.65,
+                    "end": 71.89,
+                    "confidence": 0.99869794,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72254336,
+                    "punctuated_word": "d'en"
+                  },
+                  {
+                    "word": "parler",
+                    "start": 71.89,
+                    "end": 72.45,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72254336,
+                    "punctuated_word": "parler"
+                  },
+                  {
+                    "word": "aujourd'hui",
+                    "start": 72.45,
+                    "end": 73.17,
+                    "confidence": 0.99438477,
+                    "speaker": 0,
+                    "speaker_confidence": 0.72254336,
+                    "punctuated_word": "aujourd'hui."
+                  },
+                  {
+                    "word": "ceci",
+                    "start": 73.65,
+                    "end": 74.21,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.33741093,
+                    "punctuated_word": "Ceci"
+                  },
+                  {
+                    "word": "étant",
+                    "start": 73.805,
+                    "end": 74.205,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.33741093,
+                    "punctuated_word": "étant"
+                  },
+                  {
+                    "word": "posé",
+                    "start": 74.205,
+                    "end": 74.525,
+                    "confidence": 0.93408203,
+                    "speaker": 0,
+                    "speaker_confidence": 0.33741093,
+                    "punctuated_word": "posé,"
+                  },
+                  {
+                    "word": "nous",
+                    "start": 74.525,
+                    "end": 74.685,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.33741093,
+                    "punctuated_word": "nous"
+                  },
+                  {
+                    "word": "avons",
+                    "start": 74.685,
+                    "end": 74.845,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.33741093,
+                    "punctuated_word": "avons"
+                  },
+                  {
+                    "word": "le",
+                    "start": 74.845,
+                    "end": 74.924995,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.63924074,
+                    "punctuated_word": "le"
+                  },
+                  {
+                    "word": "plaisir",
+                    "start": 74.924995,
+                    "end": 75.085,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.63924074,
+                    "punctuated_word": "plaisir"
+                  },
+                  {
+                    "word": "d'accueillir",
+                    "start": 75.085,
+                    "end": 75.485,
+                    "confidence": 0.9996745,
+                    "speaker": 0,
+                    "speaker_confidence": 0.63924074,
+                    "punctuated_word": "d'accueillir"
+                  },
+                  {
+                    "word": "pour",
+                    "start": 75.485,
+                    "end": 75.725,
+                    "confidence": 0.9428711,
+                    "speaker": 0,
+                    "speaker_confidence": 0.63924074,
+                    "punctuated_word": "pour"
+                  },
+                  {
+                    "word": "commencer",
+                    "start": 75.725,
+                    "end": 76.045,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.63924074,
+                    "punctuated_word": "commencer"
+                  },
+                  {
+                    "word": "monsieur",
+                    "start": 76.045,
+                    "end": 76.365,
+                    "confidence": 0.7373047,
+                    "speaker": 0,
+                    "speaker_confidence": 0.63924074,
+                    "punctuated_word": "monsieur"
+                  },
+                  {
+                    "word": "antonio",
+                    "start": 76.365,
+                    "end": 77.085,
+                    "confidence": 0.9758301,
+                    "speaker": 0,
+                    "speaker_confidence": 0.63924074,
+                    "punctuated_word": "Antonio"
+                  },
+                  {
+                    "word": "someni",
+                    "start": 77.085,
+                    "end": 77.564995,
+                    "confidence": 0.4317627,
+                    "speaker": 0,
+                    "speaker_confidence": 0.63924074,
+                    "punctuated_word": "Someni"
+                  },
+                  {
+                    "word": "qui",
+                    "start": 77.564995,
+                    "end": 77.725,
+                    "confidence": 0.63134766,
+                    "speaker": 0,
+                    "speaker_confidence": 0.63924074,
+                    "punctuated_word": "qui"
+                  },
+                  {
+                    "word": "est",
+                    "start": 77.725,
+                    "end": 77.884995,
+                    "confidence": 0.9951172,
+                    "speaker": 0,
+                    "speaker_confidence": 0.63924074,
+                    "punctuated_word": "est"
+                  },
+                  {
+                    "word": "professeur",
+                    "start": 77.884995,
+                    "end": 78.284996,
+                    "confidence": 0.9941406,
+                    "speaker": 0,
+                    "speaker_confidence": 0.63924074,
+                    "punctuated_word": "professeur"
+                  },
+                  {
+                    "word": "de",
+                    "start": 78.284996,
+                    "end": 78.365,
+                    "confidence": 0.9951172,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5395199,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "théorie",
+                    "start": 78.365,
+                    "end": 78.765,
+                    "confidence": 0.9140625,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5395199,
+                    "punctuated_word": "théorie"
+                  },
+                  {
+                    "word": "du",
+                    "start": 78.765,
+                    "end": 78.924995,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5395199,
+                    "punctuated_word": "du"
+                  },
+                  {
+                    "word": "cinéma",
+                    "start": 78.924995,
+                    "end": 79.645,
+                    "confidence": 0.9182129,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5395199,
+                    "punctuated_word": "cinéma,"
+                  },
+                  {
+                    "word": "des",
+                    "start": 79.645,
+                    "end": 79.884995,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5395199,
+                    "punctuated_word": "des"
+                  },
+                  {
+                    "word": "médias",
+                    "start": 79.884995,
+                    "end": 80.284996,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5395199,
+                    "punctuated_word": "médias"
+                  },
+                  {
+                    "word": "et",
+                    "start": 80.284996,
+                    "end": 80.445,
+                    "confidence": 0.99609375,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5395199,
+                    "punctuated_word": "et"
+                  },
+                  {
+                    "word": "de",
+                    "start": 80.445,
+                    "end": 80.604996,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5395199,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "la",
+                    "start": 80.604996,
+                    "end": 80.765,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.7041565,
+                    "punctuated_word": "la"
+                  },
+                  {
+                    "word": "culture",
+                    "start": 80.765,
+                    "end": 81.085,
+                    "confidence": 0.99609375,
+                    "speaker": 0,
+                    "speaker_confidence": 0.7041565,
+                    "punctuated_word": "culture"
+                  },
+                  {
+                    "word": "visuelle",
+                    "start": 81.085,
+                    "end": 81.405,
+                    "confidence": 0.9819336,
+                    "speaker": 0,
+                    "speaker_confidence": 0.7041565,
+                    "punctuated_word": "visuelle"
+                  },
+                  {
+                    "word": "à",
+                    "start": 81.405,
+                    "end": 81.645,
+                    "confidence": 0.9770508,
+                    "speaker": 0,
+                    "speaker_confidence": 0.7041565,
+                    "punctuated_word": "à"
+                  },
+                  {
+                    "word": "l'université",
+                    "start": 81.645,
+                    "end": 82.045,
+                    "confidence": 0.9269206,
+                    "speaker": 0,
+                    "speaker_confidence": 0.7041565,
+                    "punctuated_word": "l'université"
+                  },
+                  {
+                    "word": "sorbonne",
+                    "start": 82.045,
+                    "end": 82.445,
+                    "confidence": 0.98095703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.7041565,
+                    "punctuated_word": "Sorbonne"
+                  },
+                  {
+                    "word": "nouvelle",
+                    "start": 82.445,
+                    "end": 83.165,
+                    "confidence": 0.52001953,
+                    "speaker": 0,
+                    "speaker_confidence": 0.7041565,
+                    "punctuated_word": "Nouvelle"
+                  },
+                  {
+                    "word": "et",
+                    "start": 83.244995,
+                    "end": 83.485,
+                    "confidence": 0.9580078,
+                    "speaker": 0,
+                    "speaker_confidence": 0.7041565,
+                    "punctuated_word": "et"
+                  },
+                  {
+                    "word": "membre",
+                    "start": 83.485,
+                    "end": 83.805,
+                    "confidence": 0.9790039,
+                    "speaker": 0,
+                    "speaker_confidence": 0.7041565,
+                    "punctuated_word": "membre"
+                  },
+                  {
+                    "word": "de",
+                    "start": 83.805,
+                    "end": 83.965,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.7041565,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "l'institut",
+                    "start": 83.965,
+                    "end": 84.445,
+                    "confidence": 0.86279297,
+                    "speaker": 0,
+                    "speaker_confidence": 0.7041565,
+                    "punctuated_word": "l'institut"
+                  },
+                  {
+                    "word": "universitaire",
+                    "start": 84.445,
+                    "end": 85.005,
+                    "confidence": 0.99609375,
+                    "speaker": 0,
+                    "speaker_confidence": 0.7041565,
+                    "punctuated_word": "universitaire"
+                  },
+                  {
+                    "word": "de",
+                    "start": 85.005,
+                    "end": 85.244995,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.7041565,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "france",
+                    "start": 85.244995,
+                    "end": 85.565,
+                    "confidence": 0.99609375,
+                    "speaker": 0,
+                    "speaker_confidence": 0.7041565,
+                    "punctuated_word": "France."
+                  },
+                  {
+                    "word": "ma",
+                    "start": 86.270004,
+                    "end": 86.51,
+                    "confidence": 0.9003906,
+                    "speaker": 0,
+                    "speaker_confidence": 0.74607414,
+                    "punctuated_word": "Ma"
+                  },
+                  {
+                    "word": "collègue",
+                    "start": 86.51,
+                    "end": 86.83,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.74607414,
+                    "punctuated_word": "collègue"
+                  },
+                  {
+                    "word": "céline",
+                    "start": 86.83,
+                    "end": 87.23,
+                    "confidence": 0.97265625,
+                    "speaker": 0,
+                    "speaker_confidence": 0.74607414,
+                    "punctuated_word": "Céline"
+                  },
+                  {
+                    "word": "calvez",
+                    "start": 87.23,
+                    "end": 87.630005,
+                    "confidence": 0.7932129,
+                    "speaker": 0,
+                    "speaker_confidence": 0.74607414,
+                    "punctuated_word": "Calvez"
+                  },
+                  {
+                    "word": "et",
+                    "start": 87.630005,
+                    "end": 87.87,
+                    "confidence": 0.74316406,
+                    "speaker": 0,
+                    "speaker_confidence": 0.74607414,
+                    "punctuated_word": "et"
+                  },
+                  {
+                    "word": "moi-même",
+                    "start": 87.87,
+                    "end": 88.270004,
+                    "confidence": 0.9741211,
+                    "speaker": 0,
+                    "speaker_confidence": 0.74607414,
+                    "punctuated_word": "moi-même"
+                  },
+                  {
+                    "word": "vous",
+                    "start": 88.270004,
+                    "end": 88.590004,
+                    "confidence": 0.6894531,
+                    "speaker": 0,
+                    "speaker_confidence": 0.74607414,
+                    "punctuated_word": "vous"
+                  },
+                  {
+                    "word": "souhaitons",
+                    "start": 88.590004,
+                    "end": 89.07,
+                    "confidence": 0.7524414,
+                    "speaker": 0,
+                    "speaker_confidence": 0.74607414,
+                    "punctuated_word": "souhaitons,"
+                  },
+                  {
+                    "word": "monsieur",
+                    "start": 89.07,
+                    "end": 89.39,
+                    "confidence": 0.6616211,
+                    "speaker": 0,
+                    "speaker_confidence": 0.74607414,
+                    "punctuated_word": "Monsieur"
+                  },
+                  {
+                    "word": "le",
+                    "start": 89.39,
+                    "end": 89.630005,
+                    "confidence": 0.9707031,
+                    "speaker": 0,
+                    "speaker_confidence": 0.74607414,
+                    "punctuated_word": "le"
+                  },
+                  {
+                    "word": "professeur",
+                    "start": 89.630005,
+                    "end": 90.270004,
+                    "confidence": 0.8647461,
+                    "speaker": 0,
+                    "speaker_confidence": 0.74607414,
+                    "punctuated_word": "professeur,"
+                  },
+                  {
+                    "word": "la",
+                    "start": 90.270004,
+                    "end": 90.43,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.74607414,
+                    "punctuated_word": "la"
+                  },
+                  {
+                    "word": "bienvenue",
+                    "start": 90.43,
+                    "end": 90.91,
+                    "confidence": 0.99609375,
+                    "speaker": 0,
+                    "speaker_confidence": 0.74607414,
+                    "punctuated_word": "bienvenue"
+                  },
+                  {
+                    "word": "au",
+                    "start": 90.91,
+                    "end": 91.15,
+                    "confidence": 0.99316406,
+                    "speaker": 0,
+                    "speaker_confidence": 0.74607414,
+                    "punctuated_word": "au"
+                  },
+                  {
+                    "word": "sein",
+                    "start": 91.15,
+                    "end": 91.310005,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.74607414,
+                    "punctuated_word": "sein"
+                  },
+                  {
+                    "word": "de",
+                    "start": 91.310005,
+                    "end": 91.47,
+                    "confidence": 0.96972656,
+                    "speaker": 0,
+                    "speaker_confidence": 0.74607414,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "cette",
+                    "start": 91.47,
+                    "end": 91.71,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.74607414,
+                    "punctuated_word": "cette"
+                  },
+                  {
+                    "word": "commission",
+                    "start": 91.71,
+                    "end": 92.270004,
+                    "confidence": 0.9848633,
+                    "speaker": 0,
+                    "speaker_confidence": 0.74607414,
+                    "punctuated_word": "commission."
+                  },
+                  {
+                    "word": "il",
+                    "start": 92.670006,
+                    "end": 92.990005,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.74607414,
+                    "punctuated_word": "Il"
+                  },
+                  {
+                    "word": "nous",
+                    "start": 92.990005,
+                    "end": 93.07,
+                    "confidence": 0.9951172,
+                    "speaker": 0,
+                    "speaker_confidence": 0.74607414,
+                    "punctuated_word": "nous"
+                  },
+                  {
+                    "word": "a",
+                    "start": 93.07,
+                    "end": 93.23,
+                    "confidence": 0.97509766,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "a"
+                  },
+                  {
+                    "word": "paru",
+                    "start": 93.23,
+                    "end": 93.39,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "paru"
+                  },
+                  {
+                    "word": "important",
+                    "start": 93.39,
+                    "end": 93.79,
+                    "confidence": 0.9921875,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "important"
+                  },
+                  {
+                    "word": "d'associer",
+                    "start": 93.79,
+                    "end": 94.19,
+                    "confidence": 0.9996745,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "d'associer"
+                  },
+                  {
+                    "word": "autant",
+                    "start": 94.19,
+                    "end": 94.51,
+                    "confidence": 0.9819336,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "autant"
+                  },
+                  {
+                    "word": "que",
+                    "start": 94.51,
+                    "end": 94.67,
+                    "confidence": 0.99609375,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "que"
+                  },
+                  {
+                    "word": "possible",
+                    "start": 94.67,
+                    "end": 94.91,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "possible"
+                  },
+                  {
+                    "word": "les",
+                    "start": 94.91,
+                    "end": 95.15,
+                    "confidence": 0.6904297,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "les"
+                  },
+                  {
+                    "word": "universitaires",
+                    "start": 95.15,
+                    "end": 95.71,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "universitaires"
+                  },
+                  {
+                    "word": "à",
+                    "start": 95.71,
+                    "end": 95.87,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "à"
+                  },
+                  {
+                    "word": "la",
+                    "start": 95.87,
+                    "end": 96.03,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "la"
+                  },
+                  {
+                    "word": "conduite",
+                    "start": 96.03,
+                    "end": 96.270004,
+                    "confidence": 0.99609375,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "conduite"
+                  },
+                  {
+                    "word": "de",
+                    "start": 96.270004,
+                    "end": 96.43,
+                    "confidence": 0.9892578,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "notre",
+                    "start": 96.43,
+                    "end": 96.67,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "notre"
+                  },
+                  {
+                    "word": "mission",
+                    "start": 96.67,
+                    "end": 97.23,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "mission"
+                  },
+                  {
+                    "word": "et",
+                    "start": 97.310005,
+                    "end": 97.55,
+                    "confidence": 0.81933594,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "et"
+                  },
+                  {
+                    "word": "vous",
+                    "start": 97.55,
+                    "end": 97.79,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "vous"
+                  },
+                  {
+                    "word": "en",
+                    "start": 97.79,
+                    "end": 97.950005,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "en"
+                  },
+                  {
+                    "word": "êtes",
+                    "start": 97.950005,
+                    "end": 98.19,
+                    "confidence": 0.99316406,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "êtes"
+                  },
+                  {
+                    "word": "un",
+                    "start": 98.19,
+                    "end": 98.43,
+                    "confidence": 0.98095703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "un"
+                  },
+                  {
+                    "word": "éminent",
+                    "start": 98.43,
+                    "end": 98.83,
+                    "confidence": 0.9902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "éminent"
+                  },
+                  {
+                    "word": "représentant",
+                    "start": 98.83,
+                    "end": 99.79,
+                    "confidence": 0.99560547,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "représentant."
+                  },
+                  {
+                    "word": "vos",
+                    "start": 99.79,
+                    "end": 100.03,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "Vos"
+                  },
+                  {
+                    "word": "travaux",
+                    "start": 100.03,
+                    "end": 100.270004,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "travaux"
+                  },
+                  {
+                    "word": "portent",
+                    "start": 100.270004,
+                    "end": 100.590004,
+                    "confidence": 0.984375,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "portent"
+                  },
+                  {
+                    "word": "notamment",
+                    "start": 100.590004,
+                    "end": 100.990005,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "notamment"
+                  },
+                  {
+                    "word": "sur",
+                    "start": 101.555,
+                    "end": 101.795,
+                    "confidence": 0.93603516,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "sur"
+                  },
+                  {
+                    "word": "les",
+                    "start": 101.795,
+                    "end": 101.955,
+                    "confidence": 0.98535156,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "les"
+                  },
+                  {
+                    "word": "liens",
+                    "start": 101.955,
+                    "end": 102.275,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "liens"
+                  },
+                  {
+                    "word": "entre",
+                    "start": 102.275,
+                    "end": 102.435,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "entre"
+                  },
+                  {
+                    "word": "la",
+                    "start": 102.435,
+                    "end": 102.675,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "la"
+                  },
+                  {
+                    "word": "création",
+                    "start": 102.675,
+                    "end": 103.075,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "création"
+                  },
+                  {
+                    "word": "et",
+                    "start": 103.075,
+                    "end": 103.235,
+                    "confidence": 0.98535156,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "et"
+                  },
+                  {
+                    "word": "les",
+                    "start": 103.235,
+                    "end": 103.395004,
+                    "confidence": 0.9951172,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "les"
+                  },
+                  {
+                    "word": "nouvelles",
+                    "start": 103.395004,
+                    "end": 103.635,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "nouvelles"
+                  },
+                  {
+                    "word": "technologies",
+                    "start": 103.635,
+                    "end": 104.355,
+                    "confidence": 0.98706055,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "technologies."
+                  },
+                  {
+                    "word": "vous",
+                    "start": 104.595,
+                    "end": 104.835,
+                    "confidence": 0.96777344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "Vous"
+                  },
+                  {
+                    "word": "entendre",
+                    "start": 104.835,
+                    "end": 105.235,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "entendre"
+                  },
+                  {
+                    "word": "nous",
+                    "start": 105.235,
+                    "end": 105.475,
+                    "confidence": 0.9375,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "nous"
+                  },
+                  {
+                    "word": "a",
+                    "start": 105.475,
+                    "end": 105.555,
+                    "confidence": 0.7192383,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "a"
+                  },
+                  {
+                    "word": "paru",
+                    "start": 105.555,
+                    "end": 105.715004,
+                    "confidence": 0.9790039,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "paru"
+                  },
+                  {
+                    "word": "d'autant",
+                    "start": 105.715004,
+                    "end": 106.035,
+                    "confidence": 0.9983724,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "d'autant"
+                  },
+                  {
+                    "word": "plus",
+                    "start": 106.035,
+                    "end": 106.195,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "plus"
+                  },
+                  {
+                    "word": "pertinent",
+                    "start": 106.195,
+                    "end": 106.515,
+                    "confidence": 0.95947266,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "pertinent"
+                  },
+                  {
+                    "word": "que",
+                    "start": 106.515,
+                    "end": 106.755,
+                    "confidence": 0.98828125,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "que"
+                  },
+                  {
+                    "word": "vous",
+                    "start": 106.755,
+                    "end": 106.835,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "vous"
+                  },
+                  {
+                    "word": "êtes",
+                    "start": 106.835,
+                    "end": 107.075,
+                    "confidence": 0.94140625,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "êtes"
+                  },
+                  {
+                    "word": "particulièrement",
+                    "start": 107.075,
+                    "end": 107.555,
+                    "confidence": 0.99609375,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "particulièrement"
+                  },
+                  {
+                    "word": "intéressé",
+                    "start": 107.555,
+                    "end": 108.035,
+                    "confidence": 0.87597656,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "intéressé"
+                  },
+                  {
+                    "word": "à",
+                    "start": 108.035,
+                    "end": 108.275,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "à"
+                  },
+                  {
+                    "word": "l'évolution",
+                    "start": 108.275,
+                    "end": 108.915,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "l'évolution"
+                  },
+                  {
+                    "word": "de",
+                    "start": 108.915,
+                    "end": 109.235,
+                    "confidence": 0.8378906,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "notre",
+                    "start": 109.235,
+                    "end": 109.475,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "notre"
+                  },
+                  {
+                    "word": "rapport",
+                    "start": 109.475,
+                    "end": 109.795,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "rapport"
+                  },
+                  {
+                    "word": "aux",
+                    "start": 109.795,
+                    "end": 110.035,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "aux"
+                  },
+                  {
+                    "word": "images",
+                    "start": 110.035,
+                    "end": 110.675,
+                    "confidence": 0.7915039,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "images,"
+                  },
+                  {
+                    "word": "notamment",
+                    "start": 111.075,
+                    "end": 111.315,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "notamment"
+                  },
+                  {
+                    "word": "mais",
+                    "start": 111.315,
+                    "end": 111.555,
+                    "confidence": 0.54296875,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "mais"
+                  },
+                  {
+                    "word": "pas",
+                    "start": 111.555,
+                    "end": 111.715,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.84604937,
+                    "punctuated_word": "pas"
+                  },
+                  {
+                    "word": "uniquement",
+                    "start": 111.715,
+                    "end": 112.355,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.49553454,
+                    "punctuated_word": "uniquement"
+                  },
+                  {
+                    "word": "cinématographique",
+                    "start": 112.355,
+                    "end": 113.715004,
+                    "confidence": 0.28759766,
+                    "speaker": 0,
+                    "speaker_confidence": 0.49553454,
+                    "punctuated_word": "cinématographique"
+                  },
+                  {
+                    "word": "dont",
+                    "start": 114.355,
+                    "end": 114.595,
+                    "confidence": 0.5551758,
+                    "speaker": 0,
+                    "speaker_confidence": 0.49553454,
+                    "punctuated_word": "dont"
+                  },
+                  {
+                    "word": "on",
+                    "start": 114.595,
+                    "end": 114.755,
+                    "confidence": 0.9951172,
+                    "speaker": 0,
+                    "speaker_confidence": 0.49553454,
+                    "punctuated_word": "on"
+                  },
+                  {
+                    "word": "peut",
+                    "start": 114.755,
+                    "end": 114.915,
+                    "confidence": 0.99609375,
+                    "speaker": 0,
+                    "speaker_confidence": 0.49553454,
+                    "punctuated_word": "peut"
+                  },
+                  {
+                    "word": "dire",
+                    "start": 114.915,
+                    "end": 115.075,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.71490806,
+                    "punctuated_word": "dire"
+                  },
+                  {
+                    "word": "sans",
+                    "start": 115.075,
+                    "end": 115.315,
+                    "confidence": 0.97998047,
+                    "speaker": 0,
+                    "speaker_confidence": 0.71490806,
+                    "punctuated_word": "sans"
+                  },
+                  {
+                    "word": "trop",
+                    "start": 115.315,
+                    "end": 116.515,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.71490806,
+                    "punctuated_word": "trop"
+                  },
+                  {
+                    "word": "s'avancer",
+                    "start": 115.979996,
+                    "end": 116.46,
+                    "confidence": 0.9900716,
+                    "speaker": 0,
+                    "speaker_confidence": 0.71490806,
+                    "punctuated_word": "s'avancer"
+                  },
+                  {
+                    "word": "qu'il",
+                    "start": 116.46,
+                    "end": 116.78,
+                    "confidence": 0.960612,
+                    "speaker": 0,
+                    "speaker_confidence": 0.71490806,
+                    "punctuated_word": "qu'il"
+                  },
+                  {
+                    "word": "sera",
+                    "start": 116.78,
+                    "end": 117.02,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.71490806,
+                    "punctuated_word": "sera"
+                  },
+                  {
+                    "word": "profondément",
+                    "start": 117.02,
+                    "end": 117.579994,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.71490806,
+                    "punctuated_word": "profondément"
+                  },
+                  {
+                    "word": "affecté",
+                    "start": 117.579994,
+                    "end": 117.979996,
+                    "confidence": 0.99609375,
+                    "speaker": 0,
+                    "speaker_confidence": 0.71490806,
+                    "punctuated_word": "affecté"
+                  },
+                  {
+                    "word": "par",
+                    "start": 117.979996,
+                    "end": 118.22,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.71490806,
+                    "punctuated_word": "par"
+                  },
+                  {
+                    "word": "la",
+                    "start": 118.22,
+                    "end": 118.38,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.71490806,
+                    "punctuated_word": "la"
+                  },
+                  {
+                    "word": "montée",
+                    "start": 118.38,
+                    "end": 118.7,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.71490806,
+                    "punctuated_word": "montée"
+                  },
+                  {
+                    "word": "en",
+                    "start": 118.7,
+                    "end": 118.86,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.71490806,
+                    "punctuated_word": "en"
+                  },
+                  {
+                    "word": "puissance",
+                    "start": 118.86,
+                    "end": 119.42,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.71490806,
+                    "punctuated_word": "puissance"
+                  },
+                  {
+                    "word": "de",
+                    "start": 119.42,
+                    "end": 119.659996,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.71490806,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "l'intelligence",
+                    "start": 119.659996,
+                    "end": 120.22,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.71490806,
+                    "punctuated_word": "l'intelligence"
+                  },
+                  {
+                    "word": "artificielle",
+                    "start": 120.22,
+                    "end": 121.02,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.71490806,
+                    "punctuated_word": "artificielle."
+                  },
+                  {
+                    "word": "vous",
+                    "start": 121.659996,
+                    "end": 121.899994,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.42956406,
+                    "punctuated_word": "Vous"
+                  },
+                  {
+                    "word": "nous",
+                    "start": 121.899994,
+                    "end": 122.06,
+                    "confidence": 0.93115234,
+                    "speaker": 0,
+                    "speaker_confidence": 0.42956406,
+                    "punctuated_word": "nous"
+                  },
+                  {
+                    "word": "pourrez",
+                    "start": 122.06,
+                    "end": 122.46,
+                    "confidence": 0.98828125,
+                    "speaker": 0,
+                    "speaker_confidence": 0.42956406,
+                    "punctuated_word": "pourrez"
+                  },
+                  {
+                    "word": "également",
+                    "start": 122.46,
+                    "end": 122.7,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.42956406,
+                    "punctuated_word": "également"
+                  },
+                  {
+                    "word": "nous",
+                    "start": 122.7,
+                    "end": 122.939995,
+                    "confidence": 0.9873047,
+                    "speaker": 0,
+                    "speaker_confidence": 0.42956406,
+                    "punctuated_word": "nous"
+                  },
+                  {
+                    "word": "dire",
+                    "start": 122.939995,
+                    "end": 123.18,
+                    "confidence": 0.7680664,
+                    "speaker": 0,
+                    "speaker_confidence": 0.42956406,
+                    "punctuated_word": "dire"
+                  },
+                  {
+                    "word": "un",
+                    "start": 123.18,
+                    "end": 123.259995,
+                    "confidence": 0.99609375,
+                    "speaker": 0,
+                    "speaker_confidence": 0.42956406,
+                    "punctuated_word": "un"
+                  },
+                  {
+                    "word": "mot",
+                    "start": 123.259995,
+                    "end": 123.42,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "mot"
+                  },
+                  {
+                    "word": "si",
+                    "start": 123.42,
+                    "end": 123.659996,
+                    "confidence": 0.8745117,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "si"
+                  },
+                  {
+                    "word": "vous",
+                    "start": 123.659996,
+                    "end": 123.74,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "vous"
+                  },
+                  {
+                    "word": "le",
+                    "start": 123.74,
+                    "end": 123.82,
+                    "confidence": 0.9951172,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "le"
+                  },
+                  {
+                    "word": "souhaitez",
+                    "start": 123.82,
+                    "end": 124.22,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "souhaitez"
+                  },
+                  {
+                    "word": "des",
+                    "start": 124.22,
+                    "end": 124.54,
+                    "confidence": 0.6381836,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "des"
+                  },
+                  {
+                    "word": "conclusions",
+                    "start": 124.54,
+                    "end": 124.86,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "conclusions"
+                  },
+                  {
+                    "word": "que",
+                    "start": 124.86,
+                    "end": 125.1,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "que"
+                  },
+                  {
+                    "word": "vous",
+                    "start": 125.1,
+                    "end": 125.259995,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "vous"
+                  },
+                  {
+                    "word": "tirez",
+                    "start": 125.259995,
+                    "end": 125.5,
+                    "confidence": 0.9951172,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "tirez"
+                  },
+                  {
+                    "word": "de",
+                    "start": 125.5,
+                    "end": 125.659996,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "l'organisation",
+                    "start": 125.659996,
+                    "end": 126.22,
+                    "confidence": 0.99641925,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "l'organisation"
+                  },
+                  {
+                    "word": "de",
+                    "start": 126.22,
+                    "end": 126.46,
+                    "confidence": 0.9873047,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "l'exposition",
+                    "start": 126.46,
+                    "end": 127.02,
+                    "confidence": 0.9983724,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "l'exposition"
+                  },
+                  {
+                    "word": "le",
+                    "start": 127.02,
+                    "end": 127.34,
+                    "confidence": 0.50927734,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "Le"
+                  },
+                  {
+                    "word": "monde",
+                    "start": 127.34,
+                    "end": 127.899994,
+                    "confidence": 0.671875,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "Monde"
+                  },
+                  {
+                    "word": "selon",
+                    "start": 127.899994,
+                    "end": 128.22,
+                    "confidence": 0.9003906,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "selon"
+                  },
+                  {
+                    "word": "l'ia",
+                    "start": 128.22,
+                    "end": 128.62,
+                    "confidence": 0.9749349,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "l'IA"
+                  },
+                  {
+                    "word": "présentée",
+                    "start": 128.875,
+                    "end": 129.435,
+                    "confidence": 0.55810547,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "présentée"
+                  },
+                  {
+                    "word": "au",
+                    "start": 129.435,
+                    "end": 129.75499,
+                    "confidence": 0.87597656,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "au"
+                  },
+                  {
+                    "word": "jeu",
+                    "start": 129.75499,
+                    "end": 129.915,
+                    "confidence": 0.60302734,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "Jeu"
+                  },
+                  {
+                    "word": "de",
+                    "start": 129.915,
+                    "end": 130.075,
+                    "confidence": 0.9951172,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "paume",
+                    "start": 130.075,
+                    "end": 130.315,
+                    "confidence": 0.53222656,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "paume"
+                  },
+                  {
+                    "word": "l'an",
+                    "start": 130.315,
+                    "end": 130.715,
+                    "confidence": 0.9767253,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "l'an"
+                  },
+                  {
+                    "word": "dernier",
+                    "start": 130.715,
+                    "end": 131.27501,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "dernier"
+                  },
+                  {
+                    "word": "et",
+                    "start": 131.355,
+                    "end": 131.515,
+                    "confidence": 0.8203125,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "et"
+                  },
+                  {
+                    "word": "dont",
+                    "start": 131.515,
+                    "end": 131.675,
+                    "confidence": 0.7939453,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "dont"
+                  },
+                  {
+                    "word": "vous",
+                    "start": 131.675,
+                    "end": 131.83499,
+                    "confidence": 0.9951172,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "vous"
+                  },
+                  {
+                    "word": "avez",
+                    "start": 131.83499,
+                    "end": 132.075,
+                    "confidence": 0.99316406,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "avez"
+                  },
+                  {
+                    "word": "été",
+                    "start": 132.075,
+                    "end": 132.315,
+                    "confidence": 0.99121094,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "été"
+                  },
+                  {
+                    "word": "l'un",
+                    "start": 132.315,
+                    "end": 132.555,
+                    "confidence": 0.99576825,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "l'un"
+                  },
+                  {
+                    "word": "des",
+                    "start": 132.555,
+                    "end": 132.715,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "des"
+                  },
+                  {
+                    "word": "commissaires",
+                    "start": 132.715,
+                    "end": 133.595,
+                    "confidence": 0.9913737,
+                    "speaker": 0,
+                    "speaker_confidence": 0.85593474,
+                    "punctuated_word": "commissaires."
+                  },
+                  {
+                    "word": "donc",
+                    "start": 134.235,
+                    "end": 134.39499,
+                    "confidence": 0.97509766,
+                    "speaker": 0,
+                    "speaker_confidence": 0.4254713,
+                    "punctuated_word": "Donc"
+                  },
+                  {
+                    "word": "sans",
+                    "start": 134.39499,
+                    "end": 134.795,
+                    "confidence": 0.80566406,
+                    "speaker": 0,
+                    "speaker_confidence": 0.4254713,
+                    "punctuated_word": "sans"
+                  },
+                  {
+                    "word": "plus",
+                    "start": 134.795,
+                    "end": 134.875,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.4254713,
+                    "punctuated_word": "plus"
+                  },
+                  {
+                    "word": "attendre",
+                    "start": 134.875,
+                    "end": 135.19499,
+                    "confidence": 0.81347656,
+                    "speaker": 0,
+                    "speaker_confidence": 0.4254713,
+                    "punctuated_word": "attendre,"
+                  },
+                  {
+                    "word": "je",
+                    "start": 135.19499,
+                    "end": 135.275,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.4885059,
+                    "punctuated_word": "je"
+                  },
+                  {
+                    "word": "vais",
+                    "start": 135.275,
+                    "end": 135.435,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.4885059,
+                    "punctuated_word": "vais"
+                  },
+                  {
+                    "word": "vous",
+                    "start": 135.435,
+                    "end": 135.595,
+                    "confidence": 0.99609375,
+                    "speaker": 0,
+                    "speaker_confidence": 0.4885059,
+                    "punctuated_word": "vous"
+                  },
+                  {
+                    "word": "passer",
+                    "start": 135.595,
+                    "end": 135.83499,
+                    "confidence": 0.98095703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.4885059,
+                    "punctuated_word": "passer"
+                  },
+                  {
+                    "word": "la",
+                    "start": 135.83499,
+                    "end": 135.995,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.4885059,
+                    "punctuated_word": "la"
+                  },
+                  {
+                    "word": "parole",
+                    "start": 135.995,
+                    "end": 136.235,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.4885059,
+                    "punctuated_word": "parole"
+                  },
+                  {
+                    "word": "pour",
+                    "start": 136.235,
+                    "end": 136.47499,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.4885059,
+                    "punctuated_word": "pour"
+                  },
+                  {
+                    "word": "un",
+                    "start": 136.47499,
+                    "end": 136.555,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.4885059,
+                    "punctuated_word": "un"
+                  },
+                  {
+                    "word": "propos",
+                    "start": 136.555,
+                    "end": 136.795,
+                    "confidence": 0.9921875,
+                    "speaker": 0,
+                    "speaker_confidence": 0.4885059,
+                    "punctuated_word": "propos"
+                  },
+                  {
+                    "word": "liminaire",
+                    "start": 136.795,
+                    "end": 137.19499,
+                    "confidence": 0.98779297,
+                    "speaker": 0,
+                    "speaker_confidence": 0.4885059,
+                    "punctuated_word": "liminaire"
+                  },
+                  {
+                    "word": "de",
+                    "start": 137.19499,
+                    "end": 137.355,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0.4885059,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "10",
+                    "start": 137.355,
+                    "end": 137.595,
+                    "confidence": 0.97265625,
+                    "speaker": 0,
+                    "speaker_confidence": 0.36923206,
+                    "punctuated_word": "10"
+                  },
+                  {
+                    "word": "minutes",
+                    "start": 137.595,
+                    "end": 138.075,
+                    "confidence": 0.9951172,
+                    "speaker": 0,
+                    "speaker_confidence": 0.36923206,
+                    "punctuated_word": "minutes"
+                  },
+                  {
+                    "word": "à",
+                    "start": 138.075,
+                    "end": 138.315,
+                    "confidence": 0.5258789,
+                    "speaker": 0,
+                    "speaker_confidence": 0.36923206,
+                    "punctuated_word": "à"
+                  },
+                  {
+                    "word": "la",
+                    "start": 138.315,
+                    "end": 138.39499,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.36923206,
+                    "punctuated_word": "la"
+                  },
+                  {
+                    "word": "suite",
+                    "start": 138.39499,
+                    "end": 138.555,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.36923206,
+                    "punctuated_word": "suite"
+                  },
+                  {
+                    "word": "de",
+                    "start": 138.555,
+                    "end": 138.715,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5060736,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "quoi",
+                    "start": 138.715,
+                    "end": 138.955,
+                    "confidence": 1,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5060736,
+                    "punctuated_word": "quoi"
+                  },
+                  {
+                    "word": "madame",
+                    "start": 138.955,
+                    "end": 139.355,
+                    "confidence": 0.38989258,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5060736,
+                    "punctuated_word": "madame"
+                  },
+                  {
+                    "word": "la",
+                    "start": 139.355,
+                    "end": 139.515,
+                    "confidence": 0.96240234,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5060736,
+                    "punctuated_word": "la"
+                  },
+                  {
+                    "word": "rapporteure",
+                    "start": 139.515,
+                    "end": 140.075,
+                    "confidence": 0.7729492,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5060736,
+                    "punctuated_word": "rapporteure"
+                  },
+                  {
+                    "word": "vous",
+                    "start": 140.075,
+                    "end": 140.315,
+                    "confidence": 0.96533203,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5060736,
+                    "punctuated_word": "vous"
+                  },
+                  {
+                    "word": "posera",
+                    "start": 140.315,
+                    "end": 140.875,
+                    "confidence": 0.9995117,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5060736,
+                    "punctuated_word": "posera"
+                  },
+                  {
+                    "word": "des",
+                    "start": 140.875,
+                    "end": 141.11499,
+                    "confidence": 0.5776367,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5060736,
+                    "punctuated_word": "des"
+                  },
+                  {
+                    "word": "questions",
+                    "start": 141.11499,
+                    "end": 141.355,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5060736,
+                    "punctuated_word": "questions"
+                  },
+                  {
+                    "word": "qu'elle",
+                    "start": 141.355,
+                    "end": 141.675,
+                    "confidence": 0.99902344,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5060736,
+                    "punctuated_word": "qu'elle"
+                  },
+                  {
+                    "word": "a",
+                    "start": 141.675,
+                    "end": 141.75499,
+                    "confidence": 0.9892578,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5060736,
+                    "punctuated_word": "a"
+                  },
+                  {
+                    "word": "préparé",
+                    "start": 141.75499,
+                    "end": 142.075,
+                    "confidence": 0.5498047,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5060736,
+                    "punctuated_word": "préparé"
+                  },
+                  {
+                    "word": "à",
+                    "start": 142.075,
+                    "end": 142.315,
+                    "confidence": 0.96435547,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5060736,
+                    "punctuated_word": "à"
+                  },
+                  {
+                    "word": "votre",
+                    "start": 142.315,
+                    "end": 142.47499,
+                    "confidence": 0.9980469,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5060736,
+                    "punctuated_word": "votre"
+                  },
+                  {
+                    "word": "attention",
+                    "start": 142.47499,
+                    "end": 142.795,
+                    "confidence": 0.9013672,
+                    "speaker": 0,
+                    "speaker_confidence": 0.5060736,
+                    "punctuated_word": "attention."
+                  },
+                  {
+                    "word": "merci",
+                    "start": 144.20999,
+                    "end": 144.61,
+                    "confidence": 0.69628906,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "Merci"
+                  },
+                  {
+                    "word": "beaucoup",
+                    "start": 144.61,
+                    "end": 144.93,
+                    "confidence": 0.99609375,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "beaucoup"
+                  },
+                  {
+                    "word": "pour",
+                    "start": 144.93,
+                    "end": 145.25,
+                    "confidence": 0.99609375,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "pour"
+                  },
+                  {
+                    "word": "cette",
+                    "start": 145.25,
+                    "end": 145.48999,
+                    "confidence": 0.99316406,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "cette"
+                  },
+                  {
+                    "word": "introduction",
+                    "start": 145.48999,
+                    "end": 146.12999,
+                    "confidence": 0.7680664,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "introduction,"
+                  },
+                  {
+                    "word": "merci",
+                    "start": 146.12999,
+                    "end": 146.29,
+                    "confidence": 0.99316406,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "merci"
+                  },
+                  {
+                    "word": "de",
+                    "start": 146.29,
+                    "end": 146.45,
+                    "confidence": 0.99902344,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "m'avoir",
+                    "start": 146.45,
+                    "end": 146.84999,
+                    "confidence": 1,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "m'avoir"
+                  },
+                  {
+                    "word": "invité",
+                    "start": 146.84999,
+                    "end": 147.25,
+                    "confidence": 0.9560547,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "invité"
+                  },
+                  {
+                    "word": "pour",
+                    "start": 147.25,
+                    "end": 147.56999,
+                    "confidence": 0.99609375,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "pour"
+                  },
+                  {
+                    "word": "cette",
+                    "start": 147.56999,
+                    "end": 148.04999,
+                    "confidence": 0.9658203,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "cette"
+                  },
+                  {
+                    "word": "audition",
+                    "start": 148.04999,
+                    "end": 148.85,
+                    "confidence": 0.91715497,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "audition."
+                  },
+                  {
+                    "word": "donc",
+                    "start": 149.09,
+                    "end": 149.33,
+                    "confidence": 0.91259766,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "Donc"
+                  },
+                  {
+                    "word": "je",
+                    "start": 149.33,
+                    "end": 149.48999,
+                    "confidence": 0.5546875,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "je"
+                  },
+                  {
+                    "word": "préparerai",
+                    "start": 149.48999,
+                    "end": 150.04999,
+                    "confidence": 0.42614746,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "préparerai"
+                  },
+                  {
+                    "word": "un",
+                    "start": 150.04999,
+                    "end": 150.29,
+                    "confidence": 0.9892578,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "un"
+                  },
+                  {
+                    "word": "propos",
+                    "start": 150.29,
+                    "end": 150.45,
+                    "confidence": 0.99316406,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "propos"
+                  },
+                  {
+                    "word": "d'une",
+                    "start": 150.45,
+                    "end": 151.09,
+                    "confidence": 0.73168945,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "d'une"
+                  },
+                  {
+                    "word": "dizaine",
+                    "start": 151.25,
+                    "end": 151.56999,
+                    "confidence": 0.99316406,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "dizaine"
+                  },
+                  {
+                    "word": "de",
+                    "start": 151.56999,
+                    "end": 151.73,
+                    "confidence": 0.984375,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "minutes",
+                    "start": 151.73,
+                    "end": 151.97,
+                    "confidence": 0.9980469,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "minutes"
+                  },
+                  {
+                    "word": "qui",
+                    "start": 151.97,
+                    "end": 152.20999,
+                    "confidence": 0.92822266,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "qui"
+                  },
+                  {
+                    "word": "touche",
+                    "start": 152.20999,
+                    "end": 152.53,
+                    "confidence": 0.6953125,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "touche"
+                  },
+                  {
+                    "word": "déjà",
+                    "start": 152.53,
+                    "end": 152.76999,
+                    "confidence": 0.9980469,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7731737,
+                    "punctuated_word": "déjà"
+                  },
+                  {
+                    "word": "à",
+                    "start": 152.76999,
+                    "end": 152.93,
+                    "confidence": 0.359375,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "à"
+                  },
+                  {
+                    "word": "certains",
+                    "start": 152.93,
+                    "end": 153.17,
+                    "confidence": 0.52734375,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "certains"
+                  },
+                  {
+                    "word": "des",
+                    "start": 153.17,
+                    "end": 153.40999,
+                    "confidence": 0.7373047,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "des"
+                  },
+                  {
+                    "word": "questions",
+                    "start": 153.40999,
+                    "end": 153.65,
+                    "confidence": 1,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "questions"
+                  },
+                  {
+                    "word": "qui",
+                    "start": 153.65,
+                    "end": 153.81,
+                    "confidence": 0.9970703,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "qui"
+                  },
+                  {
+                    "word": "m'ont",
+                    "start": 153.81,
+                    "end": 154.04999,
+                    "confidence": 0.99397784,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "m'ont"
+                  },
+                  {
+                    "word": "été",
+                    "start": 154.04999,
+                    "end": 154.20999,
+                    "confidence": 0.99609375,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "été"
+                  },
+                  {
+                    "word": "posées",
+                    "start": 154.20999,
+                    "end": 154.53,
+                    "confidence": 0.9560547,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "posées"
+                  },
+                  {
+                    "word": "avec",
+                    "start": 154.53,
+                    "end": 154.76999,
+                    "confidence": 0.99902344,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "avec"
+                  },
+                  {
+                    "word": "le",
+                    "start": 154.76999,
+                    "end": 154.93,
+                    "confidence": 0.9980469,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "le"
+                  },
+                  {
+                    "word": "questionnaire",
+                    "start": 154.93,
+                    "end": 155.65,
+                    "confidence": 1,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "questionnaire"
+                  },
+                  {
+                    "word": "et",
+                    "start": 155.65,
+                    "end": 155.89,
+                    "confidence": 0.8095703,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "et"
+                  },
+                  {
+                    "word": "après",
+                    "start": 155.89,
+                    "end": 156.12999,
+                    "confidence": 1,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "après"
+                  },
+                  {
+                    "word": "je",
+                    "start": 156.12999,
+                    "end": 156.37,
+                    "confidence": 0.93115234,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "je"
+                  },
+                  {
+                    "word": "serai",
+                    "start": 156.37,
+                    "end": 156.61,
+                    "confidence": 0.94140625,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "serai"
+                  },
+                  {
+                    "word": "prêt",
+                    "start": 156.61,
+                    "end": 156.84999,
+                    "confidence": 0.99609375,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "prêt"
+                  },
+                  {
+                    "word": "à",
+                    "start": 156.84999,
+                    "end": 157.01,
+                    "confidence": 0.99609375,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "à"
+                  },
+                  {
+                    "word": "répondre",
+                    "start": 157.01,
+                    "end": 157.40999,
+                    "confidence": 0.9980469,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "répondre"
+                  },
+                  {
+                    "word": "à",
+                    "start": 157.40999,
+                    "end": 157.56999,
+                    "confidence": 0.9892578,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "à"
+                  },
+                  {
+                    "word": "vos",
+                    "start": 157.56999,
+                    "end": 157.73,
+                    "confidence": 0.99902344,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "vos"
+                  },
+                  {
+                    "word": "questions",
+                    "start": 157.73,
+                    "end": 158.12999,
+                    "confidence": 1,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "questions"
+                  },
+                  {
+                    "word": "et",
+                    "start": 158.255,
+                    "end": 158.49501,
+                    "confidence": 0.94628906,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "et"
+                  },
+                  {
+                    "word": "je",
+                    "start": 158.49501,
+                    "end": 158.735,
+                    "confidence": 0.99902344,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "je"
+                  },
+                  {
+                    "word": "vous",
+                    "start": 158.735,
+                    "end": 158.895,
+                    "confidence": 0.99902344,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "vous"
+                  },
+                  {
+                    "word": "adresserai",
+                    "start": 158.895,
+                    "end": 159.455,
+                    "confidence": 0.95532227,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "adresserai"
+                  },
+                  {
+                    "word": "ce",
+                    "start": 159.455,
+                    "end": 159.77501,
+                    "confidence": 0.9506836,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "ce"
+                  },
+                  {
+                    "word": "propos",
+                    "start": 159.77501,
+                    "end": 160.095,
+                    "confidence": 0.99902344,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "propos"
+                  },
+                  {
+                    "word": "et",
+                    "start": 160.095,
+                    "end": 160.255,
+                    "confidence": 0.99121094,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "et"
+                  },
+                  {
+                    "word": "mes",
+                    "start": 160.255,
+                    "end": 160.49501,
+                    "confidence": 0.9941406,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "mes"
+                  },
+                  {
+                    "word": "réponses",
+                    "start": 160.49501,
+                    "end": 160.735,
+                    "confidence": 0.9980469,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "réponses"
+                  },
+                  {
+                    "word": "aussi",
+                    "start": 160.735,
+                    "end": 160.975,
+                    "confidence": 0.9838867,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "aussi"
+                  },
+                  {
+                    "word": "par",
+                    "start": 160.975,
+                    "end": 161.215,
+                    "confidence": 0.9980469,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "par"
+                  },
+                  {
+                    "word": "écrit",
+                    "start": 161.215,
+                    "end": 161.455,
+                    "confidence": 0.9951172,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "écrit"
+                  },
+                  {
+                    "word": "à",
+                    "start": 161.455,
+                    "end": 161.695,
+                    "confidence": 0.97998047,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "à"
+                  },
+                  {
+                    "word": "la",
+                    "start": 161.695,
+                    "end": 161.855,
+                    "confidence": 1,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "la"
+                  },
+                  {
+                    "word": "suite",
+                    "start": 161.855,
+                    "end": 162.095,
+                    "confidence": 1,
+                    "speaker": 1,
+                    "speaker_confidence": 0.84527797,
+                    "punctuated_word": "suite"
+                  },
+                  {
+                    "word": "de",
+                    "start": 162.095,
+                    "end": 162.255,
+                    "confidence": 1,
+                    "speaker": 1,
+                    "speaker_confidence": 0.8064042,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "cette",
+                    "start": 162.255,
+                    "end": 162.495,
+                    "confidence": 0.98828125,
+                    "speaker": 1,
+                    "speaker_confidence": 0.8064042,
+                    "punctuated_word": "cette"
+                  },
+                  {
+                    "word": "audition",
+                    "start": 162.495,
+                    "end": 163.05501,
+                    "confidence": 0.96809894,
+                    "speaker": 1,
+                    "speaker_confidence": 0.8064042,
+                    "punctuated_word": "audition."
+                  },
+                  {
+                    "word": "donc",
+                    "start": 163.455,
+                    "end": 163.695,
+                    "confidence": 0.84228516,
+                    "speaker": 1,
+                    "speaker_confidence": 0.8064042,
+                    "punctuated_word": "Donc"
+                  },
+                  {
+                    "word": "je",
+                    "start": 163.695,
+                    "end": 164.015,
+                    "confidence": 0.8203125,
+                    "speaker": 1,
+                    "speaker_confidence": 0.8064042,
+                    "punctuated_word": "je"
+                  },
+                  {
+                    "word": "commence",
+                    "start": 164.015,
+                    "end": 164.335,
+                    "confidence": 1,
+                    "speaker": 1,
+                    "speaker_confidence": 0.8064042,
+                    "punctuated_word": "commence"
+                  },
+                  {
+                    "word": "avec",
+                    "start": 164.335,
+                    "end": 164.575,
+                    "confidence": 0.9951172,
+                    "speaker": 1,
+                    "speaker_confidence": 0.8064042,
+                    "punctuated_word": "avec"
+                  },
+                  {
+                    "word": "une",
+                    "start": 164.575,
+                    "end": 164.735,
+                    "confidence": 0.99902344,
+                    "speaker": 1,
+                    "speaker_confidence": 0.8064042,
+                    "punctuated_word": "une"
+                  },
+                  {
+                    "word": "présentation",
+                    "start": 164.735,
+                    "end": 165.535,
+                    "confidence": 0.76049805,
+                    "speaker": 1,
+                    "speaker_confidence": 0.8064042,
+                    "punctuated_word": "présentation,"
+                  },
+                  {
+                    "word": "je",
+                    "start": 165.535,
+                    "end": 165.695,
+                    "confidence": 0.99902344,
+                    "speaker": 1,
+                    "speaker_confidence": 0.8064042,
+                    "punctuated_word": "je"
+                  },
+                  {
+                    "word": "suis",
+                    "start": 165.695,
+                    "end": 165.855,
+                    "confidence": 1,
+                    "speaker": 1,
+                    "speaker_confidence": 0.54517794,
+                    "punctuated_word": "suis"
+                  },
+                  {
+                    "word": "professeur",
+                    "start": 165.855,
+                    "end": 166.175,
+                    "confidence": 0.984375,
+                    "speaker": 1,
+                    "speaker_confidence": 0.54517794,
+                    "punctuated_word": "professeur"
+                  },
+                  {
+                    "word": "de",
+                    "start": 166.175,
+                    "end": 166.335,
+                    "confidence": 0.95166016,
+                    "speaker": 1,
+                    "speaker_confidence": 0.54517794,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "théorie",
+                    "start": 166.335,
+                    "end": 166.655,
+                    "confidence": 0.89453125,
+                    "speaker": 1,
+                    "speaker_confidence": 0.54517794,
+                    "punctuated_word": "théorie"
+                  },
+                  {
+                    "word": "du",
+                    "start": 166.655,
+                    "end": 167.13501,
+                    "confidence": 0.89501953,
+                    "speaker": 1,
+                    "speaker_confidence": 0.54517794,
+                    "punctuated_word": "du"
+                  },
+                  {
+                    "word": "cinéma",
+                    "start": 167.215,
+                    "end": 167.615,
+                    "confidence": 0.82666016,
+                    "speaker": 1,
+                    "speaker_confidence": 0.54517794,
+                    "punctuated_word": "cinéma,"
+                  },
+                  {
+                    "word": "des",
+                    "start": 167.615,
+                    "end": 167.77501,
+                    "confidence": 0.9658203,
+                    "speaker": 1,
+                    "speaker_confidence": 0.54517794,
+                    "punctuated_word": "des"
+                  },
+                  {
+                    "word": "médias",
+                    "start": 167.77501,
+                    "end": 168.015,
+                    "confidence": 0.9951172,
+                    "speaker": 1,
+                    "speaker_confidence": 0.54517794,
+                    "punctuated_word": "médias"
+                  },
+                  {
+                    "word": "et",
+                    "start": 168.015,
+                    "end": 168.095,
+                    "confidence": 0.8378906,
+                    "speaker": 1,
+                    "speaker_confidence": 0.54517794,
+                    "punctuated_word": "et"
+                  },
+                  {
+                    "word": "de",
+                    "start": 168.095,
+                    "end": 168.175,
+                    "confidence": 0.98291016,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "de"
+                  },
+                  {
+                    "word": "la",
+                    "start": 168.175,
+                    "end": 168.335,
+                    "confidence": 0.9970703,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "la"
+                  },
+                  {
+                    "word": "culture",
+                    "start": 168.335,
+                    "end": 168.575,
+                    "confidence": 0.9951172,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "culture"
+                  },
+                  {
+                    "word": "visuelle",
+                    "start": 168.575,
+                    "end": 168.895,
+                    "confidence": 0.97802734,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "visuelle"
+                  },
+                  {
+                    "word": "à",
+                    "start": 168.895,
+                    "end": 169.05501,
+                    "confidence": 0.99316406,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "à"
+                  },
+                  {
+                    "word": "l'université",
+                    "start": 169.05501,
+                    "end": 169.535,
+                    "confidence": 0.9132487,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "l'université"
+                  },
+                  {
+                    "word": "sorbonne",
+                    "start": 169.535,
+                    "end": 169.935,
+                    "confidence": 0.4970703,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "Sorbonne"
+                  },
+                  {
+                    "word": "nouvelle",
+                    "start": 169.935,
+                    "end": 170.255,
+                    "confidence": 0.5584717,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "Nouvelle."
+                  },
+                  {
+                    "word": "lors",
+                    "start": 170.55501,
+                    "end": 170.875,
+                    "confidence": 0.9819336,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "Lors"
+                  },
+                  {
+                    "word": "des",
+                    "start": 170.875,
+                    "end": 171.035,
+                    "confidence": 0.9921875,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "des"
+                  },
+                  {
+                    "word": "4",
+                    "start": 171.035,
+                    "end": 171.27501,
+                    "confidence": 0.96240234,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "4"
+                  },
+                  {
+                    "word": "dernières",
+                    "start": 171.27501,
+                    "end": 171.595,
+                    "confidence": 0.9970703,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "dernières"
+                  },
+                  {
+                    "word": "années",
+                    "start": 171.595,
+                    "end": 171.99501,
+                    "confidence": 0.9433594,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "années,"
+                  },
+                  {
+                    "word": "j'ai",
+                    "start": 171.99501,
+                    "end": 172.155,
+                    "confidence": 0.9996745,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "j'ai"
+                  },
+                  {
+                    "word": "aussi",
+                    "start": 172.155,
+                    "end": 172.315,
+                    "confidence": 0.9863281,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "aussi"
+                  },
+                  {
+                    "word": "été",
+                    "start": 172.315,
+                    "end": 172.63501,
+                    "confidence": 0.9970703,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "été"
+                  },
+                  {
+                    "word": "professeur",
+                    "start": 172.63501,
+                    "end": 172.955,
+                    "confidence": 0.9892578,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "professeur"
+                  },
+                  {
+                    "word": "en",
+                    "start": 172.955,
+                    "end": 173.195,
+                    "confidence": 0.7265625,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "en"
+                  },
+                  {
+                    "word": "dut",
+                    "start": 173.195,
+                    "end": 173.515,
+                    "confidence": 0.3244629,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "DUT"
+                  },
+                  {
+                    "word": "dans",
+                    "start": 173.515,
+                    "end": 173.835,
+                    "confidence": 0.97265625,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "dans"
+                  },
+                  {
+                    "word": "2",
+                    "start": 173.835,
+                    "end": 174.07501,
+                    "confidence": 0.99609375,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "2"
+                  },
+                  {
+                    "word": "universités",
+                    "start": 174.07501,
+                    "end": 174.55501,
+                    "confidence": 0.99902344,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "universités"
+                  },
+                  {
+                    "word": "américaines",
+                    "start": 174.55501,
+                    "end": 175.35501,
+                    "confidence": 0.9970703,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "américaines"
+                  },
+                  {
+                    "word": "à",
+                    "start": 175.35501,
+                    "end": 175.595,
+                    "confidence": 0.4885254,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "à"
+                  },
+                  {
+                    "word": "yale",
+                    "start": 175.595,
+                    "end": 176.07501,
+                    "confidence": 0.54174805,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "Yale"
+                  },
+                  {
+                    "word": "en",
+                    "start": 176.07501,
+                    "end": 176.395,
+                    "confidence": 0.9370117,
+                    "speaker": 1,
+                    "speaker_confidence": 0.78005904,
+                    "punctuated_word": "en"
+                  },
+                  {
+                    "word": "2022",
+                    "start": 176.395,
+                    "end": 176.875,
+                    "confidence": 0.7779948,
+                    "speaker": 1,
+                    "speaker_confidence": 0.35604918,
+                    "punctuated_word": "2022"
+                  },
+                  {
+                    "word": "et",
+                    "start": 176.875,
+                    "end": 177.115,
+                    "confidence": 0.8125,
+                    "speaker": 1,
+                    "speaker_confidence": 0.35604918,
+                    "punctuated_word": "et"
+                  },
+                  {
+                    "word": "à",
+                    "start": 177.115,
+                    "end": 177.27501,
+                    "confidence": 0.9604492,
+                    "speaker": 1,
+                    "speaker_confidence": 0.35604918,
+                    "punctuated_word": "à"
+                  },
+                  {
+                    "word": "harbard",
+                    "start": 177.27501,
+                    "end": 177.675,
+                    "confidence": 0.39538574,
+                    "speaker": 1,
+                    "speaker_confidence": 0.35604918,
+                    "punctuated_word": "Harbard"
+                  },
+                  {
+                    "word": "en",
+                    "start": 177.675,
+                    "end": 177.91501,
+                    "confidence": 0.87060547,
+                    "speaker": 1,
+                    "speaker_confidence": 0.35604918,
+                    "punctuated_word": "en"
+                  },
+                  {
+                    "word": "2024",
+                    "start": 177.91501,
+                    "end": 178.55501,
+                    "confidence": 0.9898004,
+                    "speaker": 1,
+                    "speaker_confidence": 0.6104954,
+                    "punctuated_word": "2024"
+                  },
+                  {
+                    "word": "et",
+                    "start": 178.55501,
+                    "end": 178.875,
+                    "confidence": 0.9951172,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7377185,
+                    "punctuated_word": "et"
+                  },
+                  {
+                    "word": "25",
+                    "start": 178.875,
+                    "end": 179.59502,
+                    "confidence": 0.9244385,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7377185,
+                    "punctuated_word": "25."
+                  },
+                  {
+                    "word": "je",
+                    "start": 179.675,
+                    "end": 179.835,
+                    "confidence": 0.99609375,
+                    "speaker": 1,
+                    "speaker_confidence": 0.7377185,
+                    "punctuated_word": "Je"
+                  },
+                  {
+                    "word": "suis",
+                    "start": 179.835,
+                    "end": 180.475,
+                    "confidence": 0.9970703,
+                    "speaker": 0,
+                    "speaker_confidence": 0,
+                    "punctuated_word": "suis"
+                  }
+                ],
+                "paragraphs": {
+                  "transcript": "\nSpeaker 0: Bien nous pouvons commencer l'audition. Bienvenue à monsieur Antonio Someni qui nous fait l'honneur et le plaisir de nous rejoindre pour cette audition de la mission d'information. Je répète à chaque fois, désolé, à la création, la diffusion et à l'acquisition des connaissances. Comment l'intelligence artificielle transforme notre éducation et notre culture Tel est le thème de notre travail qui durera à peu près 6 mois. Donc la 1re phase de nos auditions était consacrée à ce que nous pouvions appeler une introduction à l'intelligence artificielle avec des chercheurs, des experts, des entrepreneurs.\n\nNous avons essayé de saisir en quoi ces technologies au pluriel, puisqu'on avez bien expliqué que les intelligences artificielles étaient multiples, représentaient une rupture cognitive, anthropologique. Nous notamons cet après-midi une 2e phase consacrée aux usages et effets de l'intelligence artificielle sur la création. La 3e et dernière phase qui sera organisée au printemps, visera à s'intéresser plus avant aux enjeux éducatifs. Il n'est pas interdit d'en parler aujourd'hui. Ceci étant posé, nous avons le plaisir d'accueillir pour commencer monsieur Antonio Someni qui est professeur de théorie du cinéma, des médias et de la culture visuelle à l'université Sorbonne Nouvelle et membre de l'institut universitaire de France.\n\nMa collègue Céline Calvez et moi-même vous souhaitons, Monsieur le professeur, la bienvenue au sein de cette commission. Il nous a paru important d'associer autant que possible les universitaires à la conduite de notre mission et vous en êtes un éminent représentant. Vos travaux portent notamment sur les liens entre la création et les nouvelles technologies. Vous entendre nous a paru d'autant plus pertinent que vous êtes particulièrement intéressé à l'évolution de notre rapport aux images, notamment mais pas uniquement cinématographique dont on peut dire sans trop s'avancer qu'il sera profondément affecté par la montée en puissance de l'intelligence artificielle. Vous nous pourrez également nous dire un mot si vous le souhaitez des conclusions que vous tirez de l'organisation de l'exposition Le Monde selon l'IA présentée au Jeu de paume l'an dernier et dont vous avez été l'un des commissaires.\n\nDonc sans plus attendre, je vais vous passer la parole pour un propos liminaire de 10 minutes à la suite de quoi madame la rapporteure vous posera des questions qu'elle a préparé à votre attention.\n\nSpeaker 1: Merci beaucoup pour cette introduction, merci de m'avoir invité pour cette audition. Donc je préparerai un propos d'une dizaine de minutes qui touche déjà à certains des questions qui m'ont été posées avec le questionnaire et après je serai prêt à répondre à vos questions et je vous adresserai ce propos et mes réponses aussi par écrit à la suite de cette audition. Donc je commence avec une présentation, je suis professeur de théorie du cinéma, des médias et de la culture visuelle à l'université Sorbonne Nouvelle. Lors des 4 dernières années, j'ai aussi été professeur en DUT dans 2 universités américaines à Yale en 2022 et à Harbard en 2024 et 25. Je\n\nSpeaker 0: suis",
+                  "paragraphs": [
+                    {
+                      "sentences": [
+                        {
+                          "text": "Bien nous pouvons commencer l'audition.",
+                          "start": 3.76,
+                          "end": 6.2400002
+                        },
+                        {
+                          "text": "Bienvenue à monsieur Antonio Someni qui nous fait l'honneur et le plaisir de nous rejoindre pour cette audition de la mission d'information.",
+                          "start": 6.3199997,
+                          "end": 14.719999
+                        },
+                        {
+                          "text": "Je répète à chaque fois, désolé, à la création, la diffusion et à l'acquisition des connaissances.",
+                          "start": 15.325,
+                          "end": 22.365
+                        },
+                        {
+                          "text": "Comment l'intelligence artificielle transforme notre éducation et notre culture Tel est le thème de notre travail qui durera à peu près 6 mois.",
+                          "start": 22.765,
+                          "end": 30.365
+                        },
+                        {
+                          "text": "Donc la 1re phase de nos auditions était consacrée à ce que nous pouvions appeler une introduction à l'intelligence artificielle avec des chercheurs, des experts, des entrepreneurs.",
+                          "start": 31.1,
+                          "end": 40.62
+                        }
+                      ],
+                      "speaker": 0,
+                      "num_words": 93,
+                      "start": 3.76,
+                      "end": 40.62
+                    },
+                    {
+                      "sentences": [
+                        {
+                          "text": "Nous avons essayé de saisir en quoi ces technologies au pluriel, puisqu'on avez bien expliqué que les intelligences artificielles étaient multiples, représentaient une rupture cognitive, anthropologique.",
+                          "start": 40.940002,
+                          "end": 52.255
+                        },
+                        {
+                          "text": "Nous notamons cet après-midi une 2e phase consacrée aux usages et effets de l'intelligence artificielle sur la création.",
+                          "start": 54.015,
+                          "end": 62.21
+                        },
+                        {
+                          "text": "La 3e et dernière phase qui sera organisée au printemps, visera à s'intéresser plus avant aux enjeux éducatifs.",
+                          "start": 62.77,
+                          "end": 70.85
+                        },
+                        {
+                          "text": "Il n'est pas interdit d'en parler aujourd'hui.",
+                          "start": 70.85,
+                          "end": 73.17
+                        },
+                        {
+                          "text": "Ceci étant posé, nous avons le plaisir d'accueillir pour commencer monsieur Antonio Someni qui est professeur de théorie du cinéma, des médias et de la culture visuelle à l'université Sorbonne Nouvelle et membre de l'institut universitaire de France.",
+                          "start": 73.65,
+                          "end": 85.565
+                        }
+                      ],
+                      "speaker": 0,
+                      "num_words": 107,
+                      "start": 40.940002,
+                      "end": 85.565
+                    },
+                    {
+                      "sentences": [
+                        {
+                          "text": "Ma collègue Céline Calvez et moi-même vous souhaitons, Monsieur le professeur, la bienvenue au sein de cette commission.",
+                          "start": 86.270004,
+                          "end": 92.270004
+                        },
+                        {
+                          "text": "Il nous a paru important d'associer autant que possible les universitaires à la conduite de notre mission et vous en êtes un éminent représentant.",
+                          "start": 92.670006,
+                          "end": 99.79
+                        },
+                        {
+                          "text": "Vos travaux portent notamment sur les liens entre la création et les nouvelles technologies.",
+                          "start": 99.79,
+                          "end": 104.355
+                        },
+                        {
+                          "text": "Vous entendre nous a paru d'autant plus pertinent que vous êtes particulièrement intéressé à l'évolution de notre rapport aux images, notamment mais pas uniquement cinématographique dont on peut dire sans trop s'avancer qu'il sera profondément affecté par la montée en puissance de l'intelligence artificielle.",
+                          "start": 104.595,
+                          "end": 121.02
+                        },
+                        {
+                          "text": "Vous nous pourrez également nous dire un mot si vous le souhaitez des conclusions que vous tirez de l'organisation de l'exposition Le Monde selon l'IA présentée au Jeu de paume l'an dernier et dont vous avez été l'un des commissaires.",
+                          "start": 121.659996,
+                          "end": 133.595
+                        }
+                      ],
+                      "speaker": 0,
+                      "num_words": 140,
+                      "start": 86.270004,
+                      "end": 133.595
+                    },
+                    {
+                      "sentences": [
+                        {
+                          "text": "Donc sans plus attendre, je vais vous passer la parole pour un propos liminaire de 10 minutes à la suite de quoi madame la rapporteure vous posera des questions qu'elle a préparé à votre attention.",
+                          "start": 134.235,
+                          "end": 142.795
+                        }
+                      ],
+                      "speaker": 0,
+                      "num_words": 35,
+                      "start": 134.235,
+                      "end": 142.795
+                    },
+                    {
+                      "sentences": [
+                        {
+                          "text": "Merci beaucoup pour cette introduction, merci de m'avoir invité pour cette audition.",
+                          "start": 144.20999,
+                          "end": 148.85
+                        },
+                        {
+                          "text": "Donc je préparerai un propos d'une dizaine de minutes qui touche déjà à certains des questions qui m'ont été posées avec le questionnaire et après je serai prêt à répondre à vos questions et je vous adresserai ce propos et mes réponses aussi par écrit à la suite de cette audition.",
+                          "start": 149.09,
+                          "end": 163.05501
+                        },
+                        {
+                          "text": "Donc je commence avec une présentation, je suis professeur de théorie du cinéma, des médias et de la culture visuelle à l'université Sorbonne Nouvelle.",
+                          "start": 163.455,
+                          "end": 170.255
+                        },
+                        {
+                          "text": "Lors des 4 dernières années, j'ai aussi été professeur en DUT dans 2 universités américaines à Yale en 2022 et à Harbard en 2024 et 25.",
+                          "start": 170.55501,
+                          "end": 179.59502
+                        },
+                        {
+                          "text": "Je",
+                          "start": 179.675,
+                          "end": 179.835
+                        }
+                      ],
+                      "speaker": 1,
+                      "num_words": 114,
+                      "start": 144.20999,
+                      "end": 179.835
+                    },
+                    {
+                      "sentences": [
+                        {
+                          "text": "suis",
+                          "start": 179.835,
+                          "end": 180.475
+                        }
+                      ],
+                      "speaker": 0,
+                      "num_words": 1,
+                      "start": 179.835,
+                      "end": 180.475
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

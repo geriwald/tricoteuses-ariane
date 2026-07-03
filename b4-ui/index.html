@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Ariane — B4 (live)</title>
+  <!-- hls.js: Chrome/Firefox don't play HLS natively; needed for the live AN stream -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
+  <style>
+    body { font-family: sans-serif; margin: 1rem; padding-bottom: 18rem; }
+    #bar { margin-bottom: .5rem; font-size: .95rem; }
+    #bar input { font-family: monospace; width: 20rem; }
+    #hint { font-size: .8rem; color: #888; margin-bottom: .5rem; }
+    #measure { margin-bottom: .5rem; font-size: .85rem; }
+    #replay-bar { margin-bottom: .5rem; font-size: .95rem; }
+    #b2-clock { font-family: monospace; margin-left: .6rem; color: #444; }
+    #measure input { font-family: monospace; width: 10rem; }
+    #start-human { color: #888; margin-left: .5rem; }
+    #clock { font-family: monospace; font-size: .95rem; margin-top: .3rem; color: #222; }
+    #state { font-family: monospace; margin-left: 1rem; color: #444; }
+    #stage { display: flex; gap: 1rem; margin-top: 1rem; align-items: flex-start; }
+    video { width: 640px; max-width: 60%; background: #000; }
+    /* Débats: the woven thread rebuilt as flowing text, one paragraph per
+       speaking turn, canonical ids surfaced as hyperlinks */
+    #debats { flex: 1; min-width: 0; border: 1px solid #ccc; padding: .5rem .8rem; }
+    #debats h3 { margin: 0 0 .5rem; font-size: .9rem; color: #666; }
+    /* fixed height sized to the viewport: header (~15rem) above + fixed
+       console (~18rem) below leave the rest, so the page never scrolls */
+    #debats-text { height: calc(100vh - 33rem); overflow-y: auto; font-size: .95rem; line-height: 1.5; }
+    #debats-text p { margin: .5rem 0; }
+    #debats-text .pending { color: #999; font-style: italic; }
+    #debats-text a.spk { font-weight: bold; text-decoration: none; color: #235; }
+    #debats-text .ref { display: inline-block; margin: 0 .25rem; padding: 0 .35rem;
+                        border-radius: 3px; font-size: .8rem; text-decoration: none; }
+    #debats-text a.adt { background: #e7f3e7; color: #262; border: 1px solid #9c9; }
+    #debats-text .ballot { background: #f4ecdd; color: #741; border: 1px solid #ca8; }
+    #debats-text a.grp { text-decoration: none; color: #557; }
+    /* clickable-ness cue on canonical links */
+    #debats-text a.spk::after, #debats-text a.adt::after, #debats-text a.grp::after {
+      content: "↗"; font-size: .65em; vertical-align: super; margin-left: .1em; }
+    /* hover preview of a canonical AN page (their pages send no
+       X-Frame-Options, so they embed fine). Cross-origin blocks touching the
+       iframe's DOM, so instead of extracting a fragment we clip the page: the
+       viewport (#preview) has overflow:hidden and the iframe is pushed up by
+       --crop to hide the AN header, and scaled by --scale when the page is not
+       responsive (organe pages have a hard min-width of 964px). */
+    #preview { position: fixed; display: none; width: 480px; height: 360px;
+               overflow: hidden; background: #fff; border: 1px solid #999;
+               border-radius: 4px; box-shadow: 0 4px 16px rgba(0,0,0,.25); z-index: 10; }
+    #preview iframe { border: none; position: absolute; left: 0;
+                      top: calc(var(--crop, 0px) * -1);
+                      /* undo the scale on the rendered box so it fills 480px */
+                      width: calc(480px / var(--scale, 1));
+                      height: calc((360px + var(--crop, 0px)) / var(--scale, 1));
+                      transform: scale(var(--scale, 1)); transform-origin: top left; }
+    /* console: the raw woven nodes, pinned to the bottom of the viewport
+       (body gets padding-bottom so page content never hides behind it) */
+    #thread { position: fixed; bottom: 0; left: 0; right: 0; margin: 0;
+              background: #fff; border: none; border-top: 1px solid #ccc;
+              padding: .5rem 1rem; }
+    #thread h3 { margin: 0 0 .5rem; font-size: .9rem; color: #666; }
+    #thread-list { list-style: none; margin: 0; padding: 0; font-family: monospace;
+                   font-size: .72rem; max-height: 14rem; overflow-y: auto; }
+    #thread li { padding: .2rem .3rem; border-bottom: 1px solid #f0f0f0;
+                 word-break: break-all; }
+    #thread li.provisional { color: #888; font-style: italic; }
+    #thread li.consolidated { color: #000; }
+    #thread .meta { font-family: monospace; font-size: .7rem; color: #aaa; margin-right: .4rem; }
+    #thread .status { color: #c00; }
+    /* trame nodes (source: derouleur) stand out from the spoken utterances */
+    #thread li.k-article { border-left: 3px solid #36c; padding-left: .4rem; font-weight: bold; }
+    #thread li.k-amendment { border-left: 3px solid #383; padding-left: .4rem; }
+    #thread li.k-speaker { border-left: 3px solid #a63; padding-left: .4rem; }
+    #thread li.k-phase { border-left: 3px solid #999; padding-left: .4rem; color: #666; }
+    #thread-url { font-family: monospace; width: 16rem; }
+  </style>
+</head>
+<body>
+  <div id="bar">
+    <label>direct-id complet :
+      <input id="direct-id" value="19289735_6a44fdbe54da8">
+    </label>
+    <button id="load">charger le live</button>
+    <span id="state">—</span>
+  </div>
+  <div id="hint">
+    Le direct-id complet est ce qui suit videos.assemblee-nationale.fr/direct.&lt;ici&gt;
+    (change à chaque séance) ; le HLS en dérive la partie avant '_', et le proxy
+    /start-epoch en tire la date de début. B1 doit tourner contre la même vidéo (fil sur :8100).
+  </div>
+  <div id="replay-bar">
+    <label>replay B2 :
+      <select id="record-select"></select></label>
+    <button id="record-load">charger</button>
+    <button id="tp-play">▶</button>
+    <button id="tp-pause">❚❚</button>
+    <button id="tp-back">−30s</button>
+    <button id="tp-fwd">+30s</button>
+    <label>aller à <input id="goto-pos" size="6" placeholder="mm:ss"></label>
+    <button id="tp-goto">→</button>
+    <span id="b2-clock">—</span>
+  </div>
+  <div id="measure">
+    <label>début vidéo (epoch s, = liveplayer.nvs starttime) :
+      <input id="start-epoch" value="1782906302"></label>
+    <span id="start-human"></span>
+    <div id="clock">—</div>
+  </div>
+
+  <div id="stage">
+    <video id="video" controls preload="metadata"></video>
+    <div id="debats">
+      <h3>Débats (reconstitués du fil, liens canoniques)</h3>
+      <div id="debats-text"></div>
+    </div>
+  </div>
+
+  <div id="thread">
+    <h3>Console — fil Ariane brut (tissé en direct par ariane-weaver)
+      <input id="thread-url" value="http://127.0.0.1:8100/thread">
+      <span id="thread-status" class="status"></span></h3>
+    <ul id="thread-list"></ul>
+  </div>
+
+  <div id="preview"><iframe title="aperçu"></iframe></div>
+
+  <script>
+    // B1 ariane-weaver SSE stream (the woven thread — the product). The URL is
+    // editable: 127.0.0.1 when everything is local, caladan:8100 (Tailscale
+    // MagicDNS) when B1 runs on the GPU machine and B4 on serenity.
+    // Live AN video (Vodalys HLS). <ID> = part before the '_' of the direct-id.
+    // Pin ONE variant (stream36_1, 2 Mbps) instead of the master: no ABR probing of
+    // the 3 renditions -> fewer connections to Vodalys, which returns 429 "too many
+    // connections" when B1 + B4 + other tabs all pull the stream at once.
+    const liveHlsUrl = (id) => `http://anorigin.vodalys.com/live/live36/stream36_1_${id}.m3u8`;
+
+    const video = document.getElementById("video");
+    const stateEl = document.getElementById("state");
+    const idInput = document.getElementById("direct-id");
+    let hls = null;
+
+    function playUrl(url, label) {
+      if (hls) { hls.destroy(); hls = null; }
+      video.pause(); video.removeAttribute("src"); video.load();
+      stateEl.textContent = label;
+      if (video.canPlayType("application/vnd.apple.mpegurl")) {
+        video.src = url;                          // Safari plays HLS natively
+        video.play().catch(() => {});
+      } else if (window.Hls && Hls.isSupported()) {
+        hls = new Hls({
+          liveSyncDurationCount: 3,
+          // be patient with Vodalys 429s: retry with delay instead of hammering
+          manifestLoadingMaxRetry: 8, manifestLoadingRetryDelay: 1500,
+          levelLoadingMaxRetry: 8, levelLoadingRetryDelay: 1500,
+          fragLoadingMaxRetry: 10, fragLoadingRetryDelay: 1500,
+        });
+        hls.loadSource(url);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, () => video.play().catch(() => {}));
+        hls.on(Hls.Events.ERROR, (_e, d) => {
+          if (!d.fatal) return;
+          // self-heal instead of dying (this is why it "ne se relançait plus").
+          // On a network error (often Vodalys 429), back off before retrying.
+          if (d.type === Hls.ErrorTypes.NETWORK_ERROR) {
+            stateEl.textContent = "reprise réseau (429 ? ferme les autres onglets vidéo)…";
+            setTimeout(() => { if (hls) hls.startLoad(); }, 3000);
+          } else if (d.type === Hls.ErrorTypes.MEDIA_ERROR) {
+            stateEl.textContent = "reprise média…"; hls.recoverMediaError();
+          } else { stateEl.textContent = "erreur fatale — rechargement"; playUrl(url, label); }
+        });
+      } else {
+        stateEl.textContent = "hls.js indisponible (pas de lecture HLS)";
+      }
+    }
+
+    function playLive() {
+      const did = idInput.value.trim();
+      fetchStartEpoch(did);                         // auto-fill the video start date
+      playUrl(liveHlsUrl(did.split("_")[0]), "LIVE — bord d'attaque");
+    }
+
+    document.getElementById("load").addEventListener("click", playLive);
+
+    // ---- B2 replay: sitting picker + clock transport ----------------------
+    // B2 re-broadcasts the picked sitting as a LIVE sliding HLS, slaved to its
+    // master clock; B4 drives the clock by transport commands only (never a
+    // pushed t) and rewires the player after each move (fresh playlist).
+    const B2 = "http://127.0.0.1:8000";
+    const replayHlsUrl = B2 + "/live/stream.m3u8";
+    const recordSelect = document.getElementById("record-select");
+    const b2ClockEl = document.getElementById("b2-clock");
+
+    async function loadRecords() {
+      try {
+        const recs = await (await fetch(B2 + "/records")).json();
+        recordSelect.replaceChildren();
+        for (const r of recs) {
+          const o = document.createElement("option");
+          o.value = r.name; o.textContent = r.name; o.selected = r.current;
+          recordSelect.appendChild(o);
+        }
+      } catch (e) { /* B2 down: picker stays empty */ }
+    }
+
+    // in replay the frame wall-clock anchor is B2's origin (the video start)
+    async function b2AnchorEpoch() {
+      try {
+        const s = await (await fetch(B2 + "/clock")).json();
+        if (s.origin) epochInput.value = Math.floor(new Date(s.origin).getTime() / 1000);
+      } catch (e) {}
+    }
+
+    async function loadRecord() {
+      const name = recordSelect.value;
+      if (!name) return;
+      await fetch(B2 + `/record?name=${encodeURIComponent(name)}`, { method: "POST" });
+      await b2AnchorEpoch();
+      resetPanes();  // another sitting: console + débats start afresh
+      transport("play");  // start the clock+streamer and wire the player onto it
+      stateEl.textContent = `replay ${name} — démarrage… (B1 se re-référence sous 30s)`;
+    }
+
+    // the streamer wipes and rebuilds its playlist on every move (~4-5s for
+    // the first segment): wait for it to exist before rewiring the player,
+    // and SAY that we are repositioning — a silent freeze reads as "nothing
+    // happened"
+    async function waitForPlaylist(timeoutMs = 20000) {
+      const t0 = Date.now();
+      while (Date.now() - t0 < timeoutMs) {
+        try {
+          const r = await fetch(replayHlsUrl, { method: "HEAD", cache: "no-store" });
+          if (r.ok) return true;
+        } catch (e) {}
+        await new Promise(res => setTimeout(res, 800));
+      }
+      return false;
+    }
+
+    async function transport(cmd, params = "", rewire = true) {
+      try {
+        await fetch(B2 + `/clock/${cmd}${params}`, { method: "POST" });
+        await b2AnchorEpoch();
+        if (rewire) {
+          stateEl.textContent = "repositionnement du direct simulé…";
+          if (await waitForPlaylist())
+            playUrl(replayHlsUrl, "REPLAY B2 — bord d'attaque");
+          else
+            stateEl.textContent = "flux B2 indisponible après repositionnement";
+        }
+      } catch (e) { stateEl.textContent = "B2 injoignable (:8000)"; }
+    }
+
+    function gotoPosition() {
+      const raw = document.getElementById("goto-pos").value.trim();
+      const m = /^(\d+)(?::([0-5]?\d))?$/.exec(raw);   // "75" (min) or "75:30"
+      if (!m) { stateEl.textContent = "position invalide (mm ou mm:ss)"; return; }
+      const ms = (parseInt(m[1], 10) * 60 + (parseInt(m[2] || "0", 10))) * 1000;
+      transport("seek", `?t=${ms}`);
+    }
+
+    document.getElementById("record-load").addEventListener("click", loadRecord);
+    document.getElementById("tp-play").addEventListener("click", () => transport("play"));
+    document.getElementById("tp-pause").addEventListener("click", () => {
+      transport("pause", "", false);
+      video.pause();
+    });
+    document.getElementById("tp-back").addEventListener("click", () => transport("seek_by", "?delta=-30000"));
+    document.getElementById("tp-fwd").addEventListener("click", () => transport("seek_by", "?delta=30000"));
+    document.getElementById("tp-goto").addEventListener("click", gotoPosition);
+    document.getElementById("goto-pos").addEventListener("keydown",
+      (e) => { if (e.key === "Enter") gotoPosition(); });
+
+    setInterval(async () => {
+      try {
+        const s = await (await fetch(B2 + "/clock")).json();
+        b2ClockEl.textContent =
+          `${s.playing ? "▶" : "❚❚"} t=${fmt(s.t_ms)} · ${(s.wall || "").slice(11, 19)}`;
+      } catch (e) { b2ClockEl.textContent = "B2 —"; }
+    }, 1000);
+    loadRecords();
+
+    // ---- offset measurement ----------------------------------------------
+    // No PROGRAM-DATE-TIME in the HLS, so wall-clock of the played frame is
+    // reconstructed: frameWall = startEpoch + video.currentTime (segment 0 = start).
+    // "retard réel" = how far behind real time the played frame is (broadcast +
+    // buffering). Compare "heure frame" against the official player's clock to read
+    // the B4-vs-Chrome offset. Caveat: valid while MEDIA-SEQUENCE=0 (DVR not sliding).
+    const epochInput = document.getElementById("start-epoch");
+    const startHuman = document.getElementById("start-human");
+    const clockEl = document.getElementById("clock");
+    const parisTime = new Intl.DateTimeFormat("fr-FR", { timeStyle: "medium", timeZone: "Europe/Paris" });
+    const clockStr = (epochSec) => parisTime.format(new Date(epochSec * 1000));
+
+    // ask serve.py's proxy for the sitting's liveplayer.nvs starttime (no CORS server-side)
+    async function fetchStartEpoch(did) {
+      try {
+        const j = await (await fetch(`/start-epoch?id=${encodeURIComponent(did)}`)).json();
+        if (j.start_epoch) epochInput.value = j.start_epoch;
+      } catch (e) { /* keep whatever is in the field */ }
+    }
+
+    function updateClock() {
+      const start = parseInt(epochInput.value, 10) || 0;
+      startHuman.textContent = start ? "→ " + clockStr(start) : "";
+      const ct = video.currentTime || 0;
+      const frameWall = start + ct;
+      const now = Date.now() / 1000;
+      const lag = now - frameWall;
+      clockEl.textContent =
+        `vidéo ${fmt(ct * 1000)}   ·   heure frame ${clockStr(frameWall)}   ·   ` +
+        `réel ${clockStr(now)}   ·   retard réel ${lag.toFixed(1)} s`;
+    }
+    setInterval(updateClock, 250);
+
+    // ---- Ariane thread: B1 SSE -------------------------------------------
+    const threadList = document.getElementById("thread-list");
+    const threadStatus = document.getElementById("thread-status");
+    const rowBySeq = {};
+
+    function fmt(ms) {
+      const total = Math.floor(ms / 1000);
+      const h = Math.floor(total / 3600);
+      const m = Math.floor((total % 3600) / 60);
+      const s = total % 60;
+      return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+    }
+
+    function fmtNode(n) {
+      // raw first pass: show the woven node as-is (canonical, seq, state, source…)
+      const li = document.createElement("li");
+      li.className = (n.state === "consolidated" ? "consolidated" : "provisional")
+                   + " k-" + n.kind;
+      li.textContent = JSON.stringify(n);
+      return li;
+    }
+
+    function onThreadNode(n) {
+      // follow the tail only when already scrolled to the bottom; if the user
+      // scrolled up to read, don't yank them back down.
+      const atBottom = threadList.scrollHeight - threadList.scrollTop - threadList.clientHeight < 32;
+      const li = fmtNode(n);
+      // replace the superseded row; falling back on n.seq makes a backlog replay
+      // (SSE auto-reconnect resends everything) idempotent instead of duplicating
+      const prev = (n.supersedes != null ? rowBySeq[n.supersedes] : null) || rowBySeq[n.seq];
+      if (prev) prev.replaceWith(li); else threadList.appendChild(li);
+      rowBySeq[n.seq] = li;
+      if (atBottom) threadList.scrollTop = threadList.scrollHeight;
+    }
+
+    // ---- Débats: the thread rebuilt as flowing text with canonical links ----
+    // A paragraph is a speaking turn: a deduced speaker node opens one (name
+    // linked to the député's AN page), Whisper's dialogue dash also breaks one.
+    // Deduced amendments become linked badges inline; ballots plain badges.
+    const debatsText = document.getElementById("debats-text");
+    let curPara = null, pendingSpan = null, maxSeq = -1;
+
+    const acteurUrl = (pa) => `https://www.assemblee-nationale.fr/dyn/deputes/${pa}`;
+    const groupeUrl = (po) => `https://www2.assemblee-nationale.fr/instances/fiche/OMC_${po}`;
+    function amdtUrl(uid) {
+      // AMANR5L17PO838901BTC2915P0D1N001136 → /dyn/17/amendements/2915/AN/1136
+      const m = /L(\d+).*BTC(\d+[A-Z]*).*N0*(\d+)$/.exec(uid || "");
+      return m ? `https://www.assemblee-nationale.fr/dyn/${m[1]}/amendements/${m[2]}/AN/${m[3]}` : null;
+    }
+
+    // ---- turn-boundary refinement: the group echo -------------------------
+    // The chair's call ends with the group name («…madame Ludmann du groupe /
+    // Horizon.») and often straddles two utterances: the tail of the call lands
+    // at the START of the new speaker's paragraph. When a speaker node carries
+    // its group label, strip that echo off the turn's first utterance and give
+    // it back to the previous paragraph (the chair's).
+    let prevPara = null, echoWords = null, lastBoundaryT = null, anonSpan = null;
+    let pendingWeakCall = null;  // bare-name call waiting for a voice boundary
+
+    // the linked speaker header: name (→ fiche), group (→ organe), a dash
+    function speakerHead(n, url) {
+      const frag = document.createDocumentFragment();
+      const a = document.createElement("a");
+      a.href = url; a.target = "_blank"; a.className = "spk";
+      a.textContent = n.text;
+      frag.appendChild(a);
+      if (n.canonical.groupe) {
+        frag.appendChild(document.createTextNode(" ("));
+        const g = document.createElement("a");
+        g.href = groupeUrl(n.canonical.groupe);
+        g.target = "_blank"; g.className = "grp";
+        g.textContent = n.groupe_label || n.canonical.groupe;
+        frag.appendChild(g);
+        frag.appendChild(document.createTextNode(")"));
+      }
+      frag.appendChild(document.createTextNode(" — "));
+      return frag;
+    }
+    const normWord = (w) =>
+      w.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[.,;:!?]+$/, "");
+
+    function stripGroupEcho(text) {
+      if (!echoWords) return text;
+      const words = text.trim().split(/\s+/);
+      let cut = 0;
+      while (cut < words.length) {
+        const w = normWord(words[cut]);
+        const hit = echoWords.some(g => g === w ||
+          (w.length >= 3 && (g.startsWith(w) || w.startsWith(g))));
+        if (!hit) break;
+        cut++;
+        if (/[.!?]$/.test(words[cut - 1])) break;  // the call's closing punctuation
+      }
+      echoWords = null;  // only ever tried on the turn's first utterance
+      if (!cut || !prevPara) return text;
+      prevPara.appendChild(document.createTextNode(" " + words.slice(0, cut).join(" ")));
+      return words.slice(cut).join(" ");
+    }
+
+    function newPara() {
+      curPara = document.createElement("p");
+      debatsText.appendChild(curPara);
+      return curPara;
+    }
+
+    // Repair the misheard name in the already-rendered prose (issue #17 by
+    // resolution): find the heard string («madame Lundmann») in the current
+    // paragraph's recent text and replace it with the canonical name, linked.
+    function wrapHeard(para, heard, canonText, url) {
+      if (!para) return null;
+      const recent = Array.from(para.childNodes).reverse().slice(0, 8);
+      for (const tn of recent) {
+        if (tn.nodeType !== Node.TEXT_NODE) continue;
+        const i = tn.textContent.indexOf(heard);
+        if (i < 0) continue;
+        const mid = tn.splitText(i);       // mid starts at the heard name
+        mid.splitText(heard.length);       // mid now contains exactly the name
+        const a = document.createElement("a");
+        a.href = url; a.target = "_blank"; a.className = "spk";
+        a.textContent = canonText;
+        mid.replaceWith(a);
+        return a;
+      }
+      return null;
+    }
+
+    // The chair's thanking-and-calling turn («Merci beaucoup. Mme Santiago.»)
+    // is usually glued to the END of the previous speaker's paragraph: split
+    // it out into its own «Présidence» paragraph, cutting at the last
+    // «Merci…» (or the start of the name's own sentence) before the name.
+    function splitChairTurn(linkEl) {
+      const para = linkEl.parentElement;
+      if (!para || !linkEl.previousSibling) return null;  // already opens its para
+      let start = linkEl;
+      const tn = linkEl.previousSibling;
+      if (tn.nodeType === Node.TEXT_NODE) {
+        const s = tn.textContent;
+        const m = s.match(/(?:Merci(?:\s+beaucoup)?|Je vous remercie)[^.!?]*[.!?]?\s*$/);
+        let cut = m ? m.index
+                    : Math.max(s.lastIndexOf("."), s.lastIndexOf("?"), s.lastIndexOf("!")) + 1;
+        if (cut > 0 && cut < s.length) start = tn.splitText(cut);
+        else if (cut === 0) start = tn;
+      }
+      const chair = document.createElement("p");
+      const head = document.createElement("span");
+      head.className = "pending";
+      head.textContent = "Présidence — ";
+      chair.appendChild(head);
+      while (start) { const nx = start.nextSibling; chair.appendChild(start); start = nx; }
+      para.after(chair);
+      if (para === curPara) curPara = chair;
+      return chair;
+    }
+    const ensurePara = () => curPara || newPara();
+    function clearPending() { if (pendingSpan) { pendingSpan.remove(); pendingSpan = null; } }
+
+    function debatsNode(n) {
+      const atBottom = debatsText.scrollHeight - debatsText.scrollTop - debatsText.clientHeight < 40;
+      if (n.kind === "utterance" && n.state === "provisional") {
+        // the live rewrite: one grey tail span, overwritten by each interim
+        if (!pendingSpan) {
+          pendingSpan = document.createElement("span");
+          pendingSpan.className = "pending";
+          ensurePara().appendChild(pendingSpan);
+        }
+        pendingSpan.textContent = " " + n.text;
+      } else if (n.kind === "utterance") {
+        clearPending();
+        let text = stripGroupEcho(n.text);
+        // Whisper's turn-change dash is «– » (dash + space); a glued dash
+        // («-là») is word hyphenation split across utterances — no break,
+        // and rejoin without a space (ordre + -là → ordre-là)
+        const glued = /^[-–—]\S/.test(text.trim());
+        // late consolidation: an utterance that BEGAN before the last turn
+        // boundary belongs to the previous turn's paragraph («Allons» / ◇ /
+        // «-y s'il vous plaît» — the tail goes back with «Allons»)
+        if (lastBoundaryT != null && n.t < lastBoundaryT && prevPara) {
+          if (text) prevPara.appendChild(
+            document.createTextNode((glued ? "" : " ") + text.trim()));
+        } else {
+          if (/^\s*[-–—]\s/.test(text)) {
+            newPara();
+            text = text.replace(/^\s*[-–—]\s*/, "");
+          }
+          if (text) ensurePara().appendChild(
+            document.createTextNode((glued ? "" : " ") + text.trim()));
+        }
+      } else if (n.kind === "speaker" && !n.canonical.acteur) {
+        // anonymous boundary (diarization): a turn break without identity —
+        // no link, greyed; the name deduction is what names turns. A boundary
+        // arriving right after a named call is the SAME handover: skip it.
+        if (lastBoundaryT != null && Math.abs(n.t - lastBoundaryT) < 10000) return;
+        clearPending();
+        prevPara = curPara;      // late consolidations route back there
+        lastBoundaryT = n.t;
+        // a bare-name call was waiting for exactly this voice change: the
+        // boundary confirms it — open the NAMED turn instead of an anonymous one
+        if (pendingWeakCall && Math.abs(pendingWeakCall.t - n.t) < 10000) {
+          const w = pendingWeakCall;
+          pendingWeakCall = null;
+          echoWords = w.groupe_label ? w.groupe_label.split(/\s+/).map(normWord) : null;
+          anonSpan = null;
+          newPara().appendChild(speakerHead(w, acteurUrl(w.canonical.acteur)));
+          if (atBottom) debatsText.scrollTop = debatsText.scrollHeight;
+          return;
+        }
+        anonSpan = document.createElement("span");
+        anonSpan.className = "pending";
+        anonSpan.textContent = n.text + " ";
+        newPara().appendChild(anonSpan);
+      } else if (n.kind === "speaker") {
+        // repair the misheard spelling in the prose (the call may have been
+        // rendered in the current OR the previous paragraph), linked
+        const url = acteurUrl(n.canonical.acteur);
+        const linkEl = n.heard
+          ? (wrapHeard(curPara, n.heard, n.text, url)
+             || wrapHeard(prevPara, n.heard, n.text, url))
+          : null;
+        if (n.call === false) {
+          // a mere mention (name quoted inside a speech): no turn break
+          if (atBottom) debatsText.scrollTop = debatsText.scrollHeight;
+          return;
+        }
+        // a bare-name sentence is only a WEAK call («Qui c'est que j'ai
+        // oublié ? Mme Josiane Corneloup.» is the minister): it opens a turn
+        // only when a voice boundary corroborates — recent, or soon to come
+        if (n.call === "weak"
+            && !(lastBoundaryT != null && Math.abs(n.t - lastBoundaryT) < 10000)) {
+          pendingWeakCall = n;  // rendered as a mention (already repaired+linked)
+          if (atBottom) debatsText.scrollTop = debatsText.scrollHeight;
+          return;
+        }
+        clearPending();
+        // pull the chair's thanking+calling turn out of the previous
+        // speaker's paragraph into its own «Présidence» paragraph
+        const chair = linkEl ? splitChairTurn(linkEl) : null;
+        echoWords = n.groupe_label ? n.groupe_label.split(/\s+/).map(normWord) : null;
+        // an anonymous (diar) paragraph opened for this same handover:
+        // name it instead of opening a duplicate
+        if (anonSpan && lastBoundaryT != null && Math.abs(n.t - lastBoundaryT) < 10000) {
+          anonSpan.replaceWith(speakerHead(n, url));
+          anonSpan = null;
+          if (chair) prevPara = chair;
+          if (atBottom) debatsText.scrollTop = debatsText.scrollHeight;
+          return;
+        }
+        prevPara = chair || curPara;  // group echo + late routing target
+        lastBoundaryT = n.t;
+        anonSpan = null;
+        newPara().appendChild(speakerHead(n, url));
+      } else if (n.kind === "amendment") {
+        const url = amdtUrl(n.canonical.amendement_uid);
+        const el = document.createElement(url ? "a" : "span");
+        if (url) { el.href = url; el.target = "_blank"; }
+        el.className = "ref adt";
+        el.textContent = n.text;
+        ensurePara().appendChild(el);
+      } else if (n.kind === "ballot") {
+        const el = document.createElement("span");
+        el.className = "ref ballot";
+        el.textContent = n.text;
+        ensurePara().appendChild(el);
+      }
+      if (atBottom) debatsText.scrollTop = debatsText.scrollHeight;
+    }
+
+    // ---- hover preview of canonical links ---------------------------------
+    // One floating iframe, filled on hover intent (delay: a mouse swipe across
+    // the prose must not fire page loads). It stays open while the pointer is
+    // on the link or inside the preview, so its content is scrollable.
+    const preview = document.getElementById("preview");
+    const previewFrame = preview.querySelector("iframe");
+    const PREVIEW_W = 480, PREVIEW_H = 360;
+    let previewShowTimer = null, previewHideTimer = null;
+
+    // Per-link-type framing (measured against a 480px-wide iframe, cf. the
+    // #preview CSS): crop hides the AN header, scale fits non-responsive pages.
+    //  .spk député  → responsive, header 0, #main at y≈89
+    //  .adt amendt  → responsive, header 0, #main at y≈48
+    //  .grp organe  → legacy www2, NOT responsive (min-width 964px), header
+    //                 165→245: scale the whole page down so nothing is cut off
+    const previewFrame_cfg = (a) =>
+      a.classList.contains("grp") ? { crop: 245, scale: 480 / 964 }
+      : a.classList.contains("adt") ? { crop: 48, scale: 1 }
+      : { crop: 89, scale: 1 };  // .spk and default
+
+    function placePreview(a) {
+      const r = a.getBoundingClientRect();
+      const x = Math.max(4, Math.min(r.left, innerWidth - PREVIEW_W - 12));
+      let y = r.bottom + 6;                       // below the link…
+      if (y + PREVIEW_H > innerHeight - 12) y = r.top - PREVIEW_H - 6;  // …or above
+      preview.style.left = x + "px";
+      preview.style.top = Math.max(4, y) + "px";
+    }
+    function hidePreview() {
+      preview.style.display = "none";
+      previewFrame.removeAttribute("src");        // stop the page (audio, timers)
+    }
+    debatsText.addEventListener("mouseover", (e) => {
+      const a = e.target.closest("a[href]");
+      if (!a) return;
+      clearTimeout(previewShowTimer); clearTimeout(previewHideTimer);
+      previewShowTimer = setTimeout(() => {
+        const cfg = previewFrame_cfg(a);
+        preview.style.setProperty("--crop", cfg.crop + "px");
+        preview.style.setProperty("--scale", cfg.scale);
+        if (previewFrame.getAttribute("src") !== a.href) previewFrame.src = a.href;
+        placePreview(a);
+        preview.style.display = "block";
+      }, 350);
+    });
+    debatsText.addEventListener("mouseout", (e) => {
+      if (!e.target.closest("a[href]")) return;
+      clearTimeout(previewShowTimer);
+      previewHideTimer = setTimeout(hidePreview, 300);
+    });
+    preview.addEventListener("mouseenter", () => clearTimeout(previewHideTimer));
+    preview.addEventListener("mouseleave", () => {
+      previewHideTimer = setTimeout(hidePreview, 300);
+    });
+
+    const threadUrlInput = document.getElementById("thread-url");
+    let threadEs = null;
+
+    function resetPanes() {
+      // console + débats start afresh (record switch, new thread…)
+      threadList.replaceChildren();
+      for (const k in rowBySeq) delete rowBySeq[k];
+      debatsText.replaceChildren();
+      curPara = null; pendingSpan = null;
+      prevPara = null; echoWords = null; lastBoundaryT = null; anonSpan = null;
+      pendingWeakCall = null;
+    }
+
+    function connectThread() {
+      if (threadEs) threadEs.close();
+      resetPanes();
+      maxSeq = -1;  // a different B1 is a different seq space
+      const url = threadUrlInput.value.trim();
+      threadEs = new EventSource(url);
+      threadEs.onopen = () => { threadStatus.textContent = ""; };
+      threadEs.onmessage = (ev) => {
+        try {
+          const n = JSON.parse(ev.data);
+          onThreadNode(n);
+          // the console is idempotent by seq; the flowing text is not, so skip
+          // backlog replays (SSE auto-reconnect) which would duplicate the prose
+          if (n.seq > maxSeq) { maxSeq = n.seq; debatsNode(n); }
+        } catch (e) {}
+      };
+      threadEs.onerror = () => { threadStatus.textContent = `B1 hors ligne (${url})`; };
+    }
+    threadUrlInput.addEventListener("change", connectThread);
+    connectThread();
+
+    // on page load: if B2 answers, the session is a replay one — watch its
+    // stream if playing, or say so if paused (a paused streamer serves no
+    // playlist: showing the dead AN direct instead only confuses). The AN
+    // direct is the fallback when B2 is down (real sitting days).
+    (async () => {
+      try {
+        const s = await (await fetch(B2 + "/clock")).json();
+        await b2AnchorEpoch();
+        if (s.playing) {
+          playUrl(replayHlsUrl, "REPLAY B2 — bord d'attaque");
+        } else {
+          stateEl.textContent = "replay B2 en pause — ▶ pour lancer";
+        }
+        return;
+      } catch (e) { /* B2 down: fall through to the direct */ }
+      playLive();   // start on the default direct-id
+    })();
+  </script>
+</body>
+</html>
