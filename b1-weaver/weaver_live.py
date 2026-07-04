@@ -34,6 +34,7 @@ import numpy as np
 
 import deduce
 import diar
+import proofread
 import weaver as w
 
 # the proven streaming stack (torch cu128 + faster-whisper): whisper_streaming's
@@ -142,13 +143,14 @@ def _fetch_json(url, timeout=15):
 
 
 def poll_referentials(agenda_url, actors_url, organes_url, agenda, deducer,
-                      interval=30.0):
+                      interval=30.0, proofread_worker=None):
     """Keep every lookup dictionary fresh — agenda, actors, organes.
 
     Sittings follow one another on the same live flow (and B4 can switch B2's
     record), so referentials are POLLED, never a restart reason. The agenda
     accumulates (the derouleur purges discussed lines); actors/organes are
-    swapped whole. Errors skip the tick; only transitions are logged."""
+    swapped whole. Errors skip the tick; only transitions are logged. The
+    proofread worker gets the same actor set (its candidate list)."""
     failing = False
     while True:
         try:
@@ -157,6 +159,8 @@ def poll_referentials(agenda_url, actors_url, organes_url, agenda, deducer,
                 actors = _fetch_json(actors_url)
                 organes = _fetch_json(organes_url) if organes_url else []
                 deducer.set_referentials(actors, organes)
+                if proofread_worker is not None:
+                    proofread_worker.set_actors(actors)
             if failing:
                 print("[referentials] back up", file=sys.stderr, flush=True)
                 failing = False
@@ -227,6 +231,50 @@ class DiarWorker:
                       file=sys.stderr, flush=True)
 
 
+class ProofreadWorker:
+    """LLM proofread pass on a background thread (spec 2026-07-03, #17).
+
+    Consolidated STT utterances are buffered into windows; when one fires (or
+    speech pauses for `idle_flush` seconds), the window goes to the LLM
+    (`claude -p`) and the corrected, re-segmented nodes ride the same thread —
+    a node may supersede several STT fragments (D8). Runs OFF the STT loop so
+    the ~1-min LLM call never stalls transcription (same pattern as DiarWorker).
+    Corrected nodes are emitted via the base sink (log + broadcast), NOT through
+    the deducer: deduction already ran on the raw utterances, re-deducing the
+    corrected text would double the trame (a future refinement, not v1).
+    Actors (the candidate list) are refreshed by the referential poller."""
+
+    def __init__(self, emit, seq, transport, actors=None, idle_flush=30.0):
+        self._emit = emit
+        self._pf = proofread.Proofreader(actors or [], transport, seq)
+        self._idle_flush = idle_flush
+        self._q = queue.Queue()
+
+    def set_actors(self, actors):
+        self._pf.set_actors(actors)
+
+    def push(self, node):
+        if proofread._is_target(node):  # consolidated STT utterances only
+            self._q.put(node)
+
+    def start(self):
+        threading.Thread(target=self._run, daemon=True).start()
+
+    def _run(self):
+        print("[proofread] window worker started", file=sys.stderr, flush=True)
+        while True:
+            try:
+                outs = self._pf.feed(self._q.get(timeout=self._idle_flush))
+            except queue.Empty:
+                outs = self._pf.flush()  # speech paused: flush the partial window
+            for out in outs:
+                self._emit(out)
+                sup = out["supersedes"]
+                n = len(sup) if isinstance(sup, list) else 1
+                print(f"✎ [{out['t'] / 1000:6.1f}] corrigé (supersede {n}): "
+                      f"{out['text'][:70]}", file=sys.stderr, flush=True)
+
+
 def _make_handler(broadcaster):
     class Handler(BaseHTTPRequestHandler):
         protocol_version = "HTTP/1.1"
@@ -290,12 +338,44 @@ def main():
     ap.add_argument("--follow", action="store_true", default=False,
                     help="reconnect when a live source dries up (B2 playlist "
                          "resets on transport moves) instead of exiting")
+    ap.add_argument("--proofread", action="store_true", default=False,
+                    help="last B1 stage: an LLM (claude -p) proofreads and "
+                         "re-segments the consolidated utterances against the "
+                         "sitting's actor list (spec 2026-07-03, #17)")
+    ap.add_argument("--proofread-model", default="sonnet",
+                    help="model for the proofread pass (claude CLI alias)")
     args = ap.parse_args()
 
     seq = w.Seq()
     weaver = w.Weaver(seq=seq)
     log = w.ThreadLog(args.out)
     broadcaster = w.Broadcaster()
+
+    # single choke point so every weaver stays thread-safe
+    # (ThreadLog.append is not thread-safe on its own)
+    emit_lock = threading.Lock()
+
+    def emit_base(node):
+        with emit_lock:
+            log.append(node)
+            broadcaster.publish(node)
+
+    # the proofread side: a background worker so the ~1-min LLM call never stalls
+    # the STT loop; corrected nodes go through emit_base (no re-deduction)
+    proofread_worker = None
+    if args.proofread:
+        def _pf_transport(prompt):
+            return proofread.claude_cli_transport(prompt, model=args.proofread_model)
+        pf_actors = []
+        if args.actors:
+            try:
+                pf_actors = _fetch_json(args.actors)
+            except Exception as e:
+                print(f"[proofread] actors fetch failed ({e}); starting without "
+                      "candidates until the poller fills them",
+                      file=sys.stderr, flush=True)
+        proofread_worker = ProofreadWorker(emit_base, seq, _pf_transport,
+                                           actors=pf_actors)
 
     # the deduction side: referentials are lookup dictionaries, nothing more
     deducer = None
@@ -307,25 +387,22 @@ def main():
         threading.Thread(target=poll_referentials,
                          args=(args.agenda, args.actors, args.organes,
                                agenda, deducer),
+                         kwargs={"proofread_worker": proofread_worker},
                          daemon=True).start()
-
-    # single choke point so both weavers stay thread-safe
-    # (ThreadLog.append is not thread-safe on its own)
-    emit_lock = threading.Lock()
-
-    def emit_base(node):
-        with emit_lock:
-            log.append(node)
-            broadcaster.publish(node)
 
     def emit_node(node):
         emit_base(node)
+        if proofread_worker is not None:
+            proofread_worker.push(node)  # consolidated STT utterances -> proofread
         if deducer is None:
             return
         for extra in deducer.feed(node):  # deduced trame rides the same thread
             emit_base(extra)
             print(f"◆ [{extra['t'] / 1000:6.1f}] {extra['kind']}: {extra['text']}",
                   file=sys.stderr, flush=True)
+
+    if proofread_worker is not None:
+        proofread_worker.start()
 
     httpd = ThreadingHTTPServer((args.bind, args.port), _make_handler(broadcaster))
     threading.Thread(target=httpd.serve_forever, daemon=True).start()
