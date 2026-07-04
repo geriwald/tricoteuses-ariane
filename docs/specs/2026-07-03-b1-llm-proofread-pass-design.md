@@ -1,7 +1,7 @@
 ---
 title: "B1 — LLM proofread pass (issue #17) — design"
 date: 2026-07-03
-status: validated (Géraud, 2026-07-03 — option D actée après éval)
+status: validated (Géraud, 2026-07-03 — option D + re-segmentation D8 actées après éval)
 parent: 2026-07-01-b1-weaver-design.md
 ---
 
@@ -101,9 +101,39 @@ génération des nœuds `supersedes`) + le transport CLI isolé derrière une
 fonction injectable (mockée dans les tests). Prompt dans
 `b1-weaver/prompts/proofread.md`, versionné.
 
+### D8 — Re-segmentation : un nœud peut superséder plusieurs seq (révise D3bis)
+
+D3bis interdisait de toucher au découpage (contrat strict par seq). L'éval du
+2026-07-03 l'a invalidé : le STT coupe **13 % des utterances en plein milieu**
+d'une phrase (mesuré sur la séance du 26/06), et ces coupures bloquaient des
+corrections. **D3bis est levée.**
+
+Le LLM reçoit un paragraphe et renvoie le transcript corrigé **une prise de
+parole par ligne**, libre de **fusionner** les fragments qu'une phrase traverse.
+Un `realign` déterministe (union-find des lignes partageant un seq, testé)
+rattache chaque segment corrigé à l'**ensemble des seq** qu'il couvre. Le nœud
+émis porte alors `supersedes: [seq, …]` (liste) et hérite du **`t` le plus
+précoce** des seq couverts (début de la prise de parole sur la vidéo). Deux
+garde-fous : une ligne ne couvrant aucun seq d'origine (invention pure) est
+ignorée ; un seq entièrement supprimé par le modèle est **laissé tel quel**,
+jamais escamoté (préservation du contenu).
+
+Consommateurs de `supersedes` mis à jour : B4 (`b4-ui/index.html`) normalise
+`supersedes` en liste, remplace la première ligne supersédée et retire les
+autres.
+
+**Liberté de réécriture assumée (validée Géraud 2026-07-03).** Le modèle peut
+re-rattacher les nombres à leurs étiquettes dans un décompte de scrutin mal
+transcrit (« 32 pour, 23 contre » → « majorité 32, pour 23 ») et restructurer
+la ponctuation/le découpage du sens. Ces libertés ont été examinées sur cas
+réels et jugées **correctes** : on privilégie la lisibilité d'un compte rendu
+propre. La règle « ne jamais inventer un nom hors candidats » (D2) reste, elle,
+absolue.
+
 ## Hors-scope
 
-- La 2e passe Whisper sur chunks recollés (fonction 2 — chantier séparé).
+- La 2e passe Whisper sur chunks recollés (fonction 2 — chantier séparé) ;
+  note : D8 répare déjà les noms coupés à une frontière de fragment par fusion.
 - La signature des voix (fonction 1 — non spécifiée à ce jour).
 - Le lexique de corrections inter-fenêtres (« Someni → Somaini » mémorisé et
   réinjecté) — v2 si l'éval montre des incohérences entre fenêtres.
