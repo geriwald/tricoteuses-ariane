@@ -54,10 +54,13 @@ def audio_frames(source, min_chunk=1.0, user_agent=None, referer=None):
     -3): B1 reads the present, ~30 s behind, not the DVR history. user_agent/referer
     are the HTTP headers some CDNs (Vodalys/AN) require to serve the segments."""
     headers = []
-    if user_agent:
-        headers += ["-user_agent", user_agent]
-    if referer:
-        headers += ["-referer", referer]
+    if source.startswith(("http://", "https://")):
+        # -user_agent / -referer are HTTP(S) input options; ffmpeg rejects them
+        # on a local file ("Option not found"), so only pass them for a URL
+        if user_agent:
+            headers += ["-user_agent", user_agent]
+        if referer:
+            headers += ["-referer", referer]
     ff = subprocess.Popen(
         ["ffmpeg", "-hide_banner", "-loglevel", "error", *headers, "-i", source,
          "-vn", "-f", "s16le", "-ar", str(SR), "-ac", "1", "-"],
