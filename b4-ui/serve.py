@@ -56,10 +56,13 @@ class Handler(SimpleHTTPRequestHandler):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--port", type=int, default=8080)
+    ap.add_argument("--bind", default="127.0.0.1",
+                    help="bind address (0.0.0.0 to reach the UI across Tailscale, "
+                         "e.g. a remote demo)")
     args = ap.parse_args()
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
-    httpd = ThreadingHTTPServer(("127.0.0.1", args.port), Handler)
-    print(f"B4 ariane-ui on http://127.0.0.1:{args.port}  (proxy: /start-epoch?id=<direct-id>)")
+    httpd = ThreadingHTTPServer((args.bind, args.port), Handler)
+    print(f"B4 ariane-ui on http://{args.bind}:{args.port}  (proxy: /start-epoch?id=<direct-id>)")
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
