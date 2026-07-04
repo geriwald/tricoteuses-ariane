@@ -15,3 +15,24 @@ venv/
 
 # B3 capture output (recorded sittings live outside the repo)
 /b3-capture/records/
+/.runs/
+pytest-cache-files-*/
+
+# Local media and run outputs are too heavy or environment-specific for Git.
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.webm
+*.wav
+*.flac
+/data/**/video/
+
+# Binary working documents stay local unless explicitly reviewed for release.
+*.docx
+
+# Graphify generated caches/intermediate files.
+/graphify-out/cache/
+/graphify-out/.graphify_*.json
+/graphify-out/.graphify_uncached.txt
+/data/

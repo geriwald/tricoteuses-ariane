@@ -28,11 +28,20 @@ import time
 import urllib.request
 from datetime import datetime
 
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if REPO_ROOT not in sys.path:
+    sys.path.insert(0, REPO_ROOT)
+from ariane_env import load_dotenv
+
+load_dotenv()
 # Mnémosyne notification via the mnemo-send skill: it auto-detects where the bot
 # token lives (local/ssh), url-encodes, and fails loudly (set -euo pipefail +
 # curl -fsS). We pass the message on stdin → no shell escaping (accents, parens,
 # newlines all pass through verbatim).
-MNEMO_SEND = str(pathlib.Path("~/.claude/skills/mnemo-send/send.sh").expanduser())
+MNEMO_SEND = os.environ.get(
+    "NOTIFY_SEND",
+    str(pathlib.Path("~/.claude/skills/mnemo-send/send.sh").expanduser()),
+)
 
 
 def notify(text: str):
@@ -194,3 +203,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+

@@ -46,6 +46,8 @@ def resolve(name, actors, threshold=0.72):
     if not q_tokens:
         return None
     q = " ".join(q_tokens)
+    if not actors:
+        return None
 
     if len(q_tokens) == 1:  # bare surname
         scored = sorted(((_ratio(q, _norm(a["nom"])), a) for a in actors),

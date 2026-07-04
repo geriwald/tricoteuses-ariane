@@ -95,6 +95,13 @@ def resolve_route(record, t_ms, path):
         return 200, JSON, body
 
     if path in (ELIASSE_PROCHAIN_PATH, ELIASSE_AMENDEMENT_PATH):
+        # option B (new bundles): serve the captured .do body VERBATIM, gated wall<=t.
+        source = ("eliasse_prochain" if path == ELIASSE_PROCHAIN_PATH
+                  else "eliasse_amendement")
+        body = record.raw_bytes(source, t_ms)
+        if body is not None:
+            return 200, JSON, body
+        # option A (old bundles): fall back to reconstructing the .do from the summary.
         summary = record.eliasse_summary(t_ms)
         if summary is None:
             return 404, JSON, b""
@@ -135,11 +142,18 @@ def resolve_route(record, t_ms, path):
 import argparse
 import os
 import re
+import sys
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlparse, parse_qs
 
 import stream
 
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if REPO_ROOT not in sys.path:
+    sys.path.insert(0, REPO_ROOT)
+from ariane_env import load_dotenv
+
+load_dotenv()
 _RANGE = re.compile(r"bytes=(\d*)-(\d*)")
 
 

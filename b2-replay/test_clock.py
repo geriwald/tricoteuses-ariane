@@ -8,6 +8,7 @@ verified 2026-07-01: mp4 filename stamp == liveplayer.nvs starttime == 2026-06-2
 backward seek is trivial.
 """
 from datetime import datetime, timezone, timedelta
+import os
 import replay as r
 
 
@@ -19,6 +20,28 @@ ORIGIN = datetime(2026, 6, 26, 21, 31, 9, tzinfo=CEST)
 def _tick(wall_iso, **extra):
     """A minimal index.ndjson record: only `wall` matters for the causal gate."""
     return {"wall": wall_iso, **extra}
+
+
+def _apply_tz_env():
+    """Apply the current TZ env var for this process, including on Windows."""
+    import time as _t
+
+    tzset = getattr(_t, "tzset", None)
+    if tzset is not None:
+        tzset()
+        return
+
+    if os.name == "nt":
+        import ctypes
+
+        for dll in ("ucrtbase", "msvcrt"):
+            try:
+                getattr(ctypes.CDLL(dll), "_tzset")()
+                return
+            except (AttributeError, OSError):
+                continue
+
+    raise RuntimeError("no process-local TZ refresh hook available")
 
 
 def test_gate_serves_only_snapshots_at_or_before_t():
@@ -51,8 +74,7 @@ def test_naive_wall_is_read_as_paris_not_the_host_tz(monkeypatch):
     # B2 must read them as Paris regardless of the host TZ, else the causal gate
     # drifts silently when B2 runs on a host that is not Europe/Paris (serenity).
     monkeypatch.setenv("TZ", "America/New_York")
-    import time as _t
-    _t.tzset()
+    _apply_tz_env()
     try:
         # naive stamp == origin + 60s in Paris; host is 6h behind
         index = [_tick("2026-06-26T21:32:09", tag="paris")]
@@ -61,4 +83,4 @@ def test_naive_wall_is_read_as_paris_not_the_host_tz(monkeypatch):
         assert [s["tag"] for s in r.causal_snapshot(index, ORIGIN, t_ms=59_000)] == []
     finally:
         monkeypatch.delenv("TZ", raising=False)
-        _t.tzset()
+        _apply_tz_env()

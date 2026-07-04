@@ -19,7 +19,7 @@ Actor uid = "PA" + tribun_id (the #9 bridge, 136/136 on the FIN DE VIE capture).
 Resolved slices (flat fields straight off the API, ready for B1's clickable labels):
   acteurs.json      uid, civ, prenom, nom, slug, groupe_uid
   organes.json      uid, libelle, libelle_abrege, code_type    (groups + chamber)
-  amendements.json  uid, numero, auteur_ref, groupe_ref, division, sort
+  amendements.json  uid, numero, auteur_ref, groupe_ref, division, dossier, sort
   documents.json    uid, titre, type    (L17 proposition + rapport)
 
 Output under <record>/referential/:
@@ -45,13 +45,22 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from glob import glob
 
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if REPO_ROOT not in sys.path:
+    sys.path.insert(0, REPO_ROOT)
+from ariane_env import load_dotenv
+
+load_dotenv()
 API = "https://parlement.tricoteuses.fr"
 UA = "ariane-resolver/0.1 (AN hackathon; tricoteuses-ariane)"
 TRIBUN_RE = re.compile(r"(\d+)")   # the <speaker><url> is the bare tribun id
 
 # Mnémosyne (Telegram) ping via the mnemo-send skill — close the loop so the end
 # of the canutes resolution is visible. Best-effort: never breaks the resolution.
-MNEMO_SEND = str(pathlib.Path("~/.claude/skills/mnemo-send/send.sh").expanduser())
+MNEMO_SEND = os.environ.get(
+    "NOTIFY_SEND",
+    str(pathlib.Path("~/.claude/skills/mnemo-send/send.sh").expanduser()),
+)
 
 
 def notify(text):
@@ -160,6 +169,7 @@ def slice_amendements(rows):
     return [{"uid": r.get("uid"), "numero": r.get("numeroLong"),
              "auteur_ref": r.get("acteurRefUid"), "groupe_ref": r.get("groupePolitiqueRefUid"),
              "division": r.get("divisionTitre") or r.get("divisionArticleDesignationCourte"),
+             "dossier": r.get("dossierRefUid"),
              "sort": r.get("sortEnSeance") or r.get("sort")} for r in rows]
 
 
@@ -262,3 +272,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+

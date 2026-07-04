@@ -45,6 +45,12 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime
 
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if REPO_ROOT not in sys.path:
+    sys.path.insert(0, REPO_ROOT)
+from ariane_env import load_dotenv
+
+load_dotenv()
 UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/149.0 Safari/537.36")
 DEROULEUR_URL = "https://www.assemblee-nationale.fr/local/derouleur/derouleur.json"

@@ -62,6 +62,8 @@ cd b2-replay && python -m pytest -q     # 51 tests
 cd b3-capture && python -m pytest -q    #  8 tests
 ```
 
+Replay captures under data/ are intentionally not versioned in this GitHub mirror. The commands below expect the local/shared hackathon data/ folder to be present.
+
 Typical demo loop (replay a captured sitting and weave it):
 
 ```bash
@@ -75,6 +77,22 @@ python3 b1-weaver/weaver_live.py --source http://127.0.0.1:8000/video \
 # B4: serve the UI
 python3 b4-ui/serve.py --port 8080     # open http://127.0.0.1:8080
 ```
+
+CPU-only option 3 replay (one command, no CUDA):
+
+```bash
+python tools/run_option3_cpu.py --duration-seconds 3600
+```
+
+This uses the bundled `data/2026-06-30-aprem` capture by default, starts B2 on
+`:8000`, B1 on `:8100`, and B4 on `:8080`, then transcribes the B2 live HLS with
+`faster-whisper large-v3-turbo` on `cpu/int8`. Models are loaded from the local Hugging
+Face cache by default; pass `--allow-model-download` only if the chosen model is
+not cached locally. CPU transcription may take longer than the source duration.
+`Systran/faster-whisper-small` should be faster, but the local cache must be complete;
+use `--model small --allow-model-download` to repair/download it before relying on it.
+The script prints the B4 URL, logs directory, and generated
+`thread.ndjson` path.
 
 ## Configuration
 
@@ -95,3 +113,4 @@ Ariane resolves canonical IDs against the open-data **Tricoteuses Parlement REST
 API** (`parlement.tricoteuses.fr`) and slots in as a maillon of the transcription
 pipeline. The ecosystem it draws on is catalogued in
 [`forgejo.json`](forgejo.json).
+

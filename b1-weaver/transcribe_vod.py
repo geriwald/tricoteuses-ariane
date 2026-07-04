@@ -31,8 +31,11 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--model", default="large-v3")
     ap.add_argument("--beam", type=int, default=5)
-    ap.add_argument("--compute-type", default="int8_float16",
-                    help="int8_float16 (~1.5GB, default) fits the shared 8GB GPU; float16 (~3GB) may OOM")
+    ap.add_argument("--device", default="cuda", choices=("cuda", "cpu", "auto"))
+    ap.add_argument("--compute-type", default=None,
+                    help="default is float16 on cuda, int8 on cpu")
+    ap.add_argument("--cpu-threads", type=int, default=0)
+    ap.add_argument("--local-files-only", action="store_true", default=False)
     ap.add_argument("--no-vad", dest="vad", action="store_false", default=True)
     ap.add_argument("--no-condition", dest="condition", action="store_false", default=True,
                     help="disable condition_on_previous_text (prevents hallucination-loop runaway / OOM)")
@@ -40,10 +43,13 @@ def main():
 
     from faster_whisper import WhisperModel
 
+    compute_type = args.compute_type or ("float16" if args.device == "cuda" else "int8")
     total = duration_s(args.video)
-    print(f"[load] {args.model} cuda/{args.compute_type} | video {total:.0f}s | vad={args.vad}", file=sys.stderr, flush=True)
-    model = WhisperModel(args.model, device="cuda", compute_type=args.compute_type)
-
+    print(f"[load] {args.model} {args.device}/{compute_type} | "
+          f"video {total:.0f}s | vad={args.vad}", file=sys.stderr, flush=True)
+    model = WhisperModel(args.model, device=args.device, compute_type=compute_type,
+                         cpu_threads=args.cpu_threads,
+                         local_files_only=args.local_files_only)
     segs, info = model.transcribe(args.video, language="fr", beam_size=args.beam,
                                   vad_filter=args.vad, condition_on_previous_text=args.condition)
     t0 = time.time()

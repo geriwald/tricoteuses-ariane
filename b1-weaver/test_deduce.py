@@ -48,6 +48,28 @@ def test_extract_speaker_names_real_sentences():
         "Oui, merci Madame la Présidente.")
 
 
+def test_extract_speaker_names_handles_nobiliary_particle():
+    """Lowercase «de/du/d'» particles must not break capture (real: «Madame de
+    Pélichy» yielded nothing before)."""
+    assert deduce.extract_speaker_names("Le 310, Madame de Pellichy.") == ["Madame de Pellichy"]
+    assert deduce.extract_speaker_names("La parole est à Monsieur de Courson.") == ["Monsieur de Courson"]
+    assert deduce.extract_speaker_names("Madame de La Porte") == ["Madame de La Porte"]
+    # unchanged: plain names and the thanked title still capture as before
+    assert deduce.extract_speaker_names("Monsieur Bazin.") == ["Monsieur Bazin"]
+    assert "Madame la Présidente" in deduce.extract_speaker_names("Merci Madame la Présidente.")
+
+
+def test_extract_amendment_numbers_from_numbered_floor_call():
+    """A chair's «Le 310, Madame X» / «186, Madame Y» names the amendment without an
+    amendement/scrutin word — recognised via the numbered-call pattern, but «15h30»
+    (digits after «h», not «le»/start) must NOT fire."""
+    assert deduce.extract_amendment_numbers("Le 310, Madame de Pellichy.") == [310]
+    assert deduce.extract_amendment_numbers("Le n° 310, Madame de Pélichy.") == [310]
+    assert deduce.extract_amendment_numbers("Merci. 186, Madame Catala.") == [186]
+    assert deduce.extract_amendment_numbers("à 15h30, Madame la Présidente") == []
+    assert deduce.extract_amendment_numbers("on examine le budget 2016, Madame") == []
+
+
 def test_extract_ballot_real_sentences():
     assert deduce.extract_ballot("Le scrutin est ouvert.") == "open"
     assert deduce.extract_ballot(
@@ -185,10 +207,11 @@ def test_deducer_amendment_node_from_heard_number():
     assert node["source"] == "stt"
     assert node["t"] == 5000
     assert node["text"] == "Adt n° 1388 de M. BOVET"
-    assert node["canonical"] == {
-        "acteur": "PA793182", "tribun": "793182",
-        "amendement_uid": "AMANR5L17PO838901BTC2915P0D1N001388",
-        "scrutin": None, "article": "D_Article_6", "groupe": None}
+    assert node["canonical"] == dict(
+        deduce.EMPTY_CANONICAL,
+        acteur="PA793182", tribun="793182",
+        amendement_uid="AMANR5L17PO838901BTC2915P0D1N001388",
+        article="D_Article_6")
 
 
 def test_deducer_dedupes_amendment_but_ballots_are_events():
@@ -235,6 +258,21 @@ def test_deducer_scrutin_result_outcome_and_no_amendment():
     assert node["result"]["pour"] == 55
 
 
+def test_scrutin_result_attaches_to_voting_amendment_not_current():
+    """The figures belong to the amendment PUT TO THE VOTE («scrutin ouvert»), even
+    after the chair has already called the NEXT one — real 02/07: 176 is voted, then
+    «Le 310, Madame de Pélichy» moves _current to 310 right before the result screen."""
+    d = deduce.Deducer(deduce.AgendaIndex.from_derouleur(SP_AGENDA), [], organes=SP_ORGANES)
+    d.feed(utter("sur les deux suivants, 176 et 310, je suis saisie de scrutin public"))
+    d.feed(utter("Le scrutin est ouvert."))               # 176's scrutin opens → _voting=176
+    d.feed(utter("Le 310, Madame de Pellichy."))          # chair calls 310 → _current=310
+    (node,) = d.feed_scrutin_result(
+        {"t_ms": 1107000, "votants": 30, "exprimes": 30, "majorite": 16,
+         "pour": 10, "contre": 20, "abstentions": 0, "confidence": 1.0})
+    assert node["canonical"]["amendement_uid"].endswith("N000176")   # NOT 310
+    assert d._current["amendement_uid"].endswith("N000310")          # context did move on
+
+
 def test_deducer_speaker_resolved_fuzzily_titles_refused():
     d = deduce.Deducer(deduce.AgendaIndex.from_derouleur(AGENDA_SNAPSHOT), ACTORS)
     # «Bruet» is the real STT noise for GRUET — fuzzy resolution must catch it
@@ -277,12 +315,34 @@ def test_speaker_call_vs_mention_classification():
         "L'amendement 449, madame Bruet, défendu pour la commission.", "madame Bruet")
     assert deduce.is_speaker_call(
         "La parole est à Madame Gruet.", "Madame Gruet")
+    # real 02/07 demo calls: the chair often says only the amendment number
+    # around the name, or asks the deputy to present/defend it.
+    assert deduce.is_speaker_call("Merci. 186, Madame Catala.", "Madame Catala")
+    assert deduce.is_speaker_call("Monsieur Duplessis pour le présenter.", "Monsieur Duplessis")
+    assert deduce.is_speaker_call("76, madame Capdeviel.", "madame Capdeviel")
+    assert deduce.is_speaker_call("L'identique, Madame Catala, le 183.", "Madame Catala")
+    assert deduce.is_speaker_call("Madame Capdeviel, le 77.", "Madame Capdeviel")
+    assert deduce.is_speaker_call("Le 249, M. Duplessis.", "M. Duplessis")
+    assert deduce.is_speaker_call(
+        "Nous en arrivons à l'article 4. Monsieur Bottorel pour le haut.",
+        "Monsieur Bottorel")
     assert not deduce.is_speaker_call(
         "Donc, très ouvert à ce qu'a dit Mme Arouin-Léauté, sauf erreur.",
         "Mme Arouin-Léauté")
     assert not deduce.is_speaker_call(
         "Je rejoins la position de Monsieur Bazin sur ce point précis.",
         "Monsieur Bazin")
+    assert not deduce.is_speaker_call(
+        "celui de monsieur Duplessis, le 246, double avis défavorable.",
+        "monsieur Duplessis")
+    # real 02/07 false positive: a deputy defending amdt 176 thanks the chair
+    # («Merci …») and cites a colleague («… que celui de Monsieur Duplessis») far
+    # into the speech — neither the opening «Merci» nor «amendement» (a common
+    # noun here) makes that mention a call
+    assert not deduce.is_speaker_call(
+        "Merci Madame la Présidente, il s'agit d'un amendement plus restreint "
+        "puisqu'il supprime moins d'alinéas que celui de Monsieur Duplessis.",
+        "Monsieur Duplessis")
     # real case (chair cutting short then calling): the name is its own
     # sentence at the END of the utterance — sentence-level start, a call
     assert deduce.is_speaker_call(
@@ -292,6 +352,16 @@ def test_speaker_call_vs_mention_classification():
     assert not deduce.is_speaker_call(
         "C'est vrai. Monsieur Bazin a raison sur le fond du texte.",
         "Monsieur Bazin")
+
+
+def test_deducer_speaker_call_can_continue_in_next_utterance():
+    d = deduce.Deducer(deduce.AgendaIndex.from_derouleur(AGENDA_SNAPSHOT), ACTORS)
+    (mention,) = d.feed(utter("Monsieur Bazin,"))
+    assert mention["call"] is False
+    (speaker,) = d.feed(utter("vous vouliez reprendre la parole ?"))
+    assert speaker["kind"] == "speaker"
+    assert speaker["call"] == "strong"
+    assert speaker["canonical"]["acteur"] == "PA123456"
 
 
 def test_speaker_call_uses_previous_utterance_tail():
@@ -370,6 +440,214 @@ def test_deducer_seq_shared_with_stt_weaver():
     (a,) = stt.feed({"type": "utterance", "beg": 1.0, "end": 2.0, "text": "amendement 1388"})
     (b,) = d.feed(a)
     assert b["seq"] == a["seq"] + 1
+
+
+# ---- scrutin public + demandeur (deduced from speech, real 02/07 sentences) ----
+
+# the derouleur pre-marks these amendments «(scrutin public)» in the libellé; the
+# tribun ids/uids mirror the real 02/07 dérouleur (CATHALA/MOLAC/DUPLESSY, art. 3)
+SP_AGENDA = {"racine": {"contenu": {"phase": [{"ligne": [
+    {"id": "1", "ligne_type": "ADT",
+     "ligne_libelle_1": "Adt n° 176 de Mme CATHALA (scrutin public)",
+     "depute_tribun_id": "842187",
+     "ligne_amendement_uid": "AMANR5L17PO838901B2681P0D1N000176",
+     "ligne_amendement_derouleur_division_ancre": "D_Article_3"},
+    {"id": "2", "ligne_type": "ADT",
+     "ligne_libelle_1": "Adt n° 310 de M. MOLAC (scrutin public)",
+     "depute_tribun_id": "607619",
+     "ligne_amendement_uid": "AMANR5L17PO838901B2681P0D1N000310",
+     "ligne_amendement_derouleur_division_ancre": "D_Article_3"},
+    {"id": "3", "ligne_type": "ADT",
+     "ligne_libelle_1": "Adt n° 247 de M. DUPLESSY (scrutin public)",
+     "depute_tribun_id": "841351",
+     "ligne_amendement_uid": "AMANR5L17PO838901B2681P0D1N000247",
+     "ligne_amendement_derouleur_division_ancre": "D_Article_3"},
+    {"id": "4", "ligne_type": "ADT",
+     "ligne_libelle_1": "Adt n° 500 de M. NOSCRUTIN",
+     "depute_tribun_id": "111111",
+     "ligne_amendement_uid": "AMANR5L17PO838901B2681P0D1N000500"},
+    {"id": "5", "ligne_type": "ADT", "ligne_libelle_1": "Adt n° 76 de Mme CAPDEVIELLE",
+     "depute_tribun_id": "608264",
+     "ligne_amendement_uid": "AMANR5L17PO838901B2681P0D1N000076",
+     "ligne_amendement_derouleur_division_ancre": "D_Article_3"},
+    {"id": "6", "ligne_type": "ADT", "ligne_libelle_1": "Adt n° 77 de Mme CAPDEVIELLE",
+     "depute_tribun_id": "608264",
+     "ligne_amendement_uid": "AMANR5L17PO838901B2681P0D1N000077",
+     "ligne_amendement_derouleur_division_ancre": "D_Article_3"},
+]}]}}}
+
+SP_ORGANES = [
+    {"uid": "PO845401", "libelle": "Rassemblement National", "libelle_abrege": "RN",
+     "code_type": "GP"},
+    {"uid": "PO845413", "libelle": "La France insoumise - Nouveau Front Populaire",
+     "libelle_abrege": "LFI-NFP", "code_type": "GP"},
+    {"uid": "PO845419", "libelle": "Socialistes et apparentés", "libelle_abrege": "SOC",
+     "code_type": "GP"},
+    {"uid": "PO845425", "libelle": "Droite Républicaine", "libelle_abrege": "DR",
+     "code_type": "GP"},
+    {"uid": "PO845485", "libelle": "Libertés, Indépendants, Outre-mer et Territoires",
+     "libelle_abrege": "LIOT", "code_type": "GP"},
+    {"uid": "PA000000", "libelle": "not a group", "code_type": "GA"},
+]
+
+
+def test_resolve_groupe_fuzzy_and_honest():
+    assert deduce.resolve_groupe("La France Insoumise", SP_ORGANES)["uid"] == "PO845413"
+    assert deduce.resolve_groupe("LFI, NFP", SP_ORGANES)["uid"] == "PO845413"
+    # «Liottes» is real STT noise for LIOT — the abrégé prefix catches it
+    assert deduce.resolve_groupe("Liottes", SP_ORGANES)["uid"] == "PO845485"
+    assert deduce.resolve_groupe("Rassemblement National", SP_ORGANES)["uid"] == "PO845401"
+    assert deduce.resolve_groupe("un groupe qui n'existe pas", SP_ORGANES) is None
+    # a phrase merely STARTING with an abrégé must not resolve: «socle commun»
+    # (the governing coalition) is not the Socialistes (SOC)
+    assert deduce.resolve_groupe("socle commun", SP_ORGANES) is None
+
+
+def test_extract_amendment_numbers_ignores_result_proclamation():
+    # a result proclamation reads out the TALLY: its digits are counts, not amendments
+    assert deduce.extract_amendment_numbers(
+        "Résultat du scrutin, nombre de votes en 30, tous exprimés, "
+        "majorité 16 pour, 10 contre 20.") == []
+    assert deduce.extract_amendment_numbers("L'Assemblée n'a pas adopté.") == []
+    # the guard is PER SENTENCE: an amendment call merged with a proclamation keeps
+    # the amendment («… le 292. Résultat du scrutin, majorité 16 pour 10 contre 20.»)
+    assert deduce.extract_amendment_numbers(
+        "je mets aux voix le 292. Résultat du scrutin, majorité 16 pour 10 contre 20.") == [292]
+
+
+def test_result_proclamation_weaves_no_phantom_amendment():
+    """The real 02/07 misparse «Résultat du scrutin … 30 … 16 … 10 … 20» must NOT
+    weave phantom amendments 30/16/10/20 (which also stole the current amendment
+    from the scrutin the OCR screen is about)."""
+    d = deduce.Deducer(deduce.AgendaIndex.from_derouleur(SP_AGENDA), [], organes=SP_ORGANES)
+    d.feed(utter("l'amendement 310"))
+    nodes = d.feed(utter("Résultat du scrutin, nombre de votes en 30, tous exprimés, "
+                         "majorité 16 pour, 10 contre 20."))
+    assert [n for n in nodes if n["kind"] == "amendment"] == []
+    assert d._current["amendement_uid"].endswith("N000310")  # context stayed on 310
+
+
+def test_extract_demandeurs_real_sentences():
+    assert deduce.extract_demandeurs(
+        "demandé respectivement par les groupes La France Insoumise et Liottes."
+    ) == ["La France Insoumise", "Liottes"]
+    assert deduce.extract_demandeurs(
+        "Sur le suivant, le 247, il y a une demande de scrutin public par le groupe LFI, NFP."
+    ) == ["LFI, NFP"]
+    # a scrutin-public announcement with no group named: nothing to credit
+    assert deduce.extract_demandeurs(
+        "Je vous informe que sur les deux suivants, 176 et 310, je suis saisie de scrutin public") == []
+
+
+def test_extract_demandeurs_ignores_floor_calls():
+    """Only a CREDITING clause counts («par le groupe», «à la demande du groupe»).
+    The membership form of a floor call («du/pour le groupe X») must never be read
+    as a ballot request — this is what broke the naive gate."""
+    assert deduce.extract_demandeurs("La parole est à Mme Cathala, du groupe LFI-NFP.") == []
+    assert deduce.extract_demandeurs(
+        "Je suis saisie. La parole est à Mme Cathala pour le groupe LFI-NFP.") == []
+    assert deduce.extract_demandeurs("Je demande la parole pour le groupe LFI-NFP.") == []
+
+
+def test_scrutin_public_not_fired_by_a_floor_call():
+    """A chair calling a deputy «pour le groupe X» while an amendment is current
+    must not fabricate a scrutin_public demandeur node (honesty over coverage)."""
+    d = deduce.Deducer(deduce.AgendaIndex.from_derouleur(SP_AGENDA), [], organes=SP_ORGANES)
+    d.feed(utter("l'amendement 176"))
+    nodes = d.feed(utter("Je suis saisie. La parole est à Mme Cathala pour le groupe LFI-NFP."))
+    assert [n for n in nodes if n["kind"] == "scrutin_public"] == []
+
+
+def test_scrutin_public_demande_needs_ballot_context():
+    """«à la demande du groupe X» outside a scrutin-public context (a suspension,
+    a procedural request) is not a public-ballot request."""
+    d = deduce.Deducer(deduce.AgendaIndex.from_derouleur(SP_AGENDA), [], organes=SP_ORGANES)
+    d.feed(utter("l'amendement 500"))  # a plain amendment, no scrutin
+    nodes = d.feed(utter("À la demande du groupe LIOT, la séance est suspendue."))
+    assert [n for n in nodes if n["kind"] == "scrutin_public"] == []
+
+
+def test_scrutin_pending_expires_after_one_utterance():
+    """A parked announcement binds only to the IMMEDIATELY next utterance; a much
+    later «par le groupe X» must not credit the stale amendments."""
+    d = deduce.Deducer(deduce.AgendaIndex.from_derouleur(SP_AGENDA), [], organes=SP_ORGANES)
+    d.feed(utter("sur les deux suivants, 176 et 310, je suis saisie de scrutin public"))
+    d.feed(utter("Merci beaucoup."))                     # filler → pending expires
+    d.feed(utter("l'amendement 247"))                    # current moves to 247
+    nodes = d.feed(utter("Scrutin public demandé par le groupe LIOT."))
+    sp = [n for n in nodes if n["kind"] == "scrutin_public"]
+    # bound to the current amendment (247), NOT the stale 176/310 announcement
+    assert len(sp) == 1
+    assert sp[0]["canonical"]["amendement_uid"].endswith("N000247")
+
+
+def test_multi_announcement_context_opens_on_first():
+    """«176 et 310» announced together → the debate opens on 176 (discussed first),
+    so a ballot heard next attaches to 176, not the last-named 310. Verified against
+    the open-data: the first scrutin of the 02/07 pair (30/10/20) was amendment 176's."""
+    d = deduce.Deducer(deduce.AgendaIndex.from_derouleur(SP_AGENDA), [], organes=SP_ORGANES)
+    d.feed(utter("sur les deux suivants, 176 et 310, je suis saisie de scrutin public"))
+    (ballot,) = [n for n in d.feed(utter("Le scrutin est ouvert.")) if n["kind"] == "ballot"]
+    assert ballot["canonical"]["amendement_uid"].endswith("N000176")
+
+
+def test_scrutin_public_credits_only_amendment_before_the_clause():
+    """«…sur les 76 … par le groupe LFI-NFP. Ensuite, sur les 77 …» credits 76
+    only, never the amendment that follows the clause in a merged utterance."""
+    d = deduce.Deducer(deduce.AgendaIndex.from_derouleur(SP_AGENDA), [], organes=SP_ORGANES)
+    nodes = d.feed(utter(
+        "Il est adopté sur les 76 et identiques. Demande de scrutin public par le "
+        "groupe LFI-NFP. Ensuite, sur les 77 et identiques."))
+    sp = [n for n in nodes if n["kind"] == "scrutin_public"]
+    uids = {n["canonical"]["amendement_uid"][-4:] for n in sp}
+    assert uids == {"0076"}
+
+
+def test_amendment_carries_scrutin_public_flag_from_libelle():
+    d = deduce.Deducer(deduce.AgendaIndex.from_derouleur(SP_AGENDA), [], organes=SP_ORGANES)
+    (n176,) = [n for n in d.feed(utter("l'amendement 176")) if n["kind"] == "amendment"]
+    assert n176["scrutin_public"] is True
+    (n500,) = [n for n in d.feed(utter("l'amendement 500")) if n["kind"] == "amendment"]
+    assert "scrutin_public" not in n500       # its libellé carries no marker
+
+
+def test_scrutin_public_demandeur_respectivement_across_utterances():
+    """«…176 et 310, je suis saisie de scrutin public» then «demandé
+    respectivement par les groupes La France Insoumise et Liottes» — the follow-up
+    binds group i to amendment i (176→LFI-NFP, 310→LIOT)."""
+    d = deduce.Deducer(deduce.AgendaIndex.from_derouleur(SP_AGENDA), [], organes=SP_ORGANES)
+    first = d.feed(utter(
+        "Je vous informe que sur les deux suivants, 176 et 310, je suis saisie de scrutin public"))
+    assert [n for n in first if n["kind"] == "amendment"]         # 176 + 310 woven
+    assert not [n for n in first if n["kind"] == "scrutin_public"]  # no group yet
+
+    later = d.feed(utter("demandé respectivement par les groupes La France Insoumise et Liottes."))
+    sp = [n for n in later if n["kind"] == "scrutin_public"]
+    assert len(sp) == 2
+    by_num = {n["canonical"]["amendement_uid"][-3:]: n for n in sp}
+    assert [d["groupe"] for d in by_num["176"]["demandeurs"]] == ["PO845413"]
+    assert [d["groupe"] for d in by_num["310"]["demandeurs"]] == ["PO845485"]
+    assert by_num["310"]["demandeurs"][0]["label"].startswith("Libertés")
+
+
+def test_scrutin_public_demandeur_single_group_same_utterance():
+    d = deduce.Deducer(deduce.AgendaIndex.from_derouleur(SP_AGENDA), [], organes=SP_ORGANES)
+    nodes = d.feed(utter(
+        "Sur le suivant, le 247, il y a une demande de scrutin public par le groupe LFI, NFP."))
+    (sp,) = [n for n in nodes if n["kind"] == "scrutin_public"]
+    assert sp["canonical"]["amendement_uid"].endswith("N000247")
+    assert sp["demandeurs"] == [{"label": "La France insoumise - Nouveau Front Populaire",
+                                 "groupe": "PO845413", "heard": "LFI, NFP"}]
+
+
+def test_scrutin_public_unresolved_group_kept_verbatim():
+    """A heard group that resolves to nothing is still credited, as heard — the
+    resolver invents nothing, but the chair's word is not dropped."""
+    d = deduce.Deducer(deduce.AgendaIndex.from_derouleur(SP_AGENDA), [], organes=SP_ORGANES)
+    d.feed(utter("l'amendement 247"))  # set current
+    (sp,) = [n for n in d.feed(utter("demande de scrutin public par le groupe Truc Machin."))
+             if n["kind"] == "scrutin_public"]
+    assert sp["demandeurs"] == [{"label": "Truc Machin", "groupe": None, "heard": "Truc Machin"}]
 
 
 # ---- acceptance: replay the real offline transcript ----------------------------

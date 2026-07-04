@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trame Vivante — Régie (Ariane B4)</title>
+<title>Trame Vivante — DÉMO scrutin public (Ariane B4)</title>
+<!-- ============================================================================
+     COPIE DÉMO autonome de index.html — ne modifie rien d'autre. Ajouts :
+       • bouton « ▶ Démo scrutin public » : cale la vidéo sur la séquence de
+         scrutin public (donnée-pilotée depuis la trame) et lance la lecture ;
+       • deep-link ?seek=mm:ss (URL marque-page) ;
+• chargement AUTO de la vidéo servie par le fil (/video.mp4) — aucune
+          sélection de fichier, la vidéo s'ouvre déjà calée sur la séquence, en pause.
+     Ouvrir : http://127.0.0.1:8080/demo.html   (proxy : /thread /video.mp4 vers :8100)
+     ============================================================================ -->
 <!-- hls.js : Chrome/Firefox ne lisent pas le HLS nativement ; requis pour le
      direct AN (vodalys) et le replay B2. -->
 <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
@@ -143,6 +152,8 @@
     cursor:pointer; font-size:12.5px; font-weight:600;}
   footer button:hover{border-color:var(--bleu); color:var(--bleu);}
   footer button.active{background:var(--bleu); color:#fff; border-color:var(--bleu);}
+  footer button.demo-btn{background:var(--bleu); color:#fff; border-color:var(--bleu);}
+  footer button.demo-btn:hover{background:#0000b3; color:#fff;}
   #transport{display:inline-flex; align-items:center; gap:5px;}
   #transport input{width:56px; padding:5px; border:1px solid var(--bord); border-radius:5px; font-size:12px;}
   #b2-clock{font-family:ui-monospace,monospace; font-size:12px; color:var(--gris); margin-left:4px;}
@@ -163,6 +174,7 @@
     <h1 id="seance-titre">Trame vivante — Assemblée nationale</h1>
     <div class="meta">Trame déduite de la parole (fil Ariane B1) — orateurs, amendements et scrutins reliés à leurs fiches canoniques</div>
   </div>
+  <span class="badge" id="demo-badge" style="background:#fdece0;color:#b34000">DÉMO</span>
   <span class="badge replay" id="mode-badge">REPLAY</span>
   <span class="phase-chip" id="phase-chip">—</span>
   <span class="clock" id="clock">--:--:--</span>
@@ -203,7 +215,7 @@
       <div class="src-group adv">
         <span class="src-label">Fil Ariane B1 (SSE)</span>
         <div class="hls-row">
-          <input type="text" id="thread-url" value="http://127.0.0.1:8100/thread">
+          <input type="text" id="thread-url" value="/thread">
           <button id="btn-thread">↻</button>
         </div>
       </div>
@@ -234,6 +246,7 @@
       <button id="tp-goto">→</button>
       <span id="b2-clock">—</span>
     </span>
+    <button id="btn-demo" class="demo-btn" title="Caler la vidéo sur la séquence de scrutin public et lancer la lecture">▶ Démo scrutin public</button>
     <button id="btn-source" title="Changer de source vidéo">⏏ Source</button>
     <button id="btn-glass" title="Afficher la source officielle et la confiance sous chaque événement">🔍 Glass-box</button>
     <button id="btn-full" title="Mode présentation">⛶ Plein écran</button>
@@ -255,7 +268,7 @@
    EVENTS n'est plus statique : il se remplit en direct depuis le fil B1.
    ===================================================================== */
 
-const B1_DEFAULT = "http://127.0.0.1:8100/thread";  // fil Ariane (SSE), éditable
+const B1_DEFAULT = "/thread";  // fil Ariane (SSE), éditable — proxied via serve.py
 const B2 = "http://127.0.0.1:8000";                 // serveur replay B2
 const B2_HLS = B2 + "/live/stream.m3u8";
 const DIRECT_ID_DEFAULT = "19289735_6a44fdbe54da8";
@@ -264,6 +277,15 @@ const DIRECT_ID_DEFAULT = "19289735_6a44fdbe54da8";
 const liveHlsUrl = (id) => `http://anorigin.vodalys.com/live/live36/stream36_1_${id}.m3u8`;
 const RESTANTS_INIT = 47;   // amendements restants au départ (indicatif)
 const T0 = 21*3600;         // repli d'affichage si aucun epoch vidéo connu
+// retard VOLONTAIRE de la trame vs la vidéo (s) : le STT horodate le DÉBUT de la
+// parole, un poil avant l'action à l'écran → sans ça la trame arrive en avance.
+// Ajuster entre 2 et 4 selon le ressenti. N'affecte que l'affichage de la trame,
+// ni l'horloge ni la vidéo.
+const TRAME_LAG_S = 6;
+// durée MAX d'affichage du résultat d'un scrutin (s) avant d'enchaîner sur
+// l'amendement suivant du même groupe annoncé (« 176 et 310 » : on montre le
+// chiffré de 176, puis, après ce délai, la carte passe à 310). Ajustable.
+const RESULT_GRACE_S = 8;
 
 /* ---- liens canoniques (mêmes formats que l'ancienne UI B4) ---- */
 const acteurUrl = (pa) => `https://www.assemblee-nationale.fr/dyn/deputes/${pa}`;
@@ -442,7 +464,7 @@ function onNode(n){
 function deriveState(events, t){
   const past = [], state = {phase:"—", article:null, orateur:null, amendement:null,
                             vote:null, voteEvent:null, sorts:{}, sortis:0, avis:{},
-                            scrutinPublic:{}, voteResult:{}};   // scrutinPublic/voteResult keyed by uid
+                            scrutinPublic:{}, voteResult:{}, voteResultAt:{}};   // …At = instant (ts) du chiffré
   for(const e of events){
     if(e.ts > t) break;
     past.push(e);
@@ -464,14 +486,27 @@ function deriveState(events, t){
       case "scrutin_public":   // annonce présidence : garder les demandeurs par amendement
         if(e.uid) state.scrutinPublic[e.uid] = e.demandeurs || []; break;
       case "mise_aux_voix": state.vote = "ouvert"; state.voteEvent = e.scrutinUrl ? e : (state.voteEvent || e);
-                      if(e.result && e.uid) state.voteResult[e.uid] = {...e.result, confiance:e.confiance};
+                      if(e.result && e.uid){ state.voteResult[e.uid] = {...e.result, confiance:e.confiance};
+                        state.voteResultAt[e.uid] = e.ts; }
                       state.phase = "Vote en cours"; break;
       case "sort_amendement":
         e.nums.forEach(num => state.sorts[num] = e.sort);
         state.sortis += e.nums.length;
         state.vote = e.sort; state.voteEvent = e.scrutinUrl ? e : (state.voteEvent || e);
-        if(e.result && e.uid) state.voteResult[e.uid] = {...e.result, sort:e.sort, confiance:e.confiance};
+        if(e.result && e.uid){ state.voteResult[e.uid] = {...e.result, sort:e.sort, confiance:e.confiance};
+          state.voteResultAt[e.uid] = e.ts; }
         state.phase = "Discussion des articles"; break;
+    }
+  }
+  // limite d'affichage du résultat : RESULT_GRACE_S après le chiffré d'un amendement,
+  // la carte enchaîne sur le suivant du même groupe annoncé (« 176 et 310 » → 310).
+  // Tant que le scrutin n'a pas de chiffré, on reste sur l'amendement courant.
+  if(state.amendement){
+    const rAt = state.voteResultAt[state.amendement.uid];
+    if(rAt != null && t >= rAt + RESULT_GRACE_S){
+      const sib = events.find(e => e.type === "appel_amendement"
+        && e.ts === state.amendement.ts && e.uid && e.uid !== state.amendement.uid);
+      if(sib){ state.amendement = sib; state.avis = {}; }   // avis propres au suivant
     }
   }
   return {state, past};
@@ -626,7 +661,8 @@ function renderCtx(state){
 
 let lastPastLen = -1;
 function render(t){
-  const {state, past} = deriveState(EVENTS, t);
+  // trame dérivée à t − TRAME_LAG_S (retard volontaire) ; horloge sur le vrai t vidéo
+  const {state, past} = deriveState(EVENTS, t - TRAME_LAG_S);
   $("clock").textContent = fmtClock(t);
   $("phase-chip").textContent = state.phase;
   $("restants").textContent = Math.max(0, RESTANTS_INIT - state.sortis);
@@ -659,9 +695,11 @@ function currentT(){
   return 0;
 }
 function seekTo(ts){
-  if(mode === "mp4") video.currentTime = ts;
-  else if(mode === "sim"){ simT = ts; }
-  else if(mode === "b2") transport("seek", `?t=${Math.floor(ts*1000)}`);
+  // + TRAME_LAG_S : caler la vidéo pour que l'événement à `ts` devienne courant
+  // (cohérent avec le retard trame appliqué au rendu)
+  if(mode === "mp4") video.currentTime = ts + TRAME_LAG_S;
+  else if(mode === "sim"){ simT = ts + TRAME_LAG_S; }
+  else if(mode === "b2") transport("seek", `?t=${Math.floor((ts + TRAME_LAG_S)*1000)}`);
   /* live : pas de seek (bord d'attaque) */
 }
 function loop(){ render(currentT()); requestAnimationFrame(loop); }
@@ -850,30 +888,63 @@ $("btn-glass").onclick  = e => { document.body.classList.toggle("glassbox");
 $("btn-full").onclick   = () => document.documentElement.requestFullscreen?.();
 
 /* =====================================================================
-   9. Démarrage
+   8bis. Ajouts DÉMO (spécifiques à ce fichier)
    ===================================================================== */
-loadRecords();
+// la vidéo servie par le fil : même hôte que le SSE, endpoint /video.mp4 (demo_replay)
+function filVideoUrl(){
+  try{ return new URL($("thread-url").value.trim()).origin + "/video.mp4"; }
+  catch(e){ return "/video.mp4"; }
+}
+function loadDemoVideo(url){
+  stopSim(); mode = "mp4"; setBadge("replay");
+  $("transport").style.display = "none"; startEpoch = null;
+  hideOverlay(); setState("vidéo de démo (fil) — prête");
+  video.src = url || filVideoUrl();
+  video.onerror = () => { setState("vidéo du fil injoignable — ⏏ Source → VOD locale"); showOverlay(); };
+}
+// "17:26" → 1046 s ; "1046" → 1046 s
+function parseSeek(raw){
+  raw = (raw || "").trim();
+  const m = /^(\d+):([0-5]?\d)$/.exec(raw);
+  if(m) return parseInt(m[1],10)*60 + parseInt(m[2],10);
+  const n = parseFloat(raw); return isNaN(n) ? null : n;
+}
+// instant du 1er amendement en scrutin public de la trame reçue (petit lead avant l'appel)
+function scrutinPublicTs(){
+  const e = EVENTS.find(x => x.type === "appel_amendement" && x.scrutin_public);
+  return e ? Math.max(0, e.ts - 6) : null;
+}
+function jumpToScrutinPublic(){
+  const ts = scrutinPublicTs();
+  if(ts == null){ setState("aucun scrutin public dans la trame reçue"); return; }
+  if(mode !== "mp4") loadDemoVideo();
+  seekTo(ts);
+  video.play().catch(()=>{});
+}
+$("btn-demo").onclick = jumpToScrutinPublic;
+
+/* =====================================================================
+   9. Démarrage DÉMO : fil + vidéo auto + calage sur le scrutin public, en pause
+   ===================================================================== */
 connectThread();
-// ?video=<url>[&epoch=<s>] : charger une VOD par URL (démo/replay hors B2) ;
-// sinon si B2 répond, session replay ; sinon, direct AN.
-(async () => {
+(() => {
   const q = new URLSearchParams(location.search);
-  if(q.get("video")){
-    if(q.get("epoch")) startEpoch = parseInt(q.get("epoch"), 10) || null;
-    mode = "mp4"; setBadge("replay"); $("transport").style.display = "none";
-    video.src = q.get("video"); video.play().catch(()=>{});
-    hideOverlay();
-    return;
-  }
-  try{
-    const s = await (await fetch(B2 + "/clock")).json();
-    await b2Anchor();
-    mode = "b2"; setBadge("replay"); $("transport").style.display = "inline-flex";
-    if(s.playing){ if(await waitForPlaylist()) playUrl(B2_HLS, "REPLAY B2 — bord d'attaque"); }
-    else setState("replay B2 en pause — ▶ pour lancer");
-    return;
-  }catch(e){ /* B2 éteint : on bascule sur le direct */ }
-  playLive();
+  if(q.get("epoch")) startEpoch = parseInt(q.get("epoch"), 10) || null;
+  // ?video=<url> explicite, sinon la vidéo servie par le fil (…:8100/video.mp4)
+  loadDemoVideo(q.get("video") || null);
+  // cible : ?seek=mm:ss si fourni, sinon la séquence scrutin public (donnée-pilotée)
+  const seekParam = q.get("seek");
+  const target = () => seekParam != null ? parseSeek(seekParam) : scrutinPublicTs();
+  // caler dès que la vidéo est prête ET la trame arrivée (SSE peut suivre les métadonnées),
+  // puis PAUSE : la démo s'ouvre sur la bonne image, on lance d'un clic (bouton ou ▶ vidéo)
+  video.addEventListener("loadedmetadata", () => {
+    let tries = 0;
+    const iv = setInterval(() => {
+      const ts = target();
+      if(ts != null){ video.currentTime = ts; video.pause(); clearInterval(iv); }
+      else if(++tries > 50) clearInterval(iv);   // ~5 s : trame vide → on laisse au début
+    }, 100);
+  }, {once:true});
 })();
 
 render(0);

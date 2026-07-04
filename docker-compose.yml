@@ -1,0 +1,9 @@
+services:
+  ariane-demo:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - BUNDLE_PATH=/app/data/2026-07-02-matin

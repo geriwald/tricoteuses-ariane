@@ -61,3 +61,6 @@ def test_surname_with_clear_best_beats_a_distant_second():
     ]
     res = r.resolve("madame Bruet", actors)
     assert res is not None and res["uid"] == "PA794058"
+
+def test_empty_actor_set_returns_none():
+    assert r.resolve("Madame Sophie Errante", []) is None
