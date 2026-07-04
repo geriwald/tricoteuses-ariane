@@ -28,6 +28,10 @@
     #debats-text { height: calc(100vh - 33rem); overflow-y: auto; font-size: .95rem; line-height: 1.5; }
     #debats-text p { margin: .5rem 0; }
     #debats-text .pending { color: #999; font-style: italic; }
+    /* words the llm proofread changed from the raw STT.
+       TEMP loud marker so it's unmistakable while you confirm it shows;
+       swap for the final typography once you pick one. */
+    #debats-text .llm-edit { background: #ff4; font-weight: bold; border-radius: 2px; }
     #debats-text a.spk { font-weight: bold; text-decoration: none; color: #235; }
     #debats-text .ref { display: inline-block; margin: 0 .25rem; padding: 0 .35rem;
                         border-radius: 3px; font-size: .8rem; text-decoration: none; }
@@ -314,7 +318,6 @@
     // ---- Ariane thread: B1 SSE -------------------------------------------
     const threadList = document.getElementById("thread-list");
     const threadStatus = document.getElementById("thread-status");
-    const rowBySeq = {};
 
     function fmt(ms) {
       const total = Math.floor(ms / 1000);
@@ -334,26 +337,13 @@
     }
 
     function onThreadNode(n) {
-      // follow the tail only when already scrolled to the bottom; if the user
-      // scrolled up to read, don't yank them back down.
+      // raw console = append-only firehose: every node exactly as it arrives
+      // (interim provisionals, consolidations, llm supersedes), never removed
+      // nor replaced. The de-duping / superseding is done in the Débats view,
+      // not here — here you see the unedited stream. Follow the tail only when
+      // already scrolled to the bottom.
       const atBottom = threadList.scrollHeight - threadList.scrollTop - threadList.clientHeight < 32;
-      const li = fmtNode(n);
-      // replace the superseded row; falling back on n.seq makes a backlog replay
-      // (SSE auto-reconnect resends everything) idempotent instead of duplicating
-      // supersedes may be one seq or a list (an llm proofread node that merged
-      // several STT fragments); replace the first superseded row, drop the rest.
-      const sup = Array.isArray(n.supersedes) ? n.supersedes
-                : (n.supersedes != null ? [n.supersedes] : []);
-      let anchor = null;
-      for (const s of sup) {
-        const r = rowBySeq[s];
-        if (!r) continue;
-        if (!anchor) anchor = r; else r.remove();
-      }
-      const prev = anchor || rowBySeq[n.seq];
-      if (prev) prev.replaceWith(li); else threadList.appendChild(li);
-      rowBySeq[n.seq] = li;
-      for (const s of sup) rowBySeq[s] = li;
+      threadList.appendChild(fmtNode(n));
       if (atBottom) threadList.scrollTop = threadList.scrollHeight;
     }
 
@@ -380,6 +370,7 @@
     // it back to the previous paragraph (the chair's).
     let prevPara = null, echoWords = null, lastBoundaryT = null, anonSpan = null;
     let pendingWeakCall = null;  // bare-name call waiting for a voice boundary
+    const uttSpanBySeq = {};     // prose fragment per seq → an llm proofread node replaces it in place
 
     // the linked speaker header: name (→ fiche), group (→ organe), a dash
     function speakerHead(n, url) {
@@ -432,9 +423,17 @@
     // paragraph's recent text and replace it with the canonical name, linked.
     function wrapHeard(para, heard, canonText, url) {
       if (!para) return null;
-      const recent = Array.from(para.childNodes).reverse().slice(0, 8);
+      // recent text nodes, descending one level into utterance spans (an
+      // utterance is now a <span class="utt">, no longer a bare text node)
+      const recent = [];
+      for (const k of Array.from(para.childNodes).reverse()) {
+        if (k.nodeType === Node.TEXT_NODE) recent.push(k);
+        else if (k.nodeType === Node.ELEMENT_NODE)
+          for (const c of Array.from(k.childNodes).reverse())
+            if (c.nodeType === Node.TEXT_NODE) recent.push(c);
+        if (recent.length >= 8) break;
+      }
       for (const tn of recent) {
-        if (tn.nodeType !== Node.TEXT_NODE) continue;
         const i = tn.textContent.indexOf(heard);
         if (i < 0) continue;
         const mid = tn.splitText(i);       // mid starts at the heard name
@@ -478,8 +477,69 @@
     const ensurePara = () => curPara || newPara();
     function clearPending() { if (pendingSpan) { pendingSpan.remove(); pendingSpan = null; } }
 
+    // word-level diff (LCS): which tokens of the llm text genuinely differ from
+    // the raw STT. Casing/punctuation are normalized away, so only real word
+    // edits are flagged — not the llm's re-punctuation or re-capitalisation.
+    function llmChangedTokens(oldStr, newStr) {
+      const l = newStr.split(/\s+/).filter(Boolean);
+      const o = oldStr.split(/\s+/).filter(Boolean);
+      const norm = w => w.normalize("NFD").replace(/[̀-ͯ]/g, "")
+                         .toLowerCase().replace(/[.,;:!?…«»"'()\[\]-]/g, "");
+      const O = o.map(norm), L = l.map(norm), m = O.length, k = L.length;
+      const dp = Array.from({ length: m + 1 }, () => new Int32Array(k + 1));
+      for (let i = m - 1; i >= 0; i--)
+        for (let j = k - 1; j >= 0; j--)
+          dp[i][j] = O[i] === L[j] ? dp[i + 1][j + 1] + 1
+                                   : Math.max(dp[i + 1][j], dp[i][j + 1]);
+      const changed = new Array(k).fill(true);
+      let i = 0, j = 0;
+      while (i < m && j < k) {
+        if (O[i] === L[j]) { changed[j] = false; i++; j++; }
+        else if (dp[i + 1][j] >= dp[i][j + 1]) i++;
+        else j++;
+      }
+      return l.map((w, idx) => ({ w, changed: changed[idx] }));
+    }
+
+    // append the llm text into `parent`, wrapping runs of changed words in a
+    // <span class="llm-edit"> so only those words carry the distinct typography
+    function appendDiffed(parent, oldStr, newStr, lead) {
+      const marks = llmChangedTokens(oldStr, newStr);
+      let idx = 0, first = true;
+      while (idx < marks.length) {
+        const changed = marks[idx].changed, words = [];
+        while (idx < marks.length && marks[idx].changed === changed) { words.push(marks[idx].w); idx++; }
+        const text = (first ? lead : " ") + words.join(" ");
+        first = false;
+        if (changed) {
+          const sp = document.createElement("span");
+          sp.className = "llm-edit";
+          sp.textContent = text;
+          parent.appendChild(sp);
+        } else parent.appendChild(document.createTextNode(text));
+      }
+    }
+
     function debatsNode(n) {
       const atBottom = debatsText.scrollHeight - debatsText.scrollTop - debatsText.clientHeight < 40;
+      // llm proofread: replace the superseded prose fragment(s) in place, no dupe
+      if (n.kind === "utterance" && n.source === "llm" && n.supersedes != null) {
+        const sup = Array.isArray(n.supersedes) ? n.supersedes : [n.supersedes];
+        const hit = sup.map(s => uttSpanBySeq[s]).filter(sp => sp && sp.isConnected);
+        if (hit.length) {
+          const orig = hit.map(sp => sp.textContent).join(" ");
+          const lead = /^\s/.test(hit[0].textContent) ? " " : "";
+          hit[0].className = "utt llm";
+          hit[0].replaceChildren();
+          appendDiffed(hit[0], orig, n.text.trim(), lead);
+          for (let i = 1; i < hit.length; i++) hit[i].remove();
+          for (const s of sup) uttSpanBySeq[s] = hit[0];
+          uttSpanBySeq[n.seq] = hit[0];
+          if (atBottom) debatsText.scrollTop = debatsText.scrollHeight;
+          return;
+        }
+        // no matching fragment (backlog / cross-paragraph): fall through, append it
+      }
       if (n.kind === "utterance" && n.state === "provisional") {
         // the live rewrite: one grey tail span, overwritten by each interim
         if (!pendingSpan) {
@@ -495,19 +555,26 @@
         // («-là») is word hyphenation split across utterances — no break,
         // and rejoin without a space (ordre + -là → ordre-là)
         const glued = /^[-–—]\S/.test(text.trim());
+        // each utterance is a span keyed by seq so an llm proofread node can
+        // replace it in place later (see the supersede branch at the top)
+        const addUtt = (para, s) => {
+          const sp = document.createElement("span");
+          sp.className = "utt";
+          sp.textContent = (glued ? "" : " ") + s.trim();
+          para.appendChild(sp);
+          uttSpanBySeq[n.seq] = sp;
+        };
         // late consolidation: an utterance that BEGAN before the last turn
         // boundary belongs to the previous turn's paragraph («Allons» / ◇ /
         // «-y s'il vous plaît» — the tail goes back with «Allons»)
         if (lastBoundaryT != null && n.t < lastBoundaryT && prevPara) {
-          if (text) prevPara.appendChild(
-            document.createTextNode((glued ? "" : " ") + text.trim()));
+          if (text) addUtt(prevPara, text);
         } else {
           if (/^\s*[-–—]\s/.test(text)) {
             newPara();
             text = text.replace(/^\s*[-–—]\s*/, "");
           }
-          if (text) ensurePara().appendChild(
-            document.createTextNode((glued ? "" : " ") + text.trim()));
+          if (text) addUtt(ensurePara(), text);
         }
       } else if (n.kind === "speaker" && !n.canonical.acteur) {
         // anonymous boundary (diarization): a turn break without identity —
@@ -649,8 +716,8 @@
     function resetPanes() {
       // console + débats start afresh (record switch, new thread…)
       threadList.replaceChildren();
-      for (const k in rowBySeq) delete rowBySeq[k];
       debatsText.replaceChildren();
+      for (const k in uttSpanBySeq) delete uttSpanBySeq[k];
       curPara = null; pendingSpan = null;
       prevPara = null; echoWords = null; lastBoundaryT = null; anonSpan = null;
       pendingWeakCall = null;
