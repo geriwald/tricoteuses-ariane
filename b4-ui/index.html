@@ -340,9 +340,20 @@
       const li = fmtNode(n);
       // replace the superseded row; falling back on n.seq makes a backlog replay
       // (SSE auto-reconnect resends everything) idempotent instead of duplicating
-      const prev = (n.supersedes != null ? rowBySeq[n.supersedes] : null) || rowBySeq[n.seq];
+      // supersedes may be one seq or a list (an llm proofread node that merged
+      // several STT fragments); replace the first superseded row, drop the rest.
+      const sup = Array.isArray(n.supersedes) ? n.supersedes
+                : (n.supersedes != null ? [n.supersedes] : []);
+      let anchor = null;
+      for (const s of sup) {
+        const r = rowBySeq[s];
+        if (!r) continue;
+        if (!anchor) anchor = r; else r.remove();
+      }
+      const prev = anchor || rowBySeq[n.seq];
       if (prev) prev.replaceWith(li); else threadList.appendChild(li);
       rowBySeq[n.seq] = li;
+      for (const s of sup) rowBySeq[s] = li;
       if (atBottom) threadList.scrollTop = threadList.scrollHeight;
     }
 
