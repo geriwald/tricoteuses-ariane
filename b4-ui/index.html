@@ -324,6 +324,7 @@ function pushArticleIfNew(ancre, ts, seq, sources, texte){
                label: m ? `Article ${m[1].trim()}` : "Nouvel article"});
 }
 
+let ouvertureSeen = false;
 function onNode(n){
   if(seenSeq.has(n.seq)) return;   // déjà vu (reconnexion SSE) — idempotent
   seenSeq.add(n.seq);
@@ -332,7 +333,14 @@ function onNode(n){
 
   // utterance : pas un événement de trame, mais la légende live + la provenance
   if(n.kind === "utterance"){
-    if(n.state === "consolidated"){ lastUtter = {t:n.t, text:n.text}; setCaption(n.text, false); }
+    if(n.state === "consolidated"){
+      lastUtter = {t:n.t, text:n.text}; setCaption(n.text, false);
+      if(!ouvertureSeen){           // 1re parole consolidée = début de séance : marqueur cliquable
+        ouvertureSeen = true;
+        EVENTS.push({type:"ouverture", ts, seq:-1, sources:["stt"], label:"Séance ouverte"});
+        EVENTS.sort((a,b) => a.ts - b.ts || a.seq - b.seq);
+      }
+    }
     else setCaption(n.text, true);
     return;
   }
@@ -346,10 +354,15 @@ function onNode(n){
 
   if(n.kind === "speaker"){
     if(!n.call) return;            // simple mention citée dans un discours : pas de tour
-    ev = {type:"orateur", nom:n.text, heard:n.heard,
+    ev = {type:"orateur", nom:n.text, heard:n.heard, role:n.role,
           url: c.acteur ? acteurUrl(c.acteur) : null,
           groupe: c.groupe, groupeLabel: n.groupe_label,
           label: n.text + (n.groupe_label ? ` (${n.groupe_label})` : "")};
+
+  } else if(n.kind === "avis"){
+    const sens = n.sens === "defavorable" ? "défavorable" : n.sens;
+    ev = {type:"avis", organe:n.organe, sens:n.sens,
+          label:`Avis — ${n.organe} : ${sens}`};
 
   } else if(n.kind === "amendment"){
     const num = amdtNum(c.amendement_uid);
@@ -390,17 +403,19 @@ function onNode(n){
    ===================================================================== */
 function deriveState(events, t){
   const past = [], state = {phase:"—", article:null, orateur:null, amendement:null,
-                            vote:null, voteEvent:null, sorts:{}, sortis:0};
+                            vote:null, voteEvent:null, sorts:{}, sortis:0, avis:{}};
   for(const e of events){
     if(e.ts > t) break;
     past.push(e);
     switch(e.type){
       case "article": state.article = e; state.amendement = null; state.vote = null; state.voteEvent = null;
+                      state.avis = {};
                       state.phase = "Discussion des articles"; break;
       case "appel_amendement": state.amendement = e; state.vote = null;
-                      state.voteEvent = null;
+                      state.voteEvent = null; state.avis = {};
                       state.phase = "Discussion des articles"; break;
       case "orateur": state.orateur = e; break;
+      case "avis": state.avis[e.organe] = e.sens; break;
       case "mise_aux_voix": state.vote = "ouvert"; state.voteEvent = e.scrutinUrl ? e : (state.voteEvent || e); state.phase = "Vote en cours"; break;
       case "sort_amendement":
         e.nums.forEach(num => state.sorts[num] = e.sort);
@@ -461,46 +476,67 @@ function initials(nom){
   const parts = (nom||"").replace(/^(M\.|Mme|Monsieur|Madame)\s+/,"").split(/\s+/).filter(Boolean);
   return parts.slice(0,2).map(w=>w[0]?.toUpperCase()||"").join("") || "?";
 }
+let _lastSpeakerKey = null;
 function renderSpeaker(o){
   const sp = $("speaker");
-  if(!o){ sp.className="vide"; sp.textContent = "En attente d'un orateur…"; return; }
-  sp.className = "";
+  if(!o){
+    if(_lastSpeakerKey === " vide") return;   // ne pas réécrire le DOM chaque frame
+    _lastSpeakerKey = " vide";
+    sp.className="vide"; sp.textContent = "En attente d'un orateur…"; return;
+  }
   const lien = o.url ? `<div class="lien"><a href="${o.url}" target="_blank">Fiche du député →</a></div>` : "";
-  const grp = o.groupeLabel
+  const ROLE_LABEL = {rapporteur:"Rapporteure", ministre:"Ministre", president:"Présidence"};
+  const grp = o.role
+    ? `<div class="fonction">${ROLE_LABEL[o.role] || o.role}</div>`
+    : o.groupeLabel
     ? `<div class="fonction">${o.groupe ? `<a href="${groupeUrl(o.groupe)}" target="_blank" style="color:var(--gris)">${o.groupeLabel}</a>` : o.groupeLabel}</div>`
     : `<div class="fonction">Intervenant·e</div>`;
-  sp.innerHTML = `<div class="avatar">${initials(o.nom)}</div>
+  const html = `<div class="avatar">${initials(o.nom)}</div>
     <div><div class="nom">${o.nom}</div>${grp}</div>${lien}`;
+  if(html === _lastSpeakerKey) return;   // idem : réécrire innerHTML chaque frame détruit
+  _lastSpeakerKey = html;                // les <a> et casse le clic gauche (ouvre au click)
+  sp.className = "";
+  sp.innerHTML = html;
 }
 
+let _lastCtxHtml = null;
 function renderCtx(state){
   const b = $("ctx-body");
+  let html;
   if(!state.amendement){
-    b.innerHTML = `<div class="card">${state.article ? state.article.label : "La discussion n'a pas encore commencé."}</div>`;
-    return;
+    html = `<div class="card">${state.article ? state.article.label : "La discussion n'a pas encore commencé."}</div>`;
+  } else {
+    const a = state.amendement, num = a.nums[0];
+    const sort = state.sorts[num];
+    const sortHtml = sort
+      ? `<span class="sort-tag ${sort==="adopte"?"ok":"ko"}">${sort==="adopte"?"✓ Adopté":"✗ Rejeté"}</span>`
+      : (state.phase === "Vote en cours"
+          ? `<span class="sort-tag wait">Scrutin en cours…</span>`
+          : `<span class="sort-tag wait">En discussion…</span>`);
+    const avisE = Object.entries(state.avis);
+    const avisHtml = avisE.length
+      ? `<div class="amdt-avis">Avis — ${avisE.map(([o,s]) =>
+          `${o} : ${s==="defavorable"?"défavorable":s}`).join(" · ")}</div>`
+      : "";
+    html = `<div class="card">
+        ${state.article?`<h3>${state.article.label}</h3>`:""}
+        <div class="amdt-num">Amendement nᵒ ${num || "?"}</div>
+        ${a.libelle?`<div class="amdt-lib">${a.libelle}</div>`:""}
+        ${a.author?`<div class="amdt-author">Auteur : ${extLink(acteurUrl(a.author), "fiche →")}</div>`:""}
+        ${avisHtml}
+        ${sortHtml}
+      </div>`;
+    const voteEvent = state.voteEvent || {};
+    const liens = [
+      extLink(a.amendementUrl || a.url, "Amendement (données ouvertes / dyn)"),
+      extLink(voteEvent.scrutinUrl || a.scrutinUrl, "Scrutin public"),
+      extLink(a.articleUrl || voteEvent.articleUrl, "Article dans le texte de la commission"),
+      extLink(a.dossierUrl || voteEvent.dossierUrl, "Dossier législatif"),
+    ].filter(Boolean);
+    if(liens.length) html += `<div class="card liens-utiles"><h3>Liens</h3>${liens.join("")}</div>`;
   }
-  const a = state.amendement, num = a.nums[0];
-  const sort = state.sorts[num];
-  const sortHtml = sort
-    ? `<span class="sort-tag ${sort==="adopte"?"ok":"ko"}">${sort==="adopte"?"✓ Adopté":"✗ Rejeté"}</span>`
-    : (state.phase === "Vote en cours"
-        ? `<span class="sort-tag wait">Scrutin en cours…</span>`
-        : `<span class="sort-tag wait">En discussion…</span>`);
-  let html = `<div class="card">
-      ${state.article?`<h3>${state.article.label}</h3>`:""}
-      <div class="amdt-num">Amendement nᵒ ${num || "?"}</div>
-      ${a.libelle?`<div class="amdt-lib">${a.libelle}</div>`:""}
-      ${a.author?`<div class="amdt-author">Auteur : ${extLink(acteurUrl(a.author), "fiche →")}</div>`:""}
-      ${sortHtml}
-    </div>`;
-  const voteEvent = state.voteEvent || {};
-  const liens = [
-    extLink(a.amendementUrl || a.url, "Amendement (données ouvertes / dyn)"),
-    extLink(voteEvent.scrutinUrl || a.scrutinUrl, "Scrutin public"),
-    extLink(a.articleUrl || voteEvent.articleUrl, "Article dans le texte de la commission"),
-    extLink(a.dossierUrl || voteEvent.dossierUrl, "Dossier législatif"),
-  ].filter(Boolean);
-  if(liens.length) html += `<div class="card liens-utiles"><h3>Liens</h3>${liens.join("")}</div>`;
+  if(html === _lastCtxHtml) return;   // ne réécrire innerHTML que si le contenu change :
+  _lastCtxHtml = html;                // sinon les <a> sont recréés chaque frame → clic gauche cassé
   b.innerHTML = html;
 }
 

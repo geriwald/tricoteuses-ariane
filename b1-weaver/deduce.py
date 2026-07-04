@@ -116,6 +116,93 @@ def is_speaker_call(text, name, prev_tail=None):
     return False
 
 
+# mic role announced by a chair's title-call. The PERSON stays unresolved (no
+# referential carries the sitting role — resolution-referentiels-canutes.md);
+# the FUNCTION is the honest thing the STT gives. Calibrated on the 02/07 STT
+# («Madame la rapporteure, votre avis ?», «Monsieur le ministre.»).
+_ROLE_PATTERNS = [
+    ("rapporteur", "la rapporteure",
+     re.compile(r"(?:madame|monsieur)\s+l[ae]\s+rapporteur[e]?s?\b", re.I)),
+    ("ministre", "le ministre",
+     re.compile(r"(?:madame|monsieur)\s+l[ae]\s+ministre\b"
+                r"|garde\s+des\s+sceaux\b"
+                r"|secr[ée]taire\s+d['’]?[ée]tat\b", re.I)),
+    ("president", "la présidence",
+     re.compile(r"(?:madame|monsieur)\s+l[ae]\s+président[e]?\b", re.I)),
+]
+
+
+def extract_role(text):
+    """The mic role announced by a chair's title-call, deduced from text.
+
+    Returns (role, label) for the first title that reads as a CALL (a handoff),
+    else None — a mere mention («je pense que la rapporteur a raison») moves
+    nothing. The président is chronically THANKED («merci Madame la Présidente»);
+    that politeness is not a handoff, so it is excluded."""
+    for role, label, pat in _ROLE_PATTERNS:
+        m = pat.search(text)
+        if not m:
+            continue
+        if role == "president" and re.search(r"(?:merci|remercie)[^.]*$",
+                                             text[:m.start()], re.I):
+            continue
+        if is_speaker_call(text, m.group(0)):
+            return role, label
+    return None
+
+
+# avis (commission/gouvernement) deduced from the debate wording
+_AVIS_HAS = re.compile(r"\bavis\b|\bsagesse\b|titre\s+personnel", re.I)
+_AVIS_DOUBLE = re.compile(r"double\s+avis\s+(favorable|défavorable)", re.I)
+_AVIS_SENS = re.compile(r"\b(défavorable|defavorable|favorable|sagesse)\b", re.I)
+_ORGANE_NEAR = re.compile(r"commission|gouvernement|gouverneur", re.I)
+_SENS_NORM = {"favorable": "favorable", "défavorable": "defavorable",
+              "defavorable": "defavorable", "sagesse": "sagesse"}
+_ROLE_ORGANE = {"rapporteur": "commission", "ministre": "gouvernement"}
+_AVIS_DISPLAY = {"favorable": "favorable", "defavorable": "défavorable",
+                 "sagesse": "sagesse"}
+
+
+def _organe_near(text, start, end):
+    """The organe cue nearest a sens token: «de la commission» / «du
+    gouvernement» (STT «gouverneur») after it, else just before it."""
+    m = _ORGANE_NEAR.search(text, end, end + 40)
+    if not m:
+        for mm in _ORGANE_NEAR.finditer(text, max(0, start - 40), start):
+            m = mm  # keep the last (closest) cue before the sens
+    if not m:
+        return None
+    return "commission" if m.group(0).lower() == "commission" else "gouvernement"
+
+
+def extract_avis(text, speaker_role=None):
+    """Avis (commission/gouvernement) deduced from an utterance.
+
+    «double avis X» = the chair reporting BOTH benches → two nodes. Otherwise
+    each favorable/défavorable/sagesse is tied to the nearest explicit organe
+    cue («de la commission», «du gouvernement»). With no explicit organe, the
+    sens counts only if the utterance frames it as an avis («avis», «sagesse»,
+    «titre personnel»), and the current mic role infers the bench
+    (rapporteur→commission, ministre→gouvernement) — no cue, no marker/role →
+    nothing (honesty over coverage)."""
+    m = _AVIS_DOUBLE.search(text)
+    if m:
+        sens = _SENS_NORM[m.group(1).lower()]
+        return [{"organe": "commission", "sens": sens},
+                {"organe": "gouvernement", "sens": sens}]
+    has_marker = bool(_AVIS_HAS.search(text))
+    out, seen = [], set()
+    for sm in _AVIS_SENS.finditer(text):
+        organe = _organe_near(text, sm.start(), sm.end())
+        if organe is None:
+            organe = _ROLE_ORGANE.get(speaker_role) if has_marker else None
+        if organe is None or organe in seen:
+            continue
+        seen.add(organe)
+        out.append({"organe": organe, "sens": _SENS_NORM[sm.group(1).lower()]})
+    return out
+
+
 def extract_ballot(text):
     """Ballot event in a sentence: open | vote | adopted | rejected | None.
     Rejection is tested before adoption («n'est pas adopté» contains «est adopté»)."""
@@ -185,6 +272,7 @@ class Deducer:
         self._woven_uids = set()
         self._current = None  # canonical of the last amendment heard
         self._speaker_uid = None
+        self._speaker_role = None  # deduced mic role, for avis organe inference
         self._prev_tail = None  # previous utterance, for cross-utterance sentences
 
     def set_referentials(self, actors, organes=None):
@@ -194,10 +282,10 @@ class Deducer:
         # groupe uid → libelle, from the sitting's organes.json referential
         self._groupe_label = {o["uid"]: o["libelle"] for o in (organes or [])}
 
-    def _node(self, t, kind, text, canonical):
+    def _node(self, t, kind, text, canonical, source="stt"):
         return {"t": t, "seq": self._seq.next(), "kind": kind,
                 "state": "consolidated", "text": text,
-                "canonical": canonical, "source": "stt"}
+                "canonical": canonical, "source": source}
 
     def feed(self, node):
         """Consume one thread node; return the trame nodes it lets us deduce."""
@@ -228,6 +316,7 @@ class Deducer:
             call = is_speaker_call(text, name, prev_tail=self._prev_tail)
             if call:
                 self._speaker_uid = r["uid"]  # a mention never moves the floor
+                self._speaker_role = None     # a named deputy: role unknown, not claimed
             actor = next((a for a in self.actors if a["uid"] == r["uid"]), None)
             label = (f"{actor['civ']} {actor['prenom']} {actor['nom']}"
                      if actor else r["nom"])
@@ -242,6 +331,25 @@ class Deducer:
                 node["groupe_label"] = self._groupe_label[groupe]
             out.append(node)
 
+        role = extract_role(text)
+        if role:
+            r_name, label = role
+            self._speaker_role = r_name  # holds even when deduped (avis inference)
+            key = f"@role:{r_name}"
+            if key != self._speaker_uid:
+                self._speaker_uid = key   # the mic changed hands
+                node = self._node(t, "speaker", label, dict(EMPTY_CANONICAL))
+                node["call"] = "strong"
+                node["role"] = r_name
+                out.append(node)
+
+        for a in extract_avis(text, self._speaker_role):
+            canonical = dict(self._current) if self._current else dict(EMPTY_CANONICAL)
+            node = self._node(t, "avis",
+                              f"Avis {a['organe']} : {_AVIS_DISPLAY[a['sens']]}", canonical)
+            node["organe"], node["sens"] = a["organe"], a["sens"]
+            out.append(node)
+
         action = extract_ballot(text)
         if action:
             canonical = dict(self._current) if self._current else dict(EMPTY_CANONICAL)
@@ -249,3 +357,30 @@ class Deducer:
 
         self._prev_tail = text
         return out
+
+    def feed_scrutin_result(self, event):
+        """Tisser un nœud ballot CHIFFRÉ depuis l'écran-résultat OCRisé (source=ocr).
+
+        La régie incruste dans la vidéo un écran portant le chiffré GLOBAL (votants/
+        exprimés/majorité/POUR/CONTRE) mais NI le numéro de scrutin NI le nominatif.
+        L'OCR de cet écran (spike 2026-07-03-scrutin-ocr) est une lecture MACHINE de la
+        vidéo publique — pas un signal saisi en régie, l'invariant tient. Le chiffré
+        s'attache à l'amendement courant, comme les ballots déduits du STT ; le sort se
+        déduit du seuil de majorité absolue affiché. `canonical.scrutin` reste None : le
+        numéro et le nominatif se résolvent APRÈS séance (resolve_scrutin, contre
+        l'open-data assemblee.scrutins).
+
+        `event` = l'event scrutin_result du scanner OCR (t_ms + compteurs + confidence).
+        """
+        pour, majorite = event.get("pour"), event.get("majorite")
+        if pour is not None and majorite is not None:
+            text = _BALLOT_LABEL["adopted" if pour >= majorite else "rejected"]
+        else:
+            text = "Résultat du scrutin"
+        canonical = dict(self._current) if self._current else dict(EMPTY_CANONICAL)
+        node = self._node(event["t_ms"], "ballot", text, canonical, source="ocr")
+        node["result"] = {k: event.get(k) for k in
+                          ("votants", "exprimes", "majorite", "pour", "contre",
+                           "abstentions")}
+        node["confidence"] = event.get("confidence")
+        return [node]

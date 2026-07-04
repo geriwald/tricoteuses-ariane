@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "b4-ui",
+      "runtimeExecutable": "C:/Python314/python.exe",
+      "runtimeArgs": ["b4-ui/serve.py", "--port", "8081"],
+      "port": 8081
+    }
+  ]
+}

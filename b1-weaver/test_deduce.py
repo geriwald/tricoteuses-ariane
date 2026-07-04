@@ -62,6 +62,56 @@ def test_extract_ballot_real_sentences():
     assert deduce.extract_ballot("Quel est l'avis de la commission ?") is None
 
 
+# ---- role + avis (deduced from speech, real 02/07 sentences) -----------------
+
+def test_extract_role_real_sentences():
+    assert deduce.extract_role("Merci Madame la rapporteure, votre avis ?") == (
+        "rapporteur", "la rapporteure")
+    assert deduce.extract_role("Monsieur le ministre.")[0] == "ministre"
+    assert deduce.extract_role("Amendement 294, Madame la rapporteure.")[0] == "rapporteur"
+    # a mention inside a speech is not a handoff
+    assert deduce.extract_role("Je pense que la rapporteur a raison sur ce point.") is None
+    # the président is thanked, not called to the mic
+    assert deduce.extract_role("Oui, merci Madame la Présidente.") is None
+
+
+def test_extract_avis_real_sentences():
+    # «double avis X» = both benches
+    assert deduce.extract_avis("Double avis favorable. Qui est pour ?") == [
+        {"organe": "commission", "sens": "favorable"},
+        {"organe": "gouvernement", "sens": "favorable"}]
+    assert deduce.extract_avis("Monsieur le ministre, double avis défavorable, scrutin public, on vote.") == [
+        {"organe": "commission", "sens": "defavorable"},
+        {"organe": "gouvernement", "sens": "defavorable"}]
+    # explicit organe cues, two benches diverging
+    assert deduce.extract_avis("favorable de la Commission, favorable du Gouverneur.") == [
+        {"organe": "commission", "sens": "favorable"},
+        {"organe": "gouvernement", "sens": "favorable"}]
+    # organe inferred from the current mic role (rapporteure → commission)
+    assert deduce.extract_avis("Donc à titre personnel, j'ai mis un avis défavorable.",
+                               speaker_role="rapporteur") == [
+        {"organe": "commission", "sens": "defavorable"}]
+    # no «avis» word → nothing claimed
+    assert deduce.extract_avis("La CNIL a rendu un avis très sévère sur cet article 3.") == []
+    assert deduce.extract_avis("Donc avis favorable.") == []  # no organe, no role
+
+
+def test_deducer_emits_role_speaker_and_avis_nodes():
+    d = deduce.Deducer(deduce.AgendaIndex.from_derouleur(AGENDA_SNAPSHOT), ACTORS)
+    d.feed(utter("amendement 1388"))  # sets the current amendment
+    (rap,) = [n for n in d.feed(utter("Merci Madame la rapporteure, votre avis ?"))
+              if n["kind"] == "speaker"]
+    assert rap["role"] == "rapporteur"
+    # the rapporteure now holds the mic → her «à titre personnel» avis is commission's
+    avis = [n for n in d.feed(utter("Donc à titre personnel, j'ai mis un avis défavorable."))
+            if n["kind"] == "avis"]
+    assert avis[0]["organe"] == "commission" and avis[0]["sens"] == "defavorable"
+    assert avis[0]["canonical"]["amendement_uid"].endswith("N001388")
+    (mini,) = [n for n in d.feed(utter("Monsieur le ministre."))
+               if n["kind"] == "speaker"]
+    assert mini["role"] == "ministre"
+
+
 # ---- agenda index (derouleur LIST as a dictionary — highlight ignored) --------
 
 AGENDA_SNAPSHOT = {"racine": {"contenu": {"phase": [{
@@ -152,6 +202,37 @@ def test_deducer_dedupes_amendment_but_ballots_are_events():
     assert open_["canonical"]["amendement_uid"].endswith("N001388")
     assert result["kind"] == "ballot"
     assert "rejet" in result["text"].lower()
+
+
+def test_deducer_scrutin_result_weaves_ocr_ballot():
+    """The OCR of the régie's result screen (spike) weaves a FIGURED ballot node,
+    attached to the current amendment; the scrutin id resolves post-sitting."""
+    d = deduce.Deducer(deduce.AgendaIndex.from_derouleur(AGENDA_SNAPSHOT), ACTORS)
+    d.feed(utter("amendement 1388"))  # sets the current amendment
+    event = {"t_ms": 1530000, "votants": 81, "exprimes": 81, "majorite": 41,
+             "pour": 27, "contre": 54, "abstentions": 0, "confidence": 1.0}
+    (node,) = d.feed_scrutin_result(event)
+    assert node["kind"] == "ballot"
+    assert node["source"] == "ocr"
+    assert node["t"] == 1530000
+    assert node["text"] == "Rejeté"                       # pour 27 < majorité 41
+    assert node["result"] == {"votants": 81, "exprimes": 81, "majorite": 41,
+                              "pour": 27, "contre": 54, "abstentions": 0}
+    assert node["confidence"] == 1.0
+    assert node["canonical"]["amendement_uid"].endswith("N001388")
+    assert node["canonical"]["scrutin"] is None           # resolved later, off open-data
+
+
+def test_deducer_scrutin_result_outcome_and_no_amendment():
+    """Outcome reads the majority threshold; with no amendment heard yet the node
+    still carries the figures (canonical empty)."""
+    d = deduce.Deducer(deduce.AgendaIndex.from_derouleur(AGENDA_SNAPSHOT), ACTORS)
+    (node,) = d.feed_scrutin_result(
+        {"t_ms": 100, "votants": 81, "exprimes": 81, "majorite": 41,
+         "pour": 55, "contre": 26, "abstentions": 0, "confidence": 1.0})
+    assert node["text"] == "Adopté"                       # pour 55 >= majorité 41
+    assert node["canonical"] == deduce.EMPTY_CANONICAL
+    assert node["result"]["pour"] == 55
 
 
 def test_deducer_speaker_resolved_fuzzily_titles_refused():
