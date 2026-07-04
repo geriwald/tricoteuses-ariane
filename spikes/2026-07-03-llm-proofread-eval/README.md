@@ -177,3 +177,21 @@ code :
 - `flags` signale, en français, un nom absent des candidats ou un doute
   (texte alors inchangé).
 ````
+
+## MAJ 2026-07-03 — re-segmentation (D8)
+
+Le contrat strict « une correction = un seq » a été levé : sur données réelles,
+**~13 % des utterances sont coupées en plein milieu** d'une phrase par le STT,
+ce qui bloquait des corrections. Le modèle renvoie désormais un transcript
+corrigé **une prise de parole par ligne** et **fusionne** les fragments ; un
+nœud corrigé peut superséder **plusieurs seq** (`supersedes` devient une liste).
+Un ré-aligneur déterministe (`b1-weaver/realign.py`, union-find testé) rattache
+chaque segment corrigé aux seq qu'il couvre, sans perte de contenu.
+
+Sur les 100 premières utterances : **24 nœuds** produits dont **18 fusions**.
+Sortie complète lisible : [sortie-resegmentee.md](sortie-resegmentee.md).
+
+Liberté de réécriture **validée** (Géraud) : le modèle peut re-rattacher les
+nombres d'un décompte de scrutin mal transcrit et restructurer la ponctuation ;
+jugé correct, on privilégie un compte rendu lisible. La règle « ne jamais
+inventer un nom hors candidats » reste absolue.
