@@ -69,12 +69,22 @@ Typical demo loop (replay a captured sitting and weave it):
 python3 b2-replay/server.py --record path/to/record --port 8000
 
 # B1: weave the thread off B2's video, resolving against referentials
+#   (--proofread adds the LLM relecture stage: it needs the `claude` CLI on PATH)
 python3 b1-weaver/weaver_live.py --source http://127.0.0.1:8000/video \
-    --agenda http://127.0.0.1:8000/derouleur.json --port 8100
+    --agenda http://127.0.0.1:8000/local/derouleur/derouleur.json \
+    --actors http://127.0.0.1:8000/referential/acteurs.json \
+    --organes http://127.0.0.1:8000/referential/organes.json \
+    --proofread --port 8100
 
 # B4: serve the UI
 python3 b4-ui/serve.py --port 8080     # open http://127.0.0.1:8080
 ```
+
+B1's live STT needs a GPU whisper stack (torch + faster-whisper), so run it with
+a venv that has them, separate from the bricks' numpy-only test venv. Pass
+`--bind 0.0.0.0` to B1/B2/B4 to reach the demo across Tailscale, or run it all on
+one host and view `http://127.0.0.1:8080`. A ready-made launcher that reads the
+bundle and venv paths from the environment / `.env` is [`demo/run.sh`](demo/run.sh).
 
 ## Configuration
 
