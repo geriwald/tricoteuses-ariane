@@ -1,12 +1,11 @@
 """Tests for the B1 LLM proofread pass (spec 2026-07-03-b1-llm-proofread-pass, #17).
 
-The pass corrects the TEXT of consolidated utterances (proper nouns, acronyms)
-against the sitting's resolved candidate list — never the speaker attribution,
-which comes from the referential without any LLM. Fixtures reuse real STT noise
-from the 26/06 sitting («Bruet» for GRUET) and the spike («Someni» for Somaini).
-
-The CLI transport is injected and mocked here; the real call is exercised once
-manually (acceptance run documented in the spec).
+Paragraph + re-segmentation contract (D7/D8): the window is sent as one flowing
+paragraph and the LLM returns a corrected transcript, one utterance per line,
+free to merge STT fragments. `realign` (tested in test_realign.py) maps segments
+back to the seqs they cover. These tests cover windowing, prompt assembly, the
+plain-text+NOTES parsing, multi-seq node generation, and the
+never-break-the-thread orchestration. The CLI transport is injected and mocked.
 """
 import json
 
@@ -27,21 +26,20 @@ def utt(seq, text, t=None, state="consolidated", source="stt"):
             "kind": "utterance", "state": state, "text": text, "source": source}
 
 
-# ---- windowing (D3 / D3bis) ---------------------------------------------------
+# ---- windowing (D3) -----------------------------------------------------------
 
 def test_window_fires_at_size_with_context_carry():
     win = proofread.Windower(size=3, overlap=2)
     out = [win.feed(utt(i, f"u{i}")) for i in range(3)]
     assert out[0] is None and out[1] is None
     ctx, targets = out[2]
-    assert ctx == []                                # first window: no context yet
+    assert ctx == []
     assert [n["seq"] for n in targets] == [0, 1, 2]
-    # next window: last `overlap` nodes carried as context, NOT as targets
     for i in (3, 4):
         assert win.feed(utt(i, f"u{i}")) is None
     ctx, targets = win.feed(utt(5, "u5"))
     assert [n["seq"] for n in ctx] == [1, 2]
-    assert [n["seq"] for n in targets] == [3, 4, 5]  # targets partition the stream
+    assert [n["seq"] for n in targets] == [3, 4, 5]
 
 
 def test_window_ignores_interim_other_kinds_and_llm_nodes():
@@ -61,129 +59,88 @@ def test_flush_emits_partial_window_once():
     win.feed(utt(1, "b"))
     ctx, targets = win.flush()
     assert [n["seq"] for n in targets] == [0, 1]
-    assert win.flush() is None                      # nothing buffered → nothing
+    assert win.flush() is None
 
 
-# ---- prompt (D1) ----------------------------------------------------------------
+# ---- prompt (D1) --------------------------------------------------------------
 
-def test_prompt_carries_candidates_targets_and_separated_context():
+def test_prompt_paragraph_mode_carries_candidates_hints_and_prose():
     ctx = [utt(7, "contexte antérieur")]
-    targets = [utt(8, "madame Bruet a la parole")]
+    targets = [utt(8, "L'amendement 449, madame Bruet, défendu")]
     p = proofread.build_prompt(ACTORS, ctx, targets)
-    assert "Mme Justine Gruet" in p                 # resolved candidate list (D1)
-    assert "[8] madame Bruet a la parole" in p      # seq-anchored target (D3bis)
-    assert "[7] contexte antérieur" in p
-    # context precedes targets and sits under its own marker so the parser can
-    # refuse corrections on it
-    assert p.index("[7]") < p.index("[8]")
-    assert proofread.CONTEXT_MARKER in p
+    assert "Mme Justine Gruet" in p
+    assert "L'amendement 449, madame Bruet, défendu" in p
+    assert "contexte antérieur" in p
+    assert "[8]" not in p and "[7]" not in p
+    assert proofread.HINTS_MARKER in p
 
 
-# ---- parsing (D5 / D3bis) -----------------------------------------------------
-
-def _resp(corrections):
-    return json.dumps({"corrections": corrections})
-
-
-def test_parse_accepts_valid_corrections_and_code_fences():
-    raw = "```json\n" + _resp([{"seq": 8, "text": "Madame Gruet a la parole",
-                                "changes": ["Bruet→Gruet"], "flags": []}]) + "\n```"
-    out = proofread.parse_response(raw, allowed_seqs={8})
-    assert out == [{"seq": 8, "text": "Madame Gruet a la parole",
-                    "changes": ["Bruet→Gruet"], "flags": []}]
+def test_prompt_carries_difflib_hint_line():
+    targets = [utt(8, "madame Bruet a la parole")]
+    p = proofread.build_prompt(ACTORS, [], targets)
+    assert "«madame Bruet»" in p and "Justine Gruet" in p
 
 
-@pytest.mark.parametrize("raw", [
-    "pas du json",
-    _resp([{"seq": 99, "text": "seq inconnu"}]),          # unknown seq
-    _resp([{"seq": 7, "text": "correction du contexte"}]),  # context-only seq
-    _resp([{"seq": 8, "text": ""}]),                      # empty text
-    _resp([{"seq": 8, "text": "a"}, {"seq": 8, "text": "b"}]),  # duplicate seq
-    json.dumps({"autre": []}),                            # missing key
-])
-def test_parse_rejects_invalid_output(raw):
+# ---- parsing (D5): plain paragraph + NOTES ------------------------------------
+
+def test_parse_corrected_plain_paragraph():
+    assert proofread.parse_corrected("Le texte corrigé.") == ("Le texte corrigé.", [])
+
+
+def test_parse_corrected_strips_notes_section():
+    raw = "Le texte corrigé.\nNOTES :\n- «Someni» inconnu, laissé tel quel\n- doute sur 62"
+    text, flags = proofread.parse_corrected(raw)
+    assert text == "Le texte corrigé."
+    assert flags == ["«Someni» inconnu, laissé tel quel", "doute sur 62"]
+
+
+def test_parse_corrected_tolerates_code_fence():
+    text, _ = proofread.parse_corrected("```\nLe texte.\n```")
+    assert text == "Le texte."
+
+
+def test_parse_corrected_rejects_empty():
     with pytest.raises(proofread.ProofreadError):
-        proofread.parse_response(raw, allowed_seqs={8})
+        proofread.parse_corrected("   ")
 
 
-# ---- node generation (supersedes) ----------------------------------------------
+# ---- node generation (multi-seq supersedes over realign output) ----------------
 
-def test_correction_becomes_supersedes_node_inheriting_t():
+def test_single_seq_correction_node():
     seq = w.Seq()
     seq.next()  # thread already has node 0
     src = utt(0, "madame Bruet a la parole", t=42_000)
-    nodes, flags = proofread.correction_nodes(
-        [{"seq": 0, "text": "madame Gruet a la parole", "changes": ["Bruet→Gruet"],
-          "flags": []}], {0: src}, seq)
+    nodes = proofread.correction_nodes(
+        [{"seqs": [0], "text": "madame Gruet a la parole"}], {0: src}, seq)
     assert len(nodes) == 1
     n = nodes[0]
     assert n["kind"] == "utterance" and n["state"] == "consolidated"
-    assert n["source"] == "llm" and n["supersedes"] == 0
+    assert n["source"] == "llm" and n["supersedes"] == 0   # single int, not list
     assert n["t"] == 42_000 and n["seq"] == 1
     assert n["text"] == "madame Gruet a la parole"
-    assert flags == []
 
 
-def test_identical_text_yields_no_node_and_flag_only_is_reported_not_emitted():
+def test_merged_node_supersedes_list_and_inherits_earliest_t():
     seq = w.Seq()
-    src = utt(0, "monsieur Someni, peut-être")
-    nodes, flags = proofread.correction_nodes(
-        [{"seq": 0, "text": "monsieur Someni, peut-être", "changes": [],
-          "flags": ["nom inconnu des candidats: Someni"]}], {0: src}, seq)
-    assert nodes == []                              # never invent (D2): no rewrite
-    assert flags == [{"seq": 0, "flags": ["nom inconnu des candidats: Someni"]}]
+    by_seq = {0: utt(0, "Le 1357, Madame Lou", t=90_000),
+              1: utt(1, "boucher a la parole", t=92_000)}
+    nodes = proofread.correction_nodes(
+        [{"seqs": [0, 1], "text": "Le 1357, Madame Leboucher a la parole."}],
+        by_seq, seq)
+    assert len(nodes) == 1
+    n = nodes[0]
+    assert n["supersedes"] == [0, 1]                       # merged → list
+    assert n["t"] == 90_000                                # earliest of the two
+    assert n["text"] == "Le 1357, Madame Leboucher a la parole."
 
 
-# ---- orchestration (transport injecté, D5: never break the thread) -------------
-
-def make_proofreader(transport, size=2, overlap=1):
-    return proofread.Proofreader(ACTORS, transport, seq=w.Seq(),
-                                 size=size, overlap=overlap)
-
-
-def test_end_to_end_correction_with_fake_transport():
-    def transport(prompt):
-        assert "Mme Justine Gruet" in prompt
-        return _resp([{"seq": 1, "text": "L'amendement 449, madame Gruet, défendu",
-                       "changes": ["Bruet→Gruet"], "flags": []}])
-    pr = make_proofreader(transport)
-    assert pr.feed(utt(0, "Le scrutin est ouvert.")) == []
-    out = pr.feed(utt(1, "L'amendement 449, madame Bruet, défendu"))
-    assert len(out) == 1
-    assert out[0]["text"] == "L'amendement 449, madame Gruet, défendu"
-    assert out[0]["supersedes"] == 1 and out[0]["source"] == "llm"
-
-
-@pytest.mark.parametrize("transport", [
-    lambda p: (_ for _ in ()).throw(RuntimeError("cli down")),  # transport crash
-    lambda p: "je ne suis pas du JSON",                          # garbage output
-])
-def test_bad_transport_never_breaks_the_thread(transport):
-    pr = make_proofreader(transport)
-    pr.feed(utt(0, "a"))
-    assert pr.feed(utt(1, "b")) == []               # window dropped, thread intact
-    # the proofreader stays functional for the next window
-    pr.feed(utt(2, "c"))
-
-
-def test_flush_runs_the_last_partial_window():
-    calls = []
-    def transport(prompt):
-        calls.append(prompt)
-        return _resp([])
-    pr = make_proofreader(transport, size=10)
-    pr.feed(utt(0, "fin de séance"))
-    assert pr.flush() == []
-    assert len(calls) == 1 and "[0] fin de séance" in calls[0]
-
-
-# ---- resolution hints (option D: deterministic difflib, LLM confirms in context)
+# ---- resolution hints (option D) ----------------------------------------------
 
 def test_resolution_hints_fuzzy_unknown_title_and_silence():
     targets = [utt(0, "L'amendement 449, madame Bruet, défendu"),
                utt(1, "je rejoins monsieur Someni sur ce point"),
-               utt(2, "Merci Madame la Présidente."),   # title-only: no hint
-               utt(3, "Le scrutin est ouvert.")]        # no name: no hint
+               utt(2, "Merci Madame la Présidente."),
+               utt(3, "Le scrutin est ouvert.")]
     hints = proofread.resolution_hints(ACTORS, targets)
     assert len(hints) == 2
     assert any("madame Bruet" in h and "Justine Gruet" in h for h in hints)
@@ -195,8 +152,54 @@ def test_resolution_hints_dedupe_repeated_names():
     assert len(proofread.resolution_hints(ACTORS, targets)) == 1
 
 
-def test_prompt_carries_hints_section():
-    targets = [utt(8, "madame Bruet a la parole")]
-    p = proofread.build_prompt(ACTORS, [], targets)
-    assert proofread.HINTS_MARKER in p
-    assert "«madame Bruet»" in p          # the computed hint line, not just the list
+# ---- orchestration (paragraph transport, D5: never break the thread) -----------
+
+def make_proofreader(transport, size=2, overlap=1):
+    return proofread.Proofreader(ACTORS, transport, seq=w.Seq(),
+                                 size=size, overlap=overlap)
+
+
+def test_end_to_end_correction_and_merge():
+    def transport(prompt):
+        assert "Mme Justine Gruet" in prompt
+        # the model rejoins the split fragments and fixes the name, one line
+        return "Le scrutin est ouvert. L'amendement 449, madame Gruet, défendu."
+    pr = make_proofreader(transport)
+    assert pr.feed(utt(0, "Le scrutin est ouvert. L'amendement 449, madame Bruet,")) == []
+    out = pr.feed(utt(1, "défendu."))
+    assert len(out) == 1
+    assert out[0]["text"] == "Le scrutin est ouvert. L'amendement 449, madame Gruet, défendu."
+    assert out[0]["supersedes"] == [0, 1] and out[0]["source"] == "llm"
+
+
+def test_notes_are_reported_and_do_not_leak_into_the_text():
+    def transport(prompt):
+        return ("Je rejoins monsieur Someni sur ce point. Le vote est acquis.\n"
+                "NOTES :\n- «Someni» absent des candidats, laissé tel quel")
+    pr = make_proofreader(transport)
+    pr.feed(utt(0, "Je rejoins monsieur Someni sur ce point. Le vote est acquis."))
+    out = pr.feed(utt(1, "Le vote est acquis."))
+    # the corrected text equals the concatenation → the merge covers 0+1
+    assert pr.flags == ["«Someni» absent des candidats, laissé tel quel"]
+
+
+@pytest.mark.parametrize("transport", [
+    lambda p: (_ for _ in ()).throw(RuntimeError("cli down")),
+    lambda p: "",
+])
+def test_bad_transport_never_breaks_the_thread(transport):
+    pr = make_proofreader(transport)
+    pr.feed(utt(0, "a"))
+    assert pr.feed(utt(1, "b")) == []
+    pr.feed(utt(2, "c"))
+
+
+def test_flush_runs_the_last_partial_window():
+    calls = []
+    def transport(prompt):
+        calls.append(prompt)
+        return "fin de séance"
+    pr = make_proofreader(transport, size=10)
+    pr.feed(utt(0, "fin de séance"))
+    assert pr.flush() == []
+    assert len(calls) == 1 and "fin de séance" in calls[0]

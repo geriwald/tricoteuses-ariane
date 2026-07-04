@@ -5,30 +5,35 @@ Last stage of the B1 rocket: corrects the TEXT of consolidated utterances
 list — the same acteurs.json the canonical resolver uses. Speaker attribution
 is never touched: it comes from the referential without any LLM.
 
-Contract (D3bis): windows are sent as seq-numbered lists and corrections come
-back anchored per seq — the pass never merges or splits utterances, so the
-`supersedes` alignment holds by construction. Never invent (D2): a name absent
-from the candidates stays as heard, flagged, never "corrected".
+Paragraph contract (spec D7/D8): the window is sent as ONE flowing paragraph —
+the LLM reads real prose and catches far more than it did on numbered `[seq]`
+fragments — and returns a corrected transcript, one utterance per line, free to
+merge STT fragments split mid-sentence. `realign` word-diffs original against
+corrected and reports which original seqs each corrected segment covers, so a
+node may supersede SEVERAL seqs at once (`supersedes` is then a list). Never
+invent (D2): a name absent from the candidates is flagged in NOTES, never
+rewritten; a seq the model drops outright is left untouched, not folded away.
+A transport failure or empty reply drops the window, never the thread (D5).
 
-Pure core (windowing, prompt, parsing, node generation) + an injectable
+Pure core (windowing, prompt, parsing, realign, node generation) + an injectable
 transport; the quick-and-dirty `claude -p` call is one isolated function.
-A bad LLM response drops its window and never breaks the thread (D5).
 """
 import json
 import logging
 import os
+import re
 import subprocess
 
 import deduce
+import realign
 import resolve_id
 
 log = logging.getLogger("proofread")
 
 WINDOW_SIZE = 20
 WINDOW_OVERLAP = 2
-CONTEXT_MARKER = "## Contexte (ne pas corriger)"
-TARGETS_MARKER = "## Utterances à relire"
 HINTS_MARKER = "## Indices de résolution (calcul déterministe, à confirmer en contexte)"
+_NOTES_RE = re.compile(r"\n\s*NOTES?\s*:\s*\n?", re.I)
 
 _PROMPT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                             "prompts", "proofread.md")
@@ -51,8 +56,8 @@ class Windower:
     """Buffers consolidated utterances; emits (context, targets) windows.
 
     Targets partition the stream — every utterance is proofread exactly once.
-    The last `overlap` nodes of a window are re-sent with the next one as
-    read-only discourse context (corrections on them are refused downstream)."""
+    The last `overlap` nodes of a window are re-shown with the next one as
+    read-only discourse context (the model is told not to re-emit them)."""
 
     def __init__(self, size=WINDOW_SIZE, overlap=WINDOW_OVERLAP):
         self._size = size
@@ -77,7 +82,7 @@ class Windower:
 
     def _emit(self):
         window = (self._context, self._buffer)
-        self._context = self._buffer[-self._overlap:]
+        self._context = self._buffer[-self._overlap:] if self._overlap else []
         self._buffer = []
         return window
 
@@ -87,10 +92,6 @@ class Windower:
 def _load_preamble():
     with open(_PROMPT_PATH, encoding="utf-8") as f:
         return f.read()
-
-
-def _render_utterances(nodes):
-    return "\n".join(f"[{n['seq']}] {n['text']}" for n in nodes) or "(aucune)"
 
 
 def resolution_hints(actors, targets):
@@ -116,81 +117,70 @@ def resolution_hints(actors, targets):
                              f"(score {r['score']:.2f})")
             else:
                 hints.append(f"«{heard}» → aucun candidat proche : "
-                             "ne pas corriger, flagger si c'est un nom de personne")
+                             "ne pas corriger, signaler si c'est un nom de personne")
     return hints
 
 
 def build_prompt(actors, context, targets, preamble=None):
     """Assemble one stateless prompt: instructions + resolved candidates (D1)
-    + difflib hints (option D) + read-only context + seq-anchored targets (D3bis)."""
+    + difflib hints (option D) + read-only context + the target paragraph."""
     preamble = preamble if preamble is not None else _load_preamble()
     candidates = "\n".join(
         f"{a.get('civ', '')} {a['prenom']} {a['nom']}".strip() for a in actors)
     hints = "\n".join(resolution_hints(actors, targets)) or "(aucun)"
+    context_text = " ".join(n["text"] for n in context) or "(début de séance)"
+    target_text = " ".join(n["text"] for n in targets)
     return (preamble
             .replace("<<CANDIDATES>>", candidates)
             .replace("<<HINTS>>", f"{HINTS_MARKER}\n{hints}")
-            .replace("<<CONTEXT>>", f"{CONTEXT_MARKER}\n{_render_utterances(context)}")
-            .replace("<<TARGETS>>", f"{TARGETS_MARKER}\n{_render_utterances(targets)}"))
+            .replace("<<CONTEXT>>", context_text)
+            .replace("<<TARGET>>", target_text))
 
 
-# ---- parsing (D5 / D3bis) -------------------------------------------------------
+# ---- parsing (D5): plain corrected transcript + optional NOTES flags -----------
 
-def parse_response(raw, allowed_seqs):
-    """Validate the LLM reply into [{seq, text, changes, flags}].
+def parse_corrected(raw):
+    """Split the LLM reply into (corrected_text, flags).
 
-    Any deviation — non-JSON, unknown or context-only seq, empty text,
-    duplicate seq — raises ProofreadError: the window is dropped, the source
-    nodes stand, the thread is never broken."""
-    try:
-        data = json.loads(raw)
-    except ValueError:
-        # tolerate a fenced or chatty reply: retry on the outermost {...}
-        start, end = raw.find("{"), raw.rfind("}")
-        if start == -1 or end <= start:
-            raise ProofreadError("not JSON")
-        try:
-            data = json.loads(raw[start:end + 1])
-        except ValueError:
-            raise ProofreadError("not JSON")
-    if not isinstance(data, dict) or not isinstance(data.get("corrections"), list):
-        raise ProofreadError("missing 'corrections' list")
-    out, seen = [], set()
-    for item in data["corrections"]:
-        if not isinstance(item, dict):
-            raise ProofreadError(f"correction is not an object: {item!r}")
-        seq, text = item.get("seq"), item.get("text")
-        if seq not in allowed_seqs:
-            raise ProofreadError(f"seq {seq!r} is not a target of this window")
-        if seq in seen:
-            raise ProofreadError(f"duplicate correction for seq {seq}")
-        if not isinstance(text, str) or not text.strip():
-            raise ProofreadError(f"empty text for seq {seq}")
-        seen.add(seq)
-        out.append({"seq": seq, "text": text,
-                    "changes": list(item.get("changes") or []),
-                    "flags": list(item.get("flags") or [])})
-    return out
+    Robust by design: any non-empty text is a valid corrected transcript — there
+    is no per-seq structure to break. A trailing «NOTES:» section carries the
+    model's doubts (never invent). An empty reply raises so the window drops."""
+    text = raw.strip()
+    if text.startswith("```"):
+        lines = text.splitlines()
+        if lines and lines[0].startswith("```"):
+            lines = lines[1:]
+        if lines and lines[-1].startswith("```"):
+            lines = lines[:-1]
+        text = "\n".join(lines).strip()
+    flags = []
+    m = _NOTES_RE.search(text)
+    if m:
+        notes = text[m.end():]
+        text = text[:m.start()].strip()
+        flags = [ln.strip(" -•\t") for ln in notes.splitlines() if ln.strip()]
+    if not text.strip():
+        raise ProofreadError("empty corrected paragraph")
+    return text.strip(), flags
 
 
 # ---- node generation ------------------------------------------------------------
 
-def correction_nodes(corrections, by_seq, seq):
-    """Corrections → supersedes nodes (+ reported flags).
+def correction_nodes(realigned, by_seq, seq):
+    """Realigned segments → supersedes nodes.
 
-    A text change becomes an `utterance` node, `source: "llm"`, superseding the
-    source node and inheriting its `t`. Flag-only items (doubt, unknown name)
-    are reported but emit nothing: never invent (D2), never pollute the thread."""
-    nodes, flags = [], []
-    for c in corrections:
-        src = by_seq[c["seq"]]
-        if c["flags"]:
-            flags.append({"seq": c["seq"], "flags": c["flags"]})
-        if c["text"] != src["text"]:
-            nodes.append({"t": src["t"], "seq": seq.next(), "kind": "utterance",
-                          "state": "consolidated", "text": c["text"],
-                          "source": "llm", "supersedes": src["seq"]})
-    return nodes, flags
+    Each becomes an `utterance` node, `source: "llm"`. It supersedes the seq(s)
+    it covers — a single int when one, a list when it merged fragments — and
+    inherits the earliest `t` of those seqs (the utterance's start on the video).
+    `realign` has already dropped unchanged and uncovered segments."""
+    nodes = []
+    for c in realigned:
+        seqs = c["seqs"]
+        supersedes = seqs[0] if len(seqs) == 1 else list(seqs)
+        nodes.append({"t": min(by_seq[s]["t"] for s in seqs), "seq": seq.next(),
+                      "kind": "utterance", "state": "consolidated",
+                      "text": c["text"], "source": "llm", "supersedes": supersedes})
+    return nodes
 
 
 # ---- orchestration ---------------------------------------------------------------
@@ -199,8 +189,8 @@ class Proofreader:
     """feed(node) → corrected nodes when a window fires (else []).
 
     The transport is injected (mocked in tests, `claude_cli_transport` live).
-    Every failure mode — transport crash, garbage output — drops the window
-    and leaves the proofreader ready for the next one (D5)."""
+    Every failure mode — transport crash, empty output — drops the window and
+    leaves the proofreader ready for the next one (D5)."""
 
     def __init__(self, actors, transport, seq,
                  size=WINDOW_SIZE, overlap=WINDOW_OVERLAP, preamble=None):
@@ -209,7 +199,7 @@ class Proofreader:
         self._seq = seq
         self._preamble = preamble if preamble is not None else _load_preamble()
         self._windower = Windower(size=size, overlap=overlap)
-        self.flags = []  # [{seq, flags}] — doubts reported by the model (D2)
+        self.flags = []  # notes reported by the model (never invent, D2)
 
     def feed(self, node):
         window = self._windower.feed(node)
@@ -225,16 +215,15 @@ class Proofreader:
             prompt = build_prompt(self._actors, context, targets,
                                   preamble=self._preamble)
             raw = self._transport(prompt)
-            corrections = parse_response(raw, {n["seq"] for n in targets})
+            corrected, flags = parse_corrected(raw)
         except Exception as e:  # noqa: BLE001 — a proofread stage must never crash B1
             log.warning("window dropped (%d utterances): %s", len(targets), e)
             return []
-        nodes, flags = correction_nodes(
-            corrections, {n["seq"]: n for n in targets}, self._seq)
+        realigned = realign.realign(targets, corrected)
         for f in flags:
-            log.info("flagged seq %s: %s", f["seq"], "; ".join(f["flags"]))
+            log.info("note: %s", f)
         self.flags.extend(flags)
-        return nodes
+        return correction_nodes(realigned, {n["seq"]: n for n in targets}, self._seq)
 
 
 # ---- transport (quick and dirty, spec D4/D6) --------------------------------------
