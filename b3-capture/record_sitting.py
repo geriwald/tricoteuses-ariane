@@ -34,7 +34,6 @@ import argparse
 import hashlib
 import json
 import os
-import pathlib
 import re
 import signal
 import ssl
@@ -55,10 +54,7 @@ _INSECURE = ssl._create_unverified_context()
 # Optional push notification when a sitting opens/closes. Best-effort: if the
 # script is absent or fails, the recording is never affected. Point NOTIFY_SEND
 # at any executable that reads a message on stdin; leave it unset to disable.
-MNEMO_SEND = os.environ.get(
-    "NOTIFY_SEND",
-    str(pathlib.Path("~/.claude/skills/mnemo-send/send.sh").expanduser()),
-)
+NOTIFY_SEND = os.environ.get("NOTIFY_SEND", "")  # unset = no notification
 
 # Post-capture referential resolution: when the sitting ends, schedule this
 # resolver ~30 min later (causal freeze, contemporary with the sitting — spec
@@ -117,8 +113,10 @@ def spawn_resolution(outdir, say, delay_min=RESOLVE_DELAY_MIN):
 
 
 def notify(text: str):
+    if not NOTIFY_SEND:
+        return  # unset: no notification (best-effort hook)
     try:
-        subprocess.run([MNEMO_SEND], input=text, text=True, timeout=30, check=True,
+        subprocess.run([NOTIFY_SEND], input=text, text=True, timeout=30, check=True,
                        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     except Exception:
         pass
