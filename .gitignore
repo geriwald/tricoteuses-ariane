@@ -11,6 +11,7 @@ venv/
 
 # B1 weaver run artifacts (regenerable output of a run)
 /b1-weaver/thread*.ndjson
+/thread*.ndjson
 *.log
 
 # B3 capture output (recorded sittings live outside the repo)
