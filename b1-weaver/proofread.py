@@ -201,6 +201,10 @@ class Proofreader:
         self._windower = Windower(size=size, overlap=overlap)
         self.flags = []  # notes reported by the model (never invent, D2)
 
+    def set_actors(self, actors):
+        """Refresh the candidate list live (a sitting switch swaps the actors)."""
+        self._actors = actors
+
     def feed(self, node):
         window = self._windower.feed(node)
         return self._run(window) if window else []
